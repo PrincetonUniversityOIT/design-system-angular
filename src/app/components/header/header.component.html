@@ -1,0 +1,43 @@
+<header role="banner" class="jazz-header">
+  <h1 class="jazz-visually-hidden">{{title}}</h1>
+  <div class="jazz-skip-links">
+    <a href="#main-content" class="jazz-skip-link">Skip to main content</a>
+    <a href="#search" class="jazz-skip-link">Skip to search options</a>
+  </div>
+  <div class="jazz-header__pu-branding">
+    <div class="jazz-container">
+      <a href="https://www.princeton.edu" title="{{ title }}"><img src="./assets/logos/pu-logo.svg" alt="{{ title}}" /></a>
+    </div>
+  </div>
+  <div class="jazz-header__site-branding">
+    <div class="jazz-container jazz-header__site-branding-contents">
+      <a href="javascript:void(0)" title="Home" rel="home" tabindex="-1" aria-hidden="true" class="jazz-header__site-branding-home-link"><img src="./assets/logos/shield.svg" alt="{{ siteBrandingName }}"/></a>
+      <div class="jazz-header__site-branding-info">
+        <div class="jazz-header__site-branding-name">
+          <a href="javascript:void(0);" title="Home" rel="home">{{ siteBrandingName }}</a>
+        </div>
+        <div class="jazz-header__site-branding-slogan">
+          {{ siteBrandingSlogan }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-jazz-menu [menuItems]="menuItems" [utilityItems]="utilityItems"></app-jazz-menu>
+  <div class="jazz-header__search-bar">
+    <div class="jazz-container">
+      <h2 class="jazz-visually-hidden">Search</h2>
+      <button id="my-search-toggle" class="jazz-header__search-bar-toggle" aria-expanded="false" aria-label="Search Menu Toggle"><i class="jazz-icon jazz-icon-search" aria-hidden="true"></i><span class="jazz-visually-hidden">Search Menu Toggle</span></button>
+      <div id="jazz-header-search-bar-panel" class="jazz-header__search-bar-panel">
+        <form action="javascript:void(0)" method="get" accept-charset="UTF-8" role="search">
+          <label class="jazz-visually-hidden" for="search-field">Search</label>
+          <a id="search">
+            <input type="search" id="search-field" placeholder="Search" autocomplete="off" />
+          </a>
+          <button class="jazz-button" type="submit">
+            <span class="jazz-visually-hidden">Search</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</header>

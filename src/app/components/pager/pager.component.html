@@ -1,0 +1,18 @@
+<ul *ngIf="dataPage" class="jazz-pager" role="navigation" aria-label="pagination">
+  <li>
+    <a *ngIf="(dataPage['number'] !== 1)" (click)="setPage(dataPage['number'] - 1)" data-page="Previous">Previous</a>
+    <span *ngIf="(dataPage['number'] === 1)" [attr.aria-disabled]="true" data-page="Previous">Previous</span>
+  </li>
+  <li *ngFor="let page of iterablePages()">
+    <a *ngIf="page >= 0" (click)="setPage(page + 1)"
+       attr.aria-label="Go to {{page + 1}}"
+       attr.aria-current="{{ (dataPage.number === (page + 1)) ?'page': ''}}"
+       attr.data-page="{{page + 1}}" >{{page + 1}}
+    </a>
+    <span *ngIf="page < 0">...</span>
+  </li>
+  <li>
+    <a *ngIf="(dataPage['number'] !== dataPage.totalPages)" (click)="setPage(dataPage.number + 1)" data-page="Next">Next</a>
+    <span *ngIf="(dataPage['number'] === dataPage.totalPages)" [attr.aria-disabled]="true" data-page="Next">Next</span>
+  </li>
+</ul>

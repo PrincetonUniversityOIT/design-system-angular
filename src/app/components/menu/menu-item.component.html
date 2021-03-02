@@ -1,0 +1,13 @@
+<ng-template #template>
+  <a href="{{menuItem.url}}">{{menuItem.label}}</a>
+  <button *ngIf='menuItem && menuItem.subItems && menuItem.subItems.length > 0' class="jazz-menu__submenu-toggle" type="button" aria-expanded="false" (click)='onSubMenuClick($event)'>
+    <span class="jazz-visually-hidden">
+      {{menuItem.label}}
+    </span>
+  </button>
+  <ul *ngIf="menuItem && menuItem.subItems && menuItem.subItems.length > 0">
+    <li *ngFor="let levelItem of menuItem.subItems">
+        <app-jazz-menu-item [menuItem]="levelItem"></app-jazz-menu-item>
+    </li>
+  </ul>
+</ng-template>
