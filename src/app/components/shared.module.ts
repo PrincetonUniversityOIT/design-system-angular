@@ -6,10 +6,12 @@ import {MenuItemComponent} from './menu/menu-item.component';
 import {NgModule} from '@angular/core';
 import {PagerComponent} from './pager/pager.component';
 import {AlertComponent} from './alert/alert.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   declarations: [
     ButtonComponent,
@@ -23,7 +25,9 @@ import {AlertComponent} from './alert/alert.component';
     ButtonComponent,
     HeaderComponent,
     MenuComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    PagerComponent,
+    AlertComponent
   ]
 })
 export class SharedModule {

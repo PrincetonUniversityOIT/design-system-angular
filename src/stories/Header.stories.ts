@@ -1,11 +1,11 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import { CommonModule } from '@angular/common';
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 
 import {HeaderComponent} from '../app/components/header/header.component';
 import {MenuItem} from '../app/model/menu-item';
 import {MenuComponent} from '../app/components/menu/menu.component';
 import {MenuItemComponent} from '../app/components/menu/menu-item.component';
+import {Meta, moduleMetadata, Story} from '@storybook/angular';
+import {CommonModule} from '@angular/common';
 
 export default {
   title: 'Example/Header',

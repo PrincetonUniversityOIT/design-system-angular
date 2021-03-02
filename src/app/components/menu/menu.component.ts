@@ -1,6 +1,6 @@
 import {MenuItem} from '../../model/menu-item';
 import { prefix as PREFIX } from '../../config';
-import {Component, HostListener, Input, OnInit} from "@angular/core";
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 
 export const ARIA_EXPANDED = 'aria-expanded';
 

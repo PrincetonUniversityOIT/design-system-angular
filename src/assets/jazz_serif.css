@@ -3215,6 +3215,7 @@ a[target=_blank]::after {
   width: 100%;
   z-index: 1000;
   display: block;
+  position: relative;
 }
 
 .jazz-menu__subnav-container {

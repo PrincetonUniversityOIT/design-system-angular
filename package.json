@@ -18,6 +18,7 @@
     "test": "jest --watchAll",
     "lint": "ng lint",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
+    "docs:serve": "compodoc -p ./tsconfig.json -s",
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "build-storybook": "npm run docs:json && build-storybook"
   },
