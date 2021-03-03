@@ -743,7 +743,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<h1 class=\"jazz-page-title\">Main Menu 1</h1>\n<h2>First Point</h2>\n<p>\n  This section describes the first point. Careful consideration of these points should be considered.\n</p>\n<app-jazz-accordion>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content1\">Sed porttitor lectus nibh?</button>\n  </h2>\n  <div class=\"jazz-accordion__content\" id=\"content1\" hidden>\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a\n    pellentesque nec, egestas non nisi.\n  </div>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"true\" aria-controls=\"content2\">\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?\n    </button>\n  </h2>\n  <div aria-hidden=\"false\" class=\"jazz-accordion__content\" id=\"content2\">\n    Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet\n    et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.\n    Cras ultricies ligula sed magna dictum porta.\n  </div>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content3\">\n      Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit.\n    </button>\n  </h2>\n  <div class=\"jazz-accordion__content\" id=\"content3\" hidden>\n    Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices\n    posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.\n  </div>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content4\">\n      Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit.\n    </button>\n  </h2>\n  <div class=\"jazz-accordion__content\" id=\"content4\" hidden>\n    Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices\n    posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.\n  </div>\n</app-jazz-accordion>\n"
+            "templateData": "<h1 class=\"jazz-page-title\">Main Menu 1</h1>\n<h2>Accordion</h2>\n<p>\n  This section describes the first point. Careful consideration of these points should be considered.\n</p>\n<app-jazz-accordion>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content1\">Sed porttitor lectus nibh?</button>\n  </h2>\n  <div class=\"jazz-accordion__content\" id=\"content1\" hidden>\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a\n    pellentesque nec, egestas non nisi.\n  </div>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"true\" aria-controls=\"content2\">\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?\n    </button>\n  </h2>\n  <div aria-hidden=\"false\" class=\"jazz-accordion__content\" id=\"content2\">\n    Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet\n    et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.\n    Cras ultricies ligula sed magna dictum porta.\n  </div>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content3\">\n      Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit.\n    </button>\n  </h2>\n  <div class=\"jazz-accordion__content\" id=\"content3\" hidden>\n    Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices\n    posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.\n  </div>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content4\">\n      Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit.\n    </button>\n  </h2>\n  <div class=\"jazz-accordion__content\" id=\"content4\" hidden>\n    Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices\n    posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.\n  </div>\n</app-jazz-accordion>\n"
         },
         {
             "name": "MainMenu2Component",
@@ -915,7 +915,7 @@
         },
         {
             "name": "MenuComponent",
-            "id": "component-MenuComponent-dee2adb7911cd955df0197e426bbb04f",
+            "id": "component-MenuComponent-bc036f02b746ef602cbf848b4b81f220",
             "file": "src/app/components/menu/menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -932,12 +932,12 @@
             "inputsClass": [
                 {
                     "name": "menuItems",
-                    "line": 44,
+                    "line": 20,
                     "type": "MenuItem[]"
                 },
                 {
                     "name": "utilityItems",
-                    "line": 47,
+                    "line": 23,
                     "type": "MenuItem[]"
                 }
             ],
@@ -955,7 +955,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 144,
+                    "line": 79,
                     "jsdoctags": [
                         {
                             "name": "disableNav",
@@ -972,7 +972,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 101
+                    "line": 36
                 },
                 {
                     "name": "getButtonForSelector",
@@ -993,7 +993,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 137,
+                    "line": 72,
                     "jsdoctags": [
                         {
                             "name": "btnSelector",
@@ -1024,7 +1024,254 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56
+                    "line": 32
+                },
+                {
+                    "name": "onMouseOut",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 109,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "resetSubMenus",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 98
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [
+                {
+                    "name": "window:resize",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "line": 26
+                }
+            ],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {MenuItem} from '../../model/menu-item';\nimport {Component, HostListener, Input, OnInit} from '@angular/core';\nimport {\n  ARIA_EXPANDED,\n  HEADER_NAV_SELECTOR, HEADER_SUB_MENU_SELECTOR, ICON_CLOSE, ICON_MENU, ICON_SELECTOR, MENU_BUTTON_SELECTOR,\n  MENU_HIDE_STYLE, MENU_MAIN_MENU_SELECTOR,\n  MENU_NAV_EXPANDED_STYLE, MENU_RECENTLY_OPENED_ID, MENU_SELECTOR,\n  MENU_STICKY_STYLE, MENU_SUB_NAV_EXPANDED_STYLE,\n  MENUBAR_SHOWN_STYLE, MENUBAR_SUB_SHOWN_STYLE\n} from './menu-constants';\n\n\n@Component({\n  selector: 'app-jazz-menu',\n  templateUrl: './menu.component.html'\n})\nexport class MenuComponent implements OnInit {\n\n  @Input()\n  menuItems?: MenuItem[];\n\n  @Input()\n  utilityItems?: MenuItem[];\n\n  @HostListener('window:resize', ['$event'])\n  onResize(event): void {\n    this.displayWindowSize();\n  }\n\n  constructor() {}\n\n  ngOnInit(): void {\n\n  }\n\n  displayWindowSize(): void {\n    // Main Menu Reset\n    document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((header) => {\n      header.classList.remove(MENU_NAV_EXPANDED_STYLE);\n      header.querySelectorAll('ul').forEach((navbar) => {\n        navbar.classList.remove(MENU_NAV_EXPANDED_STYLE);\n        navbar.classList.remove(MENUBAR_SHOWN_STYLE);\n        navbar.classList.remove(MENU_STICKY_STYLE);\n        navbar.querySelectorAll('li').forEach((submenu) => {\n          submenu.classList.remove(MENU_STICKY_STYLE);\n          submenu.classList.remove(MENU_HIDE_STYLE);\n        });\n      });\n    });\n\n    document.querySelectorAll(MENU_BUTTON_SELECTOR).forEach((button) => {\n      button.setAttribute(ARIA_EXPANDED, 'false');\n      const menuToggleIcon = button.querySelector(ICON_SELECTOR);\n      menuToggleIcon.classList.remove(ICON_CLOSE);\n      menuToggleIcon.classList.add(ICON_MENU);\n    });\n\n    // Sub Menus Reset\n    document.querySelectorAll(MENU_SELECTOR).forEach((menu) => {\n      menu.querySelectorAll('ul').forEach((navbar) => {\n        navbar.classList.remove(MENU_SUB_NAV_EXPANDED_STYLE);\n        navbar.classList.remove(MENUBAR_SUB_SHOWN_STYLE);\n      });\n    });\n\n    document.querySelectorAll(HEADER_SUB_MENU_SELECTOR).forEach((button) => {\n      button.setAttribute(ARIA_EXPANDED, 'false');\n    });\n  }\n\n  // This retrieves the appropriate button depending on the selector passed in\n  getButtonForSelector(btnSelector, button, mainEl): any {\n    if (!button.matches(btnSelector)) {\n      button = mainEl.querySelector(btnSelector);\n    }\n    return button;\n  }\n\n  closeSubMenus(disableNav: boolean): void {\n    // const mainEl = event.btn.closest(MENU_MAIN_MENU_SELECTOR);\n    document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((mainEl) => {\n      mainEl.querySelectorAll('li').forEach((navbar) => {\n        navbar.querySelectorAll('ul').forEach((list) => {\n          list.classList.remove(MENU_STICKY_STYLE);\n          if (disableNav) {\n            list.classList.add(MENU_HIDE_STYLE);\n          }\n        });\n      });\n\n      // tslint:disable-next-line:no-shadowed-variable\n      mainEl.querySelectorAll(HEADER_SUB_MENU_SELECTOR).forEach((button) => {\n        button.setAttribute(ARIA_EXPANDED, 'false');\n      });\n    });\n  }\n\n  resetSubMenus(): void {\n    document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((mainEl) => {\n      mainEl.querySelectorAll('li').forEach((navbar) => {\n        navbar.querySelectorAll('ul').forEach((list) => {\n          list.classList.remove(MENU_STICKY_STYLE);\n          list.classList.remove(MENU_HIDE_STYLE);\n        });\n      });\n    });\n  }\n\n  onMouseOut(event): void {\n    const li = event.target as HTMLElement;\n    if (li) {\n      li.querySelectorAll('ul').forEach((subnav) => {\n        if (subnav.id === MENU_RECENTLY_OPENED_ID) {\n          subnav.classList.remove(MENU_HIDE_STYLE);\n          subnav.id = '';\n        }\n      });\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 28
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<nav aria-label=\"Main Menu\" class=\"jazz-menu__main-menu\">\n  <h2 class=\"jazz-visually-hidden\">Main Menu</h2>\n\n  <div *ngIf=\"menuItems && menuItems.length > 0\" class=\"jazz-container\">\n    <div class=\"jazz-menu__main-menu-navbar\">\n      <app-jazz-menu-main-button></app-jazz-menu-main-button>\n      <div class=\"jazz-menu__nav-container\">\n        <ul class=\"jazz-menubar\" role=\"list\">\n            <li *ngFor=\"let level1item of menuItems\" (mouseleave)=\"onMouseOut($event)\">\n              <app-jazz-menu-item [menuItem]=\"level1item\" (closeSubMenus)='closeSubMenus($event)' (resetSubMenus)='resetSubMenus()'></app-jazz-menu-item>\n            </li>\n        </ul>\n        <div class=\"jazz-header__utility-menu\">\n          <ul *ngIf=\"utilityItems && utilityItems.length > 0\">\n            <li *ngFor=\"let utilityItem of utilityItems\">\n              <a href=\"{{utilityItem.url}}\">{{utilityItem.label}}</a>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</nav>\n"
+        },
+        {
+            "name": "MenuItemComponent",
+            "id": "component-MenuItemComponent-2c512b0af86bb6a68b91883059b4a411",
+            "file": "src/app/components/menu/menu-item/menu-item.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-jazz-menu-item",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./menu-item.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "menuItem",
+                    "line": 13,
+                    "type": "MenuItem"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "closeSubMenus",
+                    "defaultValue": "new EventEmitter()",
+                    "line": 16,
+                    "type": "EventEmitter<boolean>"
+                },
+                {
+                    "name": "resetSubMenus",
+                    "defaultValue": "new EventEmitter()",
+                    "line": 19,
+                    "type": "EventEmitter<void>"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "template",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'template', {static: true}"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "close",
+                    "args": [
+                        {
+                            "name": "$event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 29,
+                    "jsdoctags": [
+                        {
+                            "name": "$event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25
+                },
+                {
+                    "name": "reset",
+                    "args": [
+                        {
+                            "name": "$event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 33,
+                    "jsdoctags": [
+                        {
+                            "name": "$event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {MenuItem} from '../../../model/menu-item';\nimport {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';\n\n@Component({\n  selector: 'app-jazz-menu-item',\n  templateUrl: './menu-item.component.html'\n})\nexport class MenuItemComponent implements OnInit {\n\n  @ViewChild('template', {static: true}) template;\n\n  @Input()\n  menuItem: MenuItem;\n\n  @Output()\n  closeSubMenus: EventEmitter<boolean> = new EventEmitter();\n\n  @Output()\n  resetSubMenus: EventEmitter<void> = new EventEmitter();\n\n  constructor(\n    private viewContainerRef: ViewContainerRef\n  ) {}\n\n  ngOnInit(): void {\n    this.viewContainerRef.createEmbeddedView(this.template);\n  }\n\n  close($event): void {\n    this.closeSubMenus.emit();\n  }\n\n  reset($event): void {\n    this.resetSubMenus.emit();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef"
+                    }
+                ],
+                "line": 19,
+                "jsdoctags": [
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<ng-template #template>\n  <a [routerLink]=\"menuItem.url\">{{menuItem.label}}</a>\n  <app-jazz-sub-button [menuItem]=\"menuItem\" (closeSubMenus)=\"closeSubMenus\" (reset)=\"resetSubMenus\"></app-jazz-sub-button>\n  <ul *ngIf=\"menuItem && menuItem.subItems && menuItem.subItems.length > 0\">\n    <li *ngFor=\"let levelItem of menuItem.subItems\">\n        <app-jazz-menu-item [menuItem]=\"levelItem\"></app-jazz-menu-item>\n    </li>\n  </ul>\n</ng-template>\n"
+        },
+        {
+            "name": "MenuMainButtonComponent",
+            "id": "component-MenuMainButtonComponent-1f0de429ce9e1f514169822f6e24b4cf",
+            "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-jazz-menu-main-button",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./menu-main-button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "mainButtonTemplate",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'mainButtonTemplate', {static: true}"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24
                 },
                 {
                     "name": "onMainMenuClick",
@@ -1037,7 +1284,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 60,
+                    "line": 28,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1059,7 +1306,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 68,
+                    "line": 36,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1069,36 +1316,6 @@
                             }
                         }
                     ]
-                },
-                {
-                    "name": "onMouseOut",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 174,
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "resetSubMenus",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 163
                 },
                 {
                     "name": "showMenu",
@@ -1115,7 +1332,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 78,
+                    "line": 46,
                     "jsdoctags": [
                         {
                             "name": "expand",
@@ -1135,59 +1352,59 @@
                 }
             ],
             "hostBindings": [],
-            "hostListeners": [
-                {
-                    "name": "window:resize",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": ""
-                        }
-                    ],
-                    "argsDecorator": [
-                        "$event"
-                    ],
-                    "line": 50
-                }
-            ],
+            "hostListeners": [],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {MenuItem} from '../../model/menu-item';\nimport { prefix as PREFIX } from '../../config';\nimport {Component, HostListener, Input, OnInit} from '@angular/core';\n\nexport const ARIA_EXPANDED = 'aria-expanded';\n\n// Main Menu Selectors\nconst MENU_SELECTOR =  `.${PREFIX}-menubar`;\n\nconst MENU_BUTTON_SELECTOR = `.${PREFIX}-menu__menu-toggle`;\nconst HEADER_NAV_SELECTOR = `.${PREFIX}-menu__nav-container`;\nconst MENU_MAIN_MENU_SELECTOR = `.${PREFIX}-menu__main-menu-navbar`;\n\n// Submenu Selectors\nconst HEADER_SUB_MENU_SELECTOR = `.${PREFIX}-menu__submenu-toggle`;\n\n// Used to conditionally hide and show menu to handle hovers + click open\nconst MENU_STICKY_STYLE = `${PREFIX}-menubar--stuck`;\nconst MENU_HIDE_STYLE = `${PREFIX}-menubar--hide`;\n\n// Styles to show menu in low resolution view\nconst MENU_NAV_EXPANDED_STYLE = `${PREFIX}-menu__nav-container--expanded`;\nconst MENU_SUB_NAV_EXPANDED_STYLE = `${PREFIX}-menu__subnav-container--expanded`;\n\n// Styles to show menu in high resolution view\nconst MENUBAR_SHOWN_STYLE = `${PREFIX}-menubar--shown`;\nconst MENUBAR_SUB_SHOWN_STYLE = `${PREFIX}-menubar_submenu--shown`;\n\n// Icons\nconst ICON_SELECTOR = `.${PREFIX}-icon`;\nconst ICON_CLOSE = `${PREFIX}-icon-close`;\nconst ICON_MENU = `${PREFIX}-icon-menu`;\n\n// Id used to identify recently closed sub nav\nconst MENU_RECENTLY_OPENED_ID = `${PREFIX}-menu:recentlyOpened`;\n\n@Component({\n  selector: 'app-jazz-menu',\n  templateUrl: './menu.component.html'\n})\nexport class MenuComponent implements OnInit {\n\n  @Input()\n  menuItems?: MenuItem[];\n\n  @Input()\n  utilityItems?: MenuItem[];\n\n  @HostListener('window:resize', ['$event'])\n  onResize(event): void {\n    this.displayWindowSize();\n  }\n\n  constructor() {}\n\n  ngOnInit(): void {\n\n  }\n\n  onMainMenuClick(event): void {\n    const button = event.target as HTMLElement;\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\n    const expand = !(expandedAttr && expandedAttr === 'true');\n    this.showMenu(expand, button);\n    event.stopImmediatePropagation();\n  }\n\n  onMainMenuIconClick(event): void {\n    const icon = event.target as HTMLElement;\n    const button = icon.closest('button');\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\n    const expand = !(expandedAttr && expandedAttr === 'true');\n    this.showMenu(expand, button);\n    event.stopImmediatePropagation();\n  }\n\n  // tslint:disable-next-line:typedef\n  showMenu(expand, button) {\n    // This makes sure regardless of which button is picked that the menu elements are expanded/hidden\n    const menuEl = button.closest(MENU_MAIN_MENU_SELECTOR);\n    const buttonToReset = this.getButtonForSelector(MENU_BUTTON_SELECTOR, button, menuEl);\n    const menuToggleIcon = buttonToReset.querySelector(ICON_SELECTOR);\n    const navbar = menuEl.querySelector('ul');\n    const navContainer = menuEl.querySelector(HEADER_NAV_SELECTOR);\n\n    if (expand) {\n      navContainer.classList.add(MENU_NAV_EXPANDED_STYLE);\n      navbar.classList.add(MENUBAR_SHOWN_STYLE);\n      buttonToReset.setAttribute(ARIA_EXPANDED, 'true');\n      menuToggleIcon.classList.remove('jazz-icon-menu');\n      menuToggleIcon.classList.add(ICON_CLOSE);\n    } else {\n      navContainer.classList.remove(MENU_NAV_EXPANDED_STYLE);\n      navbar.classList.remove(MENUBAR_SHOWN_STYLE);\n      buttonToReset.setAttribute(ARIA_EXPANDED, 'false');\n      menuToggleIcon.classList.remove(ICON_CLOSE);\n      menuToggleIcon.classList.add('jazz-icon-menu');\n    }\n  }\n\n  displayWindowSize(): void {\n    // Main Menu Reset\n    document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((header) => {\n      header.classList.remove(MENU_NAV_EXPANDED_STYLE);\n      header.querySelectorAll('ul').forEach((navbar) => {\n        navbar.classList.remove(MENU_NAV_EXPANDED_STYLE);\n        navbar.classList.remove(MENUBAR_SHOWN_STYLE);\n        navbar.classList.remove(MENU_STICKY_STYLE);\n        navbar.querySelectorAll('li').forEach((submenu) => {\n          submenu.classList.remove(MENU_STICKY_STYLE);\n          submenu.classList.remove(MENU_HIDE_STYLE);\n        });\n      });\n    });\n\n    document.querySelectorAll(MENU_BUTTON_SELECTOR).forEach((button) => {\n      button.setAttribute(ARIA_EXPANDED, 'false');\n      const menuToggleIcon = button.querySelector(ICON_SELECTOR);\n      menuToggleIcon.classList.remove(ICON_CLOSE);\n      menuToggleIcon.classList.add(ICON_MENU);\n    });\n\n    // Sub Menus Reset\n    document.querySelectorAll(MENU_SELECTOR).forEach((menu) => {\n      menu.querySelectorAll('ul').forEach((navbar) => {\n        navbar.classList.remove(MENU_SUB_NAV_EXPANDED_STYLE);\n        navbar.classList.remove(MENUBAR_SUB_SHOWN_STYLE);\n      });\n    });\n\n    document.querySelectorAll(HEADER_SUB_MENU_SELECTOR).forEach((button) => {\n      button.setAttribute(ARIA_EXPANDED, 'false');\n    });\n  }\n\n  // This retrieves the appropriate button depending on the selector passed in\n  getButtonForSelector(btnSelector, button, mainEl): any {\n    if (!button.matches(btnSelector)) {\n      button = mainEl.querySelector(btnSelector);\n    }\n    return button;\n  }\n\n  closeSubMenus(disableNav: boolean): void {\n    // const mainEl = event.btn.closest(MENU_MAIN_MENU_SELECTOR);\n    document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((mainEl) => {\n      mainEl.querySelectorAll('li').forEach((navbar) => {\n        navbar.querySelectorAll('ul').forEach((list) => {\n          list.classList.remove(MENU_STICKY_STYLE);\n          if (disableNav) {\n            list.classList.add(MENU_HIDE_STYLE);\n          }\n        });\n      });\n\n      // tslint:disable-next-line:no-shadowed-variable\n      mainEl.querySelectorAll(HEADER_SUB_MENU_SELECTOR).forEach((button) => {\n        button.setAttribute(ARIA_EXPANDED, 'false');\n      });\n    });\n  }\n\n  resetSubMenus(): void {\n    document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((mainEl) => {\n      mainEl.querySelectorAll('li').forEach((navbar) => {\n        navbar.querySelectorAll('ul').forEach((list) => {\n          list.classList.remove(MENU_STICKY_STYLE);\n          list.classList.remove(MENU_HIDE_STYLE);\n        });\n      });\n    });\n  }\n\n  onMouseOut(event): void {\n    const li = event.target as HTMLElement;\n    if (li) {\n      li.querySelectorAll('ul').forEach((subnav) => {\n        if (subnav.id === MENU_RECENTLY_OPENED_ID) {\n          subnav.classList.remove(MENU_HIDE_STYLE);\n          subnav.id = '';\n        }\n      });\n    }\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';\nimport {\n  HEADER_NAV_SELECTOR, ICON_CLOSE,\n  ICON_SELECTOR,\n  MENU_MAIN_MENU_SELECTOR,\n  MENU_NAV_EXPANDED_STYLE,\n  MENUBAR_SHOWN_STYLE\n} from '../menu-constants';\n\nexport const ARIA_EXPANDED = 'aria-expanded';\n\n@Component({\n  selector: 'app-jazz-menu-main-button',\n  templateUrl: './menu-main-button.component.html'\n})\nexport class MenuMainButtonComponent implements OnInit {\n\n  @ViewChild('mainButtonTemplate', {static: true}) mainButtonTemplate;\n\n  constructor(\n    private viewContainerRef: ViewContainerRef\n  ) {}\n\n  ngOnInit(): void {\n    this.viewContainerRef.createEmbeddedView(this.mainButtonTemplate);\n  }\n\n  onMainMenuClick(event): void {\n    const button = event.target as HTMLElement;\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\n    const expand = !(expandedAttr && expandedAttr === 'true');\n    this.showMenu(expand, button);\n    event.stopImmediatePropagation();\n  }\n\n  onMainMenuIconClick(event): void {\n    const icon = event.target as HTMLElement;\n    const button = icon.closest('button');\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\n    const expand = !(expandedAttr && expandedAttr === 'true');\n    this.showMenu(expand, button);\n    event.stopImmediatePropagation();\n  }\n\n  // tslint:disable-next-line:typedef\n  showMenu(expand, button) {\n    // This makes sure regardless of which button is picked that the menu elements are expanded/hidden\n    const menuEl = button.closest(MENU_MAIN_MENU_SELECTOR);\n    const menuToggleIcon = button.querySelector(ICON_SELECTOR);\n    const navbar = menuEl.querySelector('ul');\n    const navContainer = menuEl.querySelector(HEADER_NAV_SELECTOR);\n\n    if (expand) {\n      navContainer.classList.add(MENU_NAV_EXPANDED_STYLE);\n      navbar.classList.add(MENUBAR_SHOWN_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'true');\n      menuToggleIcon.classList.remove('jazz-icon-menu');\n      menuToggleIcon.classList.add(ICON_CLOSE);\n    } else {\n      navContainer.classList.remove(MENU_NAV_EXPANDED_STYLE);\n      navbar.classList.remove(MENUBAR_SHOWN_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'false');\n      menuToggleIcon.classList.remove(ICON_CLOSE);\n      menuToggleIcon.classList.add('jazz-icon-menu');\n    }\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
-                "args": [],
-                "line": 52
+                "args": [
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef"
+                    }
+                ],
+                "line": 18,
+                "jsdoctags": [
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<nav aria-label=\"Main Menu\" class=\"jazz-menu__main-menu\">\n  <h2 class=\"jazz-visually-hidden\">Main Menu</h2>\n  <div class=\"jazz-container\">\n    <div class=\"jazz-menu__main-menu-navbar\">\n      <button class=\"jazz-menu__menu-toggle jazz-menu__menu-toggle-absolute\" (click)='onMainMenuClick($event)'\n              aria-expanded=\"false\" aria-label=\"Navigation Menu Toggle\">\n              Menu<i class=\"jazz-icon jazz-icon-menu\" aria-hidden=\"true\" (click)='onMainMenuIconClick($event)'></i>\n      </button>\n      <div class=\"jazz-menu__nav-container\">\n        <ul class=\"jazz-menubar\" role=\"list\" *ngIf=\"menuItems && menuItems.length > 0\">\n            <li *ngFor=\"let level1item of menuItems\" (mouseleave)=\"onMouseOut($event)\">\n              <app-jazz-menu-item [menuItem]=\"level1item\" (closeSubMenus)='closeSubMenus($event)' (resetSubMenus)='resetSubMenus()'></app-jazz-menu-item>\n            </li>\n        </ul>\n        <div class=\"jazz-header__utility-menu\">\n          <ul *ngIf=\"utilityItems && utilityItems.length > 0\">\n            <li *ngFor=\"let utilityItem of utilityItems\">\n              <a href=\"{{utilityItem.url}}\">{{utilityItem.label}}</a>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</nav>\n"
+            "templateData": "<ng-template #mainButtonTemplate>\n  <button class=\"jazz-menu__menu-toggle jazz-menu__menu-toggle-absolute\" (click)='onMainMenuClick($event)'\n          aria-expanded=\"false\" aria-label=\"Navigation Menu Toggle\">\n    Menu<i class=\"jazz-icon jazz-icon-menu\" aria-hidden=\"true\" (click)='onMainMenuIconClick($event)'></i>\n  </button>\n</ng-template>\n"
         },
         {
-            "name": "MenuItemComponent",
-            "id": "component-MenuItemComponent-76aaf5c04ceccfd93ee5d8c00308e379",
-            "file": "src/app/components/menu/menu-item.component.ts",
+            "name": "MenuSubButtonComponent",
+            "id": "component-MenuSubButtonComponent-491003b7c1e1031d39939fa2265ecb0e",
+            "file": "src/app/components/menu/menu-sub-button/menu-sub-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-jazz-menu-item",
+            "selector": "app-jazz-sub-button",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
-                "./menu-item.component.html"
+                "./menu-sub-button.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [
                 {
                     "name": "menuItem",
-                    "line": 33,
+                    "line": 16,
                     "type": "MenuItem"
                 }
             ],
@@ -1195,83 +1412,39 @@
                 {
                     "name": "closeSubMenus",
                     "defaultValue": "new EventEmitter()",
-                    "line": 36,
-                    "type": "EventEmitter<boolean>"
+                    "line": 19,
+                    "type": "EventEmitter<void>"
                 },
                 {
                     "name": "resetSubMenus",
                     "defaultValue": "new EventEmitter()",
-                    "line": 39,
+                    "line": 22,
                     "type": "EventEmitter<void>"
                 }
             ],
             "propertiesClass": [
                 {
-                    "name": "template",
+                    "name": "subButtonTemplate",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 30,
+                    "line": 24,
                     "decorators": [
                         {
                             "name": "ViewChild",
-                            "stringifiedArguments": "'template', {static: true}"
+                            "stringifiedArguments": "'subButtonTemplate', {static: true}"
                         }
                     ]
                 }
             ],
             "methodsClass": [
                 {
-                    "name": "getButtonForSelector",
-                    "args": [
-                        {
-                            "name": "btnSelector",
-                            "type": ""
-                        },
-                        {
-                            "name": "button",
-                            "type": ""
-                        },
-                        {
-                            "name": "mainEl",
-                            "type": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 106,
-                    "jsdoctags": [
-                        {
-                            "name": "btnSelector",
-                            "type": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "button",
-                            "type": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "mainEl",
-                            "type": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45
+                    "line": 30
                 },
                 {
                     "name": "onSubMenuClick",
@@ -1284,7 +1457,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 49,
+                    "line": 34,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1310,7 +1483,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56,
+                    "line": 41,
                     "jsdoctags": [
                         {
                             "name": "expand",
@@ -1343,7 +1516,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 88,
+                    "line": 72,
                     "jsdoctags": [
                         {
                             "name": "expand",
@@ -1376,7 +1549,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 65,
+                    "line": 50,
                     "jsdoctags": [
                         {
                             "name": "expand",
@@ -1400,7 +1573,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {MenuItem} from '../../model/menu-item';\nimport { prefix as PREFIX } from '../../config';\nimport {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';\n\nexport const ARIA_EXPANDED = 'aria-expanded';\n\n// Submenu Selectors\nconst HEADER_SUB_MENU_SELECTOR = `.${PREFIX}-menu__submenu-toggle`;\n\n// Used to conditionally hide and show menu to handle hovers + click open\nconst MENU_STICKY_STYLE = `${PREFIX}-menubar--stuck`;\nconst MENU_HIDE_STYLE = `${PREFIX}-menubar--hide`;\n\n// Styles to show menu in low resolution view\nconst MENU_SUB_NAV_EXPANDED_STYLE = `${PREFIX}-menu__subnav-container--expanded`;\n\n// Styles to show menu in high resolution view\nconst MENUBAR_SUB_SHOWN_STYLE = `${PREFIX}-menubar_submenu--shown`;\n\n// Id used to identify recently closed sub nav\nconst MENU_RECENTLY_OPENED_ID = `${PREFIX}-menu:recentlyOpened`;\n\n@Component({\n  selector: 'app-jazz-menu-item',\n  templateUrl: './menu-item.component.html'\n})\nexport class MenuItemComponent implements OnInit {\n\n  @ViewChild('template', {static: true}) template;\n\n  @Input()\n  menuItem: MenuItem;\n\n  @Output()\n  closeSubMenus: EventEmitter<boolean> = new EventEmitter();\n\n  @Output()\n  resetSubMenus: EventEmitter<void> = new EventEmitter();\n\n  constructor(\n    private viewContainerRef: ViewContainerRef\n  ) {}\n\n  ngOnInit(): void {\n    this.viewContainerRef.createEmbeddedView(this.template);\n  }\n\n  onSubMenuClick(event): void {\n    const button = event.target as HTMLElement;\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\n    const expand = !(expandedAttr && expandedAttr === 'true');\n    this.showSubMenu(expand, button);\n  }\n\n  showSubMenu(expand, button): void {\n    const mq = window.matchMedia('(min-width: 900px)');\n    if (mq.matches) {\n      this.showSubMenuFull(expand, button);\n    } else {\n      this.showSubMenuCondensed(expand, button);\n    }\n  }\n\n  showSubMenuFull(expand, button): void {\n    // This makes sure regardless of which button is picked that the menu elements are expanded/hidden\n    const navbar = button.closest('li');\n    const buttonToReset = this.getButtonForSelector(HEADER_SUB_MENU_SELECTOR, button, navbar);\n    const navContainer = navbar.querySelector('ul');\n    if (expand) {\n      this.closeSubMenus.emit(true);\n\n      navContainer.classList.add(MENU_STICKY_STYLE);\n      navContainer.classList.remove(MENU_HIDE_STYLE);\n      navbar.classList.add(MENU_STICKY_STYLE);\n      buttonToReset.setAttribute(ARIA_EXPANDED, 'true');\n    } else {\n      this.resetSubMenus.emit();\n\n      navContainer.classList.remove(MENU_STICKY_STYLE);\n      navContainer.classList.add(MENU_HIDE_STYLE);\n      navContainer.id = MENU_RECENTLY_OPENED_ID;\n      navbar.classList.remove(MENU_STICKY_STYLE);\n      buttonToReset.setAttribute(ARIA_EXPANDED, 'false');\n    }\n  }\n\n  showSubMenuCondensed(expand, button): void {\n    // This makes sure regardless of which button is picked that the menu elements are expanded/hidden\n    const navbar = button.closest('li');\n    const buttonToReset = this.getButtonForSelector(HEADER_SUB_MENU_SELECTOR, button, navbar);\n    const navContainer = navbar.querySelector('ul');\n\n    if (expand) {\n      navContainer.classList.add(MENU_SUB_NAV_EXPANDED_STYLE);\n      navbar.classList.add(MENUBAR_SUB_SHOWN_STYLE);\n      buttonToReset.setAttribute(ARIA_EXPANDED, 'true');\n    } else {\n      navContainer.classList.remove(MENU_SUB_NAV_EXPANDED_STYLE);\n      navbar.classList.remove(MENUBAR_SUB_SHOWN_STYLE);\n      buttonToReset.setAttribute(ARIA_EXPANDED, 'false');\n    }\n  }\n\n  // This retrieves the appropriate button depending on the selector passed in\n  getButtonForSelector(btnSelector, button, mainEl): any {\n    if (!button.matches(btnSelector)) {\n      button = mainEl.querySelector(btnSelector);\n    }\n    return button;\n  }\n}\n",
+            "sourceCode": "import {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';\nimport {MenuItem} from '../../../model/menu-item';\nimport {\n  ARIA_EXPANDED,\n  MENU_HIDE_STYLE,\n  MENU_RECENTLY_OPENED_ID,\n  MENU_STICKY_STYLE, MENU_SUB_NAV_EXPANDED_STYLE, MENUBAR_SUB_SHOWN_STYLE\n} from '../menu-constants';\n\n@Component({\n  selector: 'app-jazz-sub-button',\n  templateUrl: './menu-sub-button.component.html'\n})\nexport class MenuSubButtonComponent implements OnInit {\n  @Input()\n  menuItem: MenuItem;\n\n  @Output()\n  closeSubMenus: EventEmitter<void> = new EventEmitter();\n\n  @Output()\n  resetSubMenus: EventEmitter<void> = new EventEmitter();\n\n  @ViewChild('subButtonTemplate', {static: true}) subButtonTemplate;\n\n  constructor(\n    private viewContainerRef: ViewContainerRef\n  ) {}\n\n  ngOnInit(): void {\n    this.viewContainerRef.createEmbeddedView(this.subButtonTemplate);\n  }\n\n  onSubMenuClick(event): void {\n    const button = event.target as HTMLElement;\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\n    const expand = !(expandedAttr && expandedAttr === 'true');\n    this.showSubMenu(expand, button);\n  }\n\n  showSubMenu(expand, button): void {\n    const mq = window.matchMedia('(min-width: 900px)');\n    if (mq.matches) {\n      this.showSubMenuFull(expand, button);\n    } else {\n      this.showSubMenuCondensed(expand, button);\n    }\n  }\n\n  showSubMenuFull(expand, button): void {\n    // This makes sure regardless of which button is picked that the menu elements are expanded/hidden\n    const navbar = button.closest('li');\n    const navContainer = navbar.querySelector('ul');\n    if (expand) {\n      this.closeSubMenus.emit();\n\n      navContainer.classList.add(MENU_STICKY_STYLE);\n      navContainer.classList.remove(MENU_HIDE_STYLE);\n      navbar.classList.add(MENU_STICKY_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'true');\n    } else {\n      this.resetSubMenus.emit();\n\n      navContainer.classList.remove(MENU_STICKY_STYLE);\n      navContainer.classList.add(MENU_HIDE_STYLE);\n      navContainer.id = MENU_RECENTLY_OPENED_ID;\n      navbar.classList.remove(MENU_STICKY_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'false');\n    }\n  }\n\n  showSubMenuCondensed(expand, button): void {\n    // This makes sure regardless of which button is picked that the menu elements are expanded/hidden\n    const navbar = button.closest('li');\n    const navContainer = navbar.querySelector('ul');\n\n    if (expand) {\n      navContainer.classList.add(MENU_SUB_NAV_EXPANDED_STYLE);\n      navbar.classList.add(MENUBAR_SUB_SHOWN_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'true');\n    } else {\n      navContainer.classList.remove(MENU_SUB_NAV_EXPANDED_STYLE);\n      navbar.classList.remove(MENUBAR_SUB_SHOWN_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'false');\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -1413,7 +1586,7 @@
                         "type": "ViewContainerRef"
                     }
                 ],
-                "line": 39,
+                "line": 24,
                 "jsdoctags": [
                     {
                         "name": "viewContainerRef",
@@ -1427,7 +1600,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ng-template #template>\n  <a [routerLink]=\"menuItem.url\">{{menuItem.label}}</a>\n  <button *ngIf='menuItem && menuItem.subItems && menuItem.subItems.length > 0' class=\"jazz-menu__submenu-toggle\" type=\"button\" aria-expanded=\"false\" (click)='onSubMenuClick($event)'>\n    <span class=\"jazz-visually-hidden\">\n      {{menuItem.label}}\n    </span>\n  </button>\n  <ul *ngIf=\"menuItem && menuItem.subItems && menuItem.subItems.length > 0\">\n    <li *ngFor=\"let levelItem of menuItem.subItems\">\n        <app-jazz-menu-item [menuItem]=\"levelItem\"></app-jazz-menu-item>\n    </li>\n  </ul>\n</ng-template>\n"
+            "templateData": "<ng-template #subButtonTemplate>\n  <button *ngIf='menuItem && menuItem.subItems && menuItem.subItems.length > 0' class=\"jazz-menu__submenu-toggle\" type=\"button\" aria-expanded=\"false\" (click)='onSubMenuClick($event)'>\n    <span class=\"jazz-visually-hidden\">\n      {{menuItem.label}}\n    </span>\n  </button>\n</ng-template>\n"
         },
         {
             "name": "PagerComponent",
@@ -1598,6 +1771,61 @@
             ]
         },
         {
+            "name": "MenuModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "MenuComponent"
+                        },
+                        {
+                            "name": "MenuItemComponent"
+                        },
+                        {
+                            "name": "MenuMainButtonComponent"
+                        },
+                        {
+                            "name": "MenuSubButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "MenuComponent"
+                        },
+                        {
+                            "name": "MenuItemComponent"
+                        },
+                        {
+                            "name": "MenuMainButtonComponent"
+                        },
+                        {
+                            "name": "MenuSubButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "SharedModule",
             "children": [
                 {
@@ -1620,19 +1848,17 @@
                             "name": "HeaderComponent"
                         },
                         {
-                            "name": "MenuComponent"
-                        },
-                        {
-                            "name": "MenuItemComponent"
-                        },
-                        {
                             "name": "PagerComponent"
                         }
                     ]
                 },
                 {
                     "type": "imports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "MenuModule"
+                        }
+                    ]
                 },
                 {
                     "type": "exports",
@@ -1648,12 +1874,6 @@
                         },
                         {
                             "name": "HeaderComponent"
-                        },
-                        {
-                            "name": "MenuComponent"
-                        },
-                        {
-                            "name": "MenuItemComponent"
                         },
                         {
                             "name": "PagerComponent"
@@ -1693,23 +1913,23 @@
                 "name": "ARIA_EXPANDED",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/components/menu/menu-constants.ts",
+                "type": "string",
+                "defaultValue": "'aria-expanded'"
+            },
+            {
+                "name": "ARIA_EXPANDED",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+                "type": "string",
+                "defaultValue": "'aria-expanded'"
+            },
+            {
+                "name": "ARIA_EXPANDED",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/components/accordion/accordion.component.ts",
-                "type": "string",
-                "defaultValue": "'aria-expanded'"
-            },
-            {
-                "name": "ARIA_EXPANDED",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/menu/menu-item.component.ts",
-                "type": "string",
-                "defaultValue": "'aria-expanded'"
-            },
-            {
-                "name": "ARIA_EXPANDED",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
                 "type": "string",
                 "defaultValue": "'aria-expanded'"
             },
@@ -1733,7 +1953,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
+                "file": "src/stories/Pager.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1741,7 +1961,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Pager.stories.ts",
+                "file": "src/stories/Header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1781,7 +2001,7 @@
                 "name": "HEADER_NAV_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-menu__nav-container`"
             },
@@ -1789,15 +2009,7 @@
                 "name": "HEADER_SUB_MENU_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
-                "type": "",
-                "defaultValue": "`.${PREFIX}-menu__submenu-toggle`"
-            },
-            {
-                "name": "HEADER_SUB_MENU_SELECTOR",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/menu/menu-item.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-menu__submenu-toggle`"
             },
@@ -1813,7 +2025,7 @@
                 "name": "ICON_CLOSE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-icon-close`"
             },
@@ -1821,7 +2033,7 @@
                 "name": "ICON_MENU",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-icon-menu`"
             },
@@ -1829,7 +2041,7 @@
                 "name": "ICON_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-icon`"
             },
@@ -1845,7 +2057,7 @@
                 "name": "MENU_BUTTON_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-menu__menu-toggle`"
             },
@@ -1853,15 +2065,7 @@
                 "name": "MENU_HIDE_STYLE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
-                "type": "",
-                "defaultValue": "`${PREFIX}-menubar--hide`"
-            },
-            {
-                "name": "MENU_HIDE_STYLE",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/menu/menu-item.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menubar--hide`"
             },
@@ -1869,7 +2073,7 @@
                 "name": "MENU_MAIN_MENU_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-menu__main-menu-navbar`"
             },
@@ -1877,7 +2081,7 @@
                 "name": "MENU_NAV_EXPANDED_STYLE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menu__nav-container--expanded`"
             },
@@ -1885,15 +2089,7 @@
                 "name": "MENU_RECENTLY_OPENED_ID",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
-                "type": "",
-                "defaultValue": "`${PREFIX}-menu:recentlyOpened`"
-            },
-            {
-                "name": "MENU_RECENTLY_OPENED_ID",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/menu/menu-item.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menu:recentlyOpened`"
             },
@@ -1901,7 +2097,7 @@
                 "name": "MENU_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-menubar`"
             },
@@ -1909,15 +2105,7 @@
                 "name": "MENU_STICKY_STYLE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
-                "type": "",
-                "defaultValue": "`${PREFIX}-menubar--stuck`"
-            },
-            {
-                "name": "MENU_STICKY_STYLE",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/menu/menu-item.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menubar--stuck`"
             },
@@ -1925,15 +2113,7 @@
                 "name": "MENU_SUB_NAV_EXPANDED_STYLE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-item.component.ts",
-                "type": "",
-                "defaultValue": "`${PREFIX}-menu__subnav-container--expanded`"
-            },
-            {
-                "name": "MENU_SUB_NAV_EXPANDED_STYLE",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menu__subnav-container--expanded`"
             },
@@ -1941,7 +2121,7 @@
                 "name": "MENUBAR_SHOWN_STYLE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menubar--shown`"
             },
@@ -1949,15 +2129,7 @@
                 "name": "MENUBAR_SUB_SHOWN_STYLE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-item.component.ts",
-                "type": "",
-                "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
-            },
-            {
-                "name": "MENUBAR_SUB_SHOWN_STYLE",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
             },
@@ -2002,6 +2174,14 @@
                 "defaultValue": "'jazz'"
             },
             {
+                "name": "stories",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Accordion.stories.ts",
+                "type": "",
+                "defaultValue": "storiesOf('Components/Accordion', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
+            },
+            {
                 "name": "subMenu1",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2021,9 +2201,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "type": "Story<HeaderComponent>",
-                "defaultValue": "(args: HeaderComponent) => ({\n  component: HeaderComponent,\n  props: args,\n})"
+                "file": "src/stories/Button.stories.ts",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Alert.stories.ts",
+                "type": "Story<AlertComponent>",
+                "defaultValue": "(args: AlertComponent) => ({\n  component: AlertComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -2037,17 +2225,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "type": "Story<ButtonComponent>",
-                "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Alert.stories.ts",
-                "type": "Story<AlertComponent>",
-                "defaultValue": "(args: AlertComponent) => ({\n  component: AlertComponent,\n  props: args,\n})"
+                "file": "src/stories/Header.stories.ts",
+                "type": "Story<HeaderComponent>",
+                "defaultValue": "(args: HeaderComponent) => ({\n  component: HeaderComponent,\n  props: args,\n})"
             },
             {
                 "name": "utilityMenu",
@@ -2173,70 +2353,12 @@
                     "defaultValue": "'aria-multiselectable'"
                 }
             ],
-            "src/app/components/menu/menu-item.component.ts": [
+            "src/app/components/menu/menu-constants.ts": [
                 {
                     "name": "ARIA_EXPANDED",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "string",
-                    "defaultValue": "'aria-expanded'"
-                },
-                {
-                    "name": "HEADER_SUB_MENU_SELECTOR",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "",
-                    "defaultValue": "`.${PREFIX}-menu__submenu-toggle`"
-                },
-                {
-                    "name": "MENU_HIDE_STYLE",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "",
-                    "defaultValue": "`${PREFIX}-menubar--hide`"
-                },
-                {
-                    "name": "MENU_RECENTLY_OPENED_ID",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "",
-                    "defaultValue": "`${PREFIX}-menu:recentlyOpened`"
-                },
-                {
-                    "name": "MENU_STICKY_STYLE",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "",
-                    "defaultValue": "`${PREFIX}-menubar--stuck`"
-                },
-                {
-                    "name": "MENU_SUB_NAV_EXPANDED_STYLE",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "",
-                    "defaultValue": "`${PREFIX}-menu__subnav-container--expanded`"
-                },
-                {
-                    "name": "MENUBAR_SUB_SHOWN_STYLE",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "",
-                    "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
-                }
-            ],
-            "src/app/components/menu/menu.component.ts": [
-                {
-                    "name": "ARIA_EXPANDED",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "string",
                     "defaultValue": "'aria-expanded'"
                 },
@@ -2244,7 +2366,7 @@
                     "name": "HEADER_NAV_SELECTOR",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`.${PREFIX}-menu__nav-container`"
                 },
@@ -2252,7 +2374,7 @@
                     "name": "HEADER_SUB_MENU_SELECTOR",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`.${PREFIX}-menu__submenu-toggle`"
                 },
@@ -2260,7 +2382,7 @@
                     "name": "ICON_CLOSE",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`${PREFIX}-icon-close`"
                 },
@@ -2268,7 +2390,7 @@
                     "name": "ICON_MENU",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`${PREFIX}-icon-menu`"
                 },
@@ -2276,7 +2398,7 @@
                     "name": "ICON_SELECTOR",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`.${PREFIX}-icon`"
                 },
@@ -2284,7 +2406,7 @@
                     "name": "MENU_BUTTON_SELECTOR",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`.${PREFIX}-menu__menu-toggle`"
                 },
@@ -2292,7 +2414,7 @@
                     "name": "MENU_HIDE_STYLE",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`${PREFIX}-menubar--hide`"
                 },
@@ -2300,7 +2422,7 @@
                     "name": "MENU_MAIN_MENU_SELECTOR",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`.${PREFIX}-menu__main-menu-navbar`"
                 },
@@ -2308,7 +2430,7 @@
                     "name": "MENU_NAV_EXPANDED_STYLE",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`${PREFIX}-menu__nav-container--expanded`"
                 },
@@ -2316,7 +2438,7 @@
                     "name": "MENU_RECENTLY_OPENED_ID",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`${PREFIX}-menu:recentlyOpened`"
                 },
@@ -2324,7 +2446,7 @@
                     "name": "MENU_SELECTOR",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`.${PREFIX}-menubar`"
                 },
@@ -2332,7 +2454,7 @@
                     "name": "MENU_STICKY_STYLE",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`${PREFIX}-menubar--stuck`"
                 },
@@ -2340,7 +2462,7 @@
                     "name": "MENU_SUB_NAV_EXPANDED_STYLE",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`${PREFIX}-menu__subnav-container--expanded`"
                 },
@@ -2348,7 +2470,7 @@
                     "name": "MENUBAR_SHOWN_STYLE",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`${PREFIX}-menubar--shown`"
                 },
@@ -2356,9 +2478,19 @@
                     "name": "MENUBAR_SUB_SHOWN_STYLE",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu.component.ts",
+                    "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
+                }
+            ],
+            "src/app/components/menu/menu-main-button/menu-main-button.component.ts": [
+                {
+                    "name": "ARIA_EXPANDED",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+                    "type": "string",
+                    "defaultValue": "'aria-expanded'"
                 }
             ],
             "src/stories/Alert.stories.ts": [
@@ -2403,6 +2535,48 @@
                     "file": "src/stories/Button.stories.ts",
                     "type": "Story<ButtonComponent>",
                     "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
+                }
+            ],
+            "src/stories/Pager.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Pager.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "DoubleTruncated",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Pager.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "pageSet1",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Pager.stories.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  totalPages: 10,\n  number: 1\n}"
+                },
+                {
+                    "name": "pageSet2",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Pager.stories.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  totalPages: 20,\n  number: 7\n}"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Pager.stories.ts",
+                    "type": "Story<PagerComponent>",
+                    "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
                 }
             ],
             "src/stories/Header.stories.ts": [
@@ -2455,48 +2629,6 @@
                     "defaultValue": "[]"
                 }
             ],
-            "src/stories/Pager.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Pager.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "DoubleTruncated",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Pager.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "pageSet1",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Pager.stories.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  totalPages: 10,\n  number: 1\n}"
-                },
-                {
-                    "name": "pageSet2",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Pager.stories.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  totalPages: 20,\n  number: 7\n}"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Pager.stories.ts",
-                    "type": "Story<PagerComponent>",
-                    "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -2535,6 +2667,16 @@
                     "file": "src/app/config.ts",
                     "type": "string",
                     "defaultValue": "'jazz'"
+                }
+            ],
+            "src/stories/Accordion.stories.ts": [
+                {
+                    "name": "stories",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Accordion.stories.ts",
+                    "type": "",
+                    "defaultValue": "storiesOf('Components/Accordion', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
                 }
             ]
         },
@@ -2744,16 +2886,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu-item.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "MenuItemComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/12",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/menu/menu-item.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2763,86 +2896,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu-item.component.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "HEADER_SUB_MENU_SELECTOR",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/menu/menu-item.component.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "MENU_HIDE_STYLE",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/menu/menu-item.component.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "MENU_RECENTLY_OPENED_ID",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/menu/menu-item.component.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "MENU_STICKY_STYLE",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/menu/menu-item.component.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "MENU_SUB_NAV_EXPANDED_STYLE",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/menu/menu-item.component.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "MENUBAR_SUB_SHOWN_STYLE",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/menu/menu.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "MenuComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/14",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/menu/menu.component.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "ARIA_EXPANDED",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2852,7 +2906,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2862,7 +2916,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2872,7 +2926,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2882,7 +2936,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2892,7 +2946,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2902,7 +2956,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2912,7 +2966,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2922,7 +2976,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2932,7 +2986,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2942,7 +2996,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2952,7 +3006,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2962,7 +3016,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2972,7 +3026,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2982,13 +3036,59 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/menu/menu.component.ts",
+                "filePath": "src/app/components/menu/menu-constants.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "MENUBAR_SUB_SHOWN_STYLE",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/menu/menu-item/menu-item.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MenuItemComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MenuMainButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ARIA_EXPANDED",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/menu/menu-sub-button/menu-sub-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MenuSubButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/menu/menu.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MenuComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -3117,6 +3217,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "mock",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Accordion.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "stories",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
