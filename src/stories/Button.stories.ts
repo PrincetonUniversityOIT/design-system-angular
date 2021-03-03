@@ -3,7 +3,7 @@ import {Meta, Story} from '@storybook/angular';
 import {ButtonComponent} from '../app/components/button/button.component';
 
 export default {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: ButtonComponent
 } as Meta;
 

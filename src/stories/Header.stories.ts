@@ -8,7 +8,7 @@ import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {CommonModule} from '@angular/common';
 
 export default {
-  title: 'Example/Header',
+  title: 'Components/Header',
   component: HeaderComponent,
   decorators: [
     moduleMetadata({

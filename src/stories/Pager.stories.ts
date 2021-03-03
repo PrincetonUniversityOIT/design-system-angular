@@ -6,7 +6,7 @@ import {PagerComponent} from '../app/components/pager/pager.component';
 import {action} from '@storybook/addon-actions';
 
 export default {
-  title: 'Example/Pager',
+  title: 'Components/Pager',
   component: PagerComponent,
   decorators: [
     moduleMetadata({

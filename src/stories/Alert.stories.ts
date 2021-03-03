@@ -4,7 +4,7 @@ import {AlertComponent} from '../app/components/alert/alert.component';
 import {action} from '@storybook/addon-actions';
 
 export default {
-  title: 'Example/Alert',
+  title: 'Components/Alert',
   component: AlertComponent
 } as Meta;
 

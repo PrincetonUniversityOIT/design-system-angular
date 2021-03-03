@@ -6,6 +6,7 @@ import {MenuItemComponent} from './menu/menu-item.component';
 import {NgModule} from '@angular/core';
 import {PagerComponent} from './pager/pager.component';
 import {AlertComponent} from './alert/alert.component';
+import {AccordionComponent } from './accordion/accordion.component';
 import {RouterModule} from '@angular/router';
 
 @NgModule({
@@ -14,24 +15,24 @@ import {RouterModule} from '@angular/router';
     RouterModule
   ],
   declarations: [
+    AccordionComponent,
+    AlertComponent,
     ButtonComponent,
     HeaderComponent,
     MenuComponent,
     MenuItemComponent,
-    PagerComponent,
-    AlertComponent
+    PagerComponent
   ],
   exports: [
+    AccordionComponent,
+    AlertComponent,
     ButtonComponent,
     HeaderComponent,
     MenuComponent,
     MenuItemComponent,
-    PagerComponent,
-    AlertComponent
+    PagerComponent
   ]
 })
 export class SharedModule {
 
 }
-
-

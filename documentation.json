@@ -174,10 +174,221 @@
             "outputsClass": [],
             "hostBindings": [],
             "hostListeners": []
+        },
+        {
+            "name": "UtilityFunctions",
+            "id": "class-UtilityFunctions-9e49fbc223a19461cf2a38bfec9a28b2",
+            "file": "src/app/components/utility-functions.ts",
+            "type": "class",
+            "sourceCode": "export class UtilityFunctions {\r\n\r\n  static select(selector: string, context: ParentNode): [] {\r\n\r\n    if (typeof selector !== 'string') {\r\n      return [];\r\n    }\r\n\r\n    if (!context || !this.isElement(context)) {\r\n      context = window.document; // eslint-disable-line no-param-reassign\r\n    }\r\n\r\n    const selection = context.querySelectorAll(selector);\r\n    return Array.prototype.slice.call(selection);\r\n  }\r\n\r\n  static isElement(value): any {\r\n    return value && typeof value === 'object' && value.nodeType === 1;\r\n  }\r\n\r\n  static selectClosestTo(targetSelector: string, closestToSelector: string, context: Element): any {\r\n    const elements: Element[] = UtilityFunctions.select(targetSelector, context);\r\n    return elements.filter((element) => element.closest(closestToSelector) === context);\r\n  }\r\n}\r\n",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "isElement",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 18,
+                    "modifierKind": [
+                        115
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "select",
+                    "args": [
+                        {
+                            "name": "selector",
+                            "type": "string"
+                        },
+                        {
+                            "name": "context",
+                            "type": "ParentNode"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "",
+                    "typeParameters": [],
+                    "line": 4,
+                    "modifierKind": [
+                        115
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "selector",
+                            "type": "string",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "context",
+                            "type": "ParentNode",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "selectClosestTo",
+                    "args": [
+                        {
+                            "name": "targetSelector",
+                            "type": "string"
+                        },
+                        {
+                            "name": "closestToSelector",
+                            "type": "string"
+                        },
+                        {
+                            "name": "context",
+                            "type": "Element"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 22,
+                    "modifierKind": [
+                        115
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "targetSelector",
+                            "type": "string",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "closestToSelector",
+                            "type": "string",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "context",
+                            "type": "Element",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
         }
     ],
     "directives": [],
     "components": [
+        {
+            "name": "AccordionComponent",
+            "id": "component-AccordionComponent-f3ba9acf141e961bcfad99f2e78e8680",
+            "file": "src/app/components/accordion/accordion.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-jazz-accordion",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./accordion.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "accordionButtons",
+                    "type": "QueryList<ElementRef>",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "decorators": [
+                        {
+                            "name": "ContentChildren",
+                            "stringifiedArguments": "'jazzAccordionButtons', {descendants: true, read: ElementRef}"
+                        }
+                    ]
+                },
+                {
+                    "name": "click",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 36
+                },
+                {
+                    "name": "toggleControl",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 53
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterContentInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {\n  AfterContentInit,\n  Component,\n  ContentChildren,\n  ElementRef,\n  OnInit,\n  QueryList\n} from '@angular/core';\nimport {prefix as PREFIX} from '../../config';\n\nconst ACCORDION_SELECTOR = `.${PREFIX}-accordion`;\nconst MULTISELECTABLE = 'aria-multiselectable';\n\nexport const ARIA_EXPANDED = 'aria-expanded';\nexport const ARIA_CONTROLS = 'aria-controls';\nexport const HIDDEN = 'hidden';\n\n@Component({\n  selector: 'app-jazz-accordion',\n  templateUrl: './accordion.component.html'\n})\nexport class AccordionComponent implements OnInit, AfterContentInit {\n  @ContentChildren('jazzAccordionButtons', {descendants: true, read: ElementRef}) accordionButtons: QueryList<ElementRef>;\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  ngAfterContentInit(): void{\n    this.accordionButtons.forEach((btn) => {\n      btn.nativeElement.addEventListener('click', this.click);\n    });\n  }\n\n  click = (event: Event): void => {\n    const button = event.target as HTMLElement;\n    const accordionEl = button.closest(ACCORDION_SELECTOR);\n    const multiselectable = accordionEl.getAttribute(MULTISELECTABLE) === 'true';\n\n    const expanded = this.toggleControl(button, null);\n\n    if (expanded && !multiselectable) {\n      this.accordionButtons.forEach((other) => {\n        if (other.nativeElement !== button) {\n          this.toggleControl(other.nativeElement, false);\n        }\n      });\n    }\n    event.stopImmediatePropagation();\n  }\n\n  toggleControl = (target: Element, expanded?: boolean): any => {\n\n    let safeExpanded = expanded;\n\n    if (typeof safeExpanded !== 'boolean') {\n      // invert the existing button value\n      safeExpanded = target.getAttribute(ARIA_EXPANDED) === 'false';\n    }\n\n    target.setAttribute(ARIA_EXPANDED, safeExpanded.toString());\n\n    const controlledElementId = target.getAttribute(ARIA_CONTROLS);\n    const controlledElement = document.getElementById(controlledElementId);\n    if (!controlledElement) {\n      throw new Error(`aria-controls is not properly configured: ${controlledElementId}`);\n    }\n\n    if (safeExpanded) {\n      controlledElement.removeAttribute(HIDDEN);\n    } else {\n      controlledElement.setAttribute(HIDDEN, '');\n    }\n\n    return safeExpanded;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 23
+            },
+            "implements": [
+                "OnInit",
+                "AfterContentInit"
+            ],
+            "templateData": "<div class=\"jazz-accordion\" role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
+        },
         {
             "name": "AlertComponent",
             "id": "component-AlertComponent-b1d9198e0d2df943426f2ab1acfb8d7b",
@@ -319,7 +530,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<style>\n  .content {\n    position: relative;\n    display: block;\n    margin: 0px 14px 0px 274px !important;\n    padding-top: 65px;\n    padding-bottom: 30px;\n\n    -webkit-transition: all 200ms ease-in-out;\n    -moz-transition: all 200ms ease-in-out;\n    -ms-transition: all 200ms ease-in-out;\n    -o-transition: all 200ms ease-in-out;\n    transition: all 200ms ease-in-out;\n  }\n\n  .content.content-collapse {\n    margin-left: 74px !important;\n\n    -webkit-transition: all 200ms ease-in-out;\n    -moz-transition: all 200ms ease-in-out;\n    -ms-transition: all 200ms ease-in-out;\n    -o-transition: all 200ms ease-in-out;\n    transition: all 200ms ease-in-out;\n  }\n\n  .content .content-padded {\n    position: relative;\n    display: block;\n    background-color: #fff;\n  }\n</style>\n\n<app-jazz-header [title]=\"'Princeton Design System'\" [siteBrandingName]=\"'Relativity'\" [siteBrandingSlogan]=\"'The Princeton University Design System'\"\n                 [menuItems]=\"mainMenu\" [utilityItems]=\"utilityMenu\">\n</app-jazz-header>\n\n<main>\n  <div class=\"jazz-container\">\n    <router-outlet></router-outlet>\n  </div>\n</main>\n\n<footer role=\"contentinfo\" class=\"jazz-footer\">\n  <div class=\"jazz-container jazz-footer__content\">\n    <div class=\"row\">\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>General Information</h2>\n        <ul class=\"jazz-footer__list\">\n          <li><a href=\"javascript:void(0);\">Contact Us</a></li>\n          <li><a href=\"javascript:void(0);\">About Us</a></li>\n          <li><a href=\"javascript:void(0);\">News</a></li>\n          <li><a href=\"javascript:void(0);\">Data Privacy Policy</a></li>\n        </ul>\n      </div>\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>Services</h2>\n        <ul class=\"jazz-footer__list\">\n          <li><a href=\"javascript:void(0);\">Update Your Info</a></li>\n          <li><a href=\"javascript:void(0);\">Online Resources</a></li>\n          <li><a href=\"javascript:void(0);\">Visiting Campus</a></li>\n        </ul>\n      </div>\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>University Links</h2>\n        <ul class=\"jazz-footer__list\">\n          <li><a href=\"javascript:void(0);\">Princeton University</a></li>\n          <li><a href=\"javascript:void(0);\">Princeton Athletics</a></li>\n          <li><a href=\"javascript:void(0);\">Princeton Career Development</a></li>\n          <li><a href=\"javascript:void(0);\">Princeton Prize</a></li>\n          <li><a href=\"javascript:void(0);\">Princetoniana</a></li>\n          <li><a href=\"javascript:void(0);\">Giving to Princeton</a></li>\n        </ul>\n      </div>\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>Social Media</h2>\n        <ul class=\"jazz-footer__icon-list\">\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-facebook\"></i><span class=\"jazz-visually-hidden\">Follow Us on Facebook</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-twitter\"></i><span class=\"jazz-visually-hidden\">Follow Us on Twitter</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-linkedin\"></i><span class=\"jazz-visually-hidden\">Follow Us on Linked In</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-instagram\"></i><span class=\"jazz-visually-hidden\">Follow Us on Instagram</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-youtube\"></i><span class=\"jazz-visually-hidden\">Follow Us on You Tube</span></a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div class=\"jazz-footer__subfooter\">\n    <div class=\"jazz-container\">\n      <div class=\"row\">\n        <div class=\"col-sm-4 col-xs-12\">\n          <a href=\"javascript:void(0)\">Accessibility</a>\n        </div>\n        <div class=\"col-sm-4 col-xs-12\">\n          &copy; 2020 The Trustees of Princeton University\n        </div>\n        <div class=\"col-sm-4 col-xs-12\">\n          <a href=\"https://www.princeton.edu\" target=\"_blank\" class=\"jazz-no-icon\"><img class=\"jazz-footer__logo\" src=\"/icons/pu-logo-stacked-white.svg\" alt=\"Princeton University\" /></a>\n        </div>\n      </div>\n    </div>\n  </div>\n</footer>\n"
+            "templateData": "<app-jazz-header [title]=\"'Princeton Design System'\" [siteBrandingName]=\"'Relativity'\" [siteBrandingSlogan]=\"'The Princeton University Design System'\"\n                 [menuItems]=\"mainMenu\" [utilityItems]=\"utilityMenu\">\n</app-jazz-header>\n\n<main>\n  <div class=\"jazz-container\">\n    <router-outlet></router-outlet>\n  </div>\n</main>\n\n<footer role=\"contentinfo\" class=\"jazz-footer\">\n  <div class=\"jazz-container jazz-footer__content\">\n    <div class=\"row\">\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>General Information</h2>\n        <ul class=\"jazz-footer__list\">\n          <li><a href=\"javascript:void(0);\">Contact Us</a></li>\n          <li><a href=\"javascript:void(0);\">About Us</a></li>\n          <li><a href=\"javascript:void(0);\">News</a></li>\n          <li><a href=\"javascript:void(0);\">Data Privacy Policy</a></li>\n        </ul>\n      </div>\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>Services</h2>\n        <ul class=\"jazz-footer__list\">\n          <li><a href=\"javascript:void(0);\">Update Your Info</a></li>\n          <li><a href=\"javascript:void(0);\">Online Resources</a></li>\n          <li><a href=\"javascript:void(0);\">Visiting Campus</a></li>\n        </ul>\n      </div>\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>University Links</h2>\n        <ul class=\"jazz-footer__list\">\n          <li><a href=\"javascript:void(0);\">Princeton University</a></li>\n          <li><a href=\"javascript:void(0);\">Princeton Athletics</a></li>\n          <li><a href=\"javascript:void(0);\">Princeton Career Development</a></li>\n          <li><a href=\"javascript:void(0);\">Princeton Prize</a></li>\n          <li><a href=\"javascript:void(0);\">Princetoniana</a></li>\n          <li><a href=\"javascript:void(0);\">Giving to Princeton</a></li>\n        </ul>\n      </div>\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>Social Media</h2>\n        <ul class=\"jazz-footer__icon-list\">\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-facebook\"></i><span class=\"jazz-visually-hidden\">Follow Us on Facebook</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-twitter\"></i><span class=\"jazz-visually-hidden\">Follow Us on Twitter</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-linkedin\"></i><span class=\"jazz-visually-hidden\">Follow Us on Linked In</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-instagram\"></i><span class=\"jazz-visually-hidden\">Follow Us on Instagram</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-youtube\"></i><span class=\"jazz-visually-hidden\">Follow Us on You Tube</span></a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div class=\"jazz-footer__subfooter\">\n    <div class=\"jazz-container\">\n      <div class=\"row\">\n        <div class=\"col-sm-4 col-xs-12\">\n          <a href=\"javascript:void(0)\">Accessibility</a>\n        </div>\n        <div class=\"col-sm-4 col-xs-12\">\n          &copy; 2020 The Trustees of Princeton University\n        </div>\n        <div class=\"col-sm-4 col-xs-12\">\n          <a href=\"https://www.princeton.edu\" target=\"_blank\" class=\"jazz-no-icon\"><img class=\"jazz-footer__logo\" src=\"/icons/pu-logo-stacked-white.svg\" alt=\"Princeton University\" /></a>\n        </div>\n      </div>\n    </div>\n  </div>\n</footer>\n"
         },
         {
             "name": "ButtonComponent",
@@ -532,7 +743,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<h1 class=\"jazz-page-title\">Main Menu 1</h1>\n<h2>First Point</h2>\n<p>\n  This section describes the first point. Careful consideration of these points should be considered.\n</p>\n"
+            "templateData": "<h1 class=\"jazz-page-title\">Main Menu 1</h1>\n<h2>First Point</h2>\n<p>\n  This section describes the first point. Careful consideration of these points should be considered.\n</p>\n<app-jazz-accordion>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content1\">Sed porttitor lectus nibh?</button>\n  </h2>\n  <div class=\"jazz-accordion__content\" id=\"content1\" hidden>\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a\n    pellentesque nec, egestas non nisi.\n  </div>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"true\" aria-controls=\"content2\">\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?\n    </button>\n  </h2>\n  <div aria-hidden=\"false\" class=\"jazz-accordion__content\" id=\"content2\">\n    Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet\n    et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.\n    Cras ultricies ligula sed magna dictum porta.\n  </div>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content3\">\n      Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit.\n    </button>\n  </h2>\n  <div class=\"jazz-accordion__content\" id=\"content3\" hidden>\n    Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices\n    posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.\n  </div>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content4\">\n      Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit.\n    </button>\n  </h2>\n  <div class=\"jazz-accordion__content\" id=\"content4\" hidden>\n    Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices\n    posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.\n  </div>\n</app-jazz-accordion>\n"
         },
         {
             "name": "MainMenu2Component",
@@ -1397,6 +1608,9 @@
                     "type": "declarations",
                     "elements": [
                         {
+                            "name": "AccordionComponent"
+                        },
+                        {
                             "name": "AlertComponent"
                         },
                         {
@@ -1423,6 +1637,9 @@
                 {
                     "type": "exports",
                     "elements": [
+                        {
+                            "name": "AccordionComponent"
+                        },
                         {
                             "name": "AlertComponent"
                         },
@@ -1457,10 +1674,26 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "ACCORDION_SELECTOR",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/accordion/accordion.component.ts",
+                "type": "",
+                "defaultValue": "`.${PREFIX}-accordion`"
+            },
+            {
+                "name": "ARIA_CONTROLS",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/accordion/accordion.component.ts",
+                "type": "string",
+                "defaultValue": "'aria-controls'"
+            },
+            {
                 "name": "ARIA_EXPANDED",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/accordion/accordion.component.ts",
                 "type": "string",
                 "defaultValue": "'aria-expanded'"
             },
@@ -1469,6 +1702,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/components/menu/menu-item.component.ts",
+                "type": "string",
+                "defaultValue": "'aria-expanded'"
+            },
+            {
+                "name": "ARIA_EXPANDED",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/menu/menu.component.ts",
                 "type": "string",
                 "defaultValue": "'aria-expanded'"
             },
@@ -1484,7 +1725,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
+                "file": "src/stories/Button.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1492,7 +1733,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/stories/Header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1524,17 +1765,17 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "HEADER_NAV_SELECTOR",
@@ -1559,6 +1800,14 @@
                 "file": "src/app/components/menu/menu-item.component.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-menu__submenu-toggle`"
+            },
+            {
+                "name": "HIDDEN",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/accordion/accordion.component.ts",
+                "type": "string",
+                "defaultValue": "'hidden'"
             },
             {
                 "name": "ICON_CLOSE",
@@ -1636,7 +1885,7 @@
                 "name": "MENU_RECENTLY_OPENED_ID",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-item.component.ts",
+                "file": "src/app/components/menu/menu.component.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menu:recentlyOpened`"
             },
@@ -1644,7 +1893,7 @@
                 "name": "MENU_RECENTLY_OPENED_ID",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-item.component.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menu:recentlyOpened`"
             },
@@ -1676,7 +1925,7 @@
                 "name": "MENU_SUB_NAV_EXPANDED_STYLE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-item.component.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menu__subnav-container--expanded`"
             },
@@ -1684,7 +1933,7 @@
                 "name": "MENU_SUB_NAV_EXPANDED_STYLE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-item.component.ts",
+                "file": "src/app/components/menu/menu.component.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menu__subnav-container--expanded`"
             },
@@ -1700,7 +1949,7 @@
                 "name": "MENUBAR_SUB_SHOWN_STYLE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu.component.ts",
+                "file": "src/app/components/menu/menu-item.component.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
             },
@@ -1708,7 +1957,7 @@
                 "name": "MENUBAR_SUB_SHOWN_STYLE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-item.component.ts",
+                "file": "src/app/components/menu/menu.component.ts",
                 "type": "",
                 "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
             },
@@ -1719,6 +1968,14 @@
                 "file": "src/jest-config/__mocks__/globalMocks.ts",
                 "type": "",
                 "defaultValue": "() => {\n    let storage = {};\n    return {\n      getItem: key => (key in storage ? storage[key] : null),\n      setItem: (key, value) => (storage[key] = value || ''),\n      removeItem: key => delete storage[key],\n      clear: () => (storage = {}),\n    };\n  }"
+            },
+            {
+                "name": "MULTISELECTABLE",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/accordion/accordion.component.ts",
+                "type": "string",
+                "defaultValue": "'aria-multiselectable'"
             },
             {
                 "name": "pageSet1",
@@ -1772,6 +2029,14 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/Pager.stories.ts",
+                "type": "Story<PagerComponent>",
+                "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
                 "type": "Story<ButtonComponent>",
                 "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
@@ -1783,14 +2048,6 @@
                 "file": "src/stories/Alert.stories.ts",
                 "type": "Story<AlertComponent>",
                 "defaultValue": "(args: AlertComponent) => ({\n  component: AlertComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Pager.stories.ts",
-                "type": "Story<PagerComponent>",
-                "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
             },
             {
                 "name": "utilityMenu",
@@ -1874,6 +2131,106 @@
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
+            "src/app/components/accordion/accordion.component.ts": [
+                {
+                    "name": "ACCORDION_SELECTOR",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/accordion/accordion.component.ts",
+                    "type": "",
+                    "defaultValue": "`.${PREFIX}-accordion`"
+                },
+                {
+                    "name": "ARIA_CONTROLS",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/accordion/accordion.component.ts",
+                    "type": "string",
+                    "defaultValue": "'aria-controls'"
+                },
+                {
+                    "name": "ARIA_EXPANDED",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/accordion/accordion.component.ts",
+                    "type": "string",
+                    "defaultValue": "'aria-expanded'"
+                },
+                {
+                    "name": "HIDDEN",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/accordion/accordion.component.ts",
+                    "type": "string",
+                    "defaultValue": "'hidden'"
+                },
+                {
+                    "name": "MULTISELECTABLE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/accordion/accordion.component.ts",
+                    "type": "string",
+                    "defaultValue": "'aria-multiselectable'"
+                }
+            ],
+            "src/app/components/menu/menu-item.component.ts": [
+                {
+                    "name": "ARIA_EXPANDED",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/menu/menu-item.component.ts",
+                    "type": "string",
+                    "defaultValue": "'aria-expanded'"
+                },
+                {
+                    "name": "HEADER_SUB_MENU_SELECTOR",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/menu/menu-item.component.ts",
+                    "type": "",
+                    "defaultValue": "`.${PREFIX}-menu__submenu-toggle`"
+                },
+                {
+                    "name": "MENU_HIDE_STYLE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/menu/menu-item.component.ts",
+                    "type": "",
+                    "defaultValue": "`${PREFIX}-menubar--hide`"
+                },
+                {
+                    "name": "MENU_RECENTLY_OPENED_ID",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/menu/menu-item.component.ts",
+                    "type": "",
+                    "defaultValue": "`${PREFIX}-menu:recentlyOpened`"
+                },
+                {
+                    "name": "MENU_STICKY_STYLE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/menu/menu-item.component.ts",
+                    "type": "",
+                    "defaultValue": "`${PREFIX}-menubar--stuck`"
+                },
+                {
+                    "name": "MENU_SUB_NAV_EXPANDED_STYLE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/menu/menu-item.component.ts",
+                    "type": "",
+                    "defaultValue": "`${PREFIX}-menu__subnav-container--expanded`"
+                },
+                {
+                    "name": "MENUBAR_SUB_SHOWN_STYLE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/menu/menu-item.component.ts",
+                    "type": "",
+                    "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
+                }
+            ],
             "src/app/components/menu/menu.component.ts": [
                 {
                     "name": "ARIA_EXPANDED",
@@ -2004,64 +2361,6 @@
                     "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
                 }
             ],
-            "src/app/components/menu/menu-item.component.ts": [
-                {
-                    "name": "ARIA_EXPANDED",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "string",
-                    "defaultValue": "'aria-expanded'"
-                },
-                {
-                    "name": "HEADER_SUB_MENU_SELECTOR",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "",
-                    "defaultValue": "`.${PREFIX}-menu__submenu-toggle`"
-                },
-                {
-                    "name": "MENU_HIDE_STYLE",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "",
-                    "defaultValue": "`${PREFIX}-menubar--hide`"
-                },
-                {
-                    "name": "MENU_RECENTLY_OPENED_ID",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "",
-                    "defaultValue": "`${PREFIX}-menu:recentlyOpened`"
-                },
-                {
-                    "name": "MENU_STICKY_STYLE",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "",
-                    "defaultValue": "`${PREFIX}-menubar--stuck`"
-                },
-                {
-                    "name": "MENU_SUB_NAV_EXPANDED_STYLE",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "",
-                    "defaultValue": "`${PREFIX}-menu__subnav-container--expanded`"
-                },
-                {
-                    "name": "MENUBAR_SUB_SHOWN_STYLE",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-item.component.ts",
-                    "type": "",
-                    "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
-                }
-            ],
             "src/stories/Alert.stories.ts": [
                 {
                     "name": "Default",
@@ -2078,6 +2377,32 @@
                     "file": "src/stories/Alert.stories.ts",
                     "type": "Story<AlertComponent>",
                     "defaultValue": "(args: AlertComponent) => ({\n  component: AlertComponent,\n  props: args,\n})"
+                }
+            ],
+            "src/stories/Button.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
                 }
             ],
             "src/stories/Header.stories.ts": [
@@ -2130,32 +2455,6 @@
                     "defaultValue": "[]"
                 }
             ],
-            "src/stories/Button.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Disabled",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "type": "Story<ButtonComponent>",
-                    "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
-                }
-            ],
             "src/stories/Pager.stories.ts": [
                 {
                     "name": "Default",
@@ -2198,16 +2497,6 @@
                     "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -2216,6 +2505,16 @@
                     "file": "src/environments/environment.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/jest-config/__mocks__/globalMocks.ts": [
@@ -2356,6 +2655,65 @@
                 "name": "AppComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/accordion/accordion.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AccordionComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/accordion/accordion.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ACCORDION_SELECTOR",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/accordion/accordion.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ARIA_CONTROLS",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/accordion/accordion.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ARIA_EXPANDED",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/accordion/accordion.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "HIDDEN",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/accordion/accordion.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MULTISELECTABLE",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -2640,6 +2998,15 @@
                 "name": "PagerComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/utility-functions.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "UtilityFunctions",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
