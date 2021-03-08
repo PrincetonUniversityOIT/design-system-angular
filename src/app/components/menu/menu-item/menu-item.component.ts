@@ -13,7 +13,7 @@ export class MenuItemComponent implements OnInit {
   menuItem: MenuItem;
 
   @Output()
-  closeSubMenus: EventEmitter<boolean> = new EventEmitter();
+  closeSubMenus: EventEmitter<void> = new EventEmitter();
 
   @Output()
   resetSubMenus: EventEmitter<void> = new EventEmitter();
@@ -30,11 +30,11 @@ export class MenuItemComponent implements OnInit {
     return this.menuItem.shownByDefault ? 'jazz-menubar__submenu--shown-by-default' : '';
   }
 
-  close($event): void {
+  close(): void {
     this.closeSubMenus.emit();
   }
 
-  reset($event): void {
+  reset(): void {
     this.resetSubMenus.emit();
   }
 }

@@ -76,15 +76,13 @@ export class MenuComponent implements OnInit {
     return button;
   }
 
-  closeSubMenus(disableNav: boolean): void {
+  closeSubMenus(): void {
     // const mainEl = event.btn.closest(MENU_MAIN_MENU_SELECTOR);
     document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((mainEl) => {
       mainEl.querySelectorAll('li').forEach((navbar) => {
         navbar.querySelectorAll('ul').forEach((list) => {
           list.classList.remove(MENU_STICKY_STYLE);
-          if (disableNav) {
-            list.classList.add(MENU_HIDE_STYLE);
-          }
+          list.classList.add(MENU_HIDE_STYLE);
         });
       });
 
