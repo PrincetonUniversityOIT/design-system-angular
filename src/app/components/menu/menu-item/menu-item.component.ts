@@ -26,6 +26,10 @@ export class MenuItemComponent implements OnInit {
     this.viewContainerRef.createEmbeddedView(this.template);
   }
 
+  getClass(): string {
+    return this.menuItem.shownByDefault ? 'jazz-menubar__submenu--shown-by-default' : '';
+  }
+
   close($event): void {
     this.closeSubMenus.emit();
   }

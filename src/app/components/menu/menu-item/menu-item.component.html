@@ -1,8 +1,8 @@
 <ng-template #template>
   <a [routerLink]="menuItem.url">{{menuItem.label}}</a>
   <app-jazz-sub-button [menuItem]="menuItem" (closeSubMenus)="closeSubMenus" (reset)="resetSubMenus"></app-jazz-sub-button>
-  <ul *ngIf="menuItem && menuItem.subItems && menuItem.subItems.length > 0">
-    <li *ngFor="let levelItem of menuItem.subItems">
+  <ul *ngIf="menuItem && menuItem.subItems && menuItem.subItems.length > 0" [class]="getClass()">
+    <li *ngFor="let levelItem of menuItem.subItems" [attr.aria-current]="levelItem.current">
         <app-jazz-menu-item [menuItem]="levelItem"></app-jazz-menu-item>
     </li>
   </ul>

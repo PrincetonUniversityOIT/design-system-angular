@@ -16,10 +16,13 @@ export class HeaderComponent {
   siteBrandingSlogan: string;
 
   @Input()
-  menuItems: MenuItem[];
+  menuItems?: MenuItem[];
 
   @Input()
   utilityItems?: MenuItem[];
+
+  @Input()
+  showSearch?: boolean = false;
 
   constructor() {}
 

@@ -55,77 +55,31 @@ Default.args = {
   siteBrandingName: 'Relativity',
   siteBrandingSlogan: 'The Princeton University Design System',
   menuItems: mainMenu,
-  utilityItems: utilityMenu
+  utilityItems: utilityMenu,
+  showSearch: true
 };
 
-// export const ProvideContent = () => ({
-//   moduleMetadata: {
-//     declarations: [HeaderComponent],
-//     decorators: [
-//       moduleMetadata({
-//         declarations: [MenuComponent, MenuItemComponent],
-//         imports: [CommonModule]
-//       })
-//     ]
-//   },
-//   props: {
-//     title: 'Princeton University Design System',
-//     siteBrandingName: 'Relativity',
-//     siteBrandingSlogan: 'The Princeton University Design System'
-//   },
-//   template: `<app-jazz-header [title]="title" [siteBrandingName]="siteBrandingName" [siteBrandingSlogan]="siteBrandingSlogan">
-//     <nav aria-label="Main Menu" class="jazz-menu__main-menu">
-//       <h2 class="jazz-visually-hidden">Main Menu</h2>
-//       <div class="jazz-container">
-//         <div class="jazz-menu__main-menu-navbar">
-//           <button class="jazz-menu__menu-toggle jazz-menu__menu-toggle-absolute" (click)='onMainMenuClick($event)'
-//                   aria-expanded="false" aria-label="Navigation Menu Toggle">
-//                   Menu<i class="jazz-icon jazz-icon-menu" aria-hidden="true" (click)='onMainMenuIconClick($event)'></i>
-//           </button>
-//           <div class="jazz-menu__nav-container">
-//           <ul class="jazz-menubar" role="list">
-//           <li aria-current="true">
-//               <a href="javascript:void(0);" aria-current="page">Content Types</a>
-//               <button class="jazz-menu__submenu-toggle" type="button" aria-expanded="false">
-//                   <span class="jazz-visually-hidden">
-//                       Content Types
-//                       SubMenu
-//                   </span>
-//               </button>
-//               <ul>
-//                   <li>
-//                       <a href="javascript:void(0);">Page</a>
-//                       <button type="button" class="jazz-menu__submenu-toggle" aria-expanded="false">
-//                           <span class="jazz-visually-hidden">
-//                               Page
-//                               SubMenu
-//                           </span>
-//                       </button>
-//                       <ul class="jazz-menubar__submenu--shown-by-default">
-//                           <li><a href="javascript:void(0);">Page List</a></li>
-//                           <li><a href="javascript:void(0);" aria-current="page">Sub Page</a></li>
-//                       </ul>
-//                    </li>
-//                   <li aria-current="page"><a href="javascript:void(0);">Alert</a></li>
-//               </ul>
-//           </li>
-//           <li>
-//               <a href="javascript:void(0);">Blocks</a>
-//               <button type="button" class="jazz-menu__submenu-toggle" aria-expanded="false">
-//                   <span class="jazz-visually-hidden">
-//                       Blocks
-//                       SubMenu
-//                   </span>
-//               </button>
-//               <ul>
-//                   <li><a href="javascript:void(0);">Accordion</a></li>
-//                   <li><a href="javascript:void(0);">Content Slider</a></li>
-//               </ul>
-//           </li>
-//         </ul>
-//            </div>
-//         </div>
-//       </div>
-//     </nav>
-//     </app-jazz-header>`,
-// });
+export const OnlyUtilityMenu = Template.bind({});
+OnlyUtilityMenu.args = {
+  title: 'Princeton University Design System',
+  siteBrandingName: 'Relativity',
+  siteBrandingSlogan: 'The Princeton University Design System',
+  utilityItems: utilityMenu,
+  showSearch: true
+};
+
+export const JustSearch = Template.bind({});
+JustSearch.args = {
+  title: 'Princeton University Design System',
+  siteBrandingName: 'Relativity',
+  siteBrandingSlogan: 'The Princeton University Design System',
+  showSearch: true
+};
+
+export const JustHeader = Template.bind({});
+JustHeader.args = {
+  title: 'Princeton University Design System',
+  siteBrandingName: 'Relativity',
+  siteBrandingSlogan: 'The Princeton University Design System',
+  showSearch: false
+};
