@@ -17,6 +17,9 @@
 </nav>
 
 <p>
-  This section describes the second point. Careful consideration of these points should be considered.
+  This section describes the second point. Careful consideration of these points should be considered. This is a button that activates a dialog box.
+  <app-jazz-modal-dialog [title]="'Sample Dialog'" [buttonLabel]="'Click Me!'" (buttonClicked)="clicked()">
+      This is the content of the dialog
+  </app-jazz-modal-dialog>
 </p>
 

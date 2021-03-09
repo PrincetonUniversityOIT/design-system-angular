@@ -3249,16 +3249,15 @@ a[target=_blank]::after {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #A0A0A0;
-  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.32);
+  opacity: 0.9;
   visibility: hidden;
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-  z-index: 1;
+  z-index: 9999;
 }
 
 .jazz-modal__wrapper--visible {
-  opacity: 1;
   visibility: visible;
   transform: scale(1);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
@@ -3277,6 +3276,7 @@ a[target=_blank]::after {
   border-radius: 0.3125rem;
   min-width: 18.75rem;
   width: 30%;
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
 }
 
 .jazz-modal-title {
@@ -3450,8 +3450,7 @@ ul.jazz-menubar.jazz-menubar--shown {
     border-bottom: none;
   }
 
-  ul.jazz-menubar > li > a,
-ul.jazz-menubar > li > a[aria-current=page] {
+  ul.jazz-menubar > li > a {
     background-color: #fff;
     color: #000;
     border-bottom: 0.4375rem solid transparent;
@@ -3465,8 +3464,8 @@ ul.jazz-menubar > li > a[aria-current=page] {
     border-bottom: 0.4375rem solid #A0A0A0;
   }
 
-  ul.jazz-menubar > li[aria-current=true] > a,
-.jazz-menubar > ul > li[aria-current=true]:hover > a {
+  ul.jazz-menubar > li > a[aria-current=page],
+.jazz-menubar > ul > li:hover > a[aria-current=page] {
     border-bottom: 0.4375rem solid #E77500;
   }
 
@@ -3506,7 +3505,6 @@ ul.jazz-menubar li:hover > button:not([aria-expanded=true]) + ul:not(.jazz-menub
   }
 
   ul.jazz-menubar > li > button {
-    z-index: 2;
     position: absolute;
     right: auto;
     top: 0;

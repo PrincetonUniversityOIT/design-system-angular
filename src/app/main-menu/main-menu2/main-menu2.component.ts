@@ -13,4 +13,7 @@ export class MainMenu2Component implements OnInit {
 
   }
 
+  clicked(): void {
+    alert('Button was clicked');
+  }
 }

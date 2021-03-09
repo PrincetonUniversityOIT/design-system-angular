@@ -1,22 +1,24 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
-import {Meta, Story} from '@storybook/angular';
+import {moduleMetadata, storiesOf} from '@storybook/angular';
 import {AlertComponent} from '../app/components/alert/alert.component';
 import {action} from '@storybook/addon-actions';
 
-export default {
-  title: 'Components/Alert',
-  component: AlertComponent
-} as Meta;
+const stories = storiesOf('Components/Alert', module)
+  .addDecorator(
+    moduleMetadata({
+      declarations: [AlertComponent],
+    })
+  );
 
-const Template: Story<AlertComponent> = (args: AlertComponent) => ({
-  component: AlertComponent,
-  props: args,
+stories.add('Default', () => {
+  return {
+    template: `
+        <app-jazz-alert heading='Alerts' title="Alert Title" (onClose)="onClose($event)">
+                <p>This is the alert content</p>
+        </app-jazz-alert>
+     `,
+    props: {
+      onClose: action('onClose')
+    }
+  };
 });
-
-export const Default = Template.bind({});
-Default.args = {
-  heading: 'Alerts',
-  title: 'Alert Title',
-  content: 'This is the content of the alert.  It can be a simple paragraph or something more complex.',
-  onClose: action('onClose')
-};

@@ -26,23 +26,23 @@ export default {
 
 
 const subMenu2: MenuItem[] = [];
-subMenu2.push(new MenuItem('Level 3 Menu 1', '/level3item1', true ));
-subMenu2.push(new MenuItem('Level 3 Menu 2', '/level3item2', false ));
-subMenu2.push(new MenuItem('Level 3 Menu 3', '/level3item3', false ));
+subMenu2.push(new MenuItem('Level 3 Menu 1', '/level3item1' ));
+subMenu2.push(new MenuItem('Level 3 Menu 2', '/level3item2' ));
+subMenu2.push(new MenuItem('Level 3 Menu 3', '/level3item3' ));
 
 const subMenu1: MenuItem[] = [];
-subMenu1.push(new MenuItem('Sub Menu 1', '/level2item1', true, subMenu2));
-subMenu1.push(new MenuItem('Sub Menu 2', '/level2item2', false ));
-subMenu1.push(new MenuItem('Sub Menu 3', '/level2item2', false ));
+subMenu1.push(new MenuItem('Sub Menu 1', '/level2item1', subMenu2));
+subMenu1.push(new MenuItem('Sub Menu 2', '/level2item2'));
+subMenu1.push(new MenuItem('Sub Menu 3', '/level2item2'));
 
 const mainMenu: MenuItem[] = [];
-mainMenu.push(new MenuItem('Main Menu 1', '/level1item1', true, subMenu1 ));
-mainMenu.push(new MenuItem('Main Menu 2', '/level1item2', false));
-mainMenu.push(new MenuItem('Main Menu 3', '/level1item3', false));
+mainMenu.push(new MenuItem('Main Menu 1', '/level1item1', subMenu1 ));
+mainMenu.push(new MenuItem('Main Menu 2', '/level1item2'));
+mainMenu.push(new MenuItem('Main Menu 3', '/level1item3'));
 
 const utilityMenu: MenuItem[] = [];
-utilityMenu.push(new MenuItem('Documentation', '/documentation', true));
-utilityMenu.push(new MenuItem('Log In', '/login', false));
+utilityMenu.push(new MenuItem('Documentation', '/documentation'));
+utilityMenu.push(new MenuItem('Log In', '/login'));
 
 const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
   component: HeaderComponent,

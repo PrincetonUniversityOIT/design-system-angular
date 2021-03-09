@@ -62,10 +62,10 @@
         },
         {
             "name": "MenuItem",
-            "id": "class-MenuItem-681f92774eb8f1968f5e27d822d0aa1d",
+            "id": "class-MenuItem-2d7d0ea85dad303f16130efb1eee2477",
             "file": "src/app/model/menu-item.ts",
             "type": "class",
-            "sourceCode": "export class MenuItem {\r\n  public readonly label: string\r\n  public readonly url: string;\r\n  public readonly current: boolean;\r\n\r\n  public readonly subItems: MenuItem[] = [];\r\n\r\n  constructor(label: string, url: string, current: boolean, subItems?: MenuItem[]) {\r\n    this.label = label;\r\n    this.url = url;\r\n    this.current = current;\r\n    this.subItems = subItems;\r\n  }\r\n}\r\n",
+            "sourceCode": "export class MenuItem {\r\n  public readonly label: string\r\n  public readonly url: string;\r\n  public readonly shownByDefault: boolean;\r\n\r\n  public subItems: MenuItem[] = [];\r\n\r\n  constructor(label: string, url: string, subItems?: MenuItem[], shownByDefault?: boolean ) {\r\n    this.label = label;\r\n    this.url = url;\r\n    this.subItems = subItems;\r\n    this.shownByDefault = shownByDefault;\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -79,12 +79,13 @@
                         "type": "string"
                     },
                     {
-                        "name": "current",
-                        "type": "boolean"
-                    },
-                    {
                         "name": "subItems",
                         "type": "MenuItem[]",
+                        "optional": true
+                    },
+                    {
+                        "name": "shownByDefault",
+                        "type": "boolean",
                         "optional": true
                     }
                 ],
@@ -105,15 +106,16 @@
                         }
                     },
                     {
-                        "name": "current",
-                        "type": "boolean",
+                        "name": "subItems",
+                        "type": "MenuItem[]",
+                        "optional": true,
                         "tagName": {
                             "text": "param"
                         }
                     },
                     {
-                        "name": "subItems",
-                        "type": "MenuItem[]",
+                        "name": "shownByDefault",
+                        "type": "boolean",
                         "optional": true,
                         "tagName": {
                             "text": "param"
@@ -123,22 +125,22 @@
             },
             "properties": [
                 {
-                    "name": "current",
-                    "type": "boolean",
+                    "name": "label",
+                    "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 4,
+                    "line": 2,
                     "modifierKind": [
                         114,
                         132
                     ]
                 },
                 {
-                    "name": "label",
-                    "type": "string",
+                    "name": "shownByDefault",
+                    "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 2,
+                    "line": 4,
                     "modifierKind": [
                         114,
                         132
@@ -152,8 +154,7 @@
                     "description": "",
                     "line": 6,
                     "modifierKind": [
-                        114,
-                        132
+                        114
                     ]
                 },
                 {
@@ -456,11 +457,11 @@
                 "args": [],
                 "line": 7
             },
-            "templateData": "<section class=\"jazz-alert-section\">\n  <h2 class=\"jazz-alert-section__heading jazz-visually-hidden\">{{ heading }}</h2>\n  <div class=\"jazz-alert-section__content\">\n    <div class=\"jazz-row\">\n      <h3 class=\"jazz-alert-section__title\">{{ title }}</h3>\n      <p>{{content}}</p>\n    </div>\n  </div>\n  <a title=\"Hide alert with title {{ title }} until it is updated\" class=\"jazz-alert-section__close\" role=\"button\" (click)=\"close()\">X</a>\n</section>\n"
+            "templateData": "<section class=\"jazz-alert-section\">\n  <h2 class=\"jazz-alert-section__heading jazz-visually-hidden\">{{ heading }}</h2>\n  <div class=\"jazz-alert-section__content\">\n    <div class=\"jazz-row\">\n      <h3 class=\"jazz-alert-section__title\">{{ title }}</h3>\n      <ng-content></ng-content>\n    </div>\n  </div>\n  <a title=\"Hide alert with title {{ title }} until it is updated\" class=\"jazz-alert-section__close\" role=\"button\" (click)=\"close()\">X</a>\n</section>\n"
         },
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-9c096bca0756174ec3ca21093c5a5f23",
+            "id": "component-AppComponent-1de62ba8e25b835d21a4e2345cb5c49b",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -517,7 +518,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {Component, OnInit} from '@angular/core';\nimport {MenuItem} from './model/menu-item';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html'\n})\nexport class AppComponent implements OnInit {\n  title = 'Princeton Design System';\n  mainMenu: MenuItem[] = [];\n  utilityMenu: MenuItem[] = [];\n\n  constructor() {}\n\n  ngOnInit(): void {\n    const subMenu2: MenuItem[] = [];\n    subMenu2.push(new MenuItem('Level 3 Menu 1', '/level3item1', true ));\n    subMenu2.push(new MenuItem('Level 3 Menu 2', '/level3item2', false ));\n    subMenu2.push(new MenuItem('Level 3 Menu 3', '/level3item3', false ));\n\n    const subMenu1: MenuItem[] = [];\n    subMenu1.push(new MenuItem('Sub Menu 1', '/level2item1', true, subMenu2));\n    subMenu1.push(new MenuItem('Sub Menu 2', '/level2item2', false ));\n    subMenu1.push(new MenuItem('Sub Menu 3', '/level2item2', false ));\n\n    this.mainMenu.push(new MenuItem('Main Menu 1', '/mainMenu1', true, subMenu1 ));\n    this.mainMenu.push(new MenuItem('Main Menu 2', '/mainMenu2', false));\n    this.mainMenu.push(new MenuItem('Main Menu 3', '/mainMenu3', false));\n\n    this.utilityMenu.push(new MenuItem('Documentation', '/documentation', true));\n    this.utilityMenu.push(new MenuItem('Log In', '/login', false));\n  }\n}\n",
+            "sourceCode": "import {Component, OnInit} from '@angular/core';\nimport {MenuItem} from './model/menu-item';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html'\n})\nexport class AppComponent implements OnInit {\n  title = 'Princeton Design System';\n  mainMenu: MenuItem[] = [];\n  utilityMenu: MenuItem[] = [];\n\n  constructor() {}\n\n  ngOnInit(): void {\n    const subMenu3: MenuItem[] = [];\n    subMenu3.push(new MenuItem('Level 3a Menu 1', '/level3aitem1'));\n    subMenu3.push(new MenuItem('Level 3a Menu 2', '/level3aitem2' ));\n    subMenu3.push(new MenuItem('Level 3a Menu 3', '/level3aitem3' ));\n\n    const subMenu2: MenuItem[] = [];\n    subMenu2.push(new MenuItem('Level 3 Menu 1', '/level3item1'));\n    subMenu2.push(new MenuItem('Level 3 Menu 2', '/level3item2'));\n    subMenu2.push(new MenuItem('Level 3 Menu 3', '/level3item3'));\n\n    const subMenu1: MenuItem[] = [];\n    subMenu1.push(new MenuItem('Sub Menu 1', '/level2item1', subMenu2, true));\n    subMenu1.push(new MenuItem('Sub Menu 2', '/level2item2', subMenu3));\n    subMenu1.push(new MenuItem('Sub Menu 3', '/level2item2'));\n\n    this.mainMenu.push(new MenuItem('Main Menu 1', '/mainMenu1', subMenu1));\n    this.mainMenu.push(new MenuItem('Main Menu 2', '/mainMenu2', subMenu2));\n    this.mainMenu.push(new MenuItem('Main Menu 3', '/mainMenu3'));\n\n    this.utilityMenu.push(new MenuItem('Documentation', '/documentation'));\n    this.utilityMenu.push(new MenuItem('Log In', '/login'));\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -627,8 +628,64 @@
             "templateData": "<button\n  type=\"button\"\n  (click)=\"click.emit($event)\"\n  [ngClass]=\"classes\"\n  [disabled]=\"disabled\"\n>\n  {{ label }}\n</button>\n"
         },
         {
+            "name": "DocumentationComponent",
+            "id": "component-DocumentationComponent-97cce191ed8cf892b31713c7ffe5d1d2",
+            "file": "src/app/main-menu/documentation/documentation.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-documentation",
+            "styleUrls": [
+                "./documentation.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./documentation.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-documentation',\n  templateUrl: './documentation.component.html',\n  styleUrls: ['./documentation.component.css']\n})\nexport class DocumentationComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./documentation.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<h1 class=\"jazz-page-title\">Documentation</h1>\n<h2>Documentation</h2>\n<p>\n  This is the section for documentation\n</p>\n\n"
+        },
+        {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-20534bb26abd949e820375800da7d9d5",
+            "id": "component-HeaderComponent-dc40b4a3de6a2652be8adb835d924e36",
             "file": "src/app/components/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -647,6 +704,12 @@
                     "name": "menuItems",
                     "line": 19,
                     "type": "MenuItem[]"
+                },
+                {
+                    "name": "showSearch",
+                    "defaultValue": "false",
+                    "line": 25,
+                    "type": "boolean"
                 },
                 {
                     "name": "siteBrandingName",
@@ -677,7 +740,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {MenuItem} from '../../model/menu-item';\nimport {Component, Input} from '@angular/core';\n\n@Component({\n  selector: 'app-jazz-header',\n  templateUrl: './header.component.html'\n})\nexport class HeaderComponent {\n  @Input()\n  title: string;\n\n  @Input()\n  siteBrandingName: string;\n\n  @Input()\n  siteBrandingSlogan: string;\n\n  @Input()\n  menuItems: MenuItem[];\n\n  @Input()\n  utilityItems?: MenuItem[];\n\n  constructor() {}\n\n}\n",
+            "sourceCode": "import {MenuItem} from '../../model/menu-item';\nimport {Component, Input} from '@angular/core';\n\n@Component({\n  selector: 'app-jazz-header',\n  templateUrl: './header.component.html'\n})\nexport class HeaderComponent {\n  @Input()\n  title: string;\n\n  @Input()\n  siteBrandingName: string;\n\n  @Input()\n  siteBrandingSlogan: string;\n\n  @Input()\n  menuItems?: MenuItem[];\n\n  @Input()\n  utilityItems?: MenuItem[];\n\n  @Input()\n  showSearch?: boolean = false;\n\n  constructor() {}\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -685,13 +748,13 @@
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 22
+                "line": 25
             },
-            "templateData": "<header role=\"banner\" class=\"jazz-header\">\n  <h1 class=\"jazz-visually-hidden\">{{title}}</h1>\n  <div class=\"jazz-skip-links\">\n    <a href=\"#main-content\" class=\"jazz-skip-link\">Skip to main content</a>\n    <a href=\"#search\" class=\"jazz-skip-link\">Skip to search options</a>\n  </div>\n  <div class=\"jazz-header__pu-branding\">\n    <div class=\"jazz-container\">\n      <a href=\"https://www.princeton.edu\" title=\"{{ title }}\"><img src=\"./assets/logos/pu-logo.svg\" alt=\"{{ title}}\" /></a>\n    </div>\n  </div>\n  <div class=\"jazz-header__site-branding\">\n    <div class=\"jazz-container jazz-header__site-branding-contents\">\n      <a href=\"javascript:void(0)\" title=\"Home\" rel=\"home\" tabindex=\"-1\" aria-hidden=\"true\" class=\"jazz-header__site-branding-home-link\"><img src=\"./assets/logos/shield.svg\" alt=\"{{ siteBrandingName }}\"/></a>\n      <div class=\"jazz-header__site-branding-info\">\n        <div class=\"jazz-header__site-branding-name\">\n          <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ siteBrandingName }}</a>\n        </div>\n        <div class=\"jazz-header__site-branding-slogan\">\n          {{ siteBrandingSlogan }}\n        </div>\n      </div>\n    </div>\n  </div>\n  <app-jazz-menu [menuItems]=\"menuItems\" [utilityItems]=\"utilityItems\"></app-jazz-menu>\n  <div class=\"jazz-header__search-bar\">\n    <div class=\"jazz-container\">\n      <h2 class=\"jazz-visually-hidden\">Search</h2>\n      <button id=\"my-search-toggle\" class=\"jazz-header__search-bar-toggle\" aria-expanded=\"false\" aria-label=\"Search Menu Toggle\"><i class=\"jazz-icon jazz-icon-search\" aria-hidden=\"true\"></i><span class=\"jazz-visually-hidden\">Search Menu Toggle</span></button>\n      <div id=\"jazz-header-search-bar-panel\" class=\"jazz-header__search-bar-panel\">\n        <form action=\"javascript:void(0)\" method=\"get\" accept-charset=\"UTF-8\" role=\"search\">\n          <label class=\"jazz-visually-hidden\" for=\"search-field\">Search</label>\n          <a id=\"search\">\n            <input type=\"search\" id=\"search-field\" placeholder=\"Search\" autocomplete=\"off\" />\n          </a>\n          <button class=\"jazz-button\" type=\"submit\">\n            <span class=\"jazz-visually-hidden\">Search</span>\n          </button>\n        </form>\n      </div>\n    </div>\n  </div>\n</header>\n"
+            "templateData": "<header role=\"banner\" class=\"jazz-header\">\n  <h1 class=\"jazz-visually-hidden\">{{title}}</h1>\n  <div class=\"jazz-skip-links\">\n    <a href=\"#main-content\" class=\"jazz-skip-link\">Skip to main content</a>\n    <a href=\"#search\" class=\"jazz-skip-link\">Skip to search options</a>\n  </div>\n  <div class=\"jazz-header__pu-branding\">\n    <div class=\"jazz-container\">\n      <a href=\"https://www.princeton.edu\" title=\"{{ title }}\"><img src=\"./assets/logos/pu-logo.svg\" alt=\"{{ title}}\" /></a>\n    </div>\n  </div>\n  <div class=\"jazz-header__site-branding\">\n    <div class=\"jazz-container jazz-header__site-branding-contents\">\n      <a href=\"./\" title=\"Home\" rel=\"home\" tabindex=\"-1\" aria-hidden=\"true\" class=\"jazz-header__site-branding-home-link\"><img src=\"./assets/logos/shield.svg\" alt=\"{{ siteBrandingName }}\"/></a>\n      <div class=\"jazz-header__site-branding-info\">\n        <div class=\"jazz-header__site-branding-name\">\n          <a href=\"./\" title=\"Home\" rel=\"home\">{{ siteBrandingName }}</a>\n        </div>\n        <div class=\"jazz-header__site-branding-slogan\">\n          {{ siteBrandingSlogan }}\n        </div>\n      </div>\n    </div>\n  </div>\n  <app-jazz-menu [menuItems]=\"menuItems\" [utilityItems]=\"utilityItems\"></app-jazz-menu>\n  <div class=\"jazz-header__search-bar\">\n    <div class=\"jazz-container\">\n      <h2 class=\"jazz-visually-hidden\">Search</h2>\n      <button id=\"my-search-toggle\" class=\"jazz-header__search-bar-toggle\" aria-expanded=\"false\" aria-label=\"Search Menu Toggle\"><i class=\"jazz-icon jazz-icon-search\" aria-hidden=\"true\"></i><span class=\"jazz-visually-hidden\">Search Menu Toggle</span></button>\n      <div *ngIf=\"showSearch\" class=\"jazz-header__search-bar-panel\">\n        <form action=\"javascript:void(0)\" method=\"get\" accept-charset=\"UTF-8\" role=\"search\">\n          <label class=\"jazz-visually-hidden\" for=\"search-field\">Search</label>\n          <a id=\"search\">\n            <input type=\"search\" id=\"search-field\" placeholder=\"Search\" autocomplete=\"off\" />\n          </a>\n          <button class=\"jazz-button\" type=\"submit\">\n            <span class=\"jazz-visually-hidden\">Search</span>\n          </button>\n        </form>\n      </div>\n    </div>\n  </div>\n</header>\n"
         },
         {
             "name": "MainMenu1Component",
-            "id": "component-MainMenu1Component-326e257f7de9c427fbf3e848b0da39f1",
+            "id": "component-MainMenu1Component-efeedec8196c071030448be76bd24aa3",
             "file": "src/app/main-menu/main-menu1/main-menu1.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -725,7 +788,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-main-menu1',\n  templateUrl: './main-menu1.component.html',\n  styleUrls: ['./main-menu1.component.css']\n})\nexport class MainMenu1Component implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n    console.log('menu1')\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-main-menu1',\n  templateUrl: './main-menu1.component.html',\n  styleUrls: ['./main-menu1.component.css']\n})\nexport class MainMenu1Component implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -747,7 +810,7 @@
         },
         {
             "name": "MainMenu2Component",
-            "id": "component-MainMenu2Component-d391974babf49dd78e67fbe7928defa3",
+            "id": "component-MainMenu2Component-630c40821d88429fc804d6ddeb3ce80c",
             "file": "src/app/main-menu/main-menu2/main-menu2.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -768,6 +831,14 @@
             "propertiesClass": [],
             "methodsClass": [
                 {
+                    "name": "clicked",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16
+                },
+                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
@@ -781,7 +852,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-main-menu2',\n  templateUrl: './main-menu2.component.html',\n  styleUrls: ['./main-menu2.component.css']\n})\nexport class MainMenu2Component implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n    console.log('menu2')\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-main-menu2',\n  templateUrl: './main-menu2.component.html',\n  styleUrls: ['./main-menu2.component.css']\n})\nexport class MainMenu2Component implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n\n  }\n\n  clicked(): void {\n    alert('Button was clicked');\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -799,11 +870,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<h1 class=\"jazz-page-title\">Main Menu 2</h1>\n<h2>Second Point</h2>\n\n<nav class=\"jazz-breadcrumb\" aria-label=\"Breadcrumbs\">\n  <ol class=\"jazz-breadcrumb__list\">\n    <li class=\"jazz-breadcrumb__list-item\">\n      <a href=\"#\" class=\"jazz-breadcrumb__link\">Home</a>\n    </li>\n    <li class=\"jazz-breadcrumb__list-item\">\n      <a href=\"#\" class=\"jazz-breadcrumb__link\">Another Link</a>\n    </li>\n    <li class=\"jazz-breadcrumb__list-item\">\n      <a href=\"#\" class=\"jazz-breadcrumb__link\">Yet Another Link Level</a>\n    </li>\n    <li class=\"jazz-breadcrumb__list-item jazz-current\" aria-current=\"page\">And finally here were are the page description</li>\n  </ol>\n</nav>\n\n<p>\n  This section describes the second point. Careful consideration of these points should be considered.\n</p>\n\n"
+            "templateData": "<h1 class=\"jazz-page-title\">Main Menu 2</h1>\n<h2>Second Point</h2>\n\n<nav class=\"jazz-breadcrumb\" aria-label=\"Breadcrumbs\">\n  <ol class=\"jazz-breadcrumb__list\">\n    <li class=\"jazz-breadcrumb__list-item\">\n      <a href=\"#\" class=\"jazz-breadcrumb__link\">Home</a>\n    </li>\n    <li class=\"jazz-breadcrumb__list-item\">\n      <a href=\"#\" class=\"jazz-breadcrumb__link\">Another Link</a>\n    </li>\n    <li class=\"jazz-breadcrumb__list-item\">\n      <a href=\"#\" class=\"jazz-breadcrumb__link\">Yet Another Link Level</a>\n    </li>\n    <li class=\"jazz-breadcrumb__list-item jazz-current\" aria-current=\"page\">And finally here were are the page description</li>\n  </ol>\n</nav>\n\n<p>\n  This section describes the second point. Careful consideration of these points should be considered. This is a button that activates a dialog box.\n  <app-jazz-modal-dialog [title]=\"'Sample Dialog'\" [buttonLabel]=\"'Click Me!'\" (buttonClicked)=\"clicked()\">\n      This is the content of the dialog\n  </app-jazz-modal-dialog>\n</p>\n\n"
         },
         {
             "name": "MainMenu3Component",
-            "id": "component-MainMenu3Component-d3fc62fb2279424184fce1e0a5294a64",
+            "id": "component-MainMenu3Component-1057bec36fc7a5d8fecff8d1d8a36fa8",
             "file": "src/app/main-menu/main-menu3/main-menu3.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -837,7 +908,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-main-menu3',\n  templateUrl: './main-menu3.component.html',\n  styleUrls: ['./main-menu3.component.css']\n})\nexport class MainMenu3Component implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n    console.log('menu3')\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-main-menu3',\n  templateUrl: './main-menu3.component.html',\n  styleUrls: ['./main-menu3.component.css']\n})\nexport class MainMenu3Component implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -915,7 +986,7 @@
         },
         {
             "name": "MenuComponent",
-            "id": "component-MenuComponent-bc036f02b746ef602cbf848b4b81f220",
+            "id": "component-MenuComponent-c02c3dea3368bf3308b7d8a726813924",
             "file": "src/app/components/menu/menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -946,25 +1017,11 @@
             "methodsClass": [
                 {
                     "name": "closeSubMenus",
-                    "args": [
-                        {
-                            "name": "disableNav",
-                            "type": "boolean"
-                        }
-                    ],
+                    "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 79,
-                    "jsdoctags": [
-                        {
-                            "name": "disableNav",
-                            "type": "boolean",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
+                    "line": 79
                 },
                 {
                     "name": "displayWindowSize",
@@ -1037,7 +1094,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 109,
+                    "line": 107,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1054,7 +1111,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 98
+                    "line": 96
                 }
             ],
             "hostBindings": [],
@@ -1076,7 +1133,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {MenuItem} from '../../model/menu-item';\nimport {Component, HostListener, Input, OnInit} from '@angular/core';\nimport {\n  ARIA_EXPANDED,\n  HEADER_NAV_SELECTOR, HEADER_SUB_MENU_SELECTOR, ICON_CLOSE, ICON_MENU, ICON_SELECTOR, MENU_BUTTON_SELECTOR,\n  MENU_HIDE_STYLE, MENU_MAIN_MENU_SELECTOR,\n  MENU_NAV_EXPANDED_STYLE, MENU_RECENTLY_OPENED_ID, MENU_SELECTOR,\n  MENU_STICKY_STYLE, MENU_SUB_NAV_EXPANDED_STYLE,\n  MENUBAR_SHOWN_STYLE, MENUBAR_SUB_SHOWN_STYLE\n} from './menu-constants';\n\n\n@Component({\n  selector: 'app-jazz-menu',\n  templateUrl: './menu.component.html'\n})\nexport class MenuComponent implements OnInit {\n\n  @Input()\n  menuItems?: MenuItem[];\n\n  @Input()\n  utilityItems?: MenuItem[];\n\n  @HostListener('window:resize', ['$event'])\n  onResize(event): void {\n    this.displayWindowSize();\n  }\n\n  constructor() {}\n\n  ngOnInit(): void {\n\n  }\n\n  displayWindowSize(): void {\n    // Main Menu Reset\n    document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((header) => {\n      header.classList.remove(MENU_NAV_EXPANDED_STYLE);\n      header.querySelectorAll('ul').forEach((navbar) => {\n        navbar.classList.remove(MENU_NAV_EXPANDED_STYLE);\n        navbar.classList.remove(MENUBAR_SHOWN_STYLE);\n        navbar.classList.remove(MENU_STICKY_STYLE);\n        navbar.querySelectorAll('li').forEach((submenu) => {\n          submenu.classList.remove(MENU_STICKY_STYLE);\n          submenu.classList.remove(MENU_HIDE_STYLE);\n        });\n      });\n    });\n\n    document.querySelectorAll(MENU_BUTTON_SELECTOR).forEach((button) => {\n      button.setAttribute(ARIA_EXPANDED, 'false');\n      const menuToggleIcon = button.querySelector(ICON_SELECTOR);\n      menuToggleIcon.classList.remove(ICON_CLOSE);\n      menuToggleIcon.classList.add(ICON_MENU);\n    });\n\n    // Sub Menus Reset\n    document.querySelectorAll(MENU_SELECTOR).forEach((menu) => {\n      menu.querySelectorAll('ul').forEach((navbar) => {\n        navbar.classList.remove(MENU_SUB_NAV_EXPANDED_STYLE);\n        navbar.classList.remove(MENUBAR_SUB_SHOWN_STYLE);\n      });\n    });\n\n    document.querySelectorAll(HEADER_SUB_MENU_SELECTOR).forEach((button) => {\n      button.setAttribute(ARIA_EXPANDED, 'false');\n    });\n  }\n\n  // This retrieves the appropriate button depending on the selector passed in\n  getButtonForSelector(btnSelector, button, mainEl): any {\n    if (!button.matches(btnSelector)) {\n      button = mainEl.querySelector(btnSelector);\n    }\n    return button;\n  }\n\n  closeSubMenus(disableNav: boolean): void {\n    // const mainEl = event.btn.closest(MENU_MAIN_MENU_SELECTOR);\n    document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((mainEl) => {\n      mainEl.querySelectorAll('li').forEach((navbar) => {\n        navbar.querySelectorAll('ul').forEach((list) => {\n          list.classList.remove(MENU_STICKY_STYLE);\n          if (disableNav) {\n            list.classList.add(MENU_HIDE_STYLE);\n          }\n        });\n      });\n\n      // tslint:disable-next-line:no-shadowed-variable\n      mainEl.querySelectorAll(HEADER_SUB_MENU_SELECTOR).forEach((button) => {\n        button.setAttribute(ARIA_EXPANDED, 'false');\n      });\n    });\n  }\n\n  resetSubMenus(): void {\n    document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((mainEl) => {\n      mainEl.querySelectorAll('li').forEach((navbar) => {\n        navbar.querySelectorAll('ul').forEach((list) => {\n          list.classList.remove(MENU_STICKY_STYLE);\n          list.classList.remove(MENU_HIDE_STYLE);\n        });\n      });\n    });\n  }\n\n  onMouseOut(event): void {\n    const li = event.target as HTMLElement;\n    if (li) {\n      li.querySelectorAll('ul').forEach((subnav) => {\n        if (subnav.id === MENU_RECENTLY_OPENED_ID) {\n          subnav.classList.remove(MENU_HIDE_STYLE);\n          subnav.id = '';\n        }\n      });\n    }\n  }\n}\n",
+            "sourceCode": "import {MenuItem} from '../../model/menu-item';\nimport {Component, HostListener, Input, OnInit} from '@angular/core';\nimport {\n  ARIA_EXPANDED,\n  HEADER_NAV_SELECTOR, HEADER_SUB_MENU_SELECTOR, ICON_CLOSE, ICON_MENU, ICON_SELECTOR, MENU_BUTTON_SELECTOR,\n  MENU_HIDE_STYLE, MENU_MAIN_MENU_SELECTOR,\n  MENU_NAV_EXPANDED_STYLE, MENU_RECENTLY_OPENED_ID, MENU_SELECTOR,\n  MENU_STICKY_STYLE, MENU_SUB_NAV_EXPANDED_STYLE,\n  MENUBAR_SHOWN_STYLE, MENUBAR_SUB_SHOWN_STYLE\n} from './menu-constants';\n\n\n@Component({\n  selector: 'app-jazz-menu',\n  templateUrl: './menu.component.html'\n})\nexport class MenuComponent implements OnInit {\n\n  @Input()\n  menuItems?: MenuItem[];\n\n  @Input()\n  utilityItems?: MenuItem[];\n\n  @HostListener('window:resize', ['$event'])\n  onResize(event): void {\n    this.displayWindowSize();\n  }\n\n  constructor() {}\n\n  ngOnInit(): void {\n\n  }\n\n  displayWindowSize(): void {\n    // Main Menu Reset\n    document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((header) => {\n      header.classList.remove(MENU_NAV_EXPANDED_STYLE);\n      header.querySelectorAll('ul').forEach((navbar) => {\n        navbar.classList.remove(MENU_NAV_EXPANDED_STYLE);\n        navbar.classList.remove(MENUBAR_SHOWN_STYLE);\n        navbar.classList.remove(MENU_STICKY_STYLE);\n        navbar.querySelectorAll('li').forEach((submenu) => {\n          submenu.classList.remove(MENU_STICKY_STYLE);\n          submenu.classList.remove(MENU_HIDE_STYLE);\n        });\n      });\n    });\n\n    document.querySelectorAll(MENU_BUTTON_SELECTOR).forEach((button) => {\n      button.setAttribute(ARIA_EXPANDED, 'false');\n      const menuToggleIcon = button.querySelector(ICON_SELECTOR);\n      menuToggleIcon.classList.remove(ICON_CLOSE);\n      menuToggleIcon.classList.add(ICON_MENU);\n    });\n\n    // Sub Menus Reset\n    document.querySelectorAll(MENU_SELECTOR).forEach((menu) => {\n      menu.querySelectorAll('ul').forEach((navbar) => {\n        navbar.classList.remove(MENU_SUB_NAV_EXPANDED_STYLE);\n        navbar.classList.remove(MENUBAR_SUB_SHOWN_STYLE);\n      });\n    });\n\n    document.querySelectorAll(HEADER_SUB_MENU_SELECTOR).forEach((button) => {\n      button.setAttribute(ARIA_EXPANDED, 'false');\n    });\n  }\n\n  // This retrieves the appropriate button depending on the selector passed in\n  getButtonForSelector(btnSelector, button, mainEl): any {\n    if (!button.matches(btnSelector)) {\n      button = mainEl.querySelector(btnSelector);\n    }\n    return button;\n  }\n\n  closeSubMenus(): void {\n    // const mainEl = event.btn.closest(MENU_MAIN_MENU_SELECTOR);\n    document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((mainEl) => {\n      mainEl.querySelectorAll('li').forEach((navbar) => {\n        navbar.querySelectorAll('ul').forEach((list) => {\n          list.classList.remove(MENU_STICKY_STYLE);\n          list.classList.add(MENU_HIDE_STYLE);\n        });\n      });\n\n      // tslint:disable-next-line:no-shadowed-variable\n      mainEl.querySelectorAll(HEADER_SUB_MENU_SELECTOR).forEach((button) => {\n        button.setAttribute(ARIA_EXPANDED, 'false');\n      });\n    });\n  }\n\n  resetSubMenus(): void {\n    document.querySelectorAll(HEADER_NAV_SELECTOR).forEach((mainEl) => {\n      mainEl.querySelectorAll('li').forEach((navbar) => {\n        navbar.querySelectorAll('ul').forEach((list) => {\n          list.classList.remove(MENU_STICKY_STYLE);\n          list.classList.remove(MENU_HIDE_STYLE);\n        });\n      });\n    });\n  }\n\n  onMouseOut(event): void {\n    const li = event.target as HTMLElement;\n    if (li) {\n      li.querySelectorAll('ul').forEach((subnav) => {\n        if (subnav.id === MENU_RECENTLY_OPENED_ID) {\n          subnav.classList.remove(MENU_HIDE_STYLE);\n          subnav.id = '';\n        }\n      });\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -1089,11 +1146,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<nav aria-label=\"Main Menu\" class=\"jazz-menu__main-menu\">\n  <h2 class=\"jazz-visually-hidden\">Main Menu</h2>\n\n  <div *ngIf=\"menuItems && menuItems.length > 0\" class=\"jazz-container\">\n    <div class=\"jazz-menu__main-menu-navbar\">\n      <app-jazz-menu-main-button></app-jazz-menu-main-button>\n      <div class=\"jazz-menu__nav-container\">\n        <ul class=\"jazz-menubar\" role=\"list\">\n            <li *ngFor=\"let level1item of menuItems\" (mouseleave)=\"onMouseOut($event)\" [attr.aria-current]=\"level1item.current\">\n              <app-jazz-menu-item [menuItem]=\"level1item\" (closeSubMenus)='closeSubMenus($event)' (resetSubMenus)='resetSubMenus()'></app-jazz-menu-item>\n            </li>\n        </ul>\n        <div class=\"jazz-header__utility-menu\">\n          <ul *ngIf=\"utilityItems && utilityItems.length > 0\">\n            <li *ngFor=\"let utilityItem of utilityItems\" [attr.aria-current]=\"utilityItem.current\">\n              <a href=\"{{utilityItem.url}}\">{{utilityItem.label}}</a>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</nav>\n"
+            "templateData": "<nav aria-label=\"Main Menu\" class=\"jazz-menu__main-menu\">\n  <h2 class=\"jazz-visually-hidden\">Main Menu</h2>\n\n  <div class=\"jazz-container\">\n    <div class=\"jazz-menu__main-menu-navbar\">\n      <app-jazz-menu-main-button></app-jazz-menu-main-button>\n      <div class=\"jazz-menu__nav-container\">\n        <ul *ngIf=\"menuItems && menuItems.length > 0\" class=\"jazz-menubar\" role=\"list\">\n            <li *ngFor=\"let level1item of menuItems\" (mouseleave)=\"onMouseOut($event)\">\n              <app-jazz-menu-item [menuItem]=\"level1item\" (closeSubMenus)=\"closeSubMenus()\" (resetSubMenus)=\"resetSubMenus()\"></app-jazz-menu-item>\n            </li>\n        </ul>\n        <div class=\"jazz-header__utility-menu\">\n          <ul *ngIf=\"utilityItems && utilityItems.length > 0\">\n            <li *ngFor=\"let utilityItem of utilityItems\" >\n              <a [routerLink]=\"utilityItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\n                [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{utilityItem.label}}</a>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</nav>\n"
         },
         {
             "name": "MenuItemComponent",
-            "id": "component-MenuItemComponent-2c512b0af86bb6a68b91883059b4a411",
+            "id": "component-MenuItemComponent-12bbcc74daed5e4ebecad6b6a2879373",
             "file": "src/app/components/menu/menu-item/menu-item.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1119,7 +1176,7 @@
                     "name": "closeSubMenus",
                     "defaultValue": "new EventEmitter()",
                     "line": 16,
-                    "type": "EventEmitter<boolean>"
+                    "type": "EventEmitter<void>"
                 },
                 {
                     "name": "resetSubMenus",
@@ -1146,25 +1203,19 @@
             "methodsClass": [
                 {
                     "name": "close",
-                    "args": [
-                        {
-                            "name": "$event",
-                            "type": ""
-                        }
-                    ],
+                    "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 29,
-                    "jsdoctags": [
-                        {
-                            "name": "$event",
-                            "type": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
+                    "line": 33
+                },
+                {
+                    "name": "getClass",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 29
                 },
                 {
                     "name": "ngOnInit",
@@ -1176,25 +1227,11 @@
                 },
                 {
                     "name": "reset",
-                    "args": [
-                        {
-                            "name": "$event",
-                            "type": ""
-                        }
-                    ],
+                    "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 33,
-                    "jsdoctags": [
-                        {
-                            "name": "$event",
-                            "type": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
+                    "line": 37
                 }
             ],
             "hostBindings": [],
@@ -1202,7 +1239,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {MenuItem} from '../../../model/menu-item';\nimport {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';\n\n@Component({\n  selector: 'app-jazz-menu-item',\n  templateUrl: './menu-item.component.html'\n})\nexport class MenuItemComponent implements OnInit {\n\n  @ViewChild('template', {static: true}) template;\n\n  @Input()\n  menuItem: MenuItem;\n\n  @Output()\n  closeSubMenus: EventEmitter<boolean> = new EventEmitter();\n\n  @Output()\n  resetSubMenus: EventEmitter<void> = new EventEmitter();\n\n  constructor(\n    private viewContainerRef: ViewContainerRef\n  ) {}\n\n  ngOnInit(): void {\n    this.viewContainerRef.createEmbeddedView(this.template);\n  }\n\n  close($event): void {\n    this.closeSubMenus.emit();\n  }\n\n  reset($event): void {\n    this.resetSubMenus.emit();\n  }\n}\n",
+            "sourceCode": "import {MenuItem} from '../../../model/menu-item';\nimport {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';\n\n@Component({\n  selector: 'app-jazz-menu-item',\n  templateUrl: './menu-item.component.html'\n})\nexport class MenuItemComponent implements OnInit {\n\n  @ViewChild('template', {static: true}) template;\n\n  @Input()\n  menuItem: MenuItem;\n\n  @Output()\n  closeSubMenus: EventEmitter<void> = new EventEmitter();\n\n  @Output()\n  resetSubMenus: EventEmitter<void> = new EventEmitter();\n\n  constructor(\n    private viewContainerRef: ViewContainerRef\n  ) {}\n\n  ngOnInit(): void {\n    this.viewContainerRef.createEmbeddedView(this.template);\n  }\n\n  getClass(): string {\n    return this.menuItem.shownByDefault ? 'jazz-menubar__submenu--shown-by-default' : '';\n  }\n\n  close(): void {\n    this.closeSubMenus.emit();\n  }\n\n  reset(): void {\n    this.resetSubMenus.emit();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -1229,7 +1266,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ng-template #template>\n  <a [routerLink]=\"menuItem.url\">{{menuItem.label}}</a>\n  <app-jazz-sub-button [menuItem]=\"menuItem\" (closeSubMenus)=\"closeSubMenus\" (reset)=\"resetSubMenus\"></app-jazz-sub-button>\n  <ul *ngIf=\"menuItem && menuItem.subItems && menuItem.subItems.length > 0\">\n    <li *ngFor=\"let levelItem of menuItem.subItems\" [attr.aria-current]=\"levelItem.current\">\n        <app-jazz-menu-item [menuItem]=\"levelItem\"></app-jazz-menu-item>\n    </li>\n  </ul>\n</ng-template>\n"
+            "templateData": "<ng-template #template>\n  <a [routerLink]=\"menuItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\n    [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{menuItem.label}}</a>\n  <app-jazz-sub-button [menuItem]=\"menuItem\" (closeSubMenus)=\"close()\" (resetSubMenus)=\"reset()\"></app-jazz-sub-button>\n  <ul *ngIf=\"menuItem && menuItem.subItems && menuItem.subItems.length > 0\" [class]=\"getClass()\">\n    <li *ngFor=\"let levelItem of menuItem.subItems\">\n        <app-jazz-menu-item [menuItem]=\"levelItem\"></app-jazz-menu-item>\n    </li>\n  </ul>\n</ng-template>\n"
         },
         {
             "name": "MenuMainButtonComponent",
@@ -1603,6 +1640,189 @@
             "templateData": "<ng-template #subButtonTemplate>\n  <button *ngIf='menuItem && menuItem.subItems && menuItem.subItems.length > 0' class=\"jazz-menu__submenu-toggle\" type=\"button\" aria-expanded=\"false\" (click)='onSubMenuClick($event)'>\n    <span class=\"jazz-visually-hidden\">\n      {{menuItem.label}}\n    </span>\n  </button>\n</ng-template>\n"
         },
         {
+            "name": "ModalDialogComponent",
+            "id": "component-ModalDialogComponent-79e4e7478b264f6e2b53a79511813d3e",
+            "file": "src/app/components/modal-dialog/modal-dialog.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-jazz-modal-dialog",
+            "styleUrls": [
+                "./modal-dialog.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./modal-dialog.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "buttonLabel",
+                    "line": 22,
+                    "type": "string"
+                },
+                {
+                    "name": "content",
+                    "line": 28,
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "line": 25,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "buttonClicked",
+                    "defaultValue": "new EventEmitter()",
+                    "line": 31,
+                    "type": "EventEmitter<void>"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "modalWrapper",
+                    "type": "ElementRef",
+                    "optional": false,
+                    "description": "",
+                    "line": 34,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'jazzModalWrapper'"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "close",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 102
+                },
+                {
+                    "name": "focusOnFirstInput",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 77
+                },
+                {
+                    "name": "handleKeyEvents",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 56,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "keepFocusWithin",
+                    "args": [
+                        {
+                            "name": "keyEvent",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 84,
+                    "jsdoctags": [
+                        {
+                            "name": "keyEvent",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "modalClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 107
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38
+                },
+                {
+                    "name": "onAction",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {\n  Component, ElementRef,\n  EventEmitter,\n  Input,\n  OnInit,\n  Output,\n  ViewChild\n} from '@angular/core';\nimport {UtilityFunctions} from '../utility-functions';\n\nconst INPUT_SELECTORS_EXCL_CLOSE = 'a[href]:not([disabled]), button:not([disabled]):not(.jazz-modal-button__close), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])';\nconst INPUT_SELECTORS = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])';\n\n@Component({\n  selector: 'app-jazz-modal-dialog',\n  templateUrl: './modal-dialog.component.html',\n  styleUrls: ['./modal-dialog.component.css']\n})\nexport class ModalDialogComponent implements OnInit {\n\n  @Input()\n  buttonLabel: string;\n\n  @Input()\n  title: string;\n\n  @Input()\n  content: string;\n\n  @Output()\n  buttonClicked: EventEmitter<void> = new EventEmitter();\n\n  @ViewChild('jazzModalWrapper')\n  modalWrapper: ElementRef;\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  onAction(event: Event): void {\n    console.log('onAction')\n\n    if (!this.handleKeyEvents(event)) {\n      return;\n    }\n\n    this.modalWrapper.nativeElement.classList.toggle('jazz-modal__wrapper--visible');\n    if (this.modalWrapper.nativeElement.classList.contains('jazz-modal__wrapper--visible')) {\n      this.focusOnFirstInput();\n    }\n\n    event.stopImmediatePropagation();\n  }\n\n  handleKeyEvents(event: Event): boolean {\n    if (event instanceof KeyboardEvent) {\n      const keyEvent: KeyboardEvent = event as KeyboardEvent;\n      const isTabPressed = (keyEvent.key === 'Tab');\n      const isEscPressed = (keyEvent.key === 'Escape');\n      const isEnterPressed = (keyEvent.key === 'Enter');\n\n      // Handle tab navigation to keep it within the window\n      if (isTabPressed) {\n        this.keepFocusWithin(keyEvent);\n        return false;\n      }\n\n      // Only allow Enter and Escape Key Press\n      if (!isEnterPressed && !isEscPressed) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  focusOnFirstInput(): void {\n    const focusableEls: HTMLElement[] = UtilityFunctions.select(INPUT_SELECTORS_EXCL_CLOSE, this.modalWrapper.nativeElement);\n    if (focusableEls.length > 0) {\n      focusableEls[0].focus();\n    }\n  }\n\n  keepFocusWithin(keyEvent): void {\n    const focusableEls: HTMLElement[] = UtilityFunctions.select(INPUT_SELECTORS, this.modalWrapper.nativeElement);\n    const firstFocusableEl = focusableEls[0];\n    const lastFocusableEl = focusableEls[focusableEls.length - 1];\n\n    if (keyEvent.shiftKey ) /* shift + tab */ {\n      if (document.activeElement === firstFocusableEl) {\n        lastFocusableEl.focus();\n        keyEvent.preventDefault();\n      }\n    } else /* tab */ {\n      if (document.activeElement === lastFocusableEl) {\n        firstFocusableEl.focus();\n        keyEvent.preventDefault();\n      }\n    }\n  }\n\n  close(): void {\n    console.log('close')\n    this.modalWrapper.nativeElement.classList.remove('jazz-modal__wrapper--visible');\n  }\n\n  modalClick(): void {\n    this.close();\n    this.buttonClicked.emit();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./modal-dialog.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 34
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"jazz-modal\" role=\"region\">\n  <button class=\"jazz-btn jazz-modal__button\" (click)=\"onAction($event)\">{{ buttonLabel }}</button>\n  <div #jazzModalWrapper role=\"presentation\" class=\"jazz-modal-wrapper\" (keydown)=\"onAction($event)\">\n    <div role=\"dialog\" aria-label=\"Test Dialog with Script\" aria-modal=\"true\" class=\"jazz-modal-window jazz-modal--sm\">\n      <div class=\"jazz-modal-title\">\n        {{ title }}\n        <button class=\"jazz-modal__button jazz-modal-button__close jazz-modal-button--transparent\"\n                aria-label=\"Close modal dialog\" (click)=\"close()\"></button>\n      </div>\n      <div class=\"jazz-modal-content\" aria-labelledBy=\"jazz-modal-title\">\n        <ng-content></ng-content>\n      </div>\n      <div class=\"jazz-modal-button-container\">\n        <button class=\"jazz-btn jazz-modal__button\" (click)=\"close()\">Cancel</button>\n        <button class=\"jazz-btn jazz-modal__button\" (click)=\"modalClick()\">OK</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+        },
+        {
             "name": "PagerComponent",
             "id": "component-PagerComponent-fc724dfd0a8b4331cd13652501a1e2ea",
             "file": "src/app/components/pager/pager.component.ts",
@@ -1697,6 +1917,9 @@
                     "elements": [
                         {
                             "name": "AppComponent"
+                        },
+                        {
+                            "name": "DocumentationComponent"
                         },
                         {
                             "name": "MainMenu1Component"
@@ -1848,6 +2071,9 @@
                             "name": "HeaderComponent"
                         },
                         {
+                            "name": "ModalDialogComponent"
+                        },
+                        {
                             "name": "PagerComponent"
                         }
                     ]
@@ -1874,6 +2100,9 @@
                         },
                         {
                             "name": "HeaderComponent"
+                        },
+                        {
+                            "name": "ModalDialogComponent"
                         },
                         {
                             "name": "PagerComponent"
@@ -1913,7 +2142,7 @@
                 "name": "ARIA_EXPANDED",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "string",
                 "defaultValue": "'aria-expanded'"
             },
@@ -1921,7 +2150,7 @@
                 "name": "ARIA_EXPANDED",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-constants.ts",
+                "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
                 "type": "string",
                 "defaultValue": "'aria-expanded'"
             },
@@ -1937,7 +2166,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Alert.stories.ts",
+                "file": "src/stories/Pager.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1946,14 +2175,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Pager.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2044,6 +2265,38 @@
                 "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-icon`"
+            },
+            {
+                "name": "INPUT_SELECTORS",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/modal-dialog/modal-dialog.component.ts",
+                "type": "string",
+                "defaultValue": "'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])'"
+            },
+            {
+                "name": "INPUT_SELECTORS_EXCL_CLOSE",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/modal-dialog/modal-dialog.component.ts",
+                "type": "string",
+                "defaultValue": "'a[href]:not([disabled]), button:not([disabled]):not(.jazz-modal-button__close), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])'"
+            },
+            {
+                "name": "JustHeader",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Header.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "JustSearch",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Header.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "mainMenu",
@@ -2150,7 +2403,7 @@
                 "defaultValue": "'aria-multiselectable'"
             },
             {
-                "name": "NoMainMenu",
+                "name": "OnlyUtilityMenu",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Header.stories.ts",
@@ -2198,6 +2451,14 @@
                 "defaultValue": "storiesOf('Components/Breadcrumbs', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
             },
             {
+                "name": "stories",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Alert.stories.ts",
+                "type": "",
+                "defaultValue": "storiesOf('Components/Alert', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AlertComponent],\n    })\n  )"
+            },
+            {
                 "name": "subMenu1",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2217,6 +2478,14 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Pager.stories.ts",
                 "type": "Story<PagerComponent>",
                 "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
@@ -2228,22 +2497,6 @@
                 "file": "src/stories/Header.stories.ts",
                 "type": "Story<HeaderComponent>",
                 "defaultValue": "(args: HeaderComponent) => ({\n  component: HeaderComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Alert.stories.ts",
-                "type": "Story<AlertComponent>",
-                "defaultValue": "(args: AlertComponent) => ({\n  component: AlertComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "type": "Story<ButtonComponent>",
-                "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
             },
             {
                 "name": "utilityMenu",
@@ -2367,16 +2620,6 @@
                     "file": "src/app/components/accordion/accordion.component.ts",
                     "type": "string",
                     "defaultValue": "'aria-multiselectable'"
-                }
-            ],
-            "src/app/components/menu/menu-main-button/menu-main-button.component.ts": [
-                {
-                    "name": "ARIA_EXPANDED",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
-                    "type": "string",
-                    "defaultValue": "'aria-expanded'"
                 }
             ],
             "src/app/components/menu/menu-constants.ts": [
@@ -2509,48 +2752,14 @@
                     "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
                 }
             ],
-            "src/stories/Alert.stories.ts": [
+            "src/app/components/menu/menu-main-button/menu-main-button.component.ts": [
                 {
-                    "name": "Default",
+                    "name": "ARIA_EXPANDED",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Alert.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Alert.stories.ts",
-                    "type": "Story<AlertComponent>",
-                    "defaultValue": "(args: AlertComponent) => ({\n  component: AlertComponent,\n  props: args,\n})"
-                }
-            ],
-            "src/stories/Button.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Disabled",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "type": "Story<ButtonComponent>",
-                    "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
+                    "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+                    "type": "string",
+                    "defaultValue": "'aria-expanded'"
                 }
             ],
             "src/stories/Pager.stories.ts": [
@@ -2595,9 +2804,51 @@
                     "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
                 }
             ],
+            "src/stories/Button.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
+                }
+            ],
             "src/stories/Header.stories.ts": [
                 {
                     "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Header.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "JustHeader",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Header.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "JustSearch",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/Header.stories.ts",
@@ -2613,7 +2864,7 @@
                     "defaultValue": "[]"
                 },
                 {
-                    "name": "NoMainMenu",
+                    "name": "OnlyUtilityMenu",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/Header.stories.ts",
@@ -2673,6 +2924,24 @@
                     "defaultValue": "{\n  production: true\n}"
                 }
             ],
+            "src/app/components/modal-dialog/modal-dialog.component.ts": [
+                {
+                    "name": "INPUT_SELECTORS",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/modal-dialog/modal-dialog.component.ts",
+                    "type": "string",
+                    "defaultValue": "'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])'"
+                },
+                {
+                    "name": "INPUT_SELECTORS_EXCL_CLOSE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/modal-dialog/modal-dialog.component.ts",
+                    "type": "string",
+                    "defaultValue": "'a[href]:not([disabled]), button:not([disabled]):not(.jazz-modal-button__close), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])'"
+                }
+            ],
             "src/jest-config/__mocks__/globalMocks.ts": [
                 {
                     "name": "mock",
@@ -2711,6 +2980,16 @@
                     "file": "src/stories/Breadcrumbs.stories.ts",
                     "type": "",
                     "defaultValue": "storiesOf('Components/Breadcrumbs', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
+                }
+            ],
+            "src/stories/Alert.stories.ts": [
+                {
+                    "name": "stories",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Alert.stories.ts",
+                    "type": "",
+                    "defaultValue": "storiesOf('Components/Alert', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AlertComponent],\n    })\n  )"
                 }
             ]
         },
@@ -2814,6 +3093,10 @@
                     {
                         "path": "mainMenu3",
                         "component": "MainMenu3Component"
+                    },
+                    {
+                        "path": "documentation",
+                        "component": "DocumentationComponent"
                     }
                 ],
                 "kind": "module"
@@ -2916,7 +3199,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -3085,7 +3368,7 @@
                 "linktype": "component",
                 "name": "MenuItemComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -3126,6 +3409,35 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/modal-dialog/modal-dialog.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ModalDialogComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/14",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/modal-dialog/modal-dialog.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "INPUT_SELECTORS",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/modal-dialog/modal-dialog.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "INPUT_SELECTORS_EXCL_CLOSE",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/components/pager/pager.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -3154,6 +3466,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/main-menu/documentation/documentation.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DocumentationComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/main-menu/main-menu1/main-menu1.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -3168,7 +3489,7 @@
                 "linktype": "component",
                 "name": "MainMenu2Component",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -3270,17 +3591,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Alert.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
+                "name": "stories",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3340,6 +3651,26 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "JustHeader",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "JustSearch",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "mainMenu",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -3350,7 +3681,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "NoMainMenu",
+                "name": "OnlyUtilityMenu",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

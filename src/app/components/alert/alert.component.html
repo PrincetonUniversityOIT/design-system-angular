@@ -3,7 +3,7 @@
   <div class="jazz-alert-section__content">
     <div class="jazz-row">
       <h3 class="jazz-alert-section__title">{{ title }}</h3>
-      <p>{{content}}</p>
+      <ng-content></ng-content>
     </div>
   </div>
   <a title="Hide alert with title {{ title }} until it is updated" class="jazz-alert-section__close" role="button" (click)="close()">X</a>

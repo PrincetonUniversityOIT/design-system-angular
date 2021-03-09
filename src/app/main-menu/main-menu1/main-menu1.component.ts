@@ -10,7 +10,7 @@ export class MainMenu1Component implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('menu1')
+
   }
 
 }

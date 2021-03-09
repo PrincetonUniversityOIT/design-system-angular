@@ -6,14 +6,15 @@
       <app-jazz-menu-main-button></app-jazz-menu-main-button>
       <div class="jazz-menu__nav-container">
         <ul *ngIf="menuItems && menuItems.length > 0" class="jazz-menubar" role="list">
-            <li *ngFor="let level1item of menuItems" (mouseleave)="onMouseOut($event)" [attr.aria-current]="level1item.current">
+            <li *ngFor="let level1item of menuItems" (mouseleave)="onMouseOut($event)">
               <app-jazz-menu-item [menuItem]="level1item" (closeSubMenus)="closeSubMenus()" (resetSubMenus)="resetSubMenus()"></app-jazz-menu-item>
             </li>
         </ul>
         <div class="jazz-header__utility-menu">
           <ul *ngIf="utilityItems && utilityItems.length > 0">
-            <li *ngFor="let utilityItem of utilityItems" [attr.aria-current]="utilityItem.current">
-              <a href="{{utilityItem.url}}">{{utilityItem.label}}</a>
+            <li *ngFor="let utilityItem of utilityItems" >
+              <a [routerLink]="utilityItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
+                [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{utilityItem.label}}</a>
             </li>
           </ul>
         </div>
