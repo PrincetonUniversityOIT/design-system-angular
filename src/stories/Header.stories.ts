@@ -65,7 +65,7 @@ OnlyUtilityMenu.args = {
   siteBrandingName: 'Relativity',
   siteBrandingSlogan: 'The Princeton University Design System',
   utilityItems: utilityMenu,
-  showSearch: true
+  showSearch: false
 };
 
 export const JustSearch = Template.bind({});

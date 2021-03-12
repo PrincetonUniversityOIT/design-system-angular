@@ -531,7 +531,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<app-jazz-header [title]=\"'Princeton Design System'\" [siteBrandingName]=\"'Relativity'\" [siteBrandingSlogan]=\"'The Princeton University Design System'\"\n                 [menuItems]=\"mainMenu\" [utilityItems]=\"utilityMenu\">\n</app-jazz-header>\n\n<main>\n  <div class=\"jazz-container\">\n    <router-outlet></router-outlet>\n  </div>\n</main>\n\n<footer role=\"contentinfo\" class=\"jazz-footer\">\n  <div class=\"jazz-container jazz-footer__content\">\n    <div class=\"row\">\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>General Information</h2>\n        <ul class=\"jazz-footer__list\">\n          <li><a href=\"javascript:void(0);\">Contact Us</a></li>\n          <li><a href=\"javascript:void(0);\">About Us</a></li>\n          <li><a href=\"javascript:void(0);\">News</a></li>\n          <li><a href=\"javascript:void(0);\">Data Privacy Policy</a></li>\n        </ul>\n      </div>\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>Services</h2>\n        <ul class=\"jazz-footer__list\">\n          <li><a href=\"javascript:void(0);\">Update Your Info</a></li>\n          <li><a href=\"javascript:void(0);\">Online Resources</a></li>\n          <li><a href=\"javascript:void(0);\">Visiting Campus</a></li>\n        </ul>\n      </div>\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>University Links</h2>\n        <ul class=\"jazz-footer__list\">\n          <li><a href=\"javascript:void(0);\">Princeton University</a></li>\n          <li><a href=\"javascript:void(0);\">Princeton Athletics</a></li>\n          <li><a href=\"javascript:void(0);\">Princeton Career Development</a></li>\n          <li><a href=\"javascript:void(0);\">Princeton Prize</a></li>\n          <li><a href=\"javascript:void(0);\">Princetoniana</a></li>\n          <li><a href=\"javascript:void(0);\">Giving to Princeton</a></li>\n        </ul>\n      </div>\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>Social Media</h2>\n        <ul class=\"jazz-footer__icon-list\">\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-facebook\"></i><span class=\"jazz-visually-hidden\">Follow Us on Facebook</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-twitter\"></i><span class=\"jazz-visually-hidden\">Follow Us on Twitter</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-linkedin\"></i><span class=\"jazz-visually-hidden\">Follow Us on Linked In</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-instagram\"></i><span class=\"jazz-visually-hidden\">Follow Us on Instagram</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-youtube\"></i><span class=\"jazz-visually-hidden\">Follow Us on You Tube</span></a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div class=\"jazz-footer__subfooter\">\n    <div class=\"jazz-container\">\n      <div class=\"row\">\n        <div class=\"col-sm-4 col-xs-12\">\n          <a href=\"javascript:void(0)\">Accessibility</a>\n        </div>\n        <div class=\"col-sm-4 col-xs-12\">\n          &copy; 2020 The Trustees of Princeton University\n        </div>\n        <div class=\"col-sm-4 col-xs-12\">\n          <a href=\"https://www.princeton.edu\" target=\"_blank\" class=\"jazz-no-icon\"><img class=\"jazz-footer__logo\" src=\"/icons/pu-logo-stacked-white.svg\" alt=\"Princeton University\" /></a>\n        </div>\n      </div>\n    </div>\n  </div>\n</footer>\n"
+            "templateData": "<app-jazz-header [title]=\"'Princeton Design System'\" [siteBrandingName]=\"'Relativity'\" [siteBrandingSlogan]=\"'The Princeton University Design System'\"\n                 [menuItems]=\"mainMenu\" [utilityItems]=\"utilityMenu\" [showSearch]=\"true\">\n</app-jazz-header>\n\n<main>\n  <div class=\"jazz-container\">\n    <router-outlet></router-outlet>\n  </div>\n</main>\n\n<footer role=\"contentinfo\" class=\"jazz-footer\">\n  <div class=\"jazz-container jazz-footer__content\">\n    <div class=\"row\">\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>General Information</h2>\n        <ul class=\"jazz-footer__list\">\n          <li><a href=\"javascript:void(0);\">Contact Us</a></li>\n          <li><a href=\"javascript:void(0);\">About Us</a></li>\n          <li><a href=\"javascript:void(0);\">News</a></li>\n          <li><a href=\"javascript:void(0);\">Data Privacy Policy</a></li>\n        </ul>\n      </div>\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>Services</h2>\n        <ul class=\"jazz-footer__list\">\n          <li><a href=\"javascript:void(0);\">Update Your Info</a></li>\n          <li><a href=\"javascript:void(0);\">Online Resources</a></li>\n          <li><a href=\"javascript:void(0);\">Visiting Campus</a></li>\n        </ul>\n      </div>\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>University Links</h2>\n        <ul class=\"jazz-footer__list\">\n          <li><a href=\"javascript:void(0);\">Princeton University</a></li>\n          <li><a href=\"javascript:void(0);\">Princeton Athletics</a></li>\n          <li><a href=\"javascript:void(0);\">Princeton Career Development</a></li>\n          <li><a href=\"javascript:void(0);\">Princeton Prize</a></li>\n          <li><a href=\"javascript:void(0);\">Princetoniana</a></li>\n          <li><a href=\"javascript:void(0);\">Giving to Princeton</a></li>\n        </ul>\n      </div>\n      <div class=\"col-sm-3 col-xs-12\">\n        <h2>Social Media</h2>\n        <ul class=\"jazz-footer__icon-list\">\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-facebook\"></i><span class=\"jazz-visually-hidden\">Follow Us on Facebook</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-twitter\"></i><span class=\"jazz-visually-hidden\">Follow Us on Twitter</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-linkedin\"></i><span class=\"jazz-visually-hidden\">Follow Us on Linked In</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-instagram\"></i><span class=\"jazz-visually-hidden\">Follow Us on Instagram</span></a></li>\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-youtube\"></i><span class=\"jazz-visually-hidden\">Follow Us on You Tube</span></a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div class=\"jazz-footer__subfooter\">\n    <div class=\"jazz-container\">\n      <div class=\"row\">\n        <div class=\"col-sm-4 col-xs-12\">\n          <a href=\"javascript:void(0)\">Accessibility</a>\n        </div>\n        <div class=\"col-sm-4 col-xs-12\">\n          &copy; 2020 The Trustees of Princeton University\n        </div>\n        <div class=\"col-sm-4 col-xs-12\">\n          <a href=\"https://www.princeton.edu\" target=\"_blank\" class=\"jazz-no-icon\"><img class=\"jazz-footer__logo\" src=\"/icons/pu-logo-stacked-white.svg\" alt=\"Princeton University\" /></a>\n        </div>\n      </div>\n    </div>\n  </div>\n</footer>\n"
         },
         {
             "name": "ButtonComponent",
@@ -2166,7 +2166,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Pager.stories.ts",
+                "file": "src/stories/Header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2182,7 +2182,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
+                "file": "src/stories/Pager.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2206,17 +2206,17 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "HEADER_NAV_SELECTOR",
@@ -2446,17 +2446,17 @@
                 "name": "stories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Breadcrumbs.stories.ts",
+                "file": "src/stories/Alert.stories.ts",
                 "type": "",
-                "defaultValue": "storiesOf('Components/Breadcrumbs', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
+                "defaultValue": "storiesOf('Components/Alert', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AlertComponent],\n    })\n  )"
             },
             {
                 "name": "stories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Alert.stories.ts",
+                "file": "src/stories/Breadcrumbs.stories.ts",
                 "type": "",
-                "defaultValue": "storiesOf('Components/Alert', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AlertComponent],\n    })\n  )"
+                "defaultValue": "storiesOf('Components/Breadcrumbs', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
             },
             {
                 "name": "subMenu1",
@@ -2478,17 +2478,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "type": "Story<ButtonComponent>",
-                "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
+                "file": "src/stories/Pager.stories.ts",
+                "type": "Story<PagerComponent>",
+                "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Pager.stories.ts",
-                "type": "Story<PagerComponent>",
-                "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
+                "file": "src/stories/Button.stories.ts",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -2762,74 +2762,6 @@
                     "defaultValue": "'aria-expanded'"
                 }
             ],
-            "src/stories/Pager.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Pager.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "DoubleTruncated",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Pager.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "pageSet1",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Pager.stories.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  totalPages: 10,\n  number: 1\n}"
-                },
-                {
-                    "name": "pageSet2",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Pager.stories.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  totalPages: 20,\n  number: 7\n}"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Pager.stories.ts",
-                    "type": "Story<PagerComponent>",
-                    "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
-                }
-            ],
-            "src/stories/Button.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Disabled",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "type": "Story<ButtonComponent>",
-                    "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
-                }
-            ],
             "src/stories/Header.stories.ts": [
                 {
                     "name": "Default",
@@ -2904,14 +2836,72 @@
                     "defaultValue": "[]"
                 }
             ],
-            "src/environments/environment.ts": [
+            "src/stories/Button.stories.ts": [
                 {
-                    "name": "environment",
+                    "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/environments/environment.ts",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
+                }
+            ],
+            "src/stories/Pager.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Pager.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "DoubleTruncated",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Pager.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "pageSet1",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Pager.stories.ts",
                     "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
+                    "defaultValue": "{\n  totalPages: 10,\n  number: 1\n}"
+                },
+                {
+                    "name": "pageSet2",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Pager.stories.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  totalPages: 20,\n  number: 7\n}"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Pager.stories.ts",
+                    "type": "Story<PagerComponent>",
+                    "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -2922,6 +2912,16 @@
                     "file": "src/environments/environment.prod.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ],
             "src/app/components/modal-dialog/modal-dialog.component.ts": [
@@ -2972,16 +2972,6 @@
                     "defaultValue": "storiesOf('Components/Accordion', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
                 }
             ],
-            "src/stories/Breadcrumbs.stories.ts": [
-                {
-                    "name": "stories",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Breadcrumbs.stories.ts",
-                    "type": "",
-                    "defaultValue": "storiesOf('Components/Breadcrumbs', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
-                }
-            ],
             "src/stories/Alert.stories.ts": [
                 {
                     "name": "stories",
@@ -2990,6 +2980,16 @@
                     "file": "src/stories/Alert.stories.ts",
                     "type": "",
                     "defaultValue": "storiesOf('Components/Alert', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AlertComponent],\n    })\n  )"
+                }
+            ],
+            "src/stories/Breadcrumbs.stories.ts": [
+                {
+                    "name": "stories",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Breadcrumbs.stories.ts",
+                    "type": "",
+                    "defaultValue": "storiesOf('Components/Breadcrumbs', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
                 }
             ]
         },
