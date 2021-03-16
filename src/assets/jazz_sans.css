@@ -1392,6 +1392,19 @@ template {
   color: #F58025;
 }
 
+.jazz-white-and-orange {
+  color: #F58025;
+  background-color: #fff;
+}
+
+.jazz-white-and-orange-bg {
+  background-color: #fff;
+}
+
+.jazz-white-and-orange-fg {
+  color: #F58025;
+}
+
 .jazz-white {
   color: #000;
   background-color: #fff;
@@ -2708,8 +2721,8 @@ textarea.jazz-input {
 }
 
 .jazz-header__pu-branding {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   padding: 1.26rem 0;
 }
 
@@ -2719,8 +2732,8 @@ textarea.jazz-input {
 }
 
 .jazz-header__site-branding {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   padding: 0.75rem 0px;
   display: flex;
   flex-wrap: wrap;
@@ -2732,8 +2745,8 @@ textarea.jazz-input {
 
 .jazz-header__site-branding-name a,
 .jazz-header__site-branding-name a:visited {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   text-decoration: none;
   font-size: 2.75rem;
   font-weight: 700;
@@ -2754,8 +2767,8 @@ textarea.jazz-input {
 }
 
 .jazz-header__main-menu {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   height: 3.1875rem;
 }
 
@@ -2853,8 +2866,8 @@ textarea.jazz-input {
 }
 
 .jazz-header__nav-container--expanded {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   position: absolute;
   left: 0;
   top: -6.5rem;
@@ -2892,8 +2905,8 @@ textarea.jazz-input {
 }
 
 .jazz-header__utility-menu li > a {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   border-bottom: 1px solid #A0A0A0;
   text-decoration: none;
   font-weight: bold;
@@ -2932,8 +2945,8 @@ textarea.jazz-input {
   }
 
   .jazz-header__utility-menu a {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     font-size: 0.85rem;
     font-weight: 600;
     padding: 0.5rem 0 0.2rem 0;
@@ -2943,8 +2956,8 @@ textarea.jazz-input {
   }
 
   .jazz-header__utility-menu li > a {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     border-bottom: none;
     font-weight: bold;
     padding: 0.9375rem 0px 0px 0px;
@@ -3182,24 +3195,28 @@ a[target=_blank]::after {
 }
 
 .jazz-menu__menu-toggle {
-  top: -9.125rem;
-  right: 3rem;
-  background-color: white;
+  background-color: #000;
+  color: #fff;
   border: none;
   text-transform: uppercase;
   font-weight: bold;
   height: 2rem;
   padding: 0.25rem;
   display: flex;
+  position: absolute;
+  right: 1em;
+  top: -3.4375rem;
 }
 
-.jazz-menu__menu-toggle-absolute {
+.jazz-header-compact .jazz-menu__menu-toggle {
   position: absolute;
+  right: 1em;
+  top: 1.5625rem;
 }
 
 .jazz-menu__main-menu {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   height: 3.1875rem;
 }
 
@@ -3208,10 +3225,9 @@ a[target=_blank]::after {
 }
 
 .jazz-menu__nav-container--expanded {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   left: 0;
-  top: -6.5rem;
   width: 100%;
   z-index: 1000;
   display: block;
@@ -3331,8 +3347,8 @@ a[target=_blank]::after {
 }
 
 ul.jazz-menubar {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   display: none;
   list-style: none;
   padding: 1rem 1rem 0rem 0rem;
@@ -3355,8 +3371,8 @@ ul.jazz-menubar li > button:not([aria-expanded=true]) + ul:not(.jazz-menubar--st
 }
 
 ul.jazz-menubar li {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   padding-left: 1rem;
   position: relative;
 }
@@ -3366,8 +3382,8 @@ ul.jazz-menubar a:hover {
 }
 
 ul.jazz-menubar li > a {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   border-bottom: 1px solid #A0A0A0;
   text-decoration: none;
   font-weight: bold;
@@ -3424,8 +3440,8 @@ ul.jazz-menubar__submenu li > button:not([aria-expanded=true]) + ul {
 @media (min-width: 56.25rem) {
   ul.jazz-menubar,
 ul.jazz-menubar.jazz-menubar--shown {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
@@ -3439,8 +3455,8 @@ ul.jazz-menubar.jazz-menubar--shown {
   }
 
   ul.jazz-menubar > li {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     padding-left: 0rem;
     padding-right: 0.875rem;
     margin: 0 0.625rem;
@@ -3452,8 +3468,8 @@ ul.jazz-menubar.jazz-menubar--shown {
   }
 
   ul.jazz-menubar > li > a {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     border-bottom: 0.4375rem solid transparent;
     text-decoration: none;
     font-weight: bold;
@@ -3467,6 +3483,8 @@ ul.jazz-menubar.jazz-menubar--shown {
 
   ul.jazz-menubar > li > a[aria-current=page],
 .jazz-menubar > ul > li:hover > a[aria-current=page] {
+    background-color: #000;
+    color: #fff;
     border-bottom: 0.4375rem solid #E77500;
   }
 
@@ -3556,8 +3574,8 @@ ul.jazz-menubar > li > button[aria-expanded=true] {
   }
 
   ul.jazz-menubar > li > ul a {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
     padding: 0.8125rem 0.3125rem;

@@ -24,6 +24,9 @@ export class HeaderComponent {
   @Input()
   showSearch?: boolean = false;
 
+  @Input()
+  showCompact?: boolean = false;
+
   constructor() {}
 
 }

@@ -1,4 +1,4 @@
-<header role="banner" class="jazz-header">
+<header role="banner" class="jazz-header" *ngIf="!showCompact">
   <h1 class="jazz-visually-hidden">{{title}}</h1>
   <div class="jazz-skip-links">
     <a href="#main-content" class="jazz-skip-link">Skip to main content</a>
@@ -6,7 +6,7 @@
   </div>
   <div class="jazz-header__pu-branding">
     <div class="jazz-container">
-      <a href="https://www.princeton.edu" title="{{ title }}"><img src="./assets/logos/pu-logo.svg" alt="{{ title}}" /></a>
+      <a href="https://www.princeton.edu" title="{{ title }}"><img src="./assets/logos/pu-logo-ww-os.png" alt="{{ title}}" /></a>
     </div>
   </div>
   <div class="jazz-header__site-branding">
@@ -18,6 +18,24 @@
         </div>
         <div class="jazz-header__site-branding-slogan">
           {{ siteBrandingSlogan }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="jazz-header-collapsed-header">
+    <div class="jazz-container">
+      <div class="jazz-header-collapsed-container">
+        <div class="jazz-header-collapsed__pu-branding">
+          <a href="javascript:void(0);" title="Princeton University"><img src="./assets/logos/shield.svg" alt="Princeton University" /></a>
+        </div>
+        <div class="jazz-header-collapsed__site-branding--divider">
+        </div>
+        <div class="jazz-header-collapsed__site-branding">
+          <div class="jazz-header-collapsed__site-branding-info">
+            <div class="jazz-header-collapsed__site-branding-name">
+              <a href="javascript:void(0);" title="Home" rel="home">{{ siteBrandingName }}</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -38,6 +56,70 @@
           </button>
         </form>
       </div>
+    </div>
+  </div>
+</header>
+
+<header role="banner" class="jazz-header-compact" *ngIf="showCompact">
+  <div class="jazz-container">
+    <div class="jazz-header-compact-container">
+      <div class="jazz-header-compact-logo">
+        <h1 class="jazz-visually-hidden">{{ title }}</h1>
+        <div class="jazz-skip-links">
+          <a href="#main-content" class="jazz-skip-link">Skip to main content</a>
+          <a href="#search" class="jazz-skip-link">Skip to search options</a>
+        </div>
+        <div class="jazz-header-compact__pu-branding">
+          <a href="javascript:void(0);" title="{{ title }}"><img src="./assets/logos/pu-standard-ww-ws.png" alt="{{ title }}" /></a>
+        </div>
+        <div class="jazz-header-compact__site-branding--divider">
+        </div>
+        <div class="jazz-header-compact__site-branding">
+          <div class="jazz-header-compact__site-branding-info">
+            <div class="jazz-header-compact__site-branding-name">
+              <a href="javascript:void(0);" title="Home" rel="home">{{ siteBrandingName }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="jazz-header-collapsed-header">
+        <div class="jazz-header-collapsed-container">
+          <div class="jazz-header-collapsed__pu-branding">
+            <a href="javascript:void(0);" title="{{ title }}"><img src="./assets/logos/shield.svg" alt="{{ title }}" /></a>
+          </div>
+          <div class="jazz-header-collapsed__site-branding--divider">
+          </div>
+          <div class="jazz-header-collapsed__site-branding">
+            <div class="jazz-header-collapsed__site-branding-info">
+              <div class="jazz-header-collapsed__site-branding-name">
+                <a href="javascript:void(0);" title="Home" rel="home">{{ siteBrandingName }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="jazz-header-break"></div>
+      <nav aria-label="Main Menu" class="jazz-menu__main-menu">
+        <div class="jazz-menu__main-menu-navbar">
+          <app-jazz-menu-main-button></app-jazz-menu-main-button>
+          <div class="jazz-menu__nav-container">
+            <div class="jazz-header-compact__utility-menu">
+              <ul class="jazz-menubar">
+                <li *ngFor="let menuItem of menuItems">
+                  <a [routerLink]="menuItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
+                     [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{menuItem.label}}</a>
+                </li>
+              </ul>
+            </div>
+            <div class="jazz-header-compact__utility-menu--divider"></div>
+            <div class="jazz-header-compact__utility-menu">
+              <ul class="jazz-menubar">
+                <li><a href="javascript void(0);">Net Id</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
     </div>
   </div>
 </header>
