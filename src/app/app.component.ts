@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
     this.menuOptions.title = this.title;
     this.menuOptions.siteBrandingName = 'RELATIVITY';
     this.menuOptions.siteBrandingSlogan = 'The Princeton University Design System';
-    this.menuOptions.showCompact = true;
+    this.menuOptions.showCompact = false;
     this.menuOptions.showSearch = true;
     this.menuOptions.menuItems = mainMenu;
     this.menuOptions.utilityItems = utilityMenu;
