@@ -2770,7 +2770,7 @@ The default styles for the collapsed version of the compact header.
   .jazz-header-compact__pu-branding {
     background-color: #000;
     color: #fff;
-    padding: 1.875rem 0px 0.625rem 0.625rem;
+    padding: 1.25rem 0px 0.625rem 0.625rem;
   }
 
   .jazz-header-compact__pu-branding img {
@@ -2790,7 +2790,7 @@ The default styles for the collapsed version of the compact header.
   }
 
   .jazz-header-compact__site-branding {
-    padding-top: 2.5rem;
+    padding-top: 1.875rem;
   }
 
   .jazz-header-compact__site-branding-name a,
@@ -2827,7 +2827,7 @@ The default styles for the collapsed version of the compact header.
 
   .jazz-header-compact__site-branding--divider {
     margin-right: 1.25rem;
-    margin-top: 2.5rem;
+    margin-top: 1.875rem;
   }
 
   .jazz-menu__main-menu {
@@ -2865,10 +2865,8 @@ The default styles for the collapsed version of the compact header.
     display: inline-block;
     width: 100%;
     text-align: center;
-    margin-top: 1.25rem;
     border-bottom: none;
     padding: 2.5rem 0px 0px 0px;
-    margin-right: 1.25rem;
     display: block;
   }
 
@@ -2879,14 +2877,14 @@ The default styles for the collapsed version of the compact header.
   .jazz-header-compact__utility-menu--divider {
     position: static;
     width: 0.125rem;
-    height: 1.25rem;
+    height: 2.4375rem;
     left: 0px;
     top: 1.25rem;
     background: #fff;
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 3.125rem 1.25rem 1.875rem 0;
+    margin: 1.875rem 0 1.875rem 0;
   }
 }
 /*
@@ -3096,6 +3094,7 @@ These are the styles for the higher resolution version of the full header
     background-color: #000;
     color: #fff;
     display: block;
+    margin-top: 0rem;
   }
 
   .jazz-header__pu-branding img {

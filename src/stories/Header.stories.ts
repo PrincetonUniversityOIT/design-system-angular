@@ -74,6 +74,11 @@ justHeader.showSearch = false;
 justHeader.menuItems = [];
 justHeader.utilityItems = [];
 
+const compoact = Object.assign({}, menuOptions);
+menuOptionsOnlyUtility.menuItems = [];
+menuOptionsOnlyUtility.showSearch = false;
+menuOptionsOnlyUtility.showCompact = true;
+
 export const Default = Template.bind({});
 Default.args = {
   menuOptions
@@ -92,4 +97,9 @@ JustSearch.args = {
 export const JustHeader = Template.bind({});
 JustHeader.args = {
   menuOptions: justHeader
+};
+
+export const Compact = Template.bind({});
+Compact.args = {
+  menuOptions: compoact
 };
