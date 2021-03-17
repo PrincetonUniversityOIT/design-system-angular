@@ -9,13 +9,15 @@ import {MenuMainButtonComponent} from '../app/components/menu/menu-main-button/m
 import {MenuSubButtonComponent} from '../app/components/menu/menu-sub-button/menu-sub-button.component';
 import {MenuItemComponent} from '../app/components/menu/menu-item/menu-item.component';
 import {MenuComponent} from '../app/components/menu/menu.component';
+import {MenuOptions} from '../app/model/menu-options';
+import {SearchButtonComponent} from '../app/components/header/search-button/search-button.component';
 
 export default {
   title: 'Components/Header',
   component: HeaderComponent,
   decorators: [
     moduleMetadata({
-      declarations: [MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent],
+      declarations: [MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, SearchButtonComponent],
       imports: [CommonModule, RouterModule.forRoot([])],
       providers: [
         {provide: APP_BASE_HREF, useValue: '/'}
@@ -49,37 +51,45 @@ const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
   props: args,
 });
 
+const menuOptions = new MenuOptions();
+menuOptions.title = 'Princeton University Design System';
+menuOptions.siteBrandingName = 'RELATIVITY';
+menuOptions.siteBrandingSlogan = 'The Princeton University Design System';
+menuOptions.showCompact = false;
+menuOptions.showSearch = true;
+menuOptions.menuItems = mainMenu;
+menuOptions.utilityItems = utilityMenu;
+
+const menuOptionsOnlyUtility = Object.assign({}, menuOptions);
+menuOptionsOnlyUtility.menuItems = [];
+menuOptionsOnlyUtility.showSearch = false;
+
+const justSearch = Object.assign({}, menuOptions);;
+justSearch.showSearch = true;
+justSearch.menuItems = [];
+justSearch.utilityItems = [];
+
+const justHeader = Object.assign({}, menuOptions);;
+justHeader.showSearch = false;
+justHeader.menuItems = [];
+justHeader.utilityItems = [];
+
 export const Default = Template.bind({});
 Default.args = {
-  title: 'Princeton University Design System',
-  siteBrandingName: 'Relativity',
-  siteBrandingSlogan: 'The Princeton University Design System',
-  menuItems: mainMenu,
-  utilityItems: utilityMenu,
-  showSearch: true
+  menuOptions
 };
 
 export const OnlyUtilityMenu = Template.bind({});
 OnlyUtilityMenu.args = {
-  title: 'Princeton University Design System',
-  siteBrandingName: 'Relativity',
-  siteBrandingSlogan: 'The Princeton University Design System',
-  utilityItems: utilityMenu,
-  showSearch: false
+  menuOptions: menuOptionsOnlyUtility
 };
 
 export const JustSearch = Template.bind({});
 JustSearch.args = {
-  title: 'Princeton University Design System',
-  siteBrandingName: 'Relativity',
-  siteBrandingSlogan: 'The Princeton University Design System',
-  showSearch: true
+  menuOptions: justSearch
 };
 
 export const JustHeader = Template.bind({});
 JustHeader.args = {
-  title: 'Princeton University Design System',
-  siteBrandingName: 'Relativity',
-  siteBrandingSlogan: 'The Princeton University Design System',
-  showSearch: false
+  menuOptions: justHeader
 };

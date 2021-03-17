@@ -70,6 +70,5 @@ export class AppComponent implements OnInit {
     this.menuOptions.showSearch = true;
     this.menuOptions.menuItems = mainMenu;
     this.menuOptions.utilityItems = utilityMenu;
-    console.log(this.menuOptions)
   }
 }
