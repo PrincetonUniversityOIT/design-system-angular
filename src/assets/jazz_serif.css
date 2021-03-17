@@ -2770,7 +2770,7 @@ The default styles for the collapsed version of the compact header.
   .jazz-header-compact__pu-branding {
     background-color: #000;
     color: #fff;
-    padding: 1.875rem 0px 0.625rem 0px;
+    padding: 1.875rem 0px 0.625rem 0.625rem;
   }
 
   .jazz-header-compact__pu-branding img {
@@ -2801,7 +2801,6 @@ The default styles for the collapsed version of the compact header.
     text-decoration: none;
     width: 46.1875rem;
     height: 2.0625rem;
-    font-family: Public Sans;
     font-style: normal;
     font-weight: bold;
     font-size: 1.75rem;
@@ -2831,11 +2830,6 @@ The default styles for the collapsed version of the compact header.
     margin-top: 2.5rem;
   }
 
-  .jazz-header-break {
-    flex-basis: 0;
-    height: 0;
-  }
-
   .jazz-menu__main-menu {
     display: flex;
     flex-direction: row;
@@ -2862,7 +2856,6 @@ The default styles for the collapsed version of the compact header.
 
   .jazz-header-compact__utility-menu li > a {
     text-decoration: none;
-    font-family: Public Sans;
     font-style: normal;
     font-weight: bold;
     font-size: 1.125rem;
@@ -2873,7 +2866,6 @@ The default styles for the collapsed version of the compact header.
     width: 100%;
     text-align: center;
     margin-top: 1.25rem;
-    color: #121212;
     border-bottom: none;
     padding: 2.5rem 0px 0px 0px;
     margin-right: 1.25rem;
@@ -2900,6 +2892,32 @@ The default styles for the collapsed version of the compact header.
 /*
 The default styles for the collapsed version of the full header.
  */
+.jazz-header {
+  background-color: #000;
+  color: #fff;
+}
+
+.jazz-header-break {
+  flex-basis: 0;
+  height: 0;
+}
+
+.jazz-header-container {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.jazz-header-right-container {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 .jazz-header__pu-branding {
   display: none;
 }
@@ -2936,19 +2954,21 @@ The default styles for the collapsed version of the full header.
   border: none;
   background-color: transparent;
   position: absolute;
-  top: -103px;
-  right: -0.5em;
+  right: 0.25em;
+  top: 1.7rem;
+  z-index: 1000;
 }
 
 .jazz-header__search-bar-panel {
-  background-color: #fff;
-  color: #000;
-  position: absolute;
-  left: 0;
+  background-color: #000;
+  color: #fff;
   width: 100%;
   z-index: 1000;
   padding: 1.25rem;
   border-bottom: 0.125rem solid #EEEEEE;
+  position: absolute;
+  top: 4.375rem;
+  left: 0;
 }
 
 .jazz-header__search-bar form [type=search] {
@@ -3036,6 +3056,14 @@ The default styles for the collapsed version of the full header.
   display: block;
 }
 
+.jazz-header__utility-menu--hide-large {
+  display: block;
+}
+
+.jazz-header__utility-menu--hide-small {
+  display: none;
+}
+
 .jazz-header__nav-container {
   display: flex;
   flex-basis: auto;
@@ -3049,21 +3077,31 @@ These are the styles for the higher resolution version of the full header
  */
 @media (min-width: 56.25rem) {
   .jazz-header {
+    background-color: #000;
+    color: #fff;
     border-top: 4px solid #E77500;
     line-height: 1.15;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .jazz-header-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
   }
 
   /* PU Branding */
   .jazz-header__pu-branding {
     background-color: #000;
     color: #fff;
-    padding: 1.26rem 0;
     display: block;
   }
 
   .jazz-header__pu-branding img {
     width: 16.25rem;
     display: block;
+    padding-top: 10px;
   }
 
   /* Site Branding */
@@ -3108,14 +3146,13 @@ These are the styles for the higher resolution version of the full header
   }
 
   .jazz-header__search-bar-panel {
-    position: absolute;
     width: 12.5rem;
-    left: unset;
-    top: -13.875rem;
-    right: 1rem;
     display: block;
     background-color: transparent;
     border: none;
+    position: relative;
+    top: 0;
+    left: 0;
   }
 
   /* Nav Container */
@@ -3152,13 +3189,6 @@ These are the styles for the higher resolution version of the full header
   }
 
   /* Utility Menu */
-  .jazz-header__utility-menu {
-    position: absolute;
-    top: -9.9375rem;
-    right: 12.5rem;
-    line-height: 1.65;
-  }
-
   .jazz-header__utility-menu ul {
     display: flex;
     flex-direction: row;
@@ -3184,12 +3214,20 @@ These are the styles for the higher resolution version of the full header
     color: #fff;
     border-bottom: none;
     font-weight: bold;
-    padding: 0.9375rem 0px 0px 0px;
+    padding: 2.1875rem 0px 0px 0px;
     display: block;
   }
 
   .jazz-header__utility-menu a:hover {
     border-bottom: 1px solid #E77500;
+  }
+
+  .jazz-header__utility-menu--hide-large {
+    display: none;
+  }
+
+  .jazz-header__utility-menu--hide-small {
+    display: block;
   }
 }
 .jazz-header-collapsed-header {
@@ -3476,7 +3514,7 @@ a[target=_blank]::after {
   padding: 0.25rem;
   display: flex;
   position: absolute;
-  right: 1em;
+  right: 1.5em;
   top: -3.4375rem;
 }
 
@@ -3489,7 +3527,6 @@ a[target=_blank]::after {
 .jazz-menu__main-menu {
   background-color: #000;
   color: #fff;
-  height: 3.1875rem;
 }
 
 .jazz-menu__nav-container {
@@ -3682,6 +3719,7 @@ ul.jazz-menubar button {
   transform: rotate(0deg);
   transition: transform 0.3s ease;
   background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iUmF3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4NCiAgPHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9Im5vbmUiLz4NCiAgPHBvbHlsaW5lIHBvaW50cz0iMjA4IDk2IDEyOCAxNzYgNDggOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+DQo8L3N2Zz4NCg==) no-repeat center/2ex 2ex;
+  filter: invert(1);
 }
 
 ul.jazz-menubar li > button[aria-expanded=true] {
@@ -3808,7 +3846,7 @@ ul.jazz-menubar li:hover > button:not([aria-expanded=true]) + ul:not(.jazz-menub
     transform: rotate(0deg);
     transition: transform 0.3s ease;
     background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iUmF3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4NCiAgPHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9Im5vbmUiLz4NCiAgPHBvbHlsaW5lIHBvaW50cz0iMjA4IDk2IDEyOCAxNzYgNDggOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+DQo8L3N2Zz4NCg==) no-repeat center/2ex 2ex;
-    filter: invert(0);
+    filter: invert(1);
   }
 
   ul.jazz-menubar > li:hover > button,

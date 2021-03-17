@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from './model/menu-item';
+import {MenuOptions} from './model/menu-options';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,12 @@ import {MenuItem} from './model/menu-item';
 })
 export class AppComponent implements OnInit {
   title = 'Princeton Design System';
-  mainMenu: MenuItem[] = [];
-  utilityMenu: MenuItem[] = [];
+  menuOptions: MenuOptions;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.mainMenu = [
+    const mainMenu: MenuItem[] = [
      {
        label: 'Main Menu 1',
        url: '/mainMenu1',
@@ -58,7 +58,18 @@ export class AppComponent implements OnInit {
      {label: 'Main Menu 3', url: '/mainMenu3'}
    ];
 
-    this.utilityMenu.push(new MenuItem('Documentation', '/documentation'));
-    this.utilityMenu.push(new MenuItem('Log In', '/login'));
+    const utilityMenu: MenuItem[] = [];
+    utilityMenu.push(new MenuItem('Documentation', '/documentation'));
+    utilityMenu.push(new MenuItem('Log In', '/login'));
+
+    this.menuOptions = new MenuOptions();
+    this.menuOptions.title = this.title;
+    this.menuOptions.siteBrandingName = 'RELATIVITY';
+    this.menuOptions.siteBrandingSlogan = 'The Princeton University Design System';
+    this.menuOptions.showCompact = true;
+    this.menuOptions.showSearch = true;
+    this.menuOptions.menuItems = mainMenu;
+    this.menuOptions.utilityItems = utilityMenu;
+    console.log(this.menuOptions)
   }
 }

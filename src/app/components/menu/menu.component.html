@@ -10,7 +10,7 @@
               <app-jazz-menu-item [menuItem]="level1item" (closeSubMenus)="closeSubMenus()" (resetSubMenus)="resetSubMenus()"></app-jazz-menu-item>
             </li>
         </ul>
-        <div class="jazz-header__utility-menu">
+        <div class="jazz-header__utility-menu jazz-header__utility-menu--hide-large">
           <ul *ngIf="utilityItems && utilityItems.length > 0">
             <li *ngFor="let utilityItem of utilityItems" >
               <a [routerLink]="utilityItem.url" routerLinkActive="active" #menuLink="routerLinkActive"

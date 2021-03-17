@@ -8,6 +8,7 @@ import {AccordionComponent } from './accordion/accordion.component';
 import {RouterModule} from '@angular/router';
 import {MenuModule} from './menu/menu.module';
 import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
+import { SearchButtonComponent } from './header/search-button/search-button.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
     ButtonComponent,
     HeaderComponent,
     PagerComponent,
-    ModalDialogComponent
+    ModalDialogComponent,
+    SearchButtonComponent
   ],
   exports: [
     AccordionComponent,

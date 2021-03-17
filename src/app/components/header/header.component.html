@@ -1,23 +1,50 @@
-<header role="banner" class="jazz-header" *ngIf="!showCompact">
-  <h1 class="jazz-visually-hidden">{{title}}</h1>
+<header role="banner" class="jazz-header" *ngIf="!menuOptions.showCompact">
+  <h1 class="jazz-visually-hidden">{{menuOptions.title}}</h1>
   <div class="jazz-skip-links">
     <a href="#main-content" class="jazz-skip-link">Skip to main content</a>
     <a href="#search" class="jazz-skip-link">Skip to search options</a>
   </div>
-  <div class="jazz-header__pu-branding">
-    <div class="jazz-container">
-      <a href="https://www.princeton.edu" title="{{ title }}"><img src="./assets/logos/pu-logo-ww-os.png" alt="{{ title}}" /></a>
+  <div class="jazz-container">
+  <div class="jazz-header-container">
+    <div class="jazz-header__pu-branding">
+        <a href="https://www.princeton.edu" title="{{ menuOptions.title }}"><img src="./assets/logos/pu-logo-ww-os.png" alt="{{ menuOptions.title}}" /></a>
+    </div>
+    <div class="jazz-header-right-container">
+      <div class="jazz-header__utility-menu jazz-header__utility-menu--hide-small">
+        <ul *ngIf="menuOptions.utilityItems && menuOptions.utilityItems.length > 0">
+          <li *ngFor="let utilityItem of menuOptions.utilityItems" >
+            <a [routerLink]="utilityItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
+               [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{utilityItem.label}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="jazz-header__search-bar" *ngIf="menuOptions.showSearch">
+          <h2 class="jazz-visually-hidden">Search</h2>
+          <app-jazz-search-button></app-jazz-search-button>
+          <div class="jazz-header__search-bar-panel">
+            <form action="javascript:void(0)" method="get" accept-charset="UTF-8" role="search">
+              <label class="jazz-visually-hidden" for="search-field">Search</label>
+              <a id="search">
+                <input type="search" id="search-field" placeholder="Search" autocomplete="off" />
+              </a>
+              <button class="jazz-button" type="submit">
+                <span class="jazz-visually-hidden">Search</span>
+              </button>
+            </form>
+          </div>
+      </div>
     </div>
   </div>
+  <div class="jazz-header-break"></div>
   <div class="jazz-header__site-branding">
     <div class="jazz-container jazz-header__site-branding-contents">
-      <a href="./" title="Home" rel="home" tabindex="-1" aria-hidden="true" class="jazz-header__site-branding-home-link"><img src="./assets/logos/shield.svg" alt="{{ siteBrandingName }}"/></a>
+      <a href="./" title="Home" rel="home" tabindex="-1" aria-hidden="true" class="jazz-header__site-branding-home-link"><img src="./assets/logos/shield.svg" alt="{{ menuOptions.siteBrandingName }}"/></a>
       <div class="jazz-header__site-branding-info">
         <div class="jazz-header__site-branding-name">
-          <a href="./" title="Home" rel="home">{{ siteBrandingName }}</a>
+          <a href="./" title="Home" rel="home">{{ menuOptions.siteBrandingName }}</a>
         </div>
         <div class="jazz-header__site-branding-slogan">
-          {{ siteBrandingSlogan }}
+          {{ menuOptions.siteBrandingSlogan }}
         </div>
       </div>
     </div>
@@ -26,58 +53,42 @@
     <div class="jazz-container">
       <div class="jazz-header-collapsed-container">
         <div class="jazz-header-collapsed__pu-branding">
-          <a href="javascript:void(0);" title="Princeton University"><img src="./assets/logos/shield.svg" alt="Princeton University" /></a>
+          <a href="javascript:void(0);" title="{{menuOptions.title}}"><img src="./assets/logos/shield.svg" alt="{{menuOptions.title}}" /></a>
         </div>
         <div class="jazz-header-collapsed__site-branding--divider">
         </div>
         <div class="jazz-header-collapsed__site-branding">
           <div class="jazz-header-collapsed__site-branding-info">
             <div class="jazz-header-collapsed__site-branding-name">
-              <a href="javascript:void(0);" title="Home" rel="home">{{ siteBrandingName }}</a>
+              <a href="javascript:void(0);" title="Home" rel="home">{{ menuOptions.siteBrandingName }}</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <app-jazz-menu [menuItems]="menuItems" [utilityItems]="utilityItems"></app-jazz-menu>
-  <div class="jazz-header__search-bar">
-    <div class="jazz-container">
-      <h2 class="jazz-visually-hidden">Search</h2>
-      <button id="my-search-toggle" class="jazz-header__search-bar-toggle" aria-expanded="false" aria-label="Search Menu Toggle"><i class="jazz-icon jazz-icon-search" aria-hidden="true"></i><span class="jazz-visually-hidden">Search Menu Toggle</span></button>
-      <div *ngIf="showSearch" class="jazz-header__search-bar-panel">
-        <form action="javascript:void(0)" method="get" accept-charset="UTF-8" role="search">
-          <label class="jazz-visually-hidden" for="search-field">Search</label>
-          <a id="search">
-            <input type="search" id="search-field" placeholder="Search" autocomplete="off" />
-          </a>
-          <button class="jazz-button" type="submit">
-            <span class="jazz-visually-hidden">Search</span>
-          </button>
-        </form>
-      </div>
-    </div>
+  <app-jazz-menu [menuItems]="menuOptions.menuItems" [utilityItems]="menuOptions.utilityItems"></app-jazz-menu>
   </div>
 </header>
 
-<header role="banner" class="jazz-header-compact" *ngIf="showCompact">
+<header role="banner" class="jazz-header-compact" *ngIf="menuOptions.showCompact">
   <div class="jazz-container">
     <div class="jazz-header-compact-container">
       <div class="jazz-header-compact-logo">
-        <h1 class="jazz-visually-hidden">{{ title }}</h1>
+        <h1 class="jazz-visually-hidden">{{ menuOptions.title }}</h1>
         <div class="jazz-skip-links">
           <a href="#main-content" class="jazz-skip-link">Skip to main content</a>
           <a href="#search" class="jazz-skip-link">Skip to search options</a>
         </div>
         <div class="jazz-header-compact__pu-branding">
-          <a href="javascript:void(0);" title="{{ title }}"><img src="./assets/logos/pu-standard-ww-ws.png" alt="{{ title }}" /></a>
+          <a href="javascript:void(0);" title="{{ menuOptions.title }}"><img src="./assets/logos/pu-standard-ww-ws.png" alt="{{ menuOptions.title }}" /></a>
         </div>
         <div class="jazz-header-compact__site-branding--divider">
         </div>
         <div class="jazz-header-compact__site-branding">
           <div class="jazz-header-compact__site-branding-info">
             <div class="jazz-header-compact__site-branding-name">
-              <a href="javascript:void(0);" title="Home" rel="home">{{ siteBrandingName }}</a>
+              <a href="javascript:void(0);" title="Home" rel="home">{{ menuOptions.siteBrandingName }}</a>
             </div>
           </div>
         </div>
@@ -85,14 +96,14 @@
       <div class="jazz-header-collapsed-header">
         <div class="jazz-header-collapsed-container">
           <div class="jazz-header-collapsed__pu-branding">
-            <a href="javascript:void(0);" title="{{ title }}"><img src="./assets/logos/shield.svg" alt="{{ title }}" /></a>
+            <a href="javascript:void(0);" title="{{ menuOptions.title }}"><img src="./assets/logos/shield.svg" alt="{{ menuOptions.title }}" /></a>
           </div>
           <div class="jazz-header-collapsed__site-branding--divider">
           </div>
           <div class="jazz-header-collapsed__site-branding">
             <div class="jazz-header-collapsed__site-branding-info">
               <div class="jazz-header-collapsed__site-branding-name">
-                <a href="javascript:void(0);" title="Home" rel="home">{{ siteBrandingName }}</a>
+                <a href="javascript:void(0);" title="Home" rel="home">{{ menuOptions.siteBrandingName }}</a>
               </div>
             </div>
           </div>
@@ -105,7 +116,7 @@
           <div class="jazz-menu__nav-container">
             <div class="jazz-header-compact__utility-menu">
               <ul class="jazz-menubar">
-                <li *ngFor="let menuItem of menuItems">
+                <li *ngFor="let menuItem of menuOptions.menuItems">
                   <a [routerLink]="menuItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
                      [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{menuItem.label}}</a>
                 </li>
