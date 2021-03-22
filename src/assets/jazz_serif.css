@@ -2000,12 +2000,12 @@ label {
 }
 
 .jazz-focus {
-  outline: 0.15rem solid #0B7097;
+  outline: 0.15625rem solid #0B7097;
   outline-offset: 0;
 }
 
 *:focus {
-  outline: 0.15rem solid #0B7097;
+  outline: 0.15625rem solid #0B7097;
   outline-offset: 0;
 }
 
@@ -2952,8 +2952,9 @@ The default styles for the collapsed version of the full header.
   border: none;
   background-color: transparent;
   position: absolute;
-  right: 0.25em;
-  top: 1.7rem;
+  right: 2.2em;
+  top: .65rem;
+  width: 0.125rem;
   z-index: 1000;
 }
 
@@ -4258,42 +4259,50 @@ ul.jazz-pill-bag li a:hover {
   color: #000;
 }
 
-ol.jazz-tab-list {
-  list-style: none;
+.jazz-tablist[role=tablist] {
   display: flex;
-  padding-inline-start: 0px;
-  border-bottom: 1px solid #E77500;
+  border: none;
+  border-bottom: 0.25rem solid #EEEEEE;
 }
 
-li.jazz-tab {
+.jazz-tablist[role=tablist] > button[role=tab] {
+  background-color: #fff;
+  color: #000;
+  height: 2.5rem;
   text-align: center;
-  height: 2.5rem;
   text-transform: uppercase;
-  border-bottom: 4px solid #fff;
-}
-
-li.jazz-tab:hover,
-li.jazz-tab:focus-within {
-  border-bottom: 4px solid #717171;
-}
-
-li.jazz-tab--active,
-li.jazz-tab--active:focus-within,
-li.jazz-tab--active:hover {
-  border-bottom: 4px solid #E77500;
-}
-
-a.jazz-tab-link {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.87);
-  height: 2.5rem;
+  white-space: nowrap;
   font-family: "Roboto", sans-serif;
-  font-style: normal;
   font-weight: 700;
   font-size: 0.875rem;
-  padding: 0 1.5rem;
-  display: inline-flex;
-  align-items: center;
+  line-height: 1.125rem;
+  border: none;
+  border-bottom: 0.25rem solid #EEEEEE;
+  margin-bottom: -0.25rem;
+  margin-right: 1.875rem;
+  margin-left: 1.875rem;
+  padding-top: 0.40625rem;
+  padding-bottom: 0px;
+  padding-left: 0.3125rem;
+  padding-right: 0.3125rem;
+}
+
+.jazz-tablist[role=tablist] > button[role=tab]:focus {
+  outline: 0.15625rem solid #0B7097;
+  outline-offset: -0.15625rem;
+}
+
+.jazz-tablist[role=tablist] > button[role=tab]:not([disabled]):not([aria-selected=true]):hover {
+  border-bottom: 0.25rem solid #717171;
+}
+
+.jazz-tablist[role=tablist] > button[role=tab][aria-selected=true] {
+  border-bottom: 0.25rem solid #E77500;
+}
+
+.jazz-tablist[role=tablist] > button[role=tab][disabled]:not([disabled=false]) {
+  color: #717171;
+  border-bottom: transparent solid #EEEEEE;
 }
 
 .jazz-toolbar {

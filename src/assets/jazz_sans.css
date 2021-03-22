@@ -2000,12 +2000,12 @@ label {
 }
 
 .jazz-focus {
-  outline: 0.15rem solid #0B7097;
+  outline: 0.15625rem solid #0B7097;
   outline-offset: 0;
 }
 
 *:focus {
-  outline: 0.15rem solid #0B7097;
+  outline: 0.15625rem solid #0B7097;
   outline-offset: 0;
 }
 
@@ -2719,15 +2719,15 @@ textarea.jazz-input {
 The default styles for the collapsed version of the compact header.
  */
 .jazz-header-compact {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
 }
 
 .jazz-header-compact .jazz-icon {
-  background-color: #000;
+  background-color: #fff;
 }
 
 .jazz-header-compact-logo {
@@ -2755,8 +2755,8 @@ The default styles for the collapsed version of the compact header.
 }
 
 .jazz-header-compact__utility-menu li > a {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   border-bottom: 0.0625rem solid #A0A0A0;
   text-decoration: none;
   font-weight: bold;
@@ -2768,8 +2768,8 @@ The default styles for the collapsed version of the compact header.
 @media (min-width: 56.25rem) {
   /* PU Branding */
   .jazz-header-compact__pu-branding {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     padding: 1.25rem 0px 0.625rem 0.625rem;
   }
 
@@ -2780,8 +2780,8 @@ The default styles for the collapsed version of the compact header.
 
   /* Site Branding */
   .jazz-header-compact__site-branding--divider {
-    background-color: #000;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     position: static;
     width: 0.125rem;
     height: 2.5rem;
@@ -2796,7 +2796,7 @@ The default styles for the collapsed version of the compact header.
   .jazz-header-compact__site-branding-name a,
 .jazz-header-compact__site-branding-name a:visited,
 .jazz-header-compact__site-branding-name a:hover {
-    background-color: #fff;
+    background-color: #000;
     color: #F58025;
     text-decoration: none;
     width: 46.1875rem;
@@ -2880,7 +2880,7 @@ The default styles for the collapsed version of the compact header.
     height: 2.4375rem;
     left: 0px;
     top: 1.25rem;
-    background: #000;
+    background: #fff;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -2891,8 +2891,8 @@ The default styles for the collapsed version of the compact header.
 The default styles for the collapsed version of the full header.
  */
 .jazz-header {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
 }
 
 .jazz-header-break {
@@ -2901,16 +2901,16 @@ The default styles for the collapsed version of the full header.
 }
 
 .jazz-header-container {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .jazz-header-right-container {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -2925,13 +2925,13 @@ The default styles for the collapsed version of the full header.
 }
 
 .jazz-header__main-menu {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   height: 3.1875rem;
 }
 
 .jazz-header .jazz-icon {
-  background-color: #000;
+  background-color: #fff;
 }
 
 .jazz-header__menu-toggle {
@@ -2952,14 +2952,15 @@ The default styles for the collapsed version of the full header.
   border: none;
   background-color: transparent;
   position: absolute;
-  right: 0.25em;
-  top: 1.7rem;
+  right: 2.2em;
+  top: .65rem;
+  width: 0.125rem;
   z-index: 1000;
 }
 
 .jazz-header__search-bar-panel {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   width: 100%;
   z-index: 1000;
   padding: 1.25rem;
@@ -3040,8 +3041,8 @@ The default styles for the collapsed version of the full header.
 }
 
 .jazz-header__utility-menu li > a {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   border-bottom: 1px solid #A0A0A0;
   text-decoration: none;
   font-weight: bold;
@@ -3075,8 +3076,8 @@ These are the styles for the higher resolution version of the full header
  */
 @media (min-width: 56.25rem) {
   .jazz-header {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     border-top: 4px solid #E77500;
     line-height: 1.15;
     display: flex;
@@ -3091,8 +3092,8 @@ These are the styles for the higher resolution version of the full header
 
   /* PU Branding */
   .jazz-header__pu-branding {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     display: block;
     margin-top: 0rem;
   }
@@ -3105,8 +3106,8 @@ These are the styles for the higher resolution version of the full header
 
   /* Site Branding */
   .jazz-header__site-branding {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     padding: 0.75rem 0px;
     display: flex;
     flex-wrap: wrap;
@@ -3118,8 +3119,8 @@ These are the styles for the higher resolution version of the full header
 
   .jazz-header__site-branding-name a,
 .jazz-header__site-branding-name a:visited {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     text-decoration: none;
     font-size: 2.75rem;
     font-weight: 700;
@@ -3160,8 +3161,8 @@ These are the styles for the higher resolution version of the full header
   }
 
   .jazz-header__nav-container--expanded {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     position: absolute;
     left: 0;
     top: -6.5rem;
@@ -3198,8 +3199,8 @@ These are the styles for the higher resolution version of the full header
   }
 
   .jazz-header__utility-menu a {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     font-size: 0.85rem;
     font-weight: 600;
     padding: 0.5rem 0 0.2rem 0;
@@ -3209,8 +3210,8 @@ These are the styles for the higher resolution version of the full header
   }
 
   .jazz-header__utility-menu li > a {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     border-bottom: none;
     font-weight: bold;
     padding: 2.1875rem 0px 0px 0px;
@@ -3230,8 +3231,8 @@ These are the styles for the higher resolution version of the full header
   }
 }
 .jazz-header-collapsed-header {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
 }
 
 .jazz-header-collapsed-container {
@@ -3241,8 +3242,8 @@ These are the styles for the higher resolution version of the full header
 }
 
 .jazz-header-collapsed-header {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -3252,8 +3253,8 @@ These are the styles for the higher resolution version of the full header
 
 /* PU Branding */
 .jazz-header-collapsed__pu-branding {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
 }
 
 .jazz-header-collapsed__pu-branding img {
@@ -3263,8 +3264,8 @@ These are the styles for the higher resolution version of the full header
 
 /* Site Branding */
 .jazz-header-collapsed__site-branding--divider {
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   width: 0.125rem;
   height: 2.5rem;
   margin-left: 0.625rem;
@@ -3274,7 +3275,7 @@ These are the styles for the higher resolution version of the full header
 .jazz-header-collapsed__site-branding-name a,
 .jazz-header-collapsed__site-branding-name a:visited,
 .jazz-header-collapsed__site-branding-name a:hover {
-  background-color: #fff;
+  background-color: #000;
   color: #F58025;
   text-decoration: none;
   width: 46.1875rem;
@@ -3504,8 +3505,8 @@ a[target=_blank]::after {
 }
 
 .jazz-menu__menu-toggle {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   border: none;
   text-transform: uppercase;
   font-weight: bold;
@@ -3524,8 +3525,8 @@ a[target=_blank]::after {
 }
 
 .jazz-menu__main-menu {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
 }
 
 .jazz-menu__nav-container {
@@ -3533,8 +3534,8 @@ a[target=_blank]::after {
 }
 
 .jazz-menu__nav-container--expanded {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -3655,8 +3656,8 @@ a[target=_blank]::after {
 }
 
 ul.jazz-menubar {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   display: none;
   list-style: none;
   padding: 1rem 1rem 0rem 0rem;
@@ -3679,8 +3680,8 @@ ul.jazz-menubar li > button:not([aria-expanded=true]) + ul:not(.jazz-menubar--st
 }
 
 ul.jazz-menubar li {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   padding-left: 1rem;
   position: relative;
 }
@@ -3690,8 +3691,8 @@ ul.jazz-menubar a:hover {
 }
 
 ul.jazz-menubar li > a {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   border-bottom: 1px solid #A0A0A0;
   text-decoration: none;
   font-weight: bold;
@@ -3749,8 +3750,8 @@ ul.jazz-menubar__submenu li > button:not([aria-expanded=true]) + ul {
 @media (min-width: 56.25rem) {
   ul.jazz-menubar,
 ul.jazz-menubar.jazz-menubar--shown {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
@@ -3764,8 +3765,8 @@ ul.jazz-menubar.jazz-menubar--shown {
   }
 
   ul.jazz-menubar > li {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     padding-left: 0rem;
     padding-right: 0.875rem;
     margin: 0 0.625rem;
@@ -3777,8 +3778,8 @@ ul.jazz-menubar.jazz-menubar--shown {
   }
 
   ul.jazz-menubar > li > a {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     border-bottom: 0.4375rem solid transparent;
     text-decoration: none;
     font-weight: bold;
@@ -3792,8 +3793,8 @@ ul.jazz-menubar.jazz-menubar--shown {
 
   ul.jazz-menubar > li > a[aria-current=page],
 .jazz-menubar > ul > li:hover > a[aria-current=page] {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     border-bottom: 0.4375rem solid #E77500;
   }
 
@@ -3883,8 +3884,8 @@ ul.jazz-menubar > li > button[aria-expanded=true] {
   }
 
   ul.jazz-menubar > li > ul a {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
     padding: 0.8125rem 0.3125rem;
@@ -4258,42 +4259,50 @@ ul.jazz-pill-bag li a:hover {
   color: #000;
 }
 
-ol.jazz-tab-list {
-  list-style: none;
+.jazz-tablist[role=tablist] {
   display: flex;
-  padding-inline-start: 0px;
-  border-bottom: 1px solid #E77500;
+  border: none;
+  border-bottom: 0.25rem solid #EEEEEE;
 }
 
-li.jazz-tab {
+.jazz-tablist[role=tablist] > button[role=tab] {
+  background-color: #fff;
+  color: #000;
+  height: 2.5rem;
   text-align: center;
-  height: 2.5rem;
   text-transform: uppercase;
-  border-bottom: 4px solid #fff;
-}
-
-li.jazz-tab:hover,
-li.jazz-tab:focus-within {
-  border-bottom: 4px solid #717171;
-}
-
-li.jazz-tab--active,
-li.jazz-tab--active:focus-within,
-li.jazz-tab--active:hover {
-  border-bottom: 4px solid #E77500;
-}
-
-a.jazz-tab-link {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.87);
-  height: 2.5rem;
+  white-space: nowrap;
   font-family: "Public Sans", sans-serif;
-  font-style: normal;
   font-weight: 700;
   font-size: 0.875rem;
-  padding: 0 1.5rem;
-  display: inline-flex;
-  align-items: center;
+  line-height: 1.125rem;
+  border: none;
+  border-bottom: 0.25rem solid #EEEEEE;
+  margin-bottom: -0.25rem;
+  margin-right: 1.875rem;
+  margin-left: 1.875rem;
+  padding-top: 0.40625rem;
+  padding-bottom: 0px;
+  padding-left: 0.3125rem;
+  padding-right: 0.3125rem;
+}
+
+.jazz-tablist[role=tablist] > button[role=tab]:focus {
+  outline: 0.15625rem solid #0B7097;
+  outline-offset: -0.15625rem;
+}
+
+.jazz-tablist[role=tablist] > button[role=tab]:not([disabled]):not([aria-selected=true]):hover {
+  border-bottom: 0.25rem solid #717171;
+}
+
+.jazz-tablist[role=tablist] > button[role=tab][aria-selected=true] {
+  border-bottom: 0.25rem solid #E77500;
+}
+
+.jazz-tablist[role=tablist] > button[role=tab][disabled]:not([disabled=false]) {
+  color: #717171;
+  border-bottom: transparent solid #EEEEEE;
 }
 
 .jazz-toolbar {
