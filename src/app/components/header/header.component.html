@@ -11,7 +11,7 @@
     </div>
     <div class="jazz-header-right-container">
       <div class="jazz-header__utility-menu jazz-header__utility-menu--hide-small">
-        <ul *ngIf="menuOptions.utilityItems && menuOptions.utilityItems.length > 0">
+        <ul>
           <li *ngFor="let utilityItem of menuOptions.utilityItems" >
             <a [routerLink]="utilityItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
                [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{utilityItem.label}}</a>
@@ -67,7 +67,9 @@
       </div>
     </div>
   </div>
-  <app-jazz-menu [menuItems]="menuOptions.menuItems" [utilityItems]="menuOptions.utilityItems"></app-jazz-menu>
+  <app-jazz-menu [menuItems]="menuOptions.menuItems" [utilityItems]="menuOptions.utilityItems">
+
+  </app-jazz-menu>
   </div>
 </header>
 

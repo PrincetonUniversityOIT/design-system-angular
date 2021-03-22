@@ -1,5 +1,5 @@
 import {MenuItem} from '../../model/menu-item';
-import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Input} from '@angular/core';
 import {
   ARIA_EXPANDED,
   HEADER_NAV_SELECTOR, HEADER_SUB_MENU_SELECTOR, ICON_CLOSE, ICON_MENU, ICON_SELECTOR, MENU_BUTTON_SELECTOR,
@@ -14,7 +14,7 @@ import {
   selector: 'app-jazz-menu',
   templateUrl: './menu.component.html'
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
 
   @Input()
   menuItems?: MenuItem[];
@@ -22,16 +22,15 @@ export class MenuComponent implements OnInit {
   @Input()
   utilityItems?: MenuItem[];
 
+  @Input()
+  mainMenuItems?: MenuItem[];
+
   @HostListener('window:resize', ['$event'])
   onResize(event): void {
     this.displayWindowSize();
   }
 
   constructor() {}
-
-  ngOnInit(): void {
-
-  }
 
   displayWindowSize(): void {
     // Main Menu Reset

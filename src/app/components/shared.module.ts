@@ -7,8 +7,12 @@ import {AlertComponent} from './alert/alert.component';
 import {AccordionComponent } from './accordion/accordion.component';
 import {RouterModule} from '@angular/router';
 import {MenuModule} from './menu/menu.module';
-import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
-import { SearchButtonComponent } from './header/search-button/search-button.component';
+import {ModalDialogComponent } from './modal-dialog/modal-dialog.component';
+import {SearchButtonComponent } from './header/search-button/search-button.component';
+import {MainMenuItemComponent} from './header/main-menu/main-menu-item';
+import {MainMenuComponent} from './header/main-menu/main-menu';
+import {UtilityMenuComponent} from './header/utility-menu/utility-menu';
+import {UtilityItemComponent} from './header/utility-menu/utility-menu-item';
 
 @NgModule({
   imports: [
@@ -23,7 +27,11 @@ import { SearchButtonComponent } from './header/search-button/search-button.comp
     HeaderComponent,
     PagerComponent,
     ModalDialogComponent,
-    SearchButtonComponent
+    SearchButtonComponent,
+    UtilityItemComponent,
+    UtilityMenuComponent,
+    MainMenuItemComponent,
+    MainMenuComponent
   ],
   exports: [
     AccordionComponent,
@@ -31,7 +39,11 @@ import { SearchButtonComponent } from './header/search-button/search-button.comp
     ButtonComponent,
     HeaderComponent,
     PagerComponent,
-    ModalDialogComponent
+    ModalDialogComponent,
+    UtilityItemComponent,
+    UtilityMenuComponent,
+    MainMenuItemComponent,
+    MainMenuComponent
   ]
 })
 export class SharedModule {
