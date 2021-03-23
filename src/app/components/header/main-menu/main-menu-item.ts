@@ -10,5 +10,5 @@ export class MainMenuItemComponent {
   @Input() url: string;
   @Input() label: string;
   @Input() shownByDefault: boolean;
-  @ContentChildren(MainMenuItemComponent) menuComponents: QueryList<MainMenuItemComponent>;
+  @ContentChildren(MainMenuItemComponent, {descendants: false}) menuComponents: QueryList<MainMenuItemComponent>;
 }

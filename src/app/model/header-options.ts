@@ -1,6 +1,6 @@
 import {MenuItem} from './menu-item';
 
-export class MenuOptions {
+export class HeaderOptions {
   public title: string
   public siteBrandingName: string;
   public siteBrandingSlogan: string;

@@ -8,5 +8,5 @@ import {MainMenuItemComponent} from './main-menu-item';
   `,
 })
 export class MainMenuComponent {
-  @ContentChildren(MainMenuItemComponent) menuComponents: QueryList<MainMenuItemComponent>;
+  @ContentChildren(MainMenuItemComponent, {descendants: false}) menuComponents: QueryList<MainMenuItemComponent>;
 }

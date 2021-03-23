@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from './model/menu-item';
-import {MenuOptions} from './model/menu-options';
+import {HeaderOptions} from './model/header-options';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import {MenuOptions} from './model/menu-options';
 })
 export class AppComponent implements OnInit {
   title = 'Princeton Design System';
-  menuOptions: MenuOptions;
+  headerOptions: HeaderOptions;
 
   constructor() {}
 
@@ -62,13 +62,13 @@ export class AppComponent implements OnInit {
     utilityMenu.push(new MenuItem('Documentation', '/documentation'));
     utilityMenu.push(new MenuItem('Log In', '/login'));
 
-    this.menuOptions = new MenuOptions();
-    this.menuOptions.title = this.title;
-    this.menuOptions.siteBrandingName = 'RELATIVITY';
-    this.menuOptions.siteBrandingSlogan = 'The Princeton University Design System';
-    this.menuOptions.showCompact = false;
-    this.menuOptions.showSearch = true;
-    // this.menuOptions.menuItems = mainMenu;
-    // this.menuOptions.utilityItems = utilityMenu;
+    this.headerOptions = new HeaderOptions();
+    this.headerOptions.title = this.title;
+    this.headerOptions.siteBrandingName = 'RELATIVITY';
+    this.headerOptions.siteBrandingSlogan = 'The Princeton University Design System';
+    this.headerOptions.showCompact = false;
+    this.headerOptions.showSearch = true;
+    // this.headerOptions.menuItems = mainMenu;
+    // this.headerOptions.utilityItems = utilityMenu;
   }
 }

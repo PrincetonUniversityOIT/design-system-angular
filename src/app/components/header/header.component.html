@@ -1,5 +1,5 @@
-<header role="banner" class="jazz-header" *ngIf="!menuOptions.showCompact">
-  <h1 class="jazz-visually-hidden">{{menuOptions.title}}</h1>
+<header role="banner" class="jazz-header" *ngIf="!headerOptions.showCompact">
+  <h1 class="jazz-visually-hidden">{{headerOptions.title}}</h1>
   <div class="jazz-skip-links">
     <a href="#main-content" class="jazz-skip-link">Skip to main content</a>
     <a href="#search" class="jazz-skip-link">Skip to search options</a>
@@ -7,18 +7,18 @@
   <div class="jazz-container">
   <div class="jazz-header-container">
     <div class="jazz-header__pu-branding">
-        <a href="https://www.princeton.edu" title="{{ menuOptions.title }}"><img src="./assets/logos/pu-logo-ww-os.png" alt="{{ menuOptions.title}}" /></a>
+        <a href="https://www.princeton.edu" title="{{ headerOptions.title }}"><img src="./assets/logos/pu-logo-ww-os.png" alt="{{ headerOptions.title}}" /></a>
     </div>
     <div class="jazz-header-right-container">
       <div class="jazz-header__utility-menu jazz-header__utility-menu--hide-small">
-        <ul>
-          <li *ngFor="let utilityItem of menuOptions.utilityItems" >
+        <ul *ngIf="headerOptions && headerOptions.utilityItems && headerOptions.utilityItems.length > 0">
+          <li *ngFor="let utilityItem of headerOptions.utilityItems">
             <a [routerLink]="utilityItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
                [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{utilityItem.label}}</a>
           </li>
         </ul>
       </div>
-      <div class="jazz-header__search-bar" *ngIf="menuOptions.showSearch">
+      <div class="jazz-header__search-bar" *ngIf="headerOptions.showSearch">
           <h2 class="jazz-visually-hidden">Search</h2>
           <app-jazz-search-button></app-jazz-search-button>
           <div class="jazz-header__search-bar-panel">
@@ -38,13 +38,13 @@
   <div class="jazz-header-break"></div>
   <div class="jazz-header__site-branding">
     <div class="jazz-header__site-branding-contents">
-      <a href="./" title="Home" rel="home" tabindex="-1" aria-hidden="true" class="jazz-header__site-branding-home-link"><img src="./assets/logos/shield.svg" alt="{{ menuOptions.siteBrandingName }}"/></a>
+      <a href="./" title="Home" rel="home" tabindex="-1" aria-hidden="true" class="jazz-header__site-branding-home-link"><img src="./assets/logos/shield.svg" alt="{{ headerOptions.siteBrandingName }}"/></a>
       <div class="jazz-header__site-branding-info">
         <div class="jazz-header__site-branding-name">
-          <a href="./" title="Home" rel="home">{{ menuOptions.siteBrandingName }}</a>
+          <a href="./" title="Home" rel="home">{{ headerOptions.siteBrandingName }}</a>
         </div>
         <div class="jazz-header__site-branding-slogan">
-          {{ menuOptions.siteBrandingSlogan }}
+          {{ headerOptions.siteBrandingSlogan }}
         </div>
       </div>
     </div>
@@ -53,44 +53,44 @@
     <div class="jazz-container">
       <div class="jazz-header-collapsed-container">
         <div class="jazz-header-collapsed__pu-branding">
-          <a href="javascript:void(0);" title="{{menuOptions.title}}"><img src="./assets/logos/shield.svg" alt="{{menuOptions.title}}" /></a>
+          <a href="javascript:void(0);" title="{{headerOptions.title}}"><img src="./assets/logos/shield.svg" alt="{{headerOptions.title}}" /></a>
         </div>
         <div class="jazz-header-collapsed__site-branding--divider">
         </div>
         <div class="jazz-header-collapsed__site-branding">
           <div class="jazz-header-collapsed__site-branding-info">
             <div class="jazz-header-collapsed__site-branding-name">
-              <a href="javascript:void(0);" title="Home" rel="home">{{ menuOptions.siteBrandingName }}</a>
+              <a href="javascript:void(0);" title="Home" rel="home">{{ headerOptions.siteBrandingName }}</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <app-jazz-menu [menuItems]="menuOptions.menuItems" [utilityItems]="menuOptions.utilityItems">
+  <app-jazz-menu [menuItems]="headerOptions.menuItems" [utilityItems]="headerOptions.utilityItems">
 
   </app-jazz-menu>
   </div>
 </header>
 
-<header role="banner" class="jazz-header-compact" *ngIf="menuOptions.showCompact">
+<header role="banner" class="jazz-header-compact" *ngIf="headerOptions.showCompact">
   <div class="jazz-container">
     <div class="jazz-header-compact-container">
       <div class="jazz-header-compact-logo">
-        <h1 class="jazz-visually-hidden">{{ menuOptions.title }}</h1>
+        <h1 class="jazz-visually-hidden">{{ headerOptions.title }}</h1>
         <div class="jazz-skip-links">
           <a href="#main-content" class="jazz-skip-link">Skip to main content</a>
           <a href="#search" class="jazz-skip-link">Skip to search options</a>
         </div>
         <div class="jazz-header-compact__pu-branding">
-          <a href="javascript:void(0);" title="{{ menuOptions.title }}"><img src="./assets/logos/pu-standard-ww-ws.png" alt="{{ menuOptions.title }}" /></a>
+          <a href="javascript:void(0);" title="{{ headerOptions.title }}"><img src="./assets/logos/pu-standard-ww-ws.png" alt="{{ headerOptions.title }}" /></a>
         </div>
         <div class="jazz-header-compact__site-branding--divider">
         </div>
         <div class="jazz-header-compact__site-branding">
           <div class="jazz-header-compact__site-branding-info">
             <div class="jazz-header-compact__site-branding-name">
-              <a href="javascript:void(0);" title="Home" rel="home">{{ menuOptions.siteBrandingName }}</a>
+              <a href="javascript:void(0);" title="Home" rel="home">{{ headerOptions.siteBrandingName }}</a>
             </div>
           </div>
         </div>
@@ -98,14 +98,14 @@
       <div class="jazz-header-collapsed-header">
         <div class="jazz-header-collapsed-container">
           <div class="jazz-header-collapsed__pu-branding">
-            <a href="javascript:void(0);" title="{{ menuOptions.title }}"><img src="./assets/logos/shield.svg" alt="{{ menuOptions.title }}" /></a>
+            <a href="javascript:void(0);" title="{{ headerOptions.title }}"><img src="./assets/logos/shield.svg" alt="{{ headerOptions.title }}" /></a>
           </div>
           <div class="jazz-header-collapsed__site-branding--divider">
           </div>
           <div class="jazz-header-collapsed__site-branding">
             <div class="jazz-header-collapsed__site-branding-info">
               <div class="jazz-header-collapsed__site-branding-name">
-                <a href="javascript:void(0);" title="Home" rel="home">{{ menuOptions.siteBrandingName }}</a>
+                <a href="javascript:void(0);" title="Home" rel="home">{{ headerOptions.siteBrandingName }}</a>
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@
           <div class="jazz-menu__nav-container">
             <div class="jazz-header-compact__utility-menu">
               <ul class="jazz-menubar">
-                <li *ngFor="let menuItem of menuOptions.menuItems">
+                <li *ngFor="let menuItem of headerOptions.menuItems">
                   <a [routerLink]="menuItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
                      [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{menuItem.label}}</a>
                 </li>

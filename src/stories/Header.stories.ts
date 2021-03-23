@@ -9,15 +9,20 @@ import {MenuMainButtonComponent} from '../app/components/menu/menu-main-button/m
 import {MenuSubButtonComponent} from '../app/components/menu/menu-sub-button/menu-sub-button.component';
 import {MenuItemComponent} from '../app/components/menu/menu-item/menu-item.component';
 import {MenuComponent} from '../app/components/menu/menu.component';
-import {MenuOptions} from '../app/model/menu-options';
+import {HeaderOptions} from '../app/model/header-options';
 import {SearchButtonComponent} from '../app/components/header/search-button/search-button.component';
+import {MainMenuItemComponent} from '../app/components/header/main-menu/main-menu-item';
+import {MainMenuComponent} from '../app/components/header/main-menu/main-menu';
+import {UtilityMenuComponent} from '../app/components/header/utility-menu/utility-menu';
+import {UtilityItemComponent} from '../app/components/header/utility-menu/utility-menu-item';
 
 export default {
   title: 'Components/Header',
   component: HeaderComponent,
   decorators: [
     moduleMetadata({
-      declarations: [MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, SearchButtonComponent],
+      declarations: [MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, SearchButtonComponent,
+        MainMenuItemComponent, MainMenuComponent, UtilityMenuComponent, UtilityItemComponent],
       imports: [CommonModule, RouterModule.forRoot([])],
       providers: [
         {provide: APP_BASE_HREF, useValue: '/'}
@@ -51,55 +56,55 @@ const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
   props: args,
 });
 
-const menuOptions = new MenuOptions();
-menuOptions.title = 'Princeton University Design System';
-menuOptions.siteBrandingName = 'RELATIVITY';
-menuOptions.siteBrandingSlogan = 'The Princeton University Design System';
-menuOptions.showCompact = false;
-menuOptions.showSearch = true;
-menuOptions.menuItems = mainMenu;
-menuOptions.utilityItems = utilityMenu;
+const headerOptions = new HeaderOptions();
+headerOptions.title = 'Princeton University Design System';
+headerOptions.siteBrandingName = 'RELATIVITY';
+headerOptions.siteBrandingSlogan = 'The Princeton University Design System';
+headerOptions.showCompact = false;
+headerOptions.showSearch = true;
+headerOptions.menuItems = mainMenu;
+headerOptions.utilityItems = utilityMenu;
 
-const menuOptionsOnlyUtility = Object.assign({}, menuOptions);
-menuOptionsOnlyUtility.menuItems = [];
-menuOptionsOnlyUtility.showSearch = false;
+const headerOptionsOnlyUtility = Object.assign({}, headerOptions);
+headerOptionsOnlyUtility.menuItems = [];
+headerOptionsOnlyUtility.showSearch = false;
 
-const justSearch = Object.assign({}, menuOptions);;
+const justSearch = Object.assign({}, headerOptions);
 justSearch.showSearch = true;
 justSearch.menuItems = [];
 justSearch.utilityItems = [];
 
-const justHeader = Object.assign({}, menuOptions);;
+const justHeader = Object.assign({}, headerOptions);
 justHeader.showSearch = false;
 justHeader.menuItems = [];
 justHeader.utilityItems = [];
 
-const compoact = Object.assign({}, menuOptions);
-menuOptionsOnlyUtility.menuItems = [];
-menuOptionsOnlyUtility.showSearch = false;
-menuOptionsOnlyUtility.showCompact = true;
+const compact = Object.assign({}, headerOptions);
+compact.utilityItems = [];
+compact.showSearch = false;
+compact.showCompact = true;
 
 export const Default = Template.bind({});
 Default.args = {
-  menuOptions
+  headerOptions
 };
 
 export const OnlyUtilityMenu = Template.bind({});
 OnlyUtilityMenu.args = {
-  menuOptions: menuOptionsOnlyUtility
+  headerOptions: headerOptionsOnlyUtility
 };
 
 export const JustSearch = Template.bind({});
 JustSearch.args = {
-  menuOptions: justSearch
+  headerOptions: justSearch
 };
 
 export const JustHeader = Template.bind({});
 JustHeader.args = {
-  menuOptions: justHeader
+  headerOptions: justHeader
 };
 
 export const Compact = Template.bind({});
 Compact.args = {
-  menuOptions: compoact
+  headerOptions: compact
 };
