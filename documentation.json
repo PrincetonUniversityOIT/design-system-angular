@@ -613,7 +613,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<!--<app-jazz-header [headerOptions]=\"headerOptions\">-->\r\n<app-jazz-header [title]=\"'Princeton University Design System'\" [siteBrandingName]=\"'RELATIVITY'\" [siteBrandingSlogan]=\"'The Princeton University Design System'\" [showCompact]=false [showSearch]=true>\r\n    <app-jazz-main-menu>\r\n      <app-jazz-main-menu-item label=\"Main Menu 1\" url=\"/mainMenu1\">\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 1\" url=\"/level2item1\" shownByDefault=\"true\">\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 1\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 2\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 3\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n          </app-jazz-main-menu-item>\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 2\" url=\"/level2item1\"></app-jazz-main-menu-item>\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 3\" url=\"/level2item1\"></app-jazz-main-menu-item>\r\n      </app-jazz-main-menu-item>\r\n      <app-jazz-main-menu-item label=\"Main Menu 2\" url=\"/mainMenu2\"></app-jazz-main-menu-item>\r\n      <app-jazz-main-menu-item label=\"Main Menu 3\" url=\"/mainMenu3\"></app-jazz-main-menu-item>\r\n    </app-jazz-main-menu>\r\n\r\n    <app-jazz-utility-menu>\r\n      <app-jazz-utility-item label=\"Documentation\" url=\"/documentation\"></app-jazz-utility-item>\r\n      <app-jazz-utility-item label=\"Log In\" url=\"/login\"></app-jazz-utility-item>\r\n    </app-jazz-utility-menu>\r\n</app-jazz-header>\r\n\r\n<main>\r\n  <div class=\"jazz-container\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</main>\r\n\r\n<footer role=\"contentinfo\" class=\"jazz-footer\">\r\n  <div class=\"jazz-container jazz-footer__content\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-3 col-xs-12\">\r\n        <h2>General Information</h2>\r\n        <ul class=\"jazz-footer__list\">\r\n          <li><a href=\"javascript:void(0);\">Contact Us</a></li>\r\n          <li><a href=\"javascript:void(0);\">About Us</a></li>\r\n          <li><a href=\"javascript:void(0);\">News</a></li>\r\n          <li><a href=\"javascript:void(0);\">Data Privacy Policy</a></li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"col-sm-3 col-xs-12\">\r\n        <h2>Services</h2>\r\n        <ul class=\"jazz-footer__list\">\r\n          <li><a href=\"javascript:void(0);\">Update Your Info</a></li>\r\n          <li><a href=\"javascript:void(0);\">Online Resources</a></li>\r\n          <li><a href=\"javascript:void(0);\">Visiting Campus</a></li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"col-sm-3 col-xs-12\">\r\n        <h2>University Links</h2>\r\n        <ul class=\"jazz-footer__list\">\r\n          <li><a href=\"javascript:void(0);\">Princeton University</a></li>\r\n          <li><a href=\"javascript:void(0);\">Princeton Athletics</a></li>\r\n          <li><a href=\"javascript:void(0);\">Princeton Career Development</a></li>\r\n          <li><a href=\"javascript:void(0);\">Princeton Prize</a></li>\r\n          <li><a href=\"javascript:void(0);\">Princetoniana</a></li>\r\n          <li><a href=\"javascript:void(0);\">Giving to Princeton</a></li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"col-sm-3 col-xs-12\">\r\n        <h2>Social Media</h2>\r\n        <ul class=\"jazz-footer__icon-list\">\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-facebook\"></i><span class=\"jazz-visually-hidden\">Follow Us on Facebook</span></a></li>\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-twitter\"></i><span class=\"jazz-visually-hidden\">Follow Us on Twitter</span></a></li>\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-linkedin\"></i><span class=\"jazz-visually-hidden\">Follow Us on Linked In</span></a></li>\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-instagram\"></i><span class=\"jazz-visually-hidden\">Follow Us on Instagram</span></a></li>\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-youtube\"></i><span class=\"jazz-visually-hidden\">Follow Us on You Tube</span></a></li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"jazz-footer__subfooter\">\r\n    <div class=\"jazz-container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-4 col-xs-12\">\r\n          <a href=\"javascript:void(0)\">Accessibility</a>\r\n        </div>\r\n        <div class=\"col-sm-4 col-xs-12\">\r\n          &copy; 2020 The Trustees of Princeton University\r\n        </div>\r\n        <div class=\"col-sm-4 col-xs-12\">\r\n          <a href=\"https://www.princeton.edu\" target=\"_blank\" class=\"jazz-no-icon\"><img class=\"jazz-footer__logo\" src=\"./assets/icons/pu-logo-stacked-white.svg\" alt=\"Princeton University\" /></a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</footer>\r\n"
+            "templateData": "<div class=\"jazz-body-flex-container\">\r\n  <!--<app-jazz-header [headerOptions]=\"headerOptions\">-->\r\n  <app-jazz-header [title]=\"'Princeton University Design System'\" [siteBrandingName]=\"'RELATIVITY'\" [siteBrandingSlogan]=\"'The Princeton University Design System'\" [showCompact]=true [showSearch]=true>\r\n    <app-jazz-main-menu>\r\n      <app-jazz-main-menu-item label=\"Main Menu 1\" url=\"/mainMenu1\">\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 1\" url=\"/level2item1\" shownByDefault=\"true\">\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 1\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 2\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 3\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n          </app-jazz-main-menu-item>\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 2\" url=\"/level2item1\"></app-jazz-main-menu-item>\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 3\" url=\"/level2item1\"></app-jazz-main-menu-item>\r\n      </app-jazz-main-menu-item>\r\n      <app-jazz-main-menu-item label=\"Main Menu 2\" url=\"/mainMenu2\"></app-jazz-main-menu-item>\r\n      <app-jazz-main-menu-item label=\"Main Menu 3\" url=\"/mainMenu3\"></app-jazz-main-menu-item>\r\n    </app-jazz-main-menu>\r\n\r\n    <app-jazz-utility-menu>\r\n      <app-jazz-utility-item label=\"Documentation\" url=\"/documentation\"></app-jazz-utility-item>\r\n      <app-jazz-utility-item label=\"Log In\" url=\"/login\"></app-jazz-utility-item>\r\n    </app-jazz-utility-menu>\r\n</app-jazz-header>\r\n\r\n<main>\r\n  <div class=\"jazz-container\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</main>\r\n\r\n<footer role=\"contentinfo\" class=\"jazz-footer\">\r\n  <div class=\"jazz-container jazz-footer__content\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-3 col-xs-12\">\r\n        <h2>General Information</h2>\r\n        <ul class=\"jazz-footer__list\">\r\n          <li><a href=\"javascript:void(0);\">Contact Us</a></li>\r\n          <li><a href=\"javascript:void(0);\">About Us</a></li>\r\n          <li><a href=\"javascript:void(0);\">News</a></li>\r\n          <li><a href=\"javascript:void(0);\">Data Privacy Policy</a></li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"col-sm-3 col-xs-12\">\r\n        <h2>Services</h2>\r\n        <ul class=\"jazz-footer__list\">\r\n          <li><a href=\"javascript:void(0);\">Update Your Info</a></li>\r\n          <li><a href=\"javascript:void(0);\">Online Resources</a></li>\r\n          <li><a href=\"javascript:void(0);\">Visiting Campus</a></li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"col-sm-3 col-xs-12\">\r\n        <h2>University Links</h2>\r\n        <ul class=\"jazz-footer__list\">\r\n          <li><a href=\"javascript:void(0);\">Princeton University</a></li>\r\n          <li><a href=\"javascript:void(0);\">Princeton Athletics</a></li>\r\n          <li><a href=\"javascript:void(0);\">Princeton Career Development</a></li>\r\n          <li><a href=\"javascript:void(0);\">Princeton Prize</a></li>\r\n          <li><a href=\"javascript:void(0);\">Princetoniana</a></li>\r\n          <li><a href=\"javascript:void(0);\">Giving to Princeton</a></li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"col-sm-3 col-xs-12\">\r\n        <h2>Social Media</h2>\r\n        <ul class=\"jazz-footer__icon-list\">\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-facebook\"></i><span class=\"jazz-visually-hidden\">Follow Us on Facebook</span></a></li>\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-twitter\"></i><span class=\"jazz-visually-hidden\">Follow Us on Twitter</span></a></li>\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-linkedin\"></i><span class=\"jazz-visually-hidden\">Follow Us on Linked In</span></a></li>\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-instagram\"></i><span class=\"jazz-visually-hidden\">Follow Us on Instagram</span></a></li>\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-youtube\"></i><span class=\"jazz-visually-hidden\">Follow Us on You Tube</span></a></li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"jazz-footer__subfooter\">\r\n    <div class=\"jazz-container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-4 col-xs-12\">\r\n          <a href=\"javascript:void(0)\">Accessibility</a>\r\n        </div>\r\n        <div class=\"col-sm-4 col-xs-12\">\r\n          &copy; 2020 The Trustees of Princeton University\r\n        </div>\r\n        <div class=\"col-sm-4 col-xs-12\">\r\n          <a href=\"https://www.princeton.edu\" target=\"_blank\" class=\"jazz-no-icon\"><img class=\"jazz-footer__logo\" src=\"./assets/icons/pu-logo-stacked-white.svg\" alt=\"Princeton University\" /></a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</footer>\r\n</div>\r\n"
         },
         {
             "name": "ButtonComponent",
@@ -2764,14 +2764,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Pager.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -2781,6 +2773,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Pager.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2900,7 +2900,7 @@
                 "name": "ICON_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-constants.ts",
+                "file": "src/app/components/header/header-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-icon`"
             },
@@ -2908,7 +2908,7 @@
                 "name": "ICON_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/header/header-constants.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-icon`"
             },
@@ -3578,6 +3578,32 @@
                     "defaultValue": "[]"
                 }
             ],
+            "src/stories/Button.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
+                }
+            ],
             "src/stories/Pager.stories.ts": [
                 {
                     "name": "Default",
@@ -3618,32 +3644,6 @@
                     "file": "src/stories/Pager.stories.ts",
                     "type": "Story<PagerComponent>",
                     "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
-                }
-            ],
-            "src/stories/Button.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Disabled",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "type": "Story<ButtonComponent>",
-                    "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
                 }
             ],
             "src/environments/environment.ts": [
