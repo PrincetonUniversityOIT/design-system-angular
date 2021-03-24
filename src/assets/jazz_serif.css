@@ -2770,7 +2770,7 @@ The default styles for the collapsed version of the compact header.
   .jazz-header-compact__pu-branding {
     background-color: #000;
     color: #fff;
-    padding: 1.25rem 0px 0.625rem 0.625rem;
+    padding: 3.6875rem 0px 3.9375rem 0.625rem;
   }
 
   .jazz-header-compact__pu-branding img {
@@ -2784,13 +2784,13 @@ The default styles for the collapsed version of the compact header.
     color: #000;
     position: static;
     width: 0.125rem;
-    height: 2.5rem;
+    height: 5.25rem;
     left: 0px;
     top: 0px;
   }
 
   .jazz-header-compact__site-branding {
-    padding-top: 1.875rem;
+    padding-top: 4.34375rem;
   }
 
   .jazz-header-compact__site-branding-name a,
@@ -2822,12 +2822,12 @@ The default styles for the collapsed version of the compact header.
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 7.6875rem;
+    height: 11rem;
   }
 
   .jazz-header-compact__site-branding--divider {
     margin-right: 1.25rem;
-    margin-top: 1.875rem;
+    margin-top: 2.875rem;
   }
 
   .jazz-menu__main-menu {
@@ -2884,7 +2884,7 @@ The default styles for the collapsed version of the compact header.
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 1.875rem 0 1.875rem 0;
+    margin: 1.875rem 0 1.875rem 0.625rem;
   }
 }
 /*
@@ -2952,8 +2952,8 @@ The default styles for the collapsed version of the full header.
   border: none;
   background-color: transparent;
   position: absolute;
-  right: 2.2em;
-  top: .65rem;
+  right: 2em;
+  top: 1.75rem;
   width: 0.125rem;
   z-index: 1000;
 }
@@ -3660,7 +3660,7 @@ ul.jazz-menubar {
   color: #fff;
   display: none;
   list-style: none;
-  padding: 1rem 1rem 0rem 0rem;
+  padding: 1rem 0 0rem 0;
   margin: 0px;
   line-height: 1.15;
 }
@@ -3768,8 +3768,7 @@ ul.jazz-menubar.jazz-menubar--shown {
     background-color: #000;
     color: #fff;
     padding-left: 0rem;
-    padding-right: 0.875rem;
-    margin: 0 0.625rem;
+    margin: 3.875rem 0.625rem;
     position: relative;
   }
 
@@ -3783,8 +3782,9 @@ ul.jazz-menubar.jazz-menubar--shown {
     border-bottom: 0.4375rem solid transparent;
     text-decoration: none;
     font-weight: bold;
-    padding: 0px 0px 0.625rem 0px;
+    padding: 0;
     display: inline-block;
+    white-space: nowrap;
   }
 
   ul.jazz-menubar > li:hover > a {

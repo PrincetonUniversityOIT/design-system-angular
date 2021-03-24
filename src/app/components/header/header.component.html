@@ -74,14 +74,14 @@
 </header>
 
 <header role="banner" class="jazz-header-compact" *ngIf="headerOptions.showCompact">
+  <h1 class="jazz-visually-hidden">{{ headerOptions.title }}</h1>
+  <div class="jazz-skip-links">
+    <a href="#main-content" class="jazz-skip-link">Skip to main content</a>
+    <a href="#search" class="jazz-skip-link">Skip to search options</a>
+  </div>
   <div class="jazz-container">
     <div class="jazz-header-compact-container">
       <div class="jazz-header-compact-logo">
-        <h1 class="jazz-visually-hidden">{{ headerOptions.title }}</h1>
-        <div class="jazz-skip-links">
-          <a href="#main-content" class="jazz-skip-link">Skip to main content</a>
-          <a href="#search" class="jazz-skip-link">Skip to search options</a>
-        </div>
         <div class="jazz-header-compact__pu-branding">
           <a href="javascript:void(0);" title="{{ headerOptions.title }}"><img src="./assets/logos/pu-standard-ww-ws.png" alt="{{ headerOptions.title }}" /></a>
         </div>

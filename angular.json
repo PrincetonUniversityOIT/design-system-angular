@@ -25,7 +25,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/jazz_serif.css",
+              "src/assets/jazz_sans.css",
               "src/assets/jazz_fonts.css"
             ],
             "scripts": []

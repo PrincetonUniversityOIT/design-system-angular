@@ -38,9 +38,9 @@ subMenu2.push(new MenuItem('Level 3 Menu 2', '/level3item2' ));
 subMenu2.push(new MenuItem('Level 3 Menu 3', '/level3item3' ));
 
 const subMenu1: MenuItem[] = [];
-subMenu1.push(new MenuItem('Sub Menu 1', '/level2item1', subMenu2));
-subMenu1.push(new MenuItem('Sub Menu 2', '/level2item2'));
-subMenu1.push(new MenuItem('Sub Menu 3', '/level2item2'));
+subMenu1.push(new MenuItem('Level 2 Menu 1', '/level2item1', subMenu2));
+subMenu1.push(new MenuItem('Level 2 Menu 2', '/level2item2'));
+subMenu1.push(new MenuItem('Level 2 Menu 3', '/level2item2'));
 
 const mainMenu: MenuItem[] = [];
 mainMenu.push(new MenuItem('Main Menu 1', '/level1item1', subMenu1 ));

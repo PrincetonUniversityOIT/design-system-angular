@@ -767,7 +767,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-94c1c7770b07f71cda88ed0f33996f48",
+            "id": "component-HeaderComponent-be41606a46746b1a5ade88101cf0358c",
             "file": "src/app/components/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -851,7 +851,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 67
+                    "line": 64
                 },
                 {
                     "name": "displayWindowSize",
@@ -859,7 +859,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 129
+                    "line": 123
                 },
                 {
                     "name": "ngAfterViewChecked",
@@ -867,7 +867,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 125
+                    "line": 119
                 },
                 {
                     "name": "ngAfterViewInit",
@@ -875,7 +875,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 84
+                    "line": 80
                 },
                 {
                     "name": "ngOnInit",
@@ -891,7 +891,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 100
+                    "line": 95
                 },
                 {
                     "name": "retrieveMenuItems",
@@ -904,7 +904,7 @@
                     "optional": false,
                     "returnType": "MenuItem",
                     "typeParameters": [],
-                    "line": 111,
+                    "line": 105,
                     "jsdoctags": [
                         {
                             "name": "menuComponent",
@@ -921,7 +921,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 89
+                    "line": 85
                 }
             ],
             "hostBindings": [],
@@ -943,7 +943,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\r\n  Component,\r\n  HostListener,\r\n  Input,\r\n  AfterViewInit, ChangeDetectorRef, AfterViewChecked, ContentChild, OnInit\r\n} from '@angular/core';\r\nimport {HeaderOptions} from '../../model/header-options';\r\nimport {ARIA_EXPANDED} from '../menu/menu-constants';\r\nimport {\r\n  ICON_CLOSE,\r\n  ICON_SEARCH,\r\n  ICON_SELECTOR,\r\n  SEARCH_PANEL,\r\n  SEARCH_SELECTOR,\r\n  SEARCH_SHOWN_STYLE\r\n} from './header-constants';\r\nimport {MenuItem} from '../../model/menu-item';\r\nimport {MainMenuComponent} from './main-menu/main-menu';\r\nimport {MainMenuItemComponent} from './main-menu/main-menu-item';\r\nimport {UtilityMenuComponent} from './utility-menu/utility-menu';\r\n\r\n@Component({\r\n  selector: 'app-jazz-header',\r\n  templateUrl: './header.component.html'\r\n})\r\nexport class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked {\r\n  @Input()\r\n  headerOptions?: HeaderOptions;\r\n\r\n  @Input()\r\n  title?: string;\r\n\r\n  @Input()\r\n  siteBrandingName?: string;\r\n\r\n  @Input()\r\n  siteBrandingSlogan?: string;\r\n\r\n  @Input()\r\n  showSearch?: boolean = true;\r\n\r\n  @Input()\r\n  showCompact?: boolean = false;\r\n\r\n  @ContentChild(MainMenuComponent)\r\n  mainMenu: MainMenuComponent;\r\n\r\n  @ContentChild(UtilityMenuComponent)\r\n  utilityMenu: UtilityMenuComponent;\r\n\r\n  @HostListener('window:resize', ['$event'])\r\n  onResize(event): void {\r\n    this.displayWindowSize();\r\n  }\r\n\r\n  constructor(\r\n    private cdr: ChangeDetectorRef\r\n  ) {}\r\n\r\n  ngOnInit(): void {\r\n    console.log('headerOptions', this.headerOptions);\r\n    console.log('showCompact', this.showCompact);\r\n\r\n    this.checkInputs();\r\n  }\r\n\r\n  checkInputs(): void {\r\n    if (this.headerOptions &&  (this.siteBrandingName || this.siteBrandingSlogan || this.title || this.showSearch || this.showCompact)) {\r\n       console.warn('Please specify either the headerOptions or the individual properties for the header');\r\n    }\r\n\r\n    if (!this.headerOptions) {\r\n       this.headerOptions = Object.assign({}, {\r\n            title: this.title,\r\n            siteBrandingName: this.siteBrandingName,\r\n            siteBrandingSlogan: this.siteBrandingSlogan,\r\n            showSearch: this.showSearch,\r\n            showCompact: this.showCompact\r\n       });\r\n       console.log('headerOptions update', this.headerOptions);\r\n    }\r\n  }\r\n\r\n  ngAfterViewInit(): void {\r\n    this.retrieveMainMenu();\r\n    this.retrieveUtilityMenus();\r\n  }\r\n\r\n  retrieveUtilityMenus(): void {\r\n    console.log('utiltiy', this.utilityMenu)\r\n    if (!this.headerOptions.utilityItems && this.utilityMenu && this.utilityMenu.utilityMenuComponents.length > 0) {\r\n      const utilityMenu: MenuItem[] = [];\r\n      this.utilityMenu.utilityMenuComponents.forEach((item) => {\r\n         utilityMenu.push(Object.assign({}, {label: item.label, url: item.url}));\r\n      });\r\n      this.headerOptions.utilityItems = utilityMenu;\r\n    }\r\n  }\r\n\r\n  retrieveMainMenu(): void {\r\n    console.log('main', this.mainMenu)\r\n    if (!this.headerOptions.menuItems && this.mainMenu && this.mainMenu.menuComponents.length > 0) {\r\n      const mainMenu: MenuItem[] = [];\r\n      this.mainMenu.menuComponents.forEach((item) => {\r\n        mainMenu.push(this.retrieveMenuItems(item));\r\n      });\r\n      this.headerOptions.menuItems = mainMenu;\r\n    }\r\n  }\r\n\r\n  retrieveMenuItems(menuComponent: MainMenuItemComponent): MenuItem {\r\n    const menuItem: MenuItem = Object.assign(new MenuItem(menuComponent.label, menuComponent.url), {\r\n      shownByDefault: menuComponent.shownByDefault ? menuComponent.shownByDefault : false,\r\n      subItems: []\r\n    });\r\n    if (menuComponent.menuComponents.length > 0) {\r\n      const removeSelf = menuComponent.menuComponents.filter(x => x !== menuComponent);\r\n      removeSelf.forEach((comp) => {\r\n        menuItem.subItems.push(this.retrieveMenuItems(comp));\r\n      });\r\n    }\r\n    return menuItem;\r\n  }\r\n\r\n  ngAfterViewChecked(): void {\r\n    this.cdr.detectChanges();\r\n  }\r\n\r\n  displayWindowSize(): void {\r\n    // Search Reset\r\n    document.querySelectorAll(SEARCH_PANEL).forEach((searchbar) => {\r\n      searchbar.classList.remove(SEARCH_SHOWN_STYLE);\r\n    });\r\n\r\n    document.querySelectorAll(SEARCH_SELECTOR).forEach((button) => {\r\n      button.setAttribute(ARIA_EXPANDED, 'false');\r\n      const searchToggleIcon = button.querySelector(ICON_SELECTOR);\r\n      searchToggleIcon.classList.remove(ICON_CLOSE);\r\n      searchToggleIcon.classList.add(ICON_SEARCH);\r\n    });\r\n  }\r\n}\r\n",
+            "sourceCode": "import {\r\n  Component,\r\n  HostListener,\r\n  Input,\r\n  AfterViewInit, ChangeDetectorRef, AfterViewChecked, ContentChild, OnInit\r\n} from '@angular/core';\r\nimport {HeaderOptions} from '../../model/header-options';\r\nimport {ARIA_EXPANDED} from '../menu/menu-constants';\r\nimport {\r\n  ICON_CLOSE,\r\n  ICON_SEARCH,\r\n  ICON_SELECTOR,\r\n  SEARCH_PANEL,\r\n  SEARCH_SELECTOR,\r\n  SEARCH_SHOWN_STYLE\r\n} from './header-constants';\r\nimport {MenuItem} from '../../model/menu-item';\r\nimport {MainMenuComponent} from './main-menu/main-menu';\r\nimport {MainMenuItemComponent} from './main-menu/main-menu-item';\r\nimport {UtilityMenuComponent} from './utility-menu/utility-menu';\r\n\r\n@Component({\r\n  selector: 'app-jazz-header',\r\n  templateUrl: './header.component.html'\r\n})\r\nexport class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked {\r\n  @Input()\r\n  headerOptions?: HeaderOptions;\r\n\r\n  @Input()\r\n  title?: string;\r\n\r\n  @Input()\r\n  siteBrandingName?: string;\r\n\r\n  @Input()\r\n  siteBrandingSlogan?: string;\r\n\r\n  @Input()\r\n  showSearch?: boolean = true;\r\n\r\n  @Input()\r\n  showCompact?: boolean = false;\r\n\r\n  @ContentChild(MainMenuComponent)\r\n  mainMenu: MainMenuComponent;\r\n\r\n  @ContentChild(UtilityMenuComponent)\r\n  utilityMenu: UtilityMenuComponent;\r\n\r\n  @HostListener('window:resize', ['$event'])\r\n  onResize(event): void {\r\n    this.displayWindowSize();\r\n  }\r\n\r\n  constructor(\r\n    private cdr: ChangeDetectorRef\r\n  ) {}\r\n\r\n  ngOnInit(): void {\r\n    this.checkInputs();\r\n  }\r\n\r\n  checkInputs(): void {\r\n    if (this.headerOptions &&  (this.siteBrandingName || this.siteBrandingSlogan || this.title || this.showSearch || this.showCompact)) {\r\n       console.warn('Please specify either the headerOptions or the individual properties for the header');\r\n    }\r\n\r\n    if (!this.headerOptions) {\r\n       this.headerOptions = Object.assign({}, {\r\n            title: this.title,\r\n            siteBrandingName: this.siteBrandingName,\r\n            siteBrandingSlogan: this.siteBrandingSlogan,\r\n            showSearch: this.showSearch,\r\n            showCompact: this.showCompact\r\n       });\r\n    }\r\n  }\r\n\r\n  ngAfterViewInit(): void {\r\n    this.retrieveMainMenu();\r\n    this.retrieveUtilityMenus();\r\n  }\r\n\r\n  retrieveUtilityMenus(): void {\r\n    if (!this.headerOptions.utilityItems && this.utilityMenu && this.utilityMenu.utilityMenuComponents.length > 0) {\r\n      const utilityMenu: MenuItem[] = [];\r\n      this.utilityMenu.utilityMenuComponents.forEach((item) => {\r\n         utilityMenu.push(Object.assign({}, {label: item.label, url: item.url}));\r\n      });\r\n      this.headerOptions.utilityItems = utilityMenu;\r\n    }\r\n  }\r\n\r\n  retrieveMainMenu(): void {\r\n    if (!this.headerOptions.menuItems && this.mainMenu && this.mainMenu.menuComponents.length > 0) {\r\n      const mainMenu: MenuItem[] = [];\r\n      this.mainMenu.menuComponents.forEach((item) => {\r\n        mainMenu.push(this.retrieveMenuItems(item));\r\n      });\r\n      this.headerOptions.menuItems = mainMenu;\r\n    }\r\n  }\r\n\r\n  retrieveMenuItems(menuComponent: MainMenuItemComponent): MenuItem {\r\n    const menuItem: MenuItem = Object.assign(new MenuItem(menuComponent.label, menuComponent.url), {\r\n      shownByDefault: menuComponent.shownByDefault ? menuComponent.shownByDefault : false,\r\n      subItems: []\r\n    });\r\n    if (menuComponent.menuComponents.length > 0) {\r\n      const removeSelf = menuComponent.menuComponents.filter(x => x !== menuComponent);\r\n      removeSelf.forEach((comp) => {\r\n        menuItem.subItems.push(this.retrieveMenuItems(comp));\r\n      });\r\n    }\r\n    return menuItem;\r\n  }\r\n\r\n  ngAfterViewChecked(): void {\r\n    this.cdr.detectChanges();\r\n  }\r\n\r\n  displayWindowSize(): void {\r\n    // Search Reset\r\n    document.querySelectorAll(SEARCH_PANEL).forEach((searchbar) => {\r\n      searchbar.classList.remove(SEARCH_SHOWN_STYLE);\r\n    });\r\n\r\n    document.querySelectorAll(SEARCH_SELECTOR).forEach((button) => {\r\n      button.setAttribute(ARIA_EXPANDED, 'false');\r\n      const searchToggleIcon = button.querySelector(ICON_SELECTOR);\r\n      searchToggleIcon.classList.remove(ICON_CLOSE);\r\n      searchToggleIcon.classList.add(ICON_SEARCH);\r\n    });\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -972,7 +972,7 @@
                 "AfterViewInit",
                 "AfterViewChecked"
             ],
-            "templateData": "<header role=\"banner\" class=\"jazz-header\" *ngIf=\"!headerOptions.showCompact\">\r\n  <h1 class=\"jazz-visually-hidden\">{{headerOptions.title}}</h1>\r\n  <div class=\"jazz-skip-links\">\r\n    <a href=\"#main-content\" class=\"jazz-skip-link\">Skip to main content</a>\r\n    <a href=\"#search\" class=\"jazz-skip-link\">Skip to search options</a>\r\n  </div>\r\n  <div class=\"jazz-container\">\r\n  <div class=\"jazz-header-container\">\r\n    <div class=\"jazz-header__pu-branding\">\r\n        <a href=\"https://www.princeton.edu\" title=\"{{ headerOptions.title }}\"><img src=\"./assets/logos/pu-logo-ww-os.png\" alt=\"{{ headerOptions.title}}\" /></a>\r\n    </div>\r\n    <div class=\"jazz-header-right-container\">\r\n      <div class=\"jazz-header__utility-menu jazz-header__utility-menu--hide-small\">\r\n        <ul *ngIf=\"headerOptions && headerOptions.utilityItems && headerOptions.utilityItems.length > 0\">\r\n          <li *ngFor=\"let utilityItem of headerOptions.utilityItems\">\r\n            <a [routerLink]=\"utilityItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\r\n               [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{utilityItem.label}}</a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"jazz-header__search-bar\" *ngIf=\"headerOptions.showSearch\">\r\n          <h2 class=\"jazz-visually-hidden\">Search</h2>\r\n          <app-jazz-search-button></app-jazz-search-button>\r\n          <div class=\"jazz-header__search-bar-panel\">\r\n            <form action=\"javascript:void(0)\" method=\"get\" accept-charset=\"UTF-8\" role=\"search\">\r\n              <label class=\"jazz-visually-hidden\" for=\"search-field\">Search</label>\r\n              <a id=\"search\">\r\n                <input type=\"search\" id=\"search-field\" placeholder=\"Search\" autocomplete=\"off\" />\r\n              </a>\r\n              <button class=\"jazz-button\" type=\"submit\">\r\n                <span class=\"jazz-visually-hidden\">Search</span>\r\n              </button>\r\n            </form>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"jazz-header-break\"></div>\r\n  <div class=\"jazz-header__site-branding\">\r\n    <div class=\"jazz-header__site-branding-contents\">\r\n      <a href=\"./\" title=\"Home\" rel=\"home\" tabindex=\"-1\" aria-hidden=\"true\" class=\"jazz-header__site-branding-home-link\"><img src=\"./assets/logos/shield.svg\" alt=\"{{ headerOptions.siteBrandingName }}\"/></a>\r\n      <div class=\"jazz-header__site-branding-info\">\r\n        <div class=\"jazz-header__site-branding-name\">\r\n          <a href=\"./\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n        </div>\r\n        <div class=\"jazz-header__site-branding-slogan\">\r\n          {{ headerOptions.siteBrandingSlogan }}\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"jazz-header-collapsed-header\">\r\n    <div class=\"jazz-container\">\r\n      <div class=\"jazz-header-collapsed-container\">\r\n        <div class=\"jazz-header-collapsed__pu-branding\">\r\n          <a href=\"javascript:void(0);\" title=\"{{headerOptions.title}}\"><img src=\"./assets/logos/shield.svg\" alt=\"{{headerOptions.title}}\" /></a>\r\n        </div>\r\n        <div class=\"jazz-header-collapsed__site-branding--divider\">\r\n        </div>\r\n        <div class=\"jazz-header-collapsed__site-branding\">\r\n          <div class=\"jazz-header-collapsed__site-branding-info\">\r\n            <div class=\"jazz-header-collapsed__site-branding-name\">\r\n              <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <app-jazz-menu [menuItems]=\"headerOptions.menuItems\" [utilityItems]=\"headerOptions.utilityItems\">\r\n\r\n  </app-jazz-menu>\r\n  </div>\r\n</header>\r\n\r\n<header role=\"banner\" class=\"jazz-header-compact\" *ngIf=\"headerOptions.showCompact\">\r\n  <div class=\"jazz-container\">\r\n    <div class=\"jazz-header-compact-container\">\r\n      <div class=\"jazz-header-compact-logo\">\r\n        <h1 class=\"jazz-visually-hidden\">{{ headerOptions.title }}</h1>\r\n        <div class=\"jazz-skip-links\">\r\n          <a href=\"#main-content\" class=\"jazz-skip-link\">Skip to main content</a>\r\n          <a href=\"#search\" class=\"jazz-skip-link\">Skip to search options</a>\r\n        </div>\r\n        <div class=\"jazz-header-compact__pu-branding\">\r\n          <a href=\"javascript:void(0);\" title=\"{{ headerOptions.title }}\"><img src=\"./assets/logos/pu-standard-ww-ws.png\" alt=\"{{ headerOptions.title }}\" /></a>\r\n        </div>\r\n        <div class=\"jazz-header-compact__site-branding--divider\">\r\n        </div>\r\n        <div class=\"jazz-header-compact__site-branding\">\r\n          <div class=\"jazz-header-compact__site-branding-info\">\r\n            <div class=\"jazz-header-compact__site-branding-name\">\r\n              <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"jazz-header-collapsed-header\">\r\n        <div class=\"jazz-header-collapsed-container\">\r\n          <div class=\"jazz-header-collapsed__pu-branding\">\r\n            <a href=\"javascript:void(0);\" title=\"{{ headerOptions.title }}\"><img src=\"./assets/logos/shield.svg\" alt=\"{{ headerOptions.title }}\" /></a>\r\n          </div>\r\n          <div class=\"jazz-header-collapsed__site-branding--divider\">\r\n          </div>\r\n          <div class=\"jazz-header-collapsed__site-branding\">\r\n            <div class=\"jazz-header-collapsed__site-branding-info\">\r\n              <div class=\"jazz-header-collapsed__site-branding-name\">\r\n                <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"jazz-header-break\"></div>\r\n      <nav aria-label=\"Main Menu\" class=\"jazz-menu__main-menu\">\r\n        <div class=\"jazz-menu__main-menu-navbar\">\r\n          <app-jazz-menu-main-button></app-jazz-menu-main-button>\r\n          <div class=\"jazz-menu__nav-container\">\r\n            <div class=\"jazz-header-compact__utility-menu\">\r\n              <ul class=\"jazz-menubar\">\r\n                <li *ngFor=\"let menuItem of headerOptions.utilityItems\">\r\n                  <a [routerLink]=\"menuItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\r\n                     [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{menuItem.label}}</a>\r\n                </li>\r\n              </ul>\r\n            </div>\r\n            <div class=\"jazz-header-compact__utility-menu--divider\"></div>\r\n            <div class=\"jazz-header-compact__utility-menu\">\r\n              <ul class=\"jazz-menubar\">\r\n                <li><a href=\"javascript void(0);\">Net Id</a></li>\r\n              </ul>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </nav>\r\n    </div>\r\n  </div>\r\n</header>\r\n"
+            "templateData": "<header role=\"banner\" class=\"jazz-header\" *ngIf=\"!headerOptions.showCompact\">\r\n  <h1 class=\"jazz-visually-hidden\">{{headerOptions.title}}</h1>\r\n  <div class=\"jazz-skip-links\">\r\n    <a href=\"#main-content\" class=\"jazz-skip-link\">Skip to main content</a>\r\n    <a href=\"#search\" class=\"jazz-skip-link\">Skip to search options</a>\r\n  </div>\r\n  <div class=\"jazz-container\">\r\n  <div class=\"jazz-header-container\">\r\n    <div class=\"jazz-header__pu-branding\">\r\n        <a href=\"https://www.princeton.edu\" title=\"{{ headerOptions.title }}\"><img src=\"./assets/logos/pu-logo-ww-os.png\" alt=\"{{ headerOptions.title}}\" /></a>\r\n    </div>\r\n    <div class=\"jazz-header-right-container\">\r\n      <div class=\"jazz-header__utility-menu jazz-header__utility-menu--hide-small\">\r\n        <ul *ngIf=\"headerOptions && headerOptions.utilityItems && headerOptions.utilityItems.length > 0\">\r\n          <li *ngFor=\"let utilityItem of headerOptions.utilityItems\">\r\n            <a [routerLink]=\"utilityItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\r\n               [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{utilityItem.label}}</a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"jazz-header__search-bar\" *ngIf=\"headerOptions.showSearch\">\r\n          <h2 class=\"jazz-visually-hidden\">Search</h2>\r\n          <app-jazz-search-button></app-jazz-search-button>\r\n          <div class=\"jazz-header__search-bar-panel\">\r\n            <form action=\"javascript:void(0)\" method=\"get\" accept-charset=\"UTF-8\" role=\"search\">\r\n              <label class=\"jazz-visually-hidden\" for=\"search-field\">Search</label>\r\n              <a id=\"search\">\r\n                <input type=\"search\" id=\"search-field\" placeholder=\"Search\" autocomplete=\"off\" />\r\n              </a>\r\n              <button class=\"jazz-button\" type=\"submit\">\r\n                <span class=\"jazz-visually-hidden\">Search</span>\r\n              </button>\r\n            </form>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"jazz-header-break\"></div>\r\n  <div class=\"jazz-header__site-branding\">\r\n    <div class=\"jazz-header__site-branding-contents\">\r\n      <a href=\"./\" title=\"Home\" rel=\"home\" tabindex=\"-1\" aria-hidden=\"true\" class=\"jazz-header__site-branding-home-link\"><img src=\"./assets/logos/shield.svg\" alt=\"{{ headerOptions.siteBrandingName }}\"/></a>\r\n      <div class=\"jazz-header__site-branding-info\">\r\n        <div class=\"jazz-header__site-branding-name\">\r\n          <a href=\"./\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n        </div>\r\n        <div class=\"jazz-header__site-branding-slogan\">\r\n          {{ headerOptions.siteBrandingSlogan }}\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"jazz-header-collapsed-header\">\r\n    <div class=\"jazz-container\">\r\n      <div class=\"jazz-header-collapsed-container\">\r\n        <div class=\"jazz-header-collapsed__pu-branding\">\r\n          <a href=\"javascript:void(0);\" title=\"{{headerOptions.title}}\"><img src=\"./assets/logos/shield.svg\" alt=\"{{headerOptions.title}}\" /></a>\r\n        </div>\r\n        <div class=\"jazz-header-collapsed__site-branding--divider\">\r\n        </div>\r\n        <div class=\"jazz-header-collapsed__site-branding\">\r\n          <div class=\"jazz-header-collapsed__site-branding-info\">\r\n            <div class=\"jazz-header-collapsed__site-branding-name\">\r\n              <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <app-jazz-menu [menuItems]=\"headerOptions.menuItems\" [utilityItems]=\"headerOptions.utilityItems\">\r\n\r\n  </app-jazz-menu>\r\n  </div>\r\n</header>\r\n\r\n<header role=\"banner\" class=\"jazz-header-compact\" *ngIf=\"headerOptions.showCompact\">\r\n  <h1 class=\"jazz-visually-hidden\">{{ headerOptions.title }}</h1>\r\n  <div class=\"jazz-skip-links\">\r\n    <a href=\"#main-content\" class=\"jazz-skip-link\">Skip to main content</a>\r\n    <a href=\"#search\" class=\"jazz-skip-link\">Skip to search options</a>\r\n  </div>\r\n  <div class=\"jazz-container\">\r\n    <div class=\"jazz-header-compact-container\">\r\n      <div class=\"jazz-header-compact-logo\">\r\n        <div class=\"jazz-header-compact__pu-branding\">\r\n          <a href=\"javascript:void(0);\" title=\"{{ headerOptions.title }}\"><img src=\"./assets/logos/pu-standard-ww-ws.png\" alt=\"{{ headerOptions.title }}\" /></a>\r\n        </div>\r\n        <div class=\"jazz-header-compact__site-branding--divider\">\r\n        </div>\r\n        <div class=\"jazz-header-compact__site-branding\">\r\n          <div class=\"jazz-header-compact__site-branding-info\">\r\n            <div class=\"jazz-header-compact__site-branding-name\">\r\n              <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"jazz-header-collapsed-header\">\r\n        <div class=\"jazz-header-collapsed-container\">\r\n          <div class=\"jazz-header-collapsed__pu-branding\">\r\n            <a href=\"javascript:void(0);\" title=\"{{ headerOptions.title }}\"><img src=\"./assets/logos/shield.svg\" alt=\"{{ headerOptions.title }}\" /></a>\r\n          </div>\r\n          <div class=\"jazz-header-collapsed__site-branding--divider\">\r\n          </div>\r\n          <div class=\"jazz-header-collapsed__site-branding\">\r\n            <div class=\"jazz-header-collapsed__site-branding-info\">\r\n              <div class=\"jazz-header-collapsed__site-branding-name\">\r\n                <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"jazz-header-break\"></div>\r\n      <nav aria-label=\"Main Menu\" class=\"jazz-menu__main-menu\">\r\n        <div class=\"jazz-menu__main-menu-navbar\">\r\n          <app-jazz-menu-main-button></app-jazz-menu-main-button>\r\n          <div class=\"jazz-menu__nav-container\">\r\n            <div class=\"jazz-header-compact__utility-menu\">\r\n              <ul class=\"jazz-menubar\">\r\n                <li *ngFor=\"let menuItem of headerOptions.menuItems\">\r\n                  <a [routerLink]=\"menuItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\r\n                     [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{menuItem.label}}</a>\r\n                </li>\r\n              </ul>\r\n            </div>\r\n            <div class=\"jazz-header-compact__utility-menu--divider\"></div>\r\n            <div class=\"jazz-header-compact__utility-menu\">\r\n              <ul class=\"jazz-menubar\">\r\n                <li><a href=\"javascript void(0);\">Net Id</a></li>\r\n              </ul>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </nav>\r\n    </div>\r\n  </div>\r\n</header>\r\n"
         },
         {
             "name": "MainMenu1Component",
@@ -2373,7 +2373,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ng-template #searchButtonTemplate>\n  <button class=\"jazz-header__search-bar-toggle\" (click)='onSearchClick($event)'\n          aria-expanded=\"false\" aria-label=\"Search Toggle\">\n    Menu<i class=\"jazz-icon jazz-icon-search\" aria-hidden=\"true\" (click)='onMainMenuSearchIconClick($event)'></i>\n  </button>\n</ng-template>\n"
+            "templateData": "<ng-template #searchButtonTemplate>\n  <button class=\"jazz-header__search-bar-toggle\" (click)='onSearchClick($event)'\n          aria-expanded=\"false\" aria-label=\"Search Toggle\">\n    <i class=\"jazz-icon jazz-icon-search\" aria-hidden=\"true\" (click)='onMainMenuSearchIconClick($event)'></i>\n  </button>\n</ng-template>\n"
         },
         {
             "name": "UtilityItemComponent",
@@ -2724,6 +2724,14 @@
                 "name": "ARIA_EXPANDED",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/components/menu/menu-constants.ts",
+                "type": "string",
+                "defaultValue": "'aria-expanded'"
+            },
+            {
+                "name": "ARIA_EXPANDED",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
                 "type": "string",
                 "defaultValue": "'aria-expanded'"
@@ -2733,14 +2741,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/components/accordion/accordion.component.ts",
-                "type": "string",
-                "defaultValue": "'aria-expanded'"
-            },
-            {
-                "name": "ARIA_EXPANDED",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "string",
                 "defaultValue": "'aria-expanded'"
             },
@@ -2804,17 +2804,17 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "HEADER_NAV_SELECTOR",
@@ -2865,14 +2865,6 @@
                 "defaultValue": "'hidden'"
             },
             {
-                "name": "html",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "type": "",
-                "defaultValue": "Object.assign({}, headerOptions)"
-            },
-            {
                 "name": "ICON_CLOSE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2908,7 +2900,7 @@
                 "name": "ICON_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/header/header-constants.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-icon`"
             },
@@ -2916,7 +2908,7 @@
                 "name": "ICON_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-constants.ts",
+                "file": "src/app/components/header/header-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-icon`"
             },
@@ -3132,17 +3124,17 @@
                 "name": "stories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/HeaderHTML.stories.ts",
+                "file": "src/stories/Accordion.stories.ts",
                 "type": "",
-                "defaultValue": "storiesOf('Components/HeaderHTML', module)\n  .addDecorator(\n    moduleMetadata({\n      imports: [RouterModule],\n      declarations: [HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,\n        SearchButtonComponent,  MainMenuItemComponent, MainMenuComponent, UtilityMenuComponent, UtilityItemComponent]\n    })\n  )"
+                "defaultValue": "storiesOf('Components/Accordion', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
             },
             {
                 "name": "stories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Accordion.stories.ts",
+                "file": "src/stories/HeaderHTML.stories.ts",
                 "type": "",
-                "defaultValue": "storiesOf('Components/Accordion', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
+                "defaultValue": "storiesOf('Components/HeaderHTML', module)\n  .addDecorator(\n    moduleMetadata({\n      imports: [RouterModule.forRoot(routes, {useHash: true})],\n      declarations: [HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,\n        SearchButtonComponent,  MainMenuItemComponent, MainMenuComponent, UtilityMenuComponent, UtilityItemComponent]\n    })\n  )"
             },
             {
                 "name": "stories",
@@ -3180,17 +3172,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Pager.stories.ts",
-                "type": "Story<PagerComponent>",
-                "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
+                "file": "src/stories/Button.stories.ts",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "type": "Story<ButtonComponent>",
-                "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
+                "file": "src/stories/Pager.stories.ts",
+                "type": "Story<PagerComponent>",
+                "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
             },
             {
                 "name": "Template",
@@ -3324,16 +3316,6 @@
                     "defaultValue": "'aria-multiselectable'"
                 }
             ],
-            "src/app/components/menu/menu-main-button/menu-main-button.component.ts": [
-                {
-                    "name": "ARIA_EXPANDED",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
-                    "type": "string",
-                    "defaultValue": "'aria-expanded'"
-                }
-            ],
             "src/app/components/menu/menu-constants.ts": [
                 {
                     "name": "ARIA_EXPANDED",
@@ -3464,6 +3446,16 @@
                     "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
                 }
             ],
+            "src/app/components/menu/menu-main-button/menu-main-button.component.ts": [
+                {
+                    "name": "ARIA_EXPANDED",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+                    "type": "string",
+                    "defaultValue": "'aria-expanded'"
+                }
+            ],
             "src/stories/Header.stories.ts": [
                 {
                     "name": "compact",
@@ -3499,14 +3491,6 @@
                 },
                 {
                     "name": "headerOptionsOnlyUtility",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
-                    "type": "",
-                    "defaultValue": "Object.assign({}, headerOptions)"
-                },
-                {
-                    "name": "html",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/Header.stories.ts",
@@ -3662,16 +3646,6 @@
                     "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -3680,6 +3654,16 @@
                     "file": "src/environments/environment.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/app/components/header/header-constants.ts": [
@@ -3778,16 +3762,6 @@
                     "defaultValue": "'jazz'"
                 }
             ],
-            "src/stories/HeaderHTML.stories.ts": [
-                {
-                    "name": "stories",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/HeaderHTML.stories.ts",
-                    "type": "",
-                    "defaultValue": "storiesOf('Components/HeaderHTML', module)\n  .addDecorator(\n    moduleMetadata({\n      imports: [RouterModule],\n      declarations: [HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,\n        SearchButtonComponent,  MainMenuItemComponent, MainMenuComponent, UtilityMenuComponent, UtilityItemComponent]\n    })\n  )"
-                }
-            ],
             "src/stories/Accordion.stories.ts": [
                 {
                     "name": "stories",
@@ -3796,6 +3770,16 @@
                     "file": "src/stories/Accordion.stories.ts",
                     "type": "",
                     "defaultValue": "storiesOf('Components/Accordion', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
+                }
+            ],
+            "src/stories/HeaderHTML.stories.ts": [
+                {
+                    "name": "stories",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/HeaderHTML.stories.ts",
+                    "type": "",
+                    "defaultValue": "storiesOf('Components/HeaderHTML', module)\n  .addDecorator(\n    moduleMetadata({\n      imports: [RouterModule.forRoot(routes, {useHash: true})],\n      declarations: [HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,\n        SearchButtonComponent,  MainMenuItemComponent, MainMenuComponent, UtilityMenuComponent, UtilityItemComponent]\n    })\n  )"
                 }
             ],
             "src/stories/Breadcrumbs.stories.ts": [
@@ -4632,16 +4616,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "headerOptionsOnlyUtility",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "html",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
