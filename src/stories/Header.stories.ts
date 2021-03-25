@@ -80,7 +80,7 @@ justHeader.menuItems = [];
 justHeader.utilityItems = [];
 
 const compact = Object.assign({}, headerOptions);
-compact.utilityItems = [];
+compact.menuItems = [];
 compact.showSearch = false;
 compact.showCompact = true;
 

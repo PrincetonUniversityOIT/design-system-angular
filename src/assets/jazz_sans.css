@@ -2112,6 +2112,11 @@ label {
   mask-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iUmF3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4KICA8cmVjdCB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgZmlsbD0ibm9uZSIvPgogIDxjaXJjbGUgY3g9IjEyOCIgY3k9IjEwNCIgcj0iMzIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+CiAgPHBhdGggZD0iTTIwOCwxMDRjMCw3Mi04MCwxMjgtODAsMTI4UzQ4LDE3Niw0OCwxMDRhODAsODAsMCwwLDEsMTYwLDBaIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIvPgo8L3N2Zz4K);
 }
 
+.jazz-icon-email {
+  -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iUmF3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4KICA8cmVjdCB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgZmlsbD0ibm9uZSIvPgogIDxwb2x5bGluZSBwb2ludHM9IjIyNCA1NiAxMjggMTQ0IDMyIDU2IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIvPgogIDxwYXRoIGQ9Ik0zMiw1NkgyMjRhMCwwLDAsMCwxLDAsMFYxOTJhOCw4LDAsMCwxLTgsOEg0MGE4LDgsMCwwLDEtOC04VjU2QTAsMCwwLDAsMSwzMiw1NloiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+CiAgPGxpbmUgeDE9IjExMC41NDU0MSIgeTE9IjEyOC4wMDAxMyIgeDI9IjM0LjQ2NjgiIHkyPSIxOTcuNzM5MjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+CiAgPGxpbmUgeDE9IjIyMS41MzQxOCIgeTE9IjE5Ny43MzkyNiIgeDI9IjE0NS40NTQyNCIgeTI9IjEyNy45OTk2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz4KPC9zdmc+Cg==);
+  mask-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iUmF3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4KICA8cmVjdCB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgZmlsbD0ibm9uZSIvPgogIDxwb2x5bGluZSBwb2ludHM9IjIyNCA1NiAxMjggMTQ0IDMyIDU2IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIvPgogIDxwYXRoIGQ9Ik0zMiw1NkgyMjRhMCwwLDAsMCwxLDAsMFYxOTJhOCw4LDAsMCwxLTgsOEg0MGE4LDgsMCwwLDEtOC04VjU2QTAsMCwwLDAsMSwzMiw1NloiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+CiAgPGxpbmUgeDE9IjExMC41NDU0MSIgeTE9IjEyOC4wMDAxMyIgeDI9IjM0LjQ2NjgiIHkyPSIxOTcuNzM5MjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+CiAgPGxpbmUgeDE9IjIyMS41MzQxOCIgeTE9IjE5Ny43MzkyNiIgeDI9IjE0NS40NTQyNCIgeTI9IjEyNy45OTk2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz4KPC9zdmc+Cg==);
+}
+
 .jazz-accordion h1,
 .jazz-accordion h2,
 .jazz-accordion h3,
@@ -2777,7 +2782,7 @@ textarea.jazz-input {
 The default styles for the collapsed version of the compact header.
  */
 .jazz-header-compact {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   box-sizing: border-box;
   display: flex;
@@ -2813,7 +2818,7 @@ The default styles for the collapsed version of the compact header.
 }
 
 .jazz-header-compact__utility-menu li > a {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   border-bottom: 0.0625rem solid #A0A0A0;
   text-decoration: none;
@@ -2826,7 +2831,7 @@ The default styles for the collapsed version of the compact header.
 @media (min-width: 56.25rem) {
   /* PU Branding */
   .jazz-header-compact__pu-branding {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
     padding: 3.6875rem 0px 3.9375rem 0.625rem;
   }
@@ -2944,12 +2949,16 @@ The default styles for the collapsed version of the compact header.
     flex-grow: 0;
     margin: 1.875rem 0 1.875rem 0.625rem;
   }
+
+  .jazz-header-compact-container .jazz-menu__nav-container {
+    margin-top: 40px;
+  }
 }
 /*
 The default styles for the collapsed version of the full header.
  */
 .jazz-header {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
 }
 
@@ -2959,19 +2968,21 @@ The default styles for the collapsed version of the full header.
 }
 
 .jazz-header-container {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
+  height: 0.3125rem;
 }
 
 .jazz-header-right-container {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: baseline;
 }
 
 .jazz-header__pu-branding {
@@ -2983,7 +2994,7 @@ The default styles for the collapsed version of the full header.
 }
 
 .jazz-header__main-menu {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   height: 3.1875rem;
 }
@@ -3011,13 +3022,13 @@ The default styles for the collapsed version of the full header.
   background-color: transparent;
   position: absolute;
   right: 2em;
-  top: 1.75rem;
+  top: 2.1rem;
   width: 0.125rem;
   z-index: 1000;
 }
 
 .jazz-header__search-bar-panel {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   width: 100%;
   z-index: 1000;
@@ -3029,32 +3040,42 @@ The default styles for the collapsed version of the full header.
 }
 
 .jazz-header__search-bar form [type=search] {
-  background-color: #fff;
-  color: #000;
-  padding-right: 0px;
-  padding-left: 0.625rem;
+  background-color: #121212;
+  color: #fff;
+  padding: 0.5rem;
   margin-right: 0px;
   border-right: none;
-  border-left: 1px solid #9DA5AC;
-  border-top: 1px solid #9DA5AC;
-  border-bottom: 1px solid #9DA5AC;
-  height: 2.1875rem;
+  border-left: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  height: 2.5rem;
   max-width: 8.75rem;
 }
 
+input[type=search]::-webkit-input-placeholder {
+  color: #fff;
+}
+
+input[type=search]::-moz-placeholder {
+  color: #fff;
+}
+
+input[type=search]::placeholder {
+  color: #fff;
+}
+
 .jazz-header__search-bar form [type=submit] {
-  background-color: #fff;
-  color: #000;
   background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iUmF3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYuMDAwOTggMjU2LjAwMDk4Ij4NCiAgPHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9Im5vbmUiLz4NCiAgPGNpcmNsZSBjeD0iMTE2IiBjeT0iMTE2IiByPSI4NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz4NCiAgPGxpbmUgeDE9IjE3NS4zOTM1NiIgeTE9IjE3NS40MDAzOSIgeDI9IjIyMy45OTQxNCIgeTI9IjIyNC4wMDA5OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz4NCjwvc3ZnPg0K);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 1rem;
   border: none;
-  height: 2.1875rem;
+  height: 2.5rem;
   width: 2.1875rem;
-  border-right: 1px solid #9DA5AC;
-  border-top: 1px solid #9DA5AC;
-  border-bottom: 1px solid #9DA5AC;
+  border-right: 1px solid #121212;
+  border-top: 1px solid #121212;
+  border-bottom: 1px solid #121212;
+  filter: invert(1);
 }
 
 .jazz-header__search-bar form,
@@ -3084,6 +3105,7 @@ The default styles for the collapsed version of the full header.
 /* Utility Menu */
 .jazz-header__utility-menu {
   padding-left: 1rem;
+  padding-top: 1.25rem;
   position: relative;
 }
 
@@ -3095,15 +3117,14 @@ The default styles for the collapsed version of the full header.
 }
 
 .jazz-header__utility-menu a:hover {
-  border-bottom: 1px solid #E77500;
+  border-bottom: 0.0625rem solid #E77500;
 }
 
 .jazz-header__utility-menu li > a {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   border-bottom: 1px solid #A0A0A0;
   text-decoration: none;
-  font-weight: bold;
   padding: 0.9375rem 0px;
   padding-left: 0.3125rem;
   display: block;
@@ -3134,7 +3155,7 @@ These are the styles for the higher resolution version of the full header
  */
 @media (min-width: 56.25rem) {
   .jazz-header {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
     border-top: 4px solid #E77500;
     line-height: 1.15;
@@ -3148,9 +3169,13 @@ These are the styles for the higher resolution version of the full header
     justify-content: flex-start;
   }
 
+  .jazz-header-container {
+    height: 0.375rem;
+  }
+
   /* PU Branding */
   .jazz-header__pu-branding {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
     display: block;
     margin-top: 0rem;
@@ -3164,24 +3189,27 @@ These are the styles for the higher resolution version of the full header
 
   /* Site Branding */
   .jazz-header__site-branding {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
-    padding: 0.75rem 0px;
+    padding: 40px 0 40px 0;
     display: flex;
     flex-wrap: wrap;
   }
 
   .jazz-header__site-branding img {
-    width: 3.75rem;
+    width: 4.375rem;
+    height: 4.375rem;
   }
 
   .jazz-header__site-branding-name a,
 .jazz-header__site-branding-name a:visited {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
     text-decoration: none;
-    font-size: 2.75rem;
-    font-weight: 700;
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 2.625rem;
   }
 
   .jazz-header__site-branding-contents {
@@ -3190,8 +3218,10 @@ These are the styles for the higher resolution version of the full header
   }
 
   .jazz-header__site-branding-slogan {
-    font-size: 1.25rem;
+    font-style: normal;
+    font-size: 1.125rem;
     font-weight: 300;
+    line-height: 21px;
   }
 
   .jazz-header__site-branding-home-link {
@@ -3219,7 +3249,7 @@ These are the styles for the higher resolution version of the full header
   }
 
   .jazz-header__nav-container--expanded {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
     position: absolute;
     left: 0;
@@ -3257,27 +3287,30 @@ These are the styles for the higher resolution version of the full header
   }
 
   .jazz-header__utility-menu a {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: normal;
     padding: 0.5rem 0 0.2rem 0;
     margin: 0 0.65rem;
     text-decoration: none;
     border: none;
+    line-height: 28px;
   }
 
   .jazz-header__utility-menu li > a {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
     border-bottom: none;
-    font-weight: bold;
-    padding: 2.1875rem 0px 0px 0px;
+    font-weight: normal;
+    font-style: normal;
+    padding: 0;
     display: block;
   }
 
   .jazz-header__utility-menu a:hover {
-    border-bottom: 1px solid #E77500;
+    border-bottom: 0.25rem solid #E77500;
   }
 
   .jazz-header__utility-menu--hide-large {
@@ -3289,7 +3322,7 @@ These are the styles for the higher resolution version of the full header
   }
 }
 .jazz-header-collapsed-header {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
 }
 
@@ -3300,7 +3333,7 @@ These are the styles for the higher resolution version of the full header
 }
 
 .jazz-header-collapsed-header {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   box-sizing: border-box;
   display: flex;
@@ -3311,7 +3344,7 @@ These are the styles for the higher resolution version of the full header
 
 /* PU Branding */
 .jazz-header-collapsed__pu-branding {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
 }
 
@@ -3571,7 +3604,7 @@ a[target=_blank]::after {
 }
 
 .jazz-menu__menu-toggle {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   border: none;
   text-transform: uppercase;
@@ -3591,7 +3624,7 @@ a[target=_blank]::after {
 }
 
 .jazz-menu__main-menu {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
 }
 
@@ -3600,7 +3633,7 @@ a[target=_blank]::after {
 }
 
 .jazz-menu__nav-container--expanded {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   left: 0;
   width: 100%;
@@ -3722,11 +3755,11 @@ a[target=_blank]::after {
 }
 
 ul.jazz-menubar {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   display: none;
   list-style: none;
-  padding: 1rem 0 0rem 0;
+  padding: 0;
   margin: 0px;
   line-height: 1.15;
 }
@@ -3746,7 +3779,7 @@ ul.jazz-menubar li > button:not([aria-expanded=true]) + ul:not(.jazz-menubar--st
 }
 
 ul.jazz-menubar li {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   padding-left: 1rem;
   position: relative;
@@ -3757,7 +3790,7 @@ ul.jazz-menubar a:hover {
 }
 
 ul.jazz-menubar li > a {
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   border-bottom: 1px solid #A0A0A0;
   text-decoration: none;
@@ -3816,7 +3849,7 @@ ul.jazz-menubar__submenu li > button:not([aria-expanded=true]) + ul {
 @media (min-width: 56.25rem) {
   ul.jazz-menubar,
 ul.jazz-menubar.jazz-menubar--shown {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
     display: -ms-flexbox;
     display: flex;
@@ -3831,12 +3864,13 @@ ul.jazz-menubar.jazz-menubar--shown {
   }
 
   ul.jazz-menubar > li {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
     padding-left: 0rem;
     padding-right: 0.625rem;
-    margin: 3.875rem 0.625rem;
+    margin: 0.625rem;
     position: relative;
+    height: 1.875rem;
   }
 
   ul.jazz-menubar li > a {
@@ -3844,7 +3878,7 @@ ul.jazz-menubar.jazz-menubar--shown {
   }
 
   ul.jazz-menubar > li > a {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
     border-bottom: 0.4375rem solid transparent;
     text-decoration: none;
@@ -3860,7 +3894,7 @@ ul.jazz-menubar.jazz-menubar--shown {
 
   ul.jazz-menubar > li > a[aria-current=page],
 .jazz-menubar > ul > li:hover > a[aria-current=page] {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
     border-bottom: 0.4375rem solid #E77500;
   }
@@ -3951,7 +3985,7 @@ ul.jazz-menubar > li > button[aria-expanded=true] {
   }
 
   ul.jazz-menubar > li > ul a {
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
     text-decoration: none;
     font-weight: bold;

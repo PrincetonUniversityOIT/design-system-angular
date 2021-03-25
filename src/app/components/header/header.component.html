@@ -6,9 +6,6 @@
   </div>
   <div class="jazz-container">
   <div class="jazz-header-container">
-    <div class="jazz-header__pu-branding">
-        <a href="https://www.princeton.edu" title="{{ headerOptions.title }}"><img src="./assets/logos/pu-logo-ww-os.png" alt="{{ headerOptions.title}}" /></a>
-    </div>
     <div class="jazz-header-right-container">
       <div class="jazz-header__utility-menu jazz-header__utility-menu--hide-small">
         <ul *ngIf="headerOptions && headerOptions.utilityItems && headerOptions.utilityItems.length > 0">
@@ -118,7 +115,7 @@
           <div class="jazz-menu__nav-container">
             <div class="jazz-header-compact__utility-menu">
               <ul class="jazz-menubar">
-                <li *ngFor="let menuItem of headerOptions.menuItems">
+                <li *ngFor="let menuItem of headerOptions.utilityItems">
                   <a [routerLink]="menuItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
                      [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{menuItem.label}}</a>
                 </li>

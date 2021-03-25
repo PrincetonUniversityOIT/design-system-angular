@@ -613,7 +613,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"jazz-body-flex-container\">\r\n  <!--<app-jazz-header [headerOptions]=\"headerOptions\">-->\r\n  <app-jazz-header [title]=\"'Princeton University Design System'\" [siteBrandingName]=\"'RELATIVITY'\" [siteBrandingSlogan]=\"'The Princeton University Design System'\" [showCompact]=true [showSearch]=true>\r\n    <app-jazz-main-menu>\r\n      <app-jazz-main-menu-item label=\"Main Menu 1\" url=\"/mainMenu1\">\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 1\" url=\"/level2item1\" shownByDefault=\"true\">\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 1\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 2\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 3\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n          </app-jazz-main-menu-item>\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 2\" url=\"/level2item1\"></app-jazz-main-menu-item>\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 3\" url=\"/level2item1\"></app-jazz-main-menu-item>\r\n      </app-jazz-main-menu-item>\r\n      <app-jazz-main-menu-item label=\"Main Menu 2\" url=\"/mainMenu2\"></app-jazz-main-menu-item>\r\n      <app-jazz-main-menu-item label=\"Main Menu 3\" url=\"/mainMenu3\"></app-jazz-main-menu-item>\r\n    </app-jazz-main-menu>\r\n\r\n    <app-jazz-utility-menu>\r\n      <app-jazz-utility-item label=\"Documentation\" url=\"/documentation\"></app-jazz-utility-item>\r\n      <app-jazz-utility-item label=\"Log In\" url=\"/login\"></app-jazz-utility-item>\r\n    </app-jazz-utility-menu>\r\n</app-jazz-header>\r\n\r\n<main>\r\n  <div class=\"jazz-container\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</main>\r\n\r\n<footer role=\"contentinfo\" class=\"jazz-footer\">\r\n  <div class=\"jazz-container jazz-footer__content\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-3 col-xs-12\">\r\n        <h2>General Information</h2>\r\n        <ul class=\"jazz-footer__list\">\r\n          <li><a href=\"javascript:void(0);\">Contact Us</a></li>\r\n          <li><a href=\"javascript:void(0);\">About Us</a></li>\r\n          <li><a href=\"javascript:void(0);\">News</a></li>\r\n          <li><a href=\"javascript:void(0);\">Data Privacy Policy</a></li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"col-sm-3 col-xs-12\">\r\n        <h2>Services</h2>\r\n        <ul class=\"jazz-footer__list\">\r\n          <li><a href=\"javascript:void(0);\">Update Your Info</a></li>\r\n          <li><a href=\"javascript:void(0);\">Online Resources</a></li>\r\n          <li><a href=\"javascript:void(0);\">Visiting Campus</a></li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"col-sm-3 col-xs-12\">\r\n        <h2>University Links</h2>\r\n        <ul class=\"jazz-footer__list\">\r\n          <li><a href=\"javascript:void(0);\">Princeton University</a></li>\r\n          <li><a href=\"javascript:void(0);\">Princeton Athletics</a></li>\r\n          <li><a href=\"javascript:void(0);\">Princeton Career Development</a></li>\r\n          <li><a href=\"javascript:void(0);\">Princeton Prize</a></li>\r\n          <li><a href=\"javascript:void(0);\">Princetoniana</a></li>\r\n          <li><a href=\"javascript:void(0);\">Giving to Princeton</a></li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"col-sm-3 col-xs-12\">\r\n        <h2>Social Media</h2>\r\n        <ul class=\"jazz-footer__icon-list\">\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-facebook\"></i><span class=\"jazz-visually-hidden\">Follow Us on Facebook</span></a></li>\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-twitter\"></i><span class=\"jazz-visually-hidden\">Follow Us on Twitter</span></a></li>\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-linkedin\"></i><span class=\"jazz-visually-hidden\">Follow Us on Linked In</span></a></li>\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-instagram\"></i><span class=\"jazz-visually-hidden\">Follow Us on Instagram</span></a></li>\r\n          <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-youtube\"></i><span class=\"jazz-visually-hidden\">Follow Us on You Tube</span></a></li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"jazz-footer__subfooter\">\r\n    <div class=\"jazz-container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-4 col-xs-12\">\r\n          <a href=\"javascript:void(0)\">Accessibility</a>\r\n        </div>\r\n        <div class=\"col-sm-4 col-xs-12\">\r\n          &copy; 2020 The Trustees of Princeton University\r\n        </div>\r\n        <div class=\"col-sm-4 col-xs-12\">\r\n          <a href=\"https://www.princeton.edu\" target=\"_blank\" class=\"jazz-no-icon\"><img class=\"jazz-footer__logo\" src=\"./assets/icons/pu-logo-stacked-white.svg\" alt=\"Princeton University\" /></a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</footer>\r\n</div>\r\n"
+            "templateData": "<div class=\"jazz-body-flex-container\">\r\n  <!--<app-jazz-header [headerOptions]=\"headerOptions\">-->\r\n  <app-jazz-header [title]=\"'Princeton University Design System'\" [siteBrandingName]=\"'RELATIVITY'\" [siteBrandingSlogan]=\"'The Princeton University Design System'\" [showCompact]=true [showSearch]=true>\r\n    <app-jazz-main-menu>\r\n      <app-jazz-main-menu-item label=\"Main Menu 1\" url=\"/mainMenu1\">\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 1\" url=\"/level2item1\" shownByDefault=\"true\">\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 1\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 2\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 3\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n          </app-jazz-main-menu-item>\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 2\" url=\"/level2item1\"></app-jazz-main-menu-item>\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 3\" url=\"/level2item1\"></app-jazz-main-menu-item>\r\n      </app-jazz-main-menu-item>\r\n      <app-jazz-main-menu-item label=\"Main Menu 2\" url=\"/mainMenu2\"></app-jazz-main-menu-item>\r\n      <app-jazz-main-menu-item label=\"Main Menu 3\" url=\"/mainMenu3\"></app-jazz-main-menu-item>\r\n    </app-jazz-main-menu>\r\n\r\n    <app-jazz-utility-menu>\r\n      <app-jazz-utility-item label=\"Documentation\" url=\"/documentation\"></app-jazz-utility-item>\r\n      <app-jazz-utility-item label=\"Log In\" url=\"/login\"></app-jazz-utility-item>\r\n    </app-jazz-utility-menu>\r\n</app-jazz-header>\r\n\r\n<main>\r\n  <div class=\"jazz-container\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</main>\r\n\r\n  <footer role=\"contentinfo\" class=\"jazz-footer\">\r\n    <div class=\"jazz-container jazz-footer__content\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-3 col-xs-12\">\r\n          <ul class=\"jazz-footer__list\">\r\n            <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-email jazz-icon-white\" aria-hidden=\"true\"></i>  finance@princeton.edu</a></li>\r\n          </ul>\r\n        </div>\r\n        <div class=\"col-sm-3 col-xs-12\">\r\n          <ul class=\"jazz-footer__list\">\r\n            <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-phone jazz-icon-white\" aria-hidden=\"true\"></i>  609-258-3080</a></li>\r\n            <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-printer jazz-icon-white\" aria-hidden=\"true\"></i>  609-258-3080</a></li>\r\n          </ul>\r\n        </div>\r\n        <div class=\"col-sm-3 col-xs-12\">\r\n          <ul class=\"jazz-footer__list\">\r\n            <li><i class=\"jazz-icon jazz-icon-map-pin jazz-icon-transparent\" aria-hidden=\"true\"></i>  701 Carnegie Center</li>\r\n            <li><i class=\"jazz-icon jazz-icon-map-pin jazz-icon-white\" aria-hidden=\"true\"></i>  Suite 435</li>\r\n            <li><i class=\"jazz-icon jazz-icon-map-pin jazz-icon-transparent\" aria-hidden=\"true\"></i>  Princeton, NJ 08540</li>\r\n          </ul>\r\n        </div>\r\n        <div class=\"col-sm-3 col-xs-12 jazz-footer-text--right\">\r\n          <ul class=\"jazz-footer__list\">\r\n            <li><img class=\"jazz-footer__shield\" src=\"./assets/logos/shield.svg\" />  Web Development Services</li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"jazz-footer__subfooter\">\r\n      <div class=\"jazz-container\">\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-4 col-xs-12\">\r\n            <a href=\"javascript:void(0)\">Accessibility</a>\r\n          </div>\r\n          <div class=\"col-sm-4 col-xs-12 jazz-footer-text--center\">\r\n            &copy; 2020 The Trustees of Princeton University\r\n          </div>\r\n          <div class=\"col-sm-4 col-xs-12\">\r\n            <a href=\"https://www.princeton.edu\" target=\"_blank\" class=\"jazz-no-icon\"><img class=\"jazz-footer__logo\" src=\"./assets/icons/pu-logo-stacked-white.svg\" alt=\"Princeton University\" /></a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </footer>\r\n</div>\r\n"
         },
         {
             "name": "ButtonComponent",
@@ -972,7 +972,7 @@
                 "AfterViewInit",
                 "AfterViewChecked"
             ],
-            "templateData": "<header role=\"banner\" class=\"jazz-header\" *ngIf=\"!headerOptions.showCompact\">\r\n  <h1 class=\"jazz-visually-hidden\">{{headerOptions.title}}</h1>\r\n  <div class=\"jazz-skip-links\">\r\n    <a href=\"#main-content\" class=\"jazz-skip-link\">Skip to main content</a>\r\n    <a href=\"#search\" class=\"jazz-skip-link\">Skip to search options</a>\r\n  </div>\r\n  <div class=\"jazz-container\">\r\n  <div class=\"jazz-header-container\">\r\n    <div class=\"jazz-header__pu-branding\">\r\n        <a href=\"https://www.princeton.edu\" title=\"{{ headerOptions.title }}\"><img src=\"./assets/logos/pu-logo-ww-os.png\" alt=\"{{ headerOptions.title}}\" /></a>\r\n    </div>\r\n    <div class=\"jazz-header-right-container\">\r\n      <div class=\"jazz-header__utility-menu jazz-header__utility-menu--hide-small\">\r\n        <ul *ngIf=\"headerOptions && headerOptions.utilityItems && headerOptions.utilityItems.length > 0\">\r\n          <li *ngFor=\"let utilityItem of headerOptions.utilityItems\">\r\n            <a [routerLink]=\"utilityItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\r\n               [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{utilityItem.label}}</a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"jazz-header__search-bar\" *ngIf=\"headerOptions.showSearch\">\r\n          <h2 class=\"jazz-visually-hidden\">Search</h2>\r\n          <app-jazz-search-button></app-jazz-search-button>\r\n          <div class=\"jazz-header__search-bar-panel\">\r\n            <form action=\"javascript:void(0)\" method=\"get\" accept-charset=\"UTF-8\" role=\"search\">\r\n              <label class=\"jazz-visually-hidden\" for=\"search-field\">Search</label>\r\n              <a id=\"search\">\r\n                <input type=\"search\" id=\"search-field\" placeholder=\"Search\" autocomplete=\"off\" />\r\n              </a>\r\n              <button class=\"jazz-button\" type=\"submit\">\r\n                <span class=\"jazz-visually-hidden\">Search</span>\r\n              </button>\r\n            </form>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"jazz-header-break\"></div>\r\n  <div class=\"jazz-header__site-branding\">\r\n    <div class=\"jazz-header__site-branding-contents\">\r\n      <a href=\"./\" title=\"Home\" rel=\"home\" tabindex=\"-1\" aria-hidden=\"true\" class=\"jazz-header__site-branding-home-link\"><img src=\"./assets/logos/shield.svg\" alt=\"{{ headerOptions.siteBrandingName }}\"/></a>\r\n      <div class=\"jazz-header__site-branding-info\">\r\n        <div class=\"jazz-header__site-branding-name\">\r\n          <a href=\"./\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n        </div>\r\n        <div class=\"jazz-header__site-branding-slogan\">\r\n          {{ headerOptions.siteBrandingSlogan }}\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"jazz-header-collapsed-header\">\r\n    <div class=\"jazz-container\">\r\n      <div class=\"jazz-header-collapsed-container\">\r\n        <div class=\"jazz-header-collapsed__pu-branding\">\r\n          <a href=\"javascript:void(0);\" title=\"{{headerOptions.title}}\"><img src=\"./assets/logos/shield.svg\" alt=\"{{headerOptions.title}}\" /></a>\r\n        </div>\r\n        <div class=\"jazz-header-collapsed__site-branding--divider\">\r\n        </div>\r\n        <div class=\"jazz-header-collapsed__site-branding\">\r\n          <div class=\"jazz-header-collapsed__site-branding-info\">\r\n            <div class=\"jazz-header-collapsed__site-branding-name\">\r\n              <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <app-jazz-menu [menuItems]=\"headerOptions.menuItems\" [utilityItems]=\"headerOptions.utilityItems\">\r\n\r\n  </app-jazz-menu>\r\n  </div>\r\n</header>\r\n\r\n<header role=\"banner\" class=\"jazz-header-compact\" *ngIf=\"headerOptions.showCompact\">\r\n  <h1 class=\"jazz-visually-hidden\">{{ headerOptions.title }}</h1>\r\n  <div class=\"jazz-skip-links\">\r\n    <a href=\"#main-content\" class=\"jazz-skip-link\">Skip to main content</a>\r\n    <a href=\"#search\" class=\"jazz-skip-link\">Skip to search options</a>\r\n  </div>\r\n  <div class=\"jazz-container\">\r\n    <div class=\"jazz-header-compact-container\">\r\n      <div class=\"jazz-header-compact-logo\">\r\n        <div class=\"jazz-header-compact__pu-branding\">\r\n          <a href=\"javascript:void(0);\" title=\"{{ headerOptions.title }}\"><img src=\"./assets/logos/pu-standard-ww-ws.png\" alt=\"{{ headerOptions.title }}\" /></a>\r\n        </div>\r\n        <div class=\"jazz-header-compact__site-branding--divider\">\r\n        </div>\r\n        <div class=\"jazz-header-compact__site-branding\">\r\n          <div class=\"jazz-header-compact__site-branding-info\">\r\n            <div class=\"jazz-header-compact__site-branding-name\">\r\n              <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"jazz-header-collapsed-header\">\r\n        <div class=\"jazz-header-collapsed-container\">\r\n          <div class=\"jazz-header-collapsed__pu-branding\">\r\n            <a href=\"javascript:void(0);\" title=\"{{ headerOptions.title }}\"><img src=\"./assets/logos/shield.svg\" alt=\"{{ headerOptions.title }}\" /></a>\r\n          </div>\r\n          <div class=\"jazz-header-collapsed__site-branding--divider\">\r\n          </div>\r\n          <div class=\"jazz-header-collapsed__site-branding\">\r\n            <div class=\"jazz-header-collapsed__site-branding-info\">\r\n              <div class=\"jazz-header-collapsed__site-branding-name\">\r\n                <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"jazz-header-break\"></div>\r\n      <nav aria-label=\"Main Menu\" class=\"jazz-menu__main-menu\">\r\n        <div class=\"jazz-menu__main-menu-navbar\">\r\n          <app-jazz-menu-main-button></app-jazz-menu-main-button>\r\n          <div class=\"jazz-menu__nav-container\">\r\n            <div class=\"jazz-header-compact__utility-menu\">\r\n              <ul class=\"jazz-menubar\">\r\n                <li *ngFor=\"let menuItem of headerOptions.menuItems\">\r\n                  <a [routerLink]=\"menuItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\r\n                     [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{menuItem.label}}</a>\r\n                </li>\r\n              </ul>\r\n            </div>\r\n            <div class=\"jazz-header-compact__utility-menu--divider\"></div>\r\n            <div class=\"jazz-header-compact__utility-menu\">\r\n              <ul class=\"jazz-menubar\">\r\n                <li><a href=\"javascript void(0);\">Net Id</a></li>\r\n              </ul>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </nav>\r\n    </div>\r\n  </div>\r\n</header>\r\n"
+            "templateData": "<header role=\"banner\" class=\"jazz-header\" *ngIf=\"!headerOptions.showCompact\">\r\n  <h1 class=\"jazz-visually-hidden\">{{headerOptions.title}}</h1>\r\n  <div class=\"jazz-skip-links\">\r\n    <a href=\"#main-content\" class=\"jazz-skip-link\">Skip to main content</a>\r\n    <a href=\"#search\" class=\"jazz-skip-link\">Skip to search options</a>\r\n  </div>\r\n  <div class=\"jazz-container\">\r\n  <div class=\"jazz-header-container\">\r\n    <div class=\"jazz-header-right-container\">\r\n      <div class=\"jazz-header__utility-menu jazz-header__utility-menu--hide-small\">\r\n        <ul *ngIf=\"headerOptions && headerOptions.utilityItems && headerOptions.utilityItems.length > 0\">\r\n          <li *ngFor=\"let utilityItem of headerOptions.utilityItems\">\r\n            <a [routerLink]=\"utilityItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\r\n               [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{utilityItem.label}}</a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"jazz-header__search-bar\" *ngIf=\"headerOptions.showSearch\">\r\n          <h2 class=\"jazz-visually-hidden\">Search</h2>\r\n          <app-jazz-search-button></app-jazz-search-button>\r\n          <div class=\"jazz-header__search-bar-panel\">\r\n            <form action=\"javascript:void(0)\" method=\"get\" accept-charset=\"UTF-8\" role=\"search\">\r\n              <label class=\"jazz-visually-hidden\" for=\"search-field\">Search</label>\r\n              <a id=\"search\">\r\n                <input type=\"search\" id=\"search-field\" placeholder=\"Search\" autocomplete=\"off\" />\r\n              </a>\r\n              <button class=\"jazz-button\" type=\"submit\">\r\n                <span class=\"jazz-visually-hidden\">Search</span>\r\n              </button>\r\n            </form>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"jazz-header-break\"></div>\r\n  <div class=\"jazz-header__site-branding\">\r\n    <div class=\"jazz-header__site-branding-contents\">\r\n      <a href=\"./\" title=\"Home\" rel=\"home\" tabindex=\"-1\" aria-hidden=\"true\" class=\"jazz-header__site-branding-home-link\"><img src=\"./assets/logos/shield.svg\" alt=\"{{ headerOptions.siteBrandingName }}\"/></a>\r\n      <div class=\"jazz-header__site-branding-info\">\r\n        <div class=\"jazz-header__site-branding-name\">\r\n          <a href=\"./\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n        </div>\r\n        <div class=\"jazz-header__site-branding-slogan\">\r\n          {{ headerOptions.siteBrandingSlogan }}\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"jazz-header-collapsed-header\">\r\n    <div class=\"jazz-container\">\r\n      <div class=\"jazz-header-collapsed-container\">\r\n        <div class=\"jazz-header-collapsed__pu-branding\">\r\n          <a href=\"javascript:void(0);\" title=\"{{headerOptions.title}}\"><img src=\"./assets/logos/shield.svg\" alt=\"{{headerOptions.title}}\" /></a>\r\n        </div>\r\n        <div class=\"jazz-header-collapsed__site-branding--divider\">\r\n        </div>\r\n        <div class=\"jazz-header-collapsed__site-branding\">\r\n          <div class=\"jazz-header-collapsed__site-branding-info\">\r\n            <div class=\"jazz-header-collapsed__site-branding-name\">\r\n              <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <app-jazz-menu [menuItems]=\"headerOptions.menuItems\" [utilityItems]=\"headerOptions.utilityItems\">\r\n\r\n  </app-jazz-menu>\r\n  </div>\r\n</header>\r\n\r\n<header role=\"banner\" class=\"jazz-header-compact\" *ngIf=\"headerOptions.showCompact\">\r\n  <h1 class=\"jazz-visually-hidden\">{{ headerOptions.title }}</h1>\r\n  <div class=\"jazz-skip-links\">\r\n    <a href=\"#main-content\" class=\"jazz-skip-link\">Skip to main content</a>\r\n    <a href=\"#search\" class=\"jazz-skip-link\">Skip to search options</a>\r\n  </div>\r\n  <div class=\"jazz-container\">\r\n    <div class=\"jazz-header-compact-container\">\r\n      <div class=\"jazz-header-compact-logo\">\r\n        <div class=\"jazz-header-compact__pu-branding\">\r\n          <a href=\"javascript:void(0);\" title=\"{{ headerOptions.title }}\"><img src=\"./assets/logos/pu-standard-ww-ws.png\" alt=\"{{ headerOptions.title }}\" /></a>\r\n        </div>\r\n        <div class=\"jazz-header-compact__site-branding--divider\">\r\n        </div>\r\n        <div class=\"jazz-header-compact__site-branding\">\r\n          <div class=\"jazz-header-compact__site-branding-info\">\r\n            <div class=\"jazz-header-compact__site-branding-name\">\r\n              <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"jazz-header-collapsed-header\">\r\n        <div class=\"jazz-header-collapsed-container\">\r\n          <div class=\"jazz-header-collapsed__pu-branding\">\r\n            <a href=\"javascript:void(0);\" title=\"{{ headerOptions.title }}\"><img src=\"./assets/logos/shield.svg\" alt=\"{{ headerOptions.title }}\" /></a>\r\n          </div>\r\n          <div class=\"jazz-header-collapsed__site-branding--divider\">\r\n          </div>\r\n          <div class=\"jazz-header-collapsed__site-branding\">\r\n            <div class=\"jazz-header-collapsed__site-branding-info\">\r\n              <div class=\"jazz-header-collapsed__site-branding-name\">\r\n                <a href=\"javascript:void(0);\" title=\"Home\" rel=\"home\">{{ headerOptions.siteBrandingName }}</a>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"jazz-header-break\"></div>\r\n      <nav aria-label=\"Main Menu\" class=\"jazz-menu__main-menu\">\r\n        <div class=\"jazz-menu__main-menu-navbar\">\r\n          <app-jazz-menu-main-button></app-jazz-menu-main-button>\r\n          <div class=\"jazz-menu__nav-container\">\r\n            <div class=\"jazz-header-compact__utility-menu\">\r\n              <ul class=\"jazz-menubar\">\r\n                <li *ngFor=\"let menuItem of headerOptions.utilityItems\">\r\n                  <a [routerLink]=\"menuItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\r\n                     [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{menuItem.label}}</a>\r\n                </li>\r\n              </ul>\r\n            </div>\r\n            <div class=\"jazz-header-compact__utility-menu--divider\"></div>\r\n            <div class=\"jazz-header-compact__utility-menu\">\r\n              <ul class=\"jazz-menubar\">\r\n                <li><a href=\"javascript void(0);\">Net Id</a></li>\r\n              </ul>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </nav>\r\n    </div>\r\n  </div>\r\n</header>\r\n"
         },
         {
             "name": "MainMenu1Component",
@@ -2724,7 +2724,7 @@
                 "name": "ARIA_EXPANDED",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-constants.ts",
+                "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
                 "type": "string",
                 "defaultValue": "'aria-expanded'"
             },
@@ -2732,7 +2732,7 @@
                 "name": "ARIA_EXPANDED",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "string",
                 "defaultValue": "'aria-expanded'"
             },
@@ -2764,14 +2764,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -2781,6 +2773,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Pager.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2900,7 +2900,7 @@
                 "name": "ICON_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/header/header-constants.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-icon`"
             },
@@ -2908,7 +2908,7 @@
                 "name": "ICON_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-constants.ts",
+                "file": "src/app/components/header/header-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-icon`"
             },
@@ -3124,6 +3124,14 @@
                 "name": "stories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/Alert.stories.ts",
+                "type": "",
+                "defaultValue": "storiesOf('Components/Alert', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AlertComponent],\n    })\n  )"
+            },
+            {
+                "name": "stories",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Accordion.stories.ts",
                 "type": "",
                 "defaultValue": "storiesOf('Components/Accordion', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
@@ -3140,17 +3148,17 @@
                 "name": "stories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Breadcrumbs.stories.ts",
+                "file": "src/stories/Footer.stories.ts",
                 "type": "",
-                "defaultValue": "storiesOf('Components/Breadcrumbs', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
+                "defaultValue": "storiesOf('Components/Footer', module)"
             },
             {
                 "name": "stories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Alert.stories.ts",
+                "file": "src/stories/Breadcrumbs.stories.ts",
                 "type": "",
-                "defaultValue": "storiesOf('Components/Alert', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AlertComponent],\n    })\n  )"
+                "defaultValue": "storiesOf('Components/Breadcrumbs', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
             },
             {
                 "name": "subMenu1",
@@ -3316,6 +3324,16 @@
                     "defaultValue": "'aria-multiselectable'"
                 }
             ],
+            "src/app/components/menu/menu-main-button/menu-main-button.component.ts": [
+                {
+                    "name": "ARIA_EXPANDED",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+                    "type": "string",
+                    "defaultValue": "'aria-expanded'"
+                }
+            ],
             "src/app/components/menu/menu-constants.ts": [
                 {
                     "name": "ARIA_EXPANDED",
@@ -3444,16 +3462,6 @@
                     "file": "src/app/components/menu/menu-constants.ts",
                     "type": "",
                     "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
-                }
-            ],
-            "src/app/components/menu/menu-main-button/menu-main-button.component.ts": [
-                {
-                    "name": "ARIA_EXPANDED",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
-                    "type": "string",
-                    "defaultValue": "'aria-expanded'"
                 }
             ],
             "src/stories/Header.stories.ts": [
@@ -3762,6 +3770,16 @@
                     "defaultValue": "'jazz'"
                 }
             ],
+            "src/stories/Alert.stories.ts": [
+                {
+                    "name": "stories",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Alert.stories.ts",
+                    "type": "",
+                    "defaultValue": "storiesOf('Components/Alert', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AlertComponent],\n    })\n  )"
+                }
+            ],
             "src/stories/Accordion.stories.ts": [
                 {
                     "name": "stories",
@@ -3782,6 +3800,16 @@
                     "defaultValue": "storiesOf('Components/HeaderHTML', module)\n  .addDecorator(\n    moduleMetadata({\n      imports: [RouterModule.forRoot(routes, {useHash: true})],\n      declarations: [HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,\n        SearchButtonComponent,  MainMenuItemComponent, MainMenuComponent, UtilityMenuComponent, UtilityItemComponent]\n    })\n  )"
                 }
             ],
+            "src/stories/Footer.stories.ts": [
+                {
+                    "name": "stories",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Footer.stories.ts",
+                    "type": "",
+                    "defaultValue": "storiesOf('Components/Footer', module)"
+                }
+            ],
             "src/stories/Breadcrumbs.stories.ts": [
                 {
                     "name": "stories",
@@ -3790,16 +3818,6 @@
                     "file": "src/stories/Breadcrumbs.stories.ts",
                     "type": "",
                     "defaultValue": "storiesOf('Components/Breadcrumbs', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
-                }
-            ],
-            "src/stories/Alert.stories.ts": [
-                {
-                    "name": "stories",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Alert.stories.ts",
-                    "type": "",
-                    "defaultValue": "storiesOf('Components/Alert', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AlertComponent],\n    })\n  )"
                 }
             ]
         },
@@ -4566,6 +4584,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "stories",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
