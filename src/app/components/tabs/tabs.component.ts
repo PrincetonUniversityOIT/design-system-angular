@@ -187,7 +187,6 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
    * Subscriptions are released and resource handles are destroyed.
    */
   ngOnDestroy(): void {
-    this.tabs.destroy();
     this._tabsChangeSubscription.unsubscribe();
   }
 

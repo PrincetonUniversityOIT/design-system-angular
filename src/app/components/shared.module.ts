@@ -13,7 +13,6 @@ import {MainMenuItemComponent} from './header/main-menu/main-menu-item';
 import {MainMenuComponent} from './header/main-menu/main-menu';
 import {UtilityMenuComponent} from './header/utility-menu/utility-menu';
 import {UtilityItemComponent} from './header/utility-menu/utility-menu-item';
-// import { TabComponent, TabsComponent } from './tabs/tabs.component';
 
 @NgModule({
   imports: [
@@ -32,9 +31,7 @@ import {UtilityItemComponent} from './header/utility-menu/utility-menu-item';
     UtilityItemComponent,
     UtilityMenuComponent,
     MainMenuItemComponent,
-    MainMenuComponent,
-    // TabComponent,
-    // TabsComponent
+    MainMenuComponent
   ],
   exports: [
     AccordionComponent,
@@ -46,9 +43,7 @@ import {UtilityItemComponent} from './header/utility-menu/utility-menu-item';
     UtilityItemComponent,
     UtilityMenuComponent,
     MainMenuItemComponent,
-    MainMenuComponent,
-    // TabComponent,
-    // TabsComponent
+    MainMenuComponent
   ]
 })
 export class SharedModule {
