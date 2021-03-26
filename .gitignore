@@ -45,3 +45,4 @@ build-storybook.log
 .DS_Store
 Thumbs.db
 documentation/
+documentation.json

@@ -63,10 +63,10 @@ stories.add('Default', () => {
             <app-jazz-main-menu-item label="Level 2 Menu 3" url="/level2item1"></app-jazz-main-menu-item>
         </app-jazz-main-menu-item>
         <app-jazz-main-menu-item label="Main Menu 2" url="/mainMenu2"></app-jazz-main-menu-item>
-        <app-jazz-main-menu-item label="Main Menu 3" url="/mainMenu3"></app-jazz-main-menu-item>
+        <app-jazz-main-menu-item label="Main Menu 3" externalUrl="http://www.microsoft.com"></app-jazz-main-menu-item>
     </app-jazz-main-menu>
     <app-jazz-utility-menu>
-      <app-jazz-utility-item label="Documentation" url="/documentation"></app-jazz-utility-item>
+      <app-jazz-utility-item label="Documentation" externalUrl="http://www.google.com"></app-jazz-utility-item>
       <app-jazz-utility-item label="Log In" url="/login"></app-jazz-utility-item>
     </app-jazz-utility-menu>
     </app-jazz-header>
@@ -79,7 +79,7 @@ stories.add('Compact', () => {
     template:  `
     <app-jazz-header [title]="'Princeton University Design System'" [siteBrandingName]="'RELATIVITY'" [siteBrandingSlogan]="'The Princeton University Design System'" [showCompact]='true' [showSearch]='true'>
     <app-jazz-utility-menu>
-      <app-jazz-utility-item label="Documentation" url="/documentation"></app-jazz-utility-item>
+      <app-jazz-utility-item label="Documentation" externalUrl="http://www.google.com"></app-jazz-utility-item>
       <app-jazz-utility-item label="Log In" url="/login"></app-jazz-utility-item>
     </app-jazz-utility-menu>
     </app-jazz-header>

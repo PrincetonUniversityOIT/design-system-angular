@@ -10,8 +10,10 @@
       <div class="jazz-header__utility-menu jazz-header__utility-menu--hide-small">
         <ul *ngIf="headerOptions && headerOptions.utilityItems && headerOptions.utilityItems.length > 0">
           <li *ngFor="let utilityItem of headerOptions.utilityItems">
-            <a [routerLink]="utilityItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
+            <a *ngIf="utilityItem.url" [routerLink]="utilityItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
                [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{utilityItem.label}}</a>
+
+            <a *ngIf="utilityItem.externalUrl" href="{{utilityItem.externalUrl}}">{{utilityItem.label}}</a>
           </li>
         </ul>
       </div>
@@ -116,8 +118,9 @@
             <div class="jazz-header-compact__utility-menu">
               <ul class="jazz-menubar">
                 <li *ngFor="let menuItem of headerOptions.utilityItems">
-                  <a [routerLink]="menuItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
+                  <a *ngIf="menuItem.url" [routerLink]="menuItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
                      [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{menuItem.label}}</a>
+                  <a *ngIf="menuItem.externalUrl" href="{{menuItem.externalUrl}}">{{menuItem.label}}</a>
                 </li>
               </ul>
             </div>

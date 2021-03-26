@@ -7,6 +7,7 @@ import {Component, Input} from '@angular/core';
   `,
 })
 export class UtilityItemComponent {
-  @Input() url: string;
+  @Input() url?: string;
+  @Input() externalUrl?: string;
   @Input() label: string;
 }

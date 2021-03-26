@@ -86,7 +86,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked 
     if (!this.headerOptions.utilityItems && this.utilityMenu && this.utilityMenu.utilityMenuComponents.length > 0) {
       const utilityMenu: MenuItem[] = [];
       this.utilityMenu.utilityMenuComponents.forEach((item) => {
-         utilityMenu.push(Object.assign({}, {label: item.label, url: item.url}));
+         utilityMenu.push(Object.assign({}, {label: item.label, url: item.url, externalUrl: item.externalUrl}));
       });
       this.headerOptions.utilityItems = utilityMenu;
     }
@@ -103,8 +103,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked 
   }
 
   retrieveMenuItems(menuComponent: MainMenuItemComponent): MenuItem {
-    const menuItem: MenuItem = Object.assign(new MenuItem(menuComponent.label, menuComponent.url), {
+    const menuItem: MenuItem = Object.assign(new MenuItem(menuComponent.label), {
       shownByDefault: menuComponent.shownByDefault ? menuComponent.shownByDefault : false,
+      url: menuComponent.url,
+      externalUrl: menuComponent.externalUrl,
       subItems: []
     });
     if (menuComponent.menuComponents.length > 0) {

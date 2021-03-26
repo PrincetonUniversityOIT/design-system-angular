@@ -1,14 +1,17 @@
 export class MenuItem {
-  public readonly label: string
-  public readonly url: string;
-  public readonly shownByDefault?: boolean;
+  public label: string;
+  public url?: string;
+  public externalUrl?: string;
+  public shownByDefault?: boolean;
 
   public subItems?: MenuItem[] = [];
 
-  constructor(label: string, url: string, subItems?: MenuItem[], shownByDefault?: boolean ) {
+  constructor(label: string, url?: string, subItems?: MenuItem[], shownByDefault?: boolean, externalUrl?: string ) {
     this.label = label;
     this.url = url;
+    this.externalUrl = externalUrl;
     this.subItems = subItems;
     this.shownByDefault = shownByDefault;
+    this.externalUrl = externalUrl;
   }
 }

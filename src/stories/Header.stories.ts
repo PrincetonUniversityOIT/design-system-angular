@@ -48,8 +48,14 @@ mainMenu.push(new MenuItem('Main Menu 2', '/level1item2'));
 mainMenu.push(new MenuItem('Main Menu 3', '/level1item3'));
 
 const utilityMenu: MenuItem[] = [];
-utilityMenu.push(new MenuItem('Documentation', '/documentation'));
-utilityMenu.push(new MenuItem('Log In', '/login'));
+const utilityMenu1 = new MenuItem('Documentation');
+utilityMenu1.externalUrl = 'http://www.google.com';
+
+const utilityMenu2 = new MenuItem('Log In');
+utilityMenu2.url = '/login';
+
+utilityMenu.push(utilityMenu1);
+utilityMenu.push(utilityMenu2);
 
 const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
   component: HeaderComponent,

@@ -1,6 +1,7 @@
 <ng-template #template>
-  <a [routerLink]="menuItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
+  <a *ngIf="menuItem.url" [routerLink]="menuItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
     [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{menuItem.label}}</a>
+  <a *ngIf="menuItem.externalUrl" href="{{menuItem.externalUrl}}">{{menuItem.label}}</a>
   <app-jazz-sub-button [menuItem]="menuItem" (closeSubMenus)="close()" (resetSubMenus)="reset()"></app-jazz-sub-button>
   <ul *ngIf="menuItem && menuItem.subItems && menuItem.subItems.length > 0" [class]="getClass()">
     <li *ngFor="let levelItem of menuItem.subItems">
