@@ -8,7 +8,7 @@ import {MainMenu2Component} from './main-menu/main-menu2/main-menu2.component';
 import {MainMenu3Component} from './main-menu/main-menu3/main-menu3.component';
 import {AppRoutingModule} from './app.routing';
 import {MainPageComponent} from './main-page/main-page.component';
-import {DocumentationComponent} from './main-menu/documentation/documentation.component';
+// import {DocumentationComponent} from './main-menu/documentation/documentation.component';
 
 @NgModule({
   imports: [
@@ -22,8 +22,9 @@ import {DocumentationComponent} from './main-menu/documentation/documentation.co
     MainMenu1Component,
     MainMenu2Component,
     MainMenu3Component,
-    MainPageComponent,
-    DocumentationComponent
+    MainPageComponent
+    // ,
+    // DocumentationComponent
   ],
   bootstrap: [AppComponent],
   schemas: [

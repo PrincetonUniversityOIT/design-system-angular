@@ -269,10 +269,10 @@
         },
         {
             "name": "UtilityFunctions",
-            "id": "class-UtilityFunctions-9e49fbc223a19461cf2a38bfec9a28b2",
+            "id": "class-UtilityFunctions-faec13eac260bbc6590eaf56e370ca95",
             "file": "src/app/components/utility-functions.ts",
             "type": "class",
-            "sourceCode": "export class UtilityFunctions {\r\n\r\n  static select(selector: string, context: ParentNode): [] {\r\n\r\n    if (typeof selector !== 'string') {\r\n      return [];\r\n    }\r\n\r\n    if (!context || !this.isElement(context)) {\r\n      context = window.document; // eslint-disable-line no-param-reassign\r\n    }\r\n\r\n    const selection = context.querySelectorAll(selector);\r\n    return Array.prototype.slice.call(selection);\r\n  }\r\n\r\n  static isElement(value): any {\r\n    return value && typeof value === 'object' && value.nodeType === 1;\r\n  }\r\n\r\n  static selectClosestTo(targetSelector: string, closestToSelector: string, context: Element): any {\r\n    const elements: Element[] = UtilityFunctions.select(targetSelector, context);\r\n    return elements.filter((element) => element.closest(closestToSelector) === context);\r\n  }\r\n}\r\n",
+            "sourceCode": "export const ARIA_EXPANDED = 'aria-expanded';\r\nexport const ARIA_CONTROLS = 'aria-controls';\r\nexport const HIDDEN = 'hidden';\r\n\r\nexport class UtilityFunctions {\r\n\r\n  static select(selector: string, context: ParentNode): [] {\r\n\r\n    if (typeof selector !== 'string') {\r\n      return [];\r\n    }\r\n\r\n    if (!context || !this.isElement(context)) {\r\n      context = window.document; // eslint-disable-line no-param-reassign\r\n    }\r\n\r\n    const selection = context.querySelectorAll(selector);\r\n    return Array.prototype.slice.call(selection);\r\n  }\r\n\r\n  static isElement(value): any {\r\n    return value && typeof value === 'object' && value.nodeType === 1;\r\n  }\r\n\r\n  static selectClosestTo(targetSelector: string, closestToSelector: string, context: Element): any {\r\n    const elements: Element[] = UtilityFunctions.select(targetSelector, context);\r\n    return elements.filter((element) => element.closest(closestToSelector) === context);\r\n  }\r\n\r\n  static toggleControl(target: HTMLElement, expanded?: boolean, attribute?: string): boolean {\r\n\r\n    const safeAttribute: string = attribute || ARIA_EXPANDED;\r\n\r\n    let safeExpanded = expanded;\r\n\r\n    if (typeof safeExpanded !== 'boolean') {\r\n      // invert the existing button value\r\n      safeExpanded = target.getAttribute(safeAttribute) === 'false';\r\n    }\r\n\r\n    target.setAttribute(safeAttribute, safeExpanded.toString());\r\n\r\n    const controlledElementId = target.getAttribute(ARIA_CONTROLS);\r\n    if (controlledElementId) {\r\n      const controlledElement = document.getElementById(controlledElementId);\r\n      if (!controlledElement) {\r\n        throw new Error(`aria-controls is not properly configured: ${controlledElementId}`);\r\n      }\r\n      if (safeExpanded) {\r\n        controlledElement.removeAttribute(HIDDEN);\r\n      } else {\r\n        controlledElement.setAttribute(HIDDEN, '');\r\n      }\r\n    }\r\n\r\n    return safeExpanded;\r\n  }\r\n}\r\n",
             "properties": [],
             "methods": [
                 {
@@ -286,7 +286,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 18,
+                    "line": 21,
                     "modifierKind": [
                         115
                     ],
@@ -315,7 +315,7 @@
                     "optional": false,
                     "returnType": "",
                     "typeParameters": [],
-                    "line": 4,
+                    "line": 7,
                     "modifierKind": [
                         115
                     ],
@@ -355,7 +355,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 25,
                     "modifierKind": [
                         115
                     ],
@@ -382,6 +382,57 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "toggleControl",
+                    "args": [
+                        {
+                            "name": "target",
+                            "type": "HTMLElement"
+                        },
+                        {
+                            "name": "expanded",
+                            "type": "boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "attribute",
+                            "type": "string",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 30,
+                    "modifierKind": [
+                        115
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "target",
+                            "type": "HTMLElement",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "expanded",
+                            "type": "boolean",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "attribute",
+                            "type": "string",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "indexSignatures": [],
@@ -395,7 +446,7 @@
     "components": [
         {
             "name": "AccordionComponent",
-            "id": "component-AccordionComponent-f3ba9acf141e961bcfad99f2e78e8680",
+            "id": "component-AccordionComponent-1b21730e574d9fb5d2d657b2c98d7c67",
             "file": "src/app/components/accordion/accordion.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -465,7 +516,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\n  AfterContentInit,\n  Component,\n  ContentChildren,\n  ElementRef,\n  OnInit,\n  QueryList\n} from '@angular/core';\nimport {prefix as PREFIX} from '../../config';\n\nconst ACCORDION_SELECTOR = `.${PREFIX}-accordion`;\nconst MULTISELECTABLE = 'aria-multiselectable';\n\nexport const ARIA_EXPANDED = 'aria-expanded';\nexport const ARIA_CONTROLS = 'aria-controls';\nexport const HIDDEN = 'hidden';\n\n@Component({\n  selector: 'app-jazz-accordion',\n  templateUrl: './accordion.component.html'\n})\nexport class AccordionComponent implements OnInit, AfterContentInit {\n  @ContentChildren('jazzAccordionButtons', {descendants: true, read: ElementRef}) accordionButtons: QueryList<ElementRef>;\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  ngAfterContentInit(): void{\n    this.accordionButtons.forEach((btn) => {\n      btn.nativeElement.addEventListener('click', this.click);\n    });\n  }\n\n  click = (event: Event): void => {\n    const button = event.target as HTMLElement;\n    const accordionEl = button.closest(ACCORDION_SELECTOR);\n    const multiselectable = accordionEl.getAttribute(MULTISELECTABLE) === 'true';\n\n    const expanded = this.toggleControl(button, null);\n\n    if (expanded && !multiselectable) {\n      this.accordionButtons.forEach((other) => {\n        if (other.nativeElement !== button) {\n          this.toggleControl(other.nativeElement, false);\n        }\n      });\n    }\n    event.stopImmediatePropagation();\n  }\n\n  toggleControl = (target: Element, expanded?: boolean): any => {\n\n    let safeExpanded = expanded;\n\n    if (typeof safeExpanded !== 'boolean') {\n      // invert the existing button value\n      safeExpanded = target.getAttribute(ARIA_EXPANDED) === 'false';\n    }\n\n    target.setAttribute(ARIA_EXPANDED, safeExpanded.toString());\n\n    const controlledElementId = target.getAttribute(ARIA_CONTROLS);\n    const controlledElement = document.getElementById(controlledElementId);\n    if (!controlledElement) {\n      throw new Error(`aria-controls is not properly configured: ${controlledElementId}`);\n    }\n\n    if (safeExpanded) {\n      controlledElement.removeAttribute(HIDDEN);\n    } else {\n      controlledElement.setAttribute(HIDDEN, '');\n    }\n\n    return safeExpanded;\n  }\n}\n",
+            "sourceCode": "import {\r\n  AfterContentInit,\r\n  Component,\r\n  ContentChildren,\r\n  ElementRef,\r\n  OnInit,\r\n  QueryList\r\n} from '@angular/core';\r\nimport {prefix as PREFIX} from '../../config';\r\n\r\nconst ACCORDION_SELECTOR = `.${PREFIX}-accordion`;\r\nconst MULTISELECTABLE = 'aria-multiselectable';\r\n\r\nexport const ARIA_EXPANDED = 'aria-expanded';\r\nexport const ARIA_CONTROLS = 'aria-controls';\r\nexport const HIDDEN = 'hidden';\r\n\r\n@Component({\r\n  selector: 'app-jazz-accordion',\r\n  templateUrl: './accordion.component.html'\r\n})\r\nexport class AccordionComponent implements OnInit, AfterContentInit {\r\n  @ContentChildren('jazzAccordionButtons', {descendants: true, read: ElementRef}) accordionButtons: QueryList<ElementRef>;\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n  ngAfterContentInit(): void{\r\n    this.accordionButtons.forEach((btn) => {\r\n      btn.nativeElement.addEventListener('click', this.click);\r\n    });\r\n  }\r\n\r\n  click = (event: Event): void => {\r\n    const button = event.target as HTMLElement;\r\n    const accordionEl = button.closest(ACCORDION_SELECTOR);\r\n    const multiselectable = accordionEl.getAttribute(MULTISELECTABLE) === 'true';\r\n\r\n    const expanded = this.toggleControl(button, null);\r\n\r\n    if (expanded && !multiselectable) {\r\n      this.accordionButtons.forEach((other) => {\r\n        if (other.nativeElement !== button) {\r\n          this.toggleControl(other.nativeElement, false);\r\n        }\r\n      });\r\n    }\r\n    event.stopImmediatePropagation();\r\n  }\r\n\r\n  toggleControl = (target: Element, expanded?: boolean): any => {\r\n\r\n    let safeExpanded = expanded;\r\n\r\n    if (typeof safeExpanded !== 'boolean') {\r\n      // invert the existing button value\r\n      safeExpanded = target.getAttribute(ARIA_EXPANDED) === 'false';\r\n    }\r\n\r\n    target.setAttribute(ARIA_EXPANDED, safeExpanded.toString());\r\n\r\n    const controlledElementId = target.getAttribute(ARIA_CONTROLS);\r\n    const controlledElement = document.getElementById(controlledElementId);\r\n    if (!controlledElement) {\r\n      throw new Error(`aria-controls is not properly configured: ${controlledElementId}`);\r\n    }\r\n\r\n    if (safeExpanded) {\r\n      controlledElement.removeAttribute(HIDDEN);\r\n    } else {\r\n      controlledElement.setAttribute(HIDDEN, '');\r\n    }\r\n\r\n    return safeExpanded;\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -479,11 +530,11 @@
                 "OnInit",
                 "AfterContentInit"
             ],
-            "templateData": "<div class=\"jazz-accordion\" role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
+            "templateData": "<div class=\"jazz-accordion\" role=\"region\">\r\n  <ng-content></ng-content>\r\n</div>\r\n"
         },
         {
             "name": "AlertComponent",
-            "id": "component-AlertComponent-b1d9198e0d2df943426f2ab1acfb8d7b",
+            "id": "component-AlertComponent-331e122d4982bc72ee1edcaf6506dc18",
             "file": "src/app/components/alert/alert.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -538,7 +589,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\n\n@Component({\n  selector: 'app-jazz-alert',\n  templateUrl: './alert.component.html'\n})\nexport class AlertComponent {\n\n  constructor() { }\n\n  @Input()\n  heading: string;\n\n  @Input()\n  title: string;\n\n  @Input()\n  content: string;\n\n  @Output()\n  onClose: EventEmitter<boolean> = new EventEmitter();\n\n  close(): void {\n    this.onClose.emit(true);\n  }\n}\n",
+            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-jazz-alert',\r\n  templateUrl: './alert.component.html'\r\n})\r\nexport class AlertComponent {\r\n\r\n  constructor() { }\r\n\r\n  @Input()\r\n  heading: string;\r\n\r\n  @Input()\r\n  title: string;\r\n\r\n  @Input()\r\n  content: string;\r\n\r\n  @Output()\r\n  onClose: EventEmitter<boolean> = new EventEmitter();\r\n\r\n  close(): void {\r\n    this.onClose.emit(true);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -548,7 +599,7 @@
                 "args": [],
                 "line": 7
             },
-            "templateData": "<section class=\"jazz-alert-section\">\n  <h2 class=\"jazz-alert-section__heading jazz-visually-hidden\">{{ heading }}</h2>\n  <div class=\"jazz-alert-section__content\">\n    <div class=\"jazz-row\">\n      <h3 class=\"jazz-alert-section__title\">{{ title }}</h3>\n      <ng-content></ng-content>\n    </div>\n  </div>\n  <a title=\"Hide alert with title {{ title }} until it is updated\" class=\"jazz-alert-section__close\" role=\"button\" (click)=\"close()\">X</a>\n</section>\n"
+            "templateData": "<section class=\"jazz-alert-section\">\r\n  <h2 class=\"jazz-alert-section__heading jazz-visually-hidden\">{{ heading }}</h2>\r\n  <div class=\"jazz-alert-section__content\">\r\n    <div class=\"jazz-row\">\r\n      <h3 class=\"jazz-alert-section__title\">{{ title }}</h3>\r\n      <ng-content></ng-content>\r\n    </div>\r\n  </div>\r\n  <a title=\"Hide alert with title {{ title }} until it is updated\" class=\"jazz-alert-section__close\" role=\"button\" (click)=\"close()\">X</a>\r\n</section>\r\n"
         },
         {
             "name": "AppComponent",
@@ -613,11 +664,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"jazz-body-flex-container\">\r\n  <!--<app-jazz-header [headerOptions]=\"headerOptions\">-->\r\n  <app-jazz-header [title]=\"'Princeton University Design System'\" [siteBrandingName]=\"'RELATIVITY'\" [siteBrandingSlogan]=\"'The Princeton University Design System'\" [showCompact]=true [showSearch]=true>\r\n    <app-jazz-main-menu>\r\n      <app-jazz-main-menu-item label=\"Main Menu 1\" url=\"/mainMenu1\">\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 1\" url=\"/level2item1\" shownByDefault=\"true\">\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 1\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 2\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 3\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n          </app-jazz-main-menu-item>\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 2\" url=\"/level2item1\"></app-jazz-main-menu-item>\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 3\" url=\"/level2item1\"></app-jazz-main-menu-item>\r\n      </app-jazz-main-menu-item>\r\n      <app-jazz-main-menu-item label=\"Main Menu 2\" url=\"/mainMenu2\"></app-jazz-main-menu-item>\r\n      <app-jazz-main-menu-item label=\"Main Menu 3\" url=\"/mainMenu3\"></app-jazz-main-menu-item>\r\n    </app-jazz-main-menu>\r\n\r\n    <app-jazz-utility-menu>\r\n      <app-jazz-utility-item label=\"Documentation\" url=\"/documentation\"></app-jazz-utility-item>\r\n      <app-jazz-utility-item label=\"Log In\" url=\"/login\"></app-jazz-utility-item>\r\n    </app-jazz-utility-menu>\r\n</app-jazz-header>\r\n\r\n<main>\r\n  <div class=\"jazz-container\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</main>\r\n\r\n  <footer role=\"contentinfo\" class=\"jazz-footer\">\r\n    <div class=\"jazz-container jazz-footer__content\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-3 col-xs-12\">\r\n          <ul class=\"jazz-footer__list\">\r\n            <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-email jazz-icon-white\" aria-hidden=\"true\"></i>  finance@princeton.edu</a></li>\r\n          </ul>\r\n        </div>\r\n        <div class=\"col-sm-3 col-xs-12\">\r\n          <ul class=\"jazz-footer__list\">\r\n            <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-phone jazz-icon-white\" aria-hidden=\"true\"></i>  609-258-3080</a></li>\r\n            <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-printer jazz-icon-white\" aria-hidden=\"true\"></i>  609-258-3080</a></li>\r\n          </ul>\r\n        </div>\r\n        <div class=\"col-sm-3 col-xs-12\">\r\n          <ul class=\"jazz-footer__list\">\r\n            <li><i class=\"jazz-icon jazz-icon-map-pin jazz-icon-transparent\" aria-hidden=\"true\"></i>  701 Carnegie Center</li>\r\n            <li><i class=\"jazz-icon jazz-icon-map-pin jazz-icon-white\" aria-hidden=\"true\"></i>  Suite 435</li>\r\n            <li><i class=\"jazz-icon jazz-icon-map-pin jazz-icon-transparent\" aria-hidden=\"true\"></i>  Princeton, NJ 08540</li>\r\n          </ul>\r\n        </div>\r\n        <div class=\"col-sm-3 col-xs-12 jazz-footer-text--right\">\r\n          <ul class=\"jazz-footer__list\">\r\n            <li><img class=\"jazz-footer__shield\" src=\"./assets/logos/shield.svg\" />  Web Development Services</li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"jazz-footer__subfooter\">\r\n      <div class=\"jazz-container\">\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-4 col-xs-12\">\r\n            <a href=\"javascript:void(0)\">Accessibility</a>\r\n          </div>\r\n          <div class=\"col-sm-4 col-xs-12 jazz-footer-text--center\">\r\n            &copy; 2020 The Trustees of Princeton University\r\n          </div>\r\n          <div class=\"col-sm-4 col-xs-12\">\r\n            <a href=\"https://www.princeton.edu\" target=\"_blank\" class=\"jazz-no-icon\"><img class=\"jazz-footer__logo\" src=\"./assets/icons/pu-logo-stacked-white.svg\" alt=\"Princeton University\" /></a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </footer>\r\n</div>\r\n"
+            "templateData": "<div class=\"jazz-body-flex-container\">\r\n  <!--<app-jazz-header [headerOptions]=\"headerOptions\">-->\r\n  <app-jazz-header [title]=\"'Princeton University Design System'\" [siteBrandingName]=\"'RELATIVITY'\" [siteBrandingSlogan]=\"'The Princeton University Design System'\" [showCompact]=false [showSearch]=true>\r\n    <app-jazz-main-menu>\r\n      <app-jazz-main-menu-item label=\"Main Menu 1\" url=\"/mainMenu1\">\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 1\" url=\"/level2item1\" shownByDefault=\"true\">\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 1\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 2\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n            <app-jazz-main-menu-item label=\"Level 3 Menu 3\" url=\"/level3item1\"></app-jazz-main-menu-item>\r\n          </app-jazz-main-menu-item>\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 2\" url=\"/level2item1\"></app-jazz-main-menu-item>\r\n          <app-jazz-main-menu-item label=\"Level 2 Menu 3\" url=\"/level2item1\"></app-jazz-main-menu-item>\r\n      </app-jazz-main-menu-item>\r\n      <app-jazz-main-menu-item label=\"Main Menu 2\" url=\"/mainMenu2\"></app-jazz-main-menu-item>\r\n      <app-jazz-main-menu-item label=\"Main Menu 3\" url=\"/mainMenu3\"></app-jazz-main-menu-item>\r\n    </app-jazz-main-menu>\r\n\r\n    <app-jazz-utility-menu>\r\n      <app-jazz-utility-item label=\"Documentation\" url=\"/documentation\"></app-jazz-utility-item>\r\n      <app-jazz-utility-item label=\"Log In\" url=\"/login\"></app-jazz-utility-item>\r\n    </app-jazz-utility-menu>\r\n</app-jazz-header>\r\n\r\n<main>\r\n  <div class=\"jazz-container\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</main>\r\n\r\n  <footer role=\"contentinfo\" class=\"jazz-footer\">\r\n    <div class=\"jazz-container jazz-footer__content\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-3 col-xs-12\">\r\n          <ul class=\"jazz-footer__list\">\r\n            <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-email jazz-icon-white\" aria-hidden=\"true\"></i>  finance@princeton.edu</a></li>\r\n          </ul>\r\n        </div>\r\n        <div class=\"col-sm-3 col-xs-12\">\r\n          <ul class=\"jazz-footer__list\">\r\n            <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-phone jazz-icon-white\" aria-hidden=\"true\"></i>  609-258-3080</a></li>\r\n            <li><a href=\"javascript:void(0);\"><i class=\"jazz-icon jazz-icon-printer jazz-icon-white\" aria-hidden=\"true\"></i>  609-258-3080</a></li>\r\n          </ul>\r\n        </div>\r\n        <div class=\"col-sm-3 col-xs-12\">\r\n          <ul class=\"jazz-footer__list\">\r\n            <li><i class=\"jazz-icon jazz-icon-map-pin jazz-icon-transparent\" aria-hidden=\"true\"></i>  701 Carnegie Center</li>\r\n            <li><i class=\"jazz-icon jazz-icon-map-pin jazz-icon-white\" aria-hidden=\"true\"></i>  Suite 435</li>\r\n            <li><i class=\"jazz-icon jazz-icon-map-pin jazz-icon-transparent\" aria-hidden=\"true\"></i>  Princeton, NJ 08540</li>\r\n          </ul>\r\n        </div>\r\n        <div class=\"col-sm-3 col-xs-12 jazz-footer-text--right\">\r\n          <ul class=\"jazz-footer__list\">\r\n            <li><img class=\"jazz-footer__shield\" src=\"./assets/logos/shield.svg\" />  Web Development Services</li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"jazz-footer__subfooter\">\r\n      <div class=\"jazz-container\">\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-4 col-xs-12\">\r\n            <a href=\"javascript:void(0)\">Accessibility</a>\r\n          </div>\r\n          <div class=\"col-sm-4 col-xs-12 jazz-footer-text--center\">\r\n            &copy; 2020 The Trustees of Princeton University\r\n          </div>\r\n          <div class=\"col-sm-4 col-xs-12\">\r\n            <a href=\"https://www.princeton.edu\" target=\"_blank\" class=\"jazz-no-icon\"><img class=\"jazz-footer__logo\" src=\"./assets/icons/pu-logo-stacked-white.svg\" alt=\"Princeton University\" /></a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </footer>\r\n</div>\r\n"
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-7c358a882b1e2b1c4742530ff1bee36e",
+            "id": "component-ButtonComponent-df6155eda7db1aa1fd1fc4d3926fddbc",
             "file": "src/app/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -692,7 +743,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {Component, Input, Output, EventEmitter} from '@angular/core';\n\n@Component({\n  selector: 'app-jazz-button',\n  templateUrl: './button.component.html'\n})\nexport class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Is this button disabled?\n   */\n  @Input()\n  disabled = false;\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  click = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    // const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n    //\n    // return ['storybook-button', `storybook-button--${this.size}`, mode];\n    return ['jazz-btn'];\n  }\n\n  public getDisabled(): string {\n    return this.disabled ? 'disabled' : '';\n  }\n\n\n}\n\n",
+            "sourceCode": "import {Component, Input, Output, EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-jazz-button',\r\n  templateUrl: './button.component.html'\r\n})\r\nexport class ButtonComponent {\r\n  /**\r\n   * Is this the principal call to action on the page?\r\n   */\r\n  @Input()\r\n  primary = false;\r\n\r\n  /**\r\n   * What background color to use\r\n   */\r\n  @Input()\r\n  backgroundColor?: string;\r\n\r\n  /**\r\n   * How large should the button be?\r\n   */\r\n  @Input()\r\n  size: 'small' | 'medium' | 'large' = 'medium';\r\n\r\n  /**\r\n   * Button contents\r\n   *\r\n   * @required\r\n   */\r\n  @Input()\r\n  label = 'Button';\r\n\r\n  /**\r\n   * Is this button disabled?\r\n   */\r\n  @Input()\r\n  disabled = false;\r\n\r\n  /**\r\n   * Optional click handler\r\n   */\r\n  @Output()\r\n  click = new EventEmitter<Event>();\r\n\r\n  public get classes(): string[] {\r\n    // const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\r\n    //\r\n    // return ['storybook-button', `storybook-button--${this.size}`, mode];\r\n    return ['jazz-btn'];\r\n  }\r\n\r\n  public getDisabled(): string {\r\n    return this.disabled ? 'disabled' : '';\r\n  }\r\n\r\n\r\n}\r\n\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -707,63 +758,7 @@
                     }
                 }
             },
-            "templateData": "<button\n  type=\"button\"\n  (click)=\"click.emit($event)\"\n  [ngClass]=\"classes\"\n  [disabled]=\"disabled\"\n>\n  {{ label }}\n</button>\n"
-        },
-        {
-            "name": "DocumentationComponent",
-            "id": "component-DocumentationComponent-97cce191ed8cf892b31713c7ffe5d1d2",
-            "file": "src/app/main-menu/documentation/documentation.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-documentation",
-            "styleUrls": [
-                "./documentation.component.css"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./documentation.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-documentation',\n  templateUrl: './documentation.component.html',\n  styleUrls: ['./documentation.component.css']\n})\nexport class DocumentationComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./documentation.component.css"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<h1 class=\"jazz-page-title\">Documentation</h1>\n<h2>Documentation</h2>\n<p>\n  This is the section for documentation\n</p>\n\n"
+            "templateData": "<button\r\n  type=\"button\"\r\n  (click)=\"click.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n  [disabled]=\"disabled\"\r\n>\r\n  {{ label }}\r\n</button>\r\n"
         },
         {
             "name": "HeaderComponent",
@@ -976,7 +971,7 @@
         },
         {
             "name": "MainMenu1Component",
-            "id": "component-MainMenu1Component-efeedec8196c071030448be76bd24aa3",
+            "id": "component-MainMenu1Component-cf03a015b75976871788aecbf0091842",
             "file": "src/app/main-menu/main-menu1/main-menu1.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1010,7 +1005,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-main-menu1',\n  templateUrl: './main-menu1.component.html',\n  styleUrls: ['./main-menu1.component.css']\n})\nexport class MainMenu1Component implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-main-menu1',\r\n  templateUrl: './main-menu1.component.html',\r\n  styleUrls: ['./main-menu1.component.css']\r\n})\r\nexport class MainMenu1Component implements OnInit {\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1028,11 +1023,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<h1 class=\"jazz-page-title\">Main Menu 1</h1>\n<h2>Accordion</h2>\n<p>\n  This section describes the first point. Careful consideration of these points should be considered.\n</p>\n<app-jazz-accordion>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content1\">Sed porttitor lectus nibh?</button>\n  </h2>\n  <div class=\"jazz-accordion__content\" id=\"content1\" hidden>\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a\n    pellentesque nec, egestas non nisi.\n  </div>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"true\" aria-controls=\"content2\">\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?\n    </button>\n  </h2>\n  <div aria-hidden=\"false\" class=\"jazz-accordion__content\" id=\"content2\">\n    Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet\n    et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.\n    Cras ultricies ligula sed magna dictum porta.\n  </div>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content3\">\n      Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit.\n    </button>\n  </h2>\n  <div class=\"jazz-accordion__content\" id=\"content3\" hidden>\n    Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices\n    posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.\n  </div>\n  <h2>\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content4\">\n      Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit.\n    </button>\n  </h2>\n  <div class=\"jazz-accordion__content\" id=\"content4\" hidden>\n    Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices\n    posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.\n  </div>\n</app-jazz-accordion>\n"
+            "templateData": "<h1 class=\"jazz-page-title\">Main Menu 1</h1>\r\n<h2>Accordion</h2>\r\n<p>\r\n  This section describes the first point. Careful consideration of these points should be considered.\r\n</p>\r\n<app-jazz-accordion>\r\n  <h2>\r\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content1\">Sed porttitor lectus nibh?</button>\r\n  </h2>\r\n  <div class=\"jazz-accordion__content\" id=\"content1\" hidden>\r\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a\r\n    pellentesque nec, egestas non nisi.\r\n  </div>\r\n  <h2>\r\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"true\" aria-controls=\"content2\">\r\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?\r\n    </button>\r\n  </h2>\r\n  <div aria-hidden=\"false\" class=\"jazz-accordion__content\" id=\"content2\">\r\n    Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet\r\n    et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.\r\n    Cras ultricies ligula sed magna dictum porta.\r\n  </div>\r\n  <h2>\r\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content3\">\r\n      Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit.\r\n    </button>\r\n  </h2>\r\n  <div class=\"jazz-accordion__content\" id=\"content3\" hidden>\r\n    Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices\r\n    posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.\r\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.\r\n  </div>\r\n  <h2>\r\n    <button #jazzAccordionButtons class=\"jazz-accordion__button\" aria-expanded=\"false\" aria-controls=\"content4\">\r\n      Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit.\r\n    </button>\r\n  </h2>\r\n  <div class=\"jazz-accordion__content\" id=\"content4\" hidden>\r\n    Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices\r\n    posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.\r\n    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.\r\n  </div>\r\n</app-jazz-accordion>\r\n"
         },
         {
             "name": "MainMenu2Component",
-            "id": "component-MainMenu2Component-630c40821d88429fc804d6ddeb3ce80c",
+            "id": "component-MainMenu2Component-5b4a00fcc8e68e01f5633e273f00bf76",
             "file": "src/app/main-menu/main-menu2/main-menu2.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1074,7 +1069,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-main-menu2',\n  templateUrl: './main-menu2.component.html',\n  styleUrls: ['./main-menu2.component.css']\n})\nexport class MainMenu2Component implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n\n  }\n\n  clicked(): void {\n    alert('Button was clicked');\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-main-menu2',\r\n  templateUrl: './main-menu2.component.html',\r\n  styleUrls: ['./main-menu2.component.css']\r\n})\r\nexport class MainMenu2Component implements OnInit {\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n\r\n  }\r\n\r\n  clicked(): void {\r\n    alert('Button was clicked');\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1092,11 +1087,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<h1 class=\"jazz-page-title\">Main Menu 2</h1>\n<h2>Second Point</h2>\n\n<nav class=\"jazz-breadcrumb\" aria-label=\"Breadcrumbs\">\n  <ol class=\"jazz-breadcrumb__list\">\n    <li class=\"jazz-breadcrumb__list-item\">\n      <a href=\"#\" class=\"jazz-breadcrumb__link\">Home</a>\n    </li>\n    <li class=\"jazz-breadcrumb__list-item\">\n      <a href=\"#\" class=\"jazz-breadcrumb__link\">Another Link</a>\n    </li>\n    <li class=\"jazz-breadcrumb__list-item\">\n      <a href=\"#\" class=\"jazz-breadcrumb__link\">Yet Another Link Level</a>\n    </li>\n    <li class=\"jazz-breadcrumb__list-item jazz-current\" aria-current=\"page\">And finally here were are the page description</li>\n  </ol>\n</nav>\n\n<p>\n  This section describes the second point. Careful consideration of these points should be considered. This is a button that activates a dialog box.\n  <app-jazz-modal-dialog [title]=\"'Sample Dialog'\" [buttonLabel]=\"'Click Me!'\" (buttonClicked)=\"clicked()\">\n      This is the content of the dialog\n  </app-jazz-modal-dialog>\n</p>\n\n"
+            "templateData": "<h1 class=\"jazz-page-title\">Main Menu 2</h1>\r\n<h2>Second Point</h2>\r\n\r\n<nav class=\"jazz-breadcrumb\" aria-label=\"Breadcrumbs\">\r\n  <ol class=\"jazz-breadcrumb__list\">\r\n    <li class=\"jazz-breadcrumb__list-item\">\r\n      <a href=\"#\" class=\"jazz-breadcrumb__link\">Home</a>\r\n    </li>\r\n    <li class=\"jazz-breadcrumb__list-item\">\r\n      <a href=\"#\" class=\"jazz-breadcrumb__link\">Another Link</a>\r\n    </li>\r\n    <li class=\"jazz-breadcrumb__list-item\">\r\n      <a href=\"#\" class=\"jazz-breadcrumb__link\">Yet Another Link Level</a>\r\n    </li>\r\n    <li class=\"jazz-breadcrumb__list-item jazz-current\" aria-current=\"page\">And finally here were are the page description</li>\r\n  </ol>\r\n</nav>\r\n\r\n<p>\r\n  This section describes the second point. Careful consideration of these points should be considered. This is a button that activates a dialog box.\r\n  <app-jazz-modal-dialog [title]=\"'Sample Dialog'\" [buttonLabel]=\"'Click Me!'\" (buttonClicked)=\"clicked()\">\r\n      This is the content of the dialog\r\n  </app-jazz-modal-dialog>\r\n</p>\r\n\r\n"
         },
         {
             "name": "MainMenu3Component",
-            "id": "component-MainMenu3Component-1057bec36fc7a5d8fecff8d1d8a36fa8",
+            "id": "component-MainMenu3Component-62b7e8136f2408df17eca68eb72b43ab",
             "file": "src/app/main-menu/main-menu3/main-menu3.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1130,7 +1125,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-main-menu3',\n  templateUrl: './main-menu3.component.html',\n  styleUrls: ['./main-menu3.component.css']\n})\nexport class MainMenu3Component implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-main-menu3',\r\n  templateUrl: './main-menu3.component.html',\r\n  styleUrls: ['./main-menu3.component.css']\r\n})\r\nexport class MainMenu3Component implements OnInit {\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1148,7 +1143,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<h1 class=\"jazz-page-title\">Main Menu 3</h1>\n<h2>Third Point</h2>\n<p>\n  This section describes the third point. Careful consideration of these points should be considered.\n</p>\n"
+            "templateData": "<h1 class=\"jazz-page-title\">Main Menu 3</h1>\r\n<h2>Third Point</h2>\r\n<p>\r\n  This section describes the third point. Careful consideration of these points should be considered.\r\n</p>\r\n"
         },
         {
             "name": "MainMenuComponent",
@@ -1254,7 +1249,7 @@
         },
         {
             "name": "MainPageComponent",
-            "id": "component-MainPageComponent-8f436c98100b4b891c8421a9e2d1ad69",
+            "id": "component-MainPageComponent-bcd1eadf11ba244e98ec87e2ba70918c",
             "file": "src/app/main-page/main-page.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1288,7 +1283,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-main-page',\n  templateUrl: './main-page.component.html',\n  styleUrls: ['./main-page.component.css']\n})\nexport class MainPageComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-main-page',\r\n  templateUrl: './main-page.component.html',\r\n  styleUrls: ['./main-page.component.css']\r\n})\r\nexport class MainPageComponent implements OnInit {\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1306,7 +1301,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<h1 class=\"jazz-page-title\">Main Page</h1>\n<h2>Welcome to the Princeton Design System!</h2>\n<p>\n  This is the main page of the Princeton Design System.\n</p>\n\n"
+            "templateData": "<h1 class=\"jazz-page-title\">Main Page</h1>\r\n<h2>Welcome to the Princeton Design System!</h2>\r\n<p>\r\n  This is the main page of the Princeton Design System.\r\n</p>\r\n\r\n"
         },
         {
             "name": "MenuComponent",
@@ -1464,11 +1459,11 @@
                 "args": [],
                 "line": 31
             },
-            "templateData": "<nav aria-label=\"Main Menu\" class=\"jazz-menu__main-menu\">\n  <h2 class=\"jazz-visually-hidden\">Main Menu</h2>\n\n  <div class=\"jazz-container\">\n    <div class=\"jazz-menu__main-menu-navbar\">\n      <app-jazz-menu-main-button></app-jazz-menu-main-button>\n      <div class=\"jazz-menu__nav-container\">\n        <ul *ngIf=\"menuItems && menuItems.length > 0\" class=\"jazz-menubar\" role=\"list\">\n            <li *ngFor=\"let level1item of menuItems\" (mouseleave)=\"onMouseOut($event)\">\n              <app-jazz-menu-item [menuItem]=\"level1item\" (closeSubMenus)=\"closeSubMenus()\" (resetSubMenus)=\"resetSubMenus()\"></app-jazz-menu-item>\n            </li>\n        </ul>\n        <div class=\"jazz-header__utility-menu jazz-header__utility-menu--hide-large\">\n          <ul *ngIf=\"utilityItems && utilityItems.length > 0\">\n            <li *ngFor=\"let utilityItem of utilityItems\" >\n              <a [routerLink]=\"utilityItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\n                [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{utilityItem.label}}</a>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</nav>\n"
+            "templateData": "<nav aria-label=\"Main Menu\" class=\"jazz-menu__main-menu\">\r\n  <h2 class=\"jazz-visually-hidden\">Main Menu</h2>\r\n\r\n  <div class=\"jazz-container\">\r\n    <div class=\"jazz-menu__main-menu-navbar\">\r\n      <app-jazz-menu-main-button></app-jazz-menu-main-button>\r\n      <div class=\"jazz-menu__nav-container\">\r\n        <ul *ngIf=\"menuItems && menuItems.length > 0\" class=\"jazz-menubar\" role=\"list\">\r\n            <li *ngFor=\"let level1item of menuItems\" (mouseleave)=\"onMouseOut($event)\">\r\n              <app-jazz-menu-item [menuItem]=\"level1item\" (closeSubMenus)=\"closeSubMenus()\" (resetSubMenus)=\"resetSubMenus()\"></app-jazz-menu-item>\r\n            </li>\r\n        </ul>\r\n        <div class=\"jazz-header__utility-menu jazz-header__utility-menu--hide-large\">\r\n          <ul *ngIf=\"utilityItems && utilityItems.length > 0\">\r\n            <li *ngFor=\"let utilityItem of utilityItems\" >\r\n              <a [routerLink]=\"utilityItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\r\n                [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{utilityItem.label}}</a>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</nav>\r\n"
         },
         {
             "name": "MenuItemComponent",
-            "id": "component-MenuItemComponent-12bbcc74daed5e4ebecad6b6a2879373",
+            "id": "component-MenuItemComponent-4814f5c6e5c51faf99acbdb45ca6eaad",
             "file": "src/app/components/menu/menu-item/menu-item.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1557,7 +1552,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {MenuItem} from '../../../model/menu-item';\nimport {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';\n\n@Component({\n  selector: 'app-jazz-menu-item',\n  templateUrl: './menu-item.component.html'\n})\nexport class MenuItemComponent implements OnInit {\n\n  @ViewChild('template', {static: true}) template;\n\n  @Input()\n  menuItem: MenuItem;\n\n  @Output()\n  closeSubMenus: EventEmitter<void> = new EventEmitter();\n\n  @Output()\n  resetSubMenus: EventEmitter<void> = new EventEmitter();\n\n  constructor(\n    private viewContainerRef: ViewContainerRef\n  ) {}\n\n  ngOnInit(): void {\n    this.viewContainerRef.createEmbeddedView(this.template);\n  }\n\n  getClass(): string {\n    return this.menuItem.shownByDefault ? 'jazz-menubar__submenu--shown-by-default' : '';\n  }\n\n  close(): void {\n    this.closeSubMenus.emit();\n  }\n\n  reset(): void {\n    this.resetSubMenus.emit();\n  }\n}\n",
+            "sourceCode": "import {MenuItem} from '../../../model/menu-item';\r\nimport {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-jazz-menu-item',\r\n  templateUrl: './menu-item.component.html'\r\n})\r\nexport class MenuItemComponent implements OnInit {\r\n\r\n  @ViewChild('template', {static: true}) template;\r\n\r\n  @Input()\r\n  menuItem: MenuItem;\r\n\r\n  @Output()\r\n  closeSubMenus: EventEmitter<void> = new EventEmitter();\r\n\r\n  @Output()\r\n  resetSubMenus: EventEmitter<void> = new EventEmitter();\r\n\r\n  constructor(\r\n    private viewContainerRef: ViewContainerRef\r\n  ) {}\r\n\r\n  ngOnInit(): void {\r\n    this.viewContainerRef.createEmbeddedView(this.template);\r\n  }\r\n\r\n  getClass(): string {\r\n    return this.menuItem.shownByDefault ? 'jazz-menubar__submenu--shown-by-default' : '';\r\n  }\r\n\r\n  close(): void {\r\n    this.closeSubMenus.emit();\r\n  }\r\n\r\n  reset(): void {\r\n    this.resetSubMenus.emit();\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -1584,11 +1579,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ng-template #template>\n  <a [routerLink]=\"menuItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\n    [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{menuItem.label}}</a>\n  <app-jazz-sub-button [menuItem]=\"menuItem\" (closeSubMenus)=\"close()\" (resetSubMenus)=\"reset()\"></app-jazz-sub-button>\n  <ul *ngIf=\"menuItem && menuItem.subItems && menuItem.subItems.length > 0\" [class]=\"getClass()\">\n    <li *ngFor=\"let levelItem of menuItem.subItems\">\n        <app-jazz-menu-item [menuItem]=\"levelItem\"></app-jazz-menu-item>\n    </li>\n  </ul>\n</ng-template>\n"
+            "templateData": "<ng-template #template>\r\n  <a [routerLink]=\"menuItem.url\" routerLinkActive=\"active\" #menuLink=\"routerLinkActive\"\r\n    [attr.aria-current]=\"menuLink.isActive ? 'page' : undefined\">{{menuItem.label}}</a>\r\n  <app-jazz-sub-button [menuItem]=\"menuItem\" (closeSubMenus)=\"close()\" (resetSubMenus)=\"reset()\"></app-jazz-sub-button>\r\n  <ul *ngIf=\"menuItem && menuItem.subItems && menuItem.subItems.length > 0\" [class]=\"getClass()\">\r\n    <li *ngFor=\"let levelItem of menuItem.subItems\">\r\n        <app-jazz-menu-item [menuItem]=\"levelItem\"></app-jazz-menu-item>\r\n    </li>\r\n  </ul>\r\n</ng-template>\r\n"
         },
         {
             "name": "MenuMainButtonComponent",
-            "id": "component-MenuMainButtonComponent-1f0de429ce9e1f514169822f6e24b4cf",
+            "id": "component-MenuMainButtonComponent-af764d464d529cf1d9a8e4a357779952",
             "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1711,7 +1706,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';\nimport {\n  HEADER_NAV_SELECTOR, ICON_CLOSE,\n  ICON_SELECTOR,\n  MENU_MAIN_MENU_SELECTOR,\n  MENU_NAV_EXPANDED_STYLE,\n  MENUBAR_SHOWN_STYLE\n} from '../menu-constants';\n\nexport const ARIA_EXPANDED = 'aria-expanded';\n\n@Component({\n  selector: 'app-jazz-menu-main-button',\n  templateUrl: './menu-main-button.component.html'\n})\nexport class MenuMainButtonComponent implements OnInit {\n\n  @ViewChild('mainButtonTemplate', {static: true}) mainButtonTemplate;\n\n  constructor(\n    private viewContainerRef: ViewContainerRef\n  ) {}\n\n  ngOnInit(): void {\n    this.viewContainerRef.createEmbeddedView(this.mainButtonTemplate);\n  }\n\n  onMainMenuClick(event): void {\n    const button = event.target as HTMLElement;\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\n    const expand = !(expandedAttr && expandedAttr === 'true');\n    this.showMenu(expand, button);\n    event.stopImmediatePropagation();\n  }\n\n  onMainMenuIconClick(event): void {\n    const icon = event.target as HTMLElement;\n    const button = icon.closest('button');\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\n    const expand = !(expandedAttr && expandedAttr === 'true');\n    this.showMenu(expand, button);\n    event.stopImmediatePropagation();\n  }\n\n  // tslint:disable-next-line:typedef\n  showMenu(expand, button) {\n    // This makes sure regardless of which button is picked that the menu elements are expanded/hidden\n    const menuEl = button.closest(MENU_MAIN_MENU_SELECTOR);\n    const menuToggleIcon = button.querySelector(ICON_SELECTOR);\n    const navbar = menuEl.querySelector('ul');\n    const navContainer = menuEl.querySelector(HEADER_NAV_SELECTOR);\n\n    if (expand) {\n      navContainer.classList.add(MENU_NAV_EXPANDED_STYLE);\n      navbar.classList.add(MENUBAR_SHOWN_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'true');\n      menuToggleIcon.classList.remove('jazz-icon-menu');\n      menuToggleIcon.classList.add(ICON_CLOSE);\n    } else {\n      navContainer.classList.remove(MENU_NAV_EXPANDED_STYLE);\n      navbar.classList.remove(MENUBAR_SHOWN_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'false');\n      menuToggleIcon.classList.remove(ICON_CLOSE);\n      menuToggleIcon.classList.add('jazz-icon-menu');\n    }\n  }\n\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';\r\nimport {\r\n  HEADER_NAV_SELECTOR, ICON_CLOSE,\r\n  ICON_SELECTOR,\r\n  MENU_MAIN_MENU_SELECTOR,\r\n  MENU_NAV_EXPANDED_STYLE,\r\n  MENUBAR_SHOWN_STYLE\r\n} from '../menu-constants';\r\n\r\nexport const ARIA_EXPANDED = 'aria-expanded';\r\n\r\n@Component({\r\n  selector: 'app-jazz-menu-main-button',\r\n  templateUrl: './menu-main-button.component.html'\r\n})\r\nexport class MenuMainButtonComponent implements OnInit {\r\n\r\n  @ViewChild('mainButtonTemplate', {static: true}) mainButtonTemplate;\r\n\r\n  constructor(\r\n    private viewContainerRef: ViewContainerRef\r\n  ) {}\r\n\r\n  ngOnInit(): void {\r\n    this.viewContainerRef.createEmbeddedView(this.mainButtonTemplate);\r\n  }\r\n\r\n  onMainMenuClick(event): void {\r\n    const button = event.target as HTMLElement;\r\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\r\n    const expand = !(expandedAttr && expandedAttr === 'true');\r\n    this.showMenu(expand, button);\r\n    event.stopImmediatePropagation();\r\n  }\r\n\r\n  onMainMenuIconClick(event): void {\r\n    const icon = event.target as HTMLElement;\r\n    const button = icon.closest('button');\r\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\r\n    const expand = !(expandedAttr && expandedAttr === 'true');\r\n    this.showMenu(expand, button);\r\n    event.stopImmediatePropagation();\r\n  }\r\n\r\n  // tslint:disable-next-line:typedef\r\n  showMenu(expand, button) {\r\n    // This makes sure regardless of which button is picked that the menu elements are expanded/hidden\r\n    const menuEl = button.closest(MENU_MAIN_MENU_SELECTOR);\r\n    const menuToggleIcon = button.querySelector(ICON_SELECTOR);\r\n    const navbar = menuEl.querySelector('ul');\r\n    const navContainer = menuEl.querySelector(HEADER_NAV_SELECTOR);\r\n\r\n    if (expand) {\r\n      navContainer.classList.add(MENU_NAV_EXPANDED_STYLE);\r\n      navbar.classList.add(MENUBAR_SHOWN_STYLE);\r\n      button.setAttribute(ARIA_EXPANDED, 'true');\r\n      menuToggleIcon.classList.remove('jazz-icon-menu');\r\n      menuToggleIcon.classList.add(ICON_CLOSE);\r\n    } else {\r\n      navContainer.classList.remove(MENU_NAV_EXPANDED_STYLE);\r\n      navbar.classList.remove(MENUBAR_SHOWN_STYLE);\r\n      button.setAttribute(ARIA_EXPANDED, 'false');\r\n      menuToggleIcon.classList.remove(ICON_CLOSE);\r\n      menuToggleIcon.classList.add('jazz-icon-menu');\r\n    }\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -1738,11 +1733,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ng-template #mainButtonTemplate>\n  <button class=\"jazz-menu__menu-toggle\" (click)='onMainMenuClick($event)'\n          aria-expanded=\"false\" aria-label=\"Navigation Menu Toggle\">\n    Menu<i class=\"jazz-icon jazz-icon-menu\" aria-hidden=\"true\" (click)='onMainMenuIconClick($event)'></i>\n  </button>\n</ng-template>\n"
+            "templateData": "<ng-template #mainButtonTemplate>\r\n  <button class=\"jazz-menu__menu-toggle\" (click)='onMainMenuClick($event)'\r\n          aria-expanded=\"false\" aria-label=\"Navigation Menu Toggle\">\r\n    Menu<i class=\"jazz-icon jazz-icon-menu\" aria-hidden=\"true\" (click)='onMainMenuIconClick($event)'></i>\r\n  </button>\r\n</ng-template>\r\n"
         },
         {
             "name": "MenuSubButtonComponent",
-            "id": "component-MenuSubButtonComponent-491003b7c1e1031d39939fa2265ecb0e",
+            "id": "component-MenuSubButtonComponent-f585b00117afd06e2a7f3692ddb3bf3e",
             "file": "src/app/components/menu/menu-sub-button/menu-sub-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1928,7 +1923,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';\nimport {MenuItem} from '../../../model/menu-item';\nimport {\n  ARIA_EXPANDED,\n  MENU_HIDE_STYLE,\n  MENU_RECENTLY_OPENED_ID,\n  MENU_STICKY_STYLE, MENU_SUB_NAV_EXPANDED_STYLE, MENUBAR_SUB_SHOWN_STYLE\n} from '../menu-constants';\n\n@Component({\n  selector: 'app-jazz-sub-button',\n  templateUrl: './menu-sub-button.component.html'\n})\nexport class MenuSubButtonComponent implements OnInit {\n  @Input()\n  menuItem: MenuItem;\n\n  @Output()\n  closeSubMenus: EventEmitter<void> = new EventEmitter();\n\n  @Output()\n  resetSubMenus: EventEmitter<void> = new EventEmitter();\n\n  @ViewChild('subButtonTemplate', {static: true}) subButtonTemplate;\n\n  constructor(\n    private viewContainerRef: ViewContainerRef\n  ) {}\n\n  ngOnInit(): void {\n    this.viewContainerRef.createEmbeddedView(this.subButtonTemplate);\n  }\n\n  onSubMenuClick(event): void {\n    const button = event.target as HTMLElement;\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\n    const expand = !(expandedAttr && expandedAttr === 'true');\n    this.showSubMenu(expand, button);\n  }\n\n  showSubMenu(expand, button): void {\n    const mq = window.matchMedia('(min-width: 900px)');\n    if (mq.matches) {\n      this.showSubMenuFull(expand, button);\n    } else {\n      this.showSubMenuCondensed(expand, button);\n    }\n  }\n\n  showSubMenuFull(expand, button): void {\n    // This makes sure regardless of which button is picked that the menu elements are expanded/hidden\n    const navbar = button.closest('li');\n    const navContainer = navbar.querySelector('ul');\n    if (expand) {\n      this.closeSubMenus.emit();\n\n      navContainer.classList.add(MENU_STICKY_STYLE);\n      navContainer.classList.remove(MENU_HIDE_STYLE);\n      navbar.classList.add(MENU_STICKY_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'true');\n    } else {\n      this.resetSubMenus.emit();\n\n      navContainer.classList.remove(MENU_STICKY_STYLE);\n      navContainer.classList.add(MENU_HIDE_STYLE);\n      navContainer.id = MENU_RECENTLY_OPENED_ID;\n      navbar.classList.remove(MENU_STICKY_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'false');\n    }\n  }\n\n  showSubMenuCondensed(expand, button): void {\n    // This makes sure regardless of which button is picked that the menu elements are expanded/hidden\n    const navbar = button.closest('li');\n    const navContainer = navbar.querySelector('ul');\n\n    if (expand) {\n      navContainer.classList.add(MENU_SUB_NAV_EXPANDED_STYLE);\n      navbar.classList.add(MENUBAR_SUB_SHOWN_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'true');\n    } else {\n      navContainer.classList.remove(MENU_SUB_NAV_EXPANDED_STYLE);\n      navbar.classList.remove(MENUBAR_SUB_SHOWN_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'false');\n    }\n  }\n}\n",
+            "sourceCode": "import {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';\r\nimport {MenuItem} from '../../../model/menu-item';\r\nimport {\r\n  ARIA_EXPANDED,\r\n  MENU_HIDE_STYLE,\r\n  MENU_RECENTLY_OPENED_ID,\r\n  MENU_STICKY_STYLE, MENU_SUB_NAV_EXPANDED_STYLE, MENUBAR_SUB_SHOWN_STYLE\r\n} from '../menu-constants';\r\n\r\n@Component({\r\n  selector: 'app-jazz-sub-button',\r\n  templateUrl: './menu-sub-button.component.html'\r\n})\r\nexport class MenuSubButtonComponent implements OnInit {\r\n  @Input()\r\n  menuItem: MenuItem;\r\n\r\n  @Output()\r\n  closeSubMenus: EventEmitter<void> = new EventEmitter();\r\n\r\n  @Output()\r\n  resetSubMenus: EventEmitter<void> = new EventEmitter();\r\n\r\n  @ViewChild('subButtonTemplate', {static: true}) subButtonTemplate;\r\n\r\n  constructor(\r\n    private viewContainerRef: ViewContainerRef\r\n  ) {}\r\n\r\n  ngOnInit(): void {\r\n    this.viewContainerRef.createEmbeddedView(this.subButtonTemplate);\r\n  }\r\n\r\n  onSubMenuClick(event): void {\r\n    const button = event.target as HTMLElement;\r\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\r\n    const expand = !(expandedAttr && expandedAttr === 'true');\r\n    this.showSubMenu(expand, button);\r\n  }\r\n\r\n  showSubMenu(expand, button): void {\r\n    const mq = window.matchMedia('(min-width: 900px)');\r\n    if (mq.matches) {\r\n      this.showSubMenuFull(expand, button);\r\n    } else {\r\n      this.showSubMenuCondensed(expand, button);\r\n    }\r\n  }\r\n\r\n  showSubMenuFull(expand, button): void {\r\n    // This makes sure regardless of which button is picked that the menu elements are expanded/hidden\r\n    const navbar = button.closest('li');\r\n    const navContainer = navbar.querySelector('ul');\r\n    if (expand) {\r\n      this.closeSubMenus.emit();\r\n\r\n      navContainer.classList.add(MENU_STICKY_STYLE);\r\n      navContainer.classList.remove(MENU_HIDE_STYLE);\r\n      navbar.classList.add(MENU_STICKY_STYLE);\r\n      button.setAttribute(ARIA_EXPANDED, 'true');\r\n    } else {\r\n      this.resetSubMenus.emit();\r\n\r\n      navContainer.classList.remove(MENU_STICKY_STYLE);\r\n      navContainer.classList.add(MENU_HIDE_STYLE);\r\n      navContainer.id = MENU_RECENTLY_OPENED_ID;\r\n      navbar.classList.remove(MENU_STICKY_STYLE);\r\n      button.setAttribute(ARIA_EXPANDED, 'false');\r\n    }\r\n  }\r\n\r\n  showSubMenuCondensed(expand, button): void {\r\n    // This makes sure regardless of which button is picked that the menu elements are expanded/hidden\r\n    const navbar = button.closest('li');\r\n    const navContainer = navbar.querySelector('ul');\r\n\r\n    if (expand) {\r\n      navContainer.classList.add(MENU_SUB_NAV_EXPANDED_STYLE);\r\n      navbar.classList.add(MENUBAR_SUB_SHOWN_STYLE);\r\n      button.setAttribute(ARIA_EXPANDED, 'true');\r\n    } else {\r\n      navContainer.classList.remove(MENU_SUB_NAV_EXPANDED_STYLE);\r\n      navbar.classList.remove(MENUBAR_SUB_SHOWN_STYLE);\r\n      button.setAttribute(ARIA_EXPANDED, 'false');\r\n    }\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -1955,11 +1950,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ng-template #subButtonTemplate>\n  <button *ngIf='menuItem && menuItem.subItems && menuItem.subItems.length > 0' class=\"jazz-menu__submenu-toggle\" type=\"button\" aria-expanded=\"false\" (click)='onSubMenuClick($event)'>\n    <span class=\"jazz-visually-hidden\">\n      {{menuItem.label}}\n    </span>\n  </button>\n</ng-template>\n"
+            "templateData": "<ng-template #subButtonTemplate>\r\n  <button *ngIf='menuItem && menuItem.subItems && menuItem.subItems.length > 0' class=\"jazz-menu__submenu-toggle\" type=\"button\" aria-expanded=\"false\" (click)='onSubMenuClick($event)'>\r\n    <span class=\"jazz-visually-hidden\">\r\n      {{menuItem.label}}\r\n    </span>\r\n  </button>\r\n</ng-template>\r\n"
         },
         {
             "name": "ModalDialogComponent",
-            "id": "component-ModalDialogComponent-79e4e7478b264f6e2b53a79511813d3e",
+            "id": "component-ModalDialogComponent-9b55b16f8b5ec66e342846eed610c779",
             "file": "src/app/components/modal-dialog/modal-dialog.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2120,7 +2115,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\n  Component, ElementRef,\n  EventEmitter,\n  Input,\n  OnInit,\n  Output,\n  ViewChild\n} from '@angular/core';\nimport {UtilityFunctions} from '../utility-functions';\n\nconst INPUT_SELECTORS_EXCL_CLOSE = 'a[href]:not([disabled]), button:not([disabled]):not(.jazz-modal-button__close), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])';\nconst INPUT_SELECTORS = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])';\n\n@Component({\n  selector: 'app-jazz-modal-dialog',\n  templateUrl: './modal-dialog.component.html',\n  styleUrls: ['./modal-dialog.component.css']\n})\nexport class ModalDialogComponent implements OnInit {\n\n  @Input()\n  buttonLabel: string;\n\n  @Input()\n  title: string;\n\n  @Input()\n  content: string;\n\n  @Output()\n  buttonClicked: EventEmitter<void> = new EventEmitter();\n\n  @ViewChild('jazzModalWrapper')\n  modalWrapper: ElementRef;\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  onAction(event: Event): void {\n    console.log('onAction')\n\n    if (!this.handleKeyEvents(event)) {\n      return;\n    }\n\n    this.modalWrapper.nativeElement.classList.toggle('jazz-modal__wrapper--visible');\n    if (this.modalWrapper.nativeElement.classList.contains('jazz-modal__wrapper--visible')) {\n      this.focusOnFirstInput();\n    }\n\n    event.stopImmediatePropagation();\n  }\n\n  handleKeyEvents(event: Event): boolean {\n    if (event instanceof KeyboardEvent) {\n      const keyEvent: KeyboardEvent = event as KeyboardEvent;\n      const isTabPressed = (keyEvent.key === 'Tab');\n      const isEscPressed = (keyEvent.key === 'Escape');\n      const isEnterPressed = (keyEvent.key === 'Enter');\n\n      // Handle tab navigation to keep it within the window\n      if (isTabPressed) {\n        this.keepFocusWithin(keyEvent);\n        return false;\n      }\n\n      // Only allow Enter and Escape Key Press\n      if (!isEnterPressed && !isEscPressed) {\n        return false;\n      }\n    }\n    return true;\n  }\n\n  focusOnFirstInput(): void {\n    const focusableEls: HTMLElement[] = UtilityFunctions.select(INPUT_SELECTORS_EXCL_CLOSE, this.modalWrapper.nativeElement);\n    if (focusableEls.length > 0) {\n      focusableEls[0].focus();\n    }\n  }\n\n  keepFocusWithin(keyEvent): void {\n    const focusableEls: HTMLElement[] = UtilityFunctions.select(INPUT_SELECTORS, this.modalWrapper.nativeElement);\n    const firstFocusableEl = focusableEls[0];\n    const lastFocusableEl = focusableEls[focusableEls.length - 1];\n\n    if (keyEvent.shiftKey ) /* shift + tab */ {\n      if (document.activeElement === firstFocusableEl) {\n        lastFocusableEl.focus();\n        keyEvent.preventDefault();\n      }\n    } else /* tab */ {\n      if (document.activeElement === lastFocusableEl) {\n        firstFocusableEl.focus();\n        keyEvent.preventDefault();\n      }\n    }\n  }\n\n  close(): void {\n    console.log('close')\n    this.modalWrapper.nativeElement.classList.remove('jazz-modal__wrapper--visible');\n  }\n\n  modalClick(): void {\n    this.close();\n    this.buttonClicked.emit();\n  }\n}\n",
+            "sourceCode": "import {\r\n  Component, ElementRef,\r\n  EventEmitter,\r\n  Input,\r\n  OnInit,\r\n  Output,\r\n  ViewChild\r\n} from '@angular/core';\r\nimport {UtilityFunctions} from '../utility-functions';\r\n\r\nconst INPUT_SELECTORS_EXCL_CLOSE = 'a[href]:not([disabled]), button:not([disabled]):not(.jazz-modal-button__close), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])';\r\nconst INPUT_SELECTORS = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])';\r\n\r\n@Component({\r\n  selector: 'app-jazz-modal-dialog',\r\n  templateUrl: './modal-dialog.component.html',\r\n  styleUrls: ['./modal-dialog.component.css']\r\n})\r\nexport class ModalDialogComponent implements OnInit {\r\n\r\n  @Input()\r\n  buttonLabel: string;\r\n\r\n  @Input()\r\n  title: string;\r\n\r\n  @Input()\r\n  content: string;\r\n\r\n  @Output()\r\n  buttonClicked: EventEmitter<void> = new EventEmitter();\r\n\r\n  @ViewChild('jazzModalWrapper')\r\n  modalWrapper: ElementRef;\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n  onAction(event: Event): void {\r\n    console.log('onAction')\r\n\r\n    if (!this.handleKeyEvents(event)) {\r\n      return;\r\n    }\r\n\r\n    this.modalWrapper.nativeElement.classList.toggle('jazz-modal__wrapper--visible');\r\n    if (this.modalWrapper.nativeElement.classList.contains('jazz-modal__wrapper--visible')) {\r\n      this.focusOnFirstInput();\r\n    }\r\n\r\n    event.stopImmediatePropagation();\r\n  }\r\n\r\n  handleKeyEvents(event: Event): boolean {\r\n    if (event instanceof KeyboardEvent) {\r\n      const keyEvent: KeyboardEvent = event as KeyboardEvent;\r\n      const isTabPressed = (keyEvent.key === 'Tab');\r\n      const isEscPressed = (keyEvent.key === 'Escape');\r\n      const isEnterPressed = (keyEvent.key === 'Enter');\r\n\r\n      // Handle tab navigation to keep it within the window\r\n      if (isTabPressed) {\r\n        this.keepFocusWithin(keyEvent);\r\n        return false;\r\n      }\r\n\r\n      // Only allow Enter and Escape Key Press\r\n      if (!isEnterPressed && !isEscPressed) {\r\n        return false;\r\n      }\r\n    }\r\n    return true;\r\n  }\r\n\r\n  focusOnFirstInput(): void {\r\n    const focusableEls: HTMLElement[] = UtilityFunctions.select(INPUT_SELECTORS_EXCL_CLOSE, this.modalWrapper.nativeElement);\r\n    if (focusableEls.length > 0) {\r\n      focusableEls[0].focus();\r\n    }\r\n  }\r\n\r\n  keepFocusWithin(keyEvent): void {\r\n    const focusableEls: HTMLElement[] = UtilityFunctions.select(INPUT_SELECTORS, this.modalWrapper.nativeElement);\r\n    const firstFocusableEl = focusableEls[0];\r\n    const lastFocusableEl = focusableEls[focusableEls.length - 1];\r\n\r\n    if (keyEvent.shiftKey ) /* shift + tab */ {\r\n      if (document.activeElement === firstFocusableEl) {\r\n        lastFocusableEl.focus();\r\n        keyEvent.preventDefault();\r\n      }\r\n    } else /* tab */ {\r\n      if (document.activeElement === lastFocusableEl) {\r\n        firstFocusableEl.focus();\r\n        keyEvent.preventDefault();\r\n      }\r\n    }\r\n  }\r\n\r\n  close(): void {\r\n    console.log('close')\r\n    this.modalWrapper.nativeElement.classList.remove('jazz-modal__wrapper--visible');\r\n  }\r\n\r\n  modalClick(): void {\r\n    this.close();\r\n    this.buttonClicked.emit();\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2138,11 +2133,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"jazz-modal\" role=\"region\">\n  <button class=\"jazz-btn jazz-modal__button\" (click)=\"onAction($event)\">{{ buttonLabel }}</button>\n  <div #jazzModalWrapper role=\"presentation\" class=\"jazz-modal-wrapper\" (keydown)=\"onAction($event)\">\n    <div role=\"dialog\" aria-label=\"Test Dialog with Script\" aria-modal=\"true\" class=\"jazz-modal-window jazz-modal--sm\">\n      <div class=\"jazz-modal-title\">\n        {{ title }}\n        <button class=\"jazz-modal__button jazz-modal-button__close jazz-modal-button--transparent\"\n                aria-label=\"Close modal dialog\" (click)=\"close()\"></button>\n      </div>\n      <div class=\"jazz-modal-content\" aria-labelledBy=\"jazz-modal-title\">\n        <ng-content></ng-content>\n      </div>\n      <div class=\"jazz-modal-button-container\">\n        <button class=\"jazz-btn jazz-modal__button\" (click)=\"close()\">Cancel</button>\n        <button class=\"jazz-btn jazz-modal__button\" (click)=\"modalClick()\">OK</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"jazz-modal\" role=\"region\">\r\n  <button class=\"jazz-btn jazz-modal__button\" (click)=\"onAction($event)\">{{ buttonLabel }}</button>\r\n  <div #jazzModalWrapper role=\"presentation\" class=\"jazz-modal-wrapper\" (keydown)=\"onAction($event)\">\r\n    <div role=\"dialog\" aria-label=\"Test Dialog with Script\" aria-modal=\"true\" class=\"jazz-modal-window jazz-modal--sm\">\r\n      <div class=\"jazz-modal-title\">\r\n        {{ title }}\r\n        <button class=\"jazz-modal__button jazz-modal-button__close jazz-modal-button--transparent\"\r\n                aria-label=\"Close modal dialog\" (click)=\"close()\"></button>\r\n      </div>\r\n      <div class=\"jazz-modal-content\" aria-labelledBy=\"jazz-modal-title\">\r\n        <ng-content></ng-content>\r\n      </div>\r\n      <div class=\"jazz-modal-button-container\">\r\n        <button class=\"jazz-btn jazz-modal__button\" (click)=\"close()\">Cancel</button>\r\n        <button class=\"jazz-btn jazz-modal__button\" (click)=\"modalClick()\">OK</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "PagerComponent",
-            "id": "component-PagerComponent-fc724dfd0a8b4331cd13652501a1e2ea",
+            "id": "component-PagerComponent-20bc6bf5bbfa5a74e526f772fcdc2d02",
             "file": "src/app/components/pager/pager.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2209,7 +2204,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {DataPage} from '../../model/data-page';\nimport {Component, EventEmitter, Input, Output} from '@angular/core';\n\n@Component({\n  selector: 'app-jazz-pager',\n  templateUrl: './pager.component.html'\n})\nexport class PagerComponent {\n\n  @Input('dataPage')\n  public dataPage: DataPage<any>;\n\n  @Output()\n  public pagerChange: EventEmitter<any> = new EventEmitter();\n\n  constructor() {}\n\n  iterablePages(): number[] {\n\n    const totalPages: number = this.dataPage.totalPages;\n    const currentPage: number = this.dataPage.number;\n    const pages: number[] = [];\n    const delta = 4;\n    let maxPages = 9;\n    let truncate = true;\n    let pageNum = 0;\n\n    if (totalPages < maxPages) {\n      maxPages = totalPages;\n      truncate = false;\n      pageNum = 0;\n    } else {\n      if (currentPage - delta < 0) {\n        pageNum = 0;\n      } else if (currentPage + delta > totalPages - 1) {\n        pageNum = totalPages - maxPages;\n      } else {\n        pageNum = currentPage - delta;\n      }\n    }\n\n    for (let pageIdx = 0; pageIdx < maxPages; pageIdx++) {\n      if (truncate) {\n        if (pageIdx === 0) {\n          // always show the first page number\n          pages.push(0);\n        } else if (pageIdx === 1 && pageNum !== 1) {\n          // show '...' if second page is not a 2\n          pages.push(-1);\n        } else if (pageIdx === maxPages - 1) {\n          // always show the last page number\n          pages.push(totalPages - 1);\n        } else if (pageIdx === maxPages - 2 && pageNum !== totalPages - 2) {\n          // show '...' if there is a gap between next to last page and last page\n          pages.push(-1);\n        } else {\n          pages.push(pageNum);\n        }\n      } else {\n        pages.push(pageNum);\n      }\n      pageNum++;\n    }\n\n    return pages;\n  }\n\n  setPage(page: number): void {\n    if (page >= 0 && page <= this.dataPage.totalPages) {\n      this.dataPage.number = page;\n      this.pagerChange.emit(page);\n    }\n  }\n}\n",
+            "sourceCode": "import {DataPage} from '../../model/data-page';\r\nimport {Component, EventEmitter, Input, Output} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-jazz-pager',\r\n  templateUrl: './pager.component.html'\r\n})\r\nexport class PagerComponent {\r\n\r\n  @Input('dataPage')\r\n  public dataPage: DataPage<any>;\r\n\r\n  @Output()\r\n  public pagerChange: EventEmitter<any> = new EventEmitter();\r\n\r\n  constructor() {}\r\n\r\n  iterablePages(): number[] {\r\n\r\n    const totalPages: number = this.dataPage.totalPages;\r\n    const currentPage: number = this.dataPage.number;\r\n    const pages: number[] = [];\r\n    const delta = 4;\r\n    let maxPages = 9;\r\n    let truncate = true;\r\n    let pageNum = 0;\r\n\r\n    if (totalPages < maxPages) {\r\n      maxPages = totalPages;\r\n      truncate = false;\r\n      pageNum = 0;\r\n    } else {\r\n      if (currentPage - delta < 0) {\r\n        pageNum = 0;\r\n      } else if (currentPage + delta > totalPages - 1) {\r\n        pageNum = totalPages - maxPages;\r\n      } else {\r\n        pageNum = currentPage - delta;\r\n      }\r\n    }\r\n\r\n    for (let pageIdx = 0; pageIdx < maxPages; pageIdx++) {\r\n      if (truncate) {\r\n        if (pageIdx === 0) {\r\n          // always show the first page number\r\n          pages.push(0);\r\n        } else if (pageIdx === 1 && pageNum !== 1) {\r\n          // show '...' if second page is not a 2\r\n          pages.push(-1);\r\n        } else if (pageIdx === maxPages - 1) {\r\n          // always show the last page number\r\n          pages.push(totalPages - 1);\r\n        } else if (pageIdx === maxPages - 2 && pageNum !== totalPages - 2) {\r\n          // show '...' if there is a gap between next to last page and last page\r\n          pages.push(-1);\r\n        } else {\r\n          pages.push(pageNum);\r\n        }\r\n      } else {\r\n        pages.push(pageNum);\r\n      }\r\n      pageNum++;\r\n    }\r\n\r\n    return pages;\r\n  }\r\n\r\n  setPage(page: number): void {\r\n    if (page >= 0 && page <= this.dataPage.totalPages) {\r\n      this.dataPage.number = page;\r\n      this.pagerChange.emit(page);\r\n    }\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -2222,8 +2217,64 @@
             "templateData": "<ul *ngIf=\"dataPage\" class=\"jazz-pager\" role=\"navigation\" aria-label=\"pagination\">\r\n  <li>\r\n    <a *ngIf=\"(dataPage['number'] !== 1)\" (click)=\"setPage(dataPage['number'] - 1)\" data-page=\"Previous\">Previous</a>\r\n    <span *ngIf=\"(dataPage['number'] === 1)\" [attr.aria-disabled]=\"true\" data-page=\"Previous\">Previous</span>\r\n  </li>\r\n  <li *ngFor=\"let page of iterablePages()\">\r\n    <a *ngIf=\"page >= 0\" (click)=\"setPage(page + 1)\"\r\n       attr.aria-label=\"Go to {{page + 1}}\"\r\n       attr.aria-current=\"{{ (dataPage.number === (page + 1)) ?'page': ''}}\"\r\n       attr.data-page=\"{{page + 1}}\" >{{page + 1}}\r\n    </a>\r\n    <span *ngIf=\"page < 0\">...</span>\r\n  </li>\r\n  <li>\r\n    <a *ngIf=\"(dataPage['number'] !== dataPage.totalPages)\" (click)=\"setPage(dataPage.number + 1)\" data-page=\"Next\">Next</a>\r\n    <span *ngIf=\"(dataPage['number'] === dataPage.totalPages)\" [attr.aria-disabled]=\"true\" data-page=\"Next\">Next</span>\r\n  </li>\r\n</ul>\r\n"
         },
         {
+            "name": "Panel1Component",
+            "id": "component-Panel1Component-cde66ef0233ad0e911f83f7f951a9966",
+            "file": "src/stories/Tabs.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "styleUrls": [],
+            "styles": [],
+            "template": "<h2>Panel 1</h2>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {moduleMetadata, storiesOf} from '@storybook/angular';\r\nimport {TabsComponent, TabComponent} from '../app/components/tabs/tabs.component';\r\nimport {APP_BASE_HREF} from '@angular/common';\r\nimport {RouterLink, RouterModule} from '@angular/router';\r\nimport {Component} from '@angular/core';\r\n\r\n@Component({\r\n  // tslint:disable-next-line:component-selector\r\n  // selector: 'jazz-tab',\r\n  template: `<h2>Panel 1</h2>`\r\n})\r\nexport class Panel1Component {\r\n}\r\n\r\n@Component({\r\n  // tslint:disable-next-line:component-selector\r\n  // selector: 'jazz-tab',\r\n  template: `<h2>Panel 2</h2>`\r\n})\r\nexport class Panel2Component {\r\n}\r\n\r\nconst stories = storiesOf('Components/Tabs', module)\r\n  .addDecorator(\r\n    moduleMetadata({\r\n      declarations: [TabsComponent, TabComponent, Panel1Component, Panel2Component],\r\n      imports: [\r\n        RouterModule.forRoot([\r\n          { path: 'panel1', component: Panel1Component },\r\n          { path: 'panel2', component: Panel2Component },\r\n        ], {\r\n          useHash: true,\r\n        })\r\n      ],\r\n      providers: [\r\n        { provide: APP_BASE_HREF, useValue: '/'},\r\n      ]\r\n    })\r\n  );\r\n\r\nstories.add('Default', () => {\r\n  return {\r\n    template:  `\r\n<jazz-tabs>\r\n    <jazz-tab label=\"Tab 1\"></jazz-tab>\r\n    <jazz-tab label=\"Tab 2\"></jazz-tab>\r\n</jazz-tabs>\r\n`\r\n  };\r\n});\r\n\r\nstories.add('Controlled Sections', () => {\r\n    return {\r\n      template:  `\r\n<jazz-tabs>\r\n    <jazz-tab label=\"Tab 1\" controls=\"panel1\"></jazz-tab>\r\n    <jazz-tab label=\"Tab 2\" controls=\"panel2\"></jazz-tab>\r\n</jazz-tabs>\r\n<div id=\"panel1\">\r\nPanel 1\r\n</div>\r\n<div id=\"panel2\">\r\nPanel 2\r\n</div>\r\n`\r\n    };\r\n});\r\n\r\nstories.add('Routing Support', () => {\r\n  return {\r\n    template:  `\r\n<jazz-tabs>\r\n    <jazz-tab label=\"Tab 1\" routeTo=\"/panel1\"></jazz-tab>\r\n    <jazz-tab label=\"Tab 2\" routeTo=\"/panel2\"></jazz-tab>\r\n</jazz-tabs>\r\n<router-outlet></router-outlet>\r\n`\r\n  };\r\n});\r\n\r\nstories.add('Routing Support (Selection)', () => {\r\n  return {\r\n    template:  `\r\n<jazz-tabs>\r\n    <jazz-tab label=\"Tab 1\" routeTo=\"/panel1\"></jazz-tab>\r\n    <jazz-tab label=\"Tab 2\" routeTo=\"/panel2\" selected=\"true\"></jazz-tab>\r\n</jazz-tabs>\r\n<router-outlet></router-outlet>\r\n`\r\n  };\r\n});\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "Panel2Component",
+            "id": "component-Panel2Component-cde66ef0233ad0e911f83f7f951a9966",
+            "file": "src/stories/Tabs.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "styleUrls": [],
+            "styles": [],
+            "template": "<h2>Panel 2</h2>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {moduleMetadata, storiesOf} from '@storybook/angular';\r\nimport {TabsComponent, TabComponent} from '../app/components/tabs/tabs.component';\r\nimport {APP_BASE_HREF} from '@angular/common';\r\nimport {RouterLink, RouterModule} from '@angular/router';\r\nimport {Component} from '@angular/core';\r\n\r\n@Component({\r\n  // tslint:disable-next-line:component-selector\r\n  // selector: 'jazz-tab',\r\n  template: `<h2>Panel 1</h2>`\r\n})\r\nexport class Panel1Component {\r\n}\r\n\r\n@Component({\r\n  // tslint:disable-next-line:component-selector\r\n  // selector: 'jazz-tab',\r\n  template: `<h2>Panel 2</h2>`\r\n})\r\nexport class Panel2Component {\r\n}\r\n\r\nconst stories = storiesOf('Components/Tabs', module)\r\n  .addDecorator(\r\n    moduleMetadata({\r\n      declarations: [TabsComponent, TabComponent, Panel1Component, Panel2Component],\r\n      imports: [\r\n        RouterModule.forRoot([\r\n          { path: 'panel1', component: Panel1Component },\r\n          { path: 'panel2', component: Panel2Component },\r\n        ], {\r\n          useHash: true,\r\n        })\r\n      ],\r\n      providers: [\r\n        { provide: APP_BASE_HREF, useValue: '/'},\r\n      ]\r\n    })\r\n  );\r\n\r\nstories.add('Default', () => {\r\n  return {\r\n    template:  `\r\n<jazz-tabs>\r\n    <jazz-tab label=\"Tab 1\"></jazz-tab>\r\n    <jazz-tab label=\"Tab 2\"></jazz-tab>\r\n</jazz-tabs>\r\n`\r\n  };\r\n});\r\n\r\nstories.add('Controlled Sections', () => {\r\n    return {\r\n      template:  `\r\n<jazz-tabs>\r\n    <jazz-tab label=\"Tab 1\" controls=\"panel1\"></jazz-tab>\r\n    <jazz-tab label=\"Tab 2\" controls=\"panel2\"></jazz-tab>\r\n</jazz-tabs>\r\n<div id=\"panel1\">\r\nPanel 1\r\n</div>\r\n<div id=\"panel2\">\r\nPanel 2\r\n</div>\r\n`\r\n    };\r\n});\r\n\r\nstories.add('Routing Support', () => {\r\n  return {\r\n    template:  `\r\n<jazz-tabs>\r\n    <jazz-tab label=\"Tab 1\" routeTo=\"/panel1\"></jazz-tab>\r\n    <jazz-tab label=\"Tab 2\" routeTo=\"/panel2\"></jazz-tab>\r\n</jazz-tabs>\r\n<router-outlet></router-outlet>\r\n`\r\n  };\r\n});\r\n\r\nstories.add('Routing Support (Selection)', () => {\r\n  return {\r\n    template:  `\r\n<jazz-tabs>\r\n    <jazz-tab label=\"Tab 1\" routeTo=\"/panel1\"></jazz-tab>\r\n    <jazz-tab label=\"Tab 2\" routeTo=\"/panel2\" selected=\"true\"></jazz-tab>\r\n</jazz-tabs>\r\n<router-outlet></router-outlet>\r\n`\r\n  };\r\n});\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
             "name": "SearchButtonComponent",
-            "id": "component-SearchButtonComponent-ff5c5969008b3197121047f7ec4503d3",
+            "id": "component-SearchButtonComponent-2ee50baf278aa9cc118d86a09ca77c5e",
             "file": "src/app/components/header/search-button/search-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2346,7 +2397,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';\nimport {ARIA_EXPANDED, ICON_CLOSE, ICON_SELECTOR} from '../../menu/menu-constants';\nimport {\n  HEADER_SELECTOR, SEARCH_PANEL, SEARCH_SHOWN_STYLE, ICON_SEARCH\n} from './../header-constants';\n\n@Component({\n  selector: 'app-jazz-search-button',\n  templateUrl: './search-button.component.html'\n})\nexport class SearchButtonComponent implements OnInit {\n\n  @ViewChild('searchButtonTemplate', {static: true}) searchButtonTemplate;\n\n  constructor(\n    private viewContainerRef: ViewContainerRef\n  ) {\n  }\n\n  ngOnInit(): void {\n    this.viewContainerRef.createEmbeddedView(this.searchButtonTemplate);\n  }\n\n  onSearchClick(event): void {\n    const button = event.target as HTMLElement;\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\n    const expand = !(expandedAttr && expandedAttr === 'true');\n    this.showSearch(expand, button);\n    event.stopImmediatePropagation();\n  }\n\n  onMainMenuSearchIconClick(event): void {\n    const icon = event.target as HTMLElement;\n    const button = icon.closest('button');\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\n    const expand = !(expandedAttr && expandedAttr === 'true');\n    this.showSearch(expand, button);\n    event.stopImmediatePropagation();\n  }\n\n  showSearch(expand, button): void {\n    // This makes sure regardless of which button is picked that the search elements are expanded/hidden\n    const headerEl = button.closest(HEADER_SELECTOR);\n    const searchToggleIcon = button.querySelector(ICON_SELECTOR);\n    const searchbar = headerEl.querySelector(SEARCH_PANEL);\n\n    if (expand) {\n      searchbar.classList.add(SEARCH_SHOWN_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'true');\n      searchToggleIcon.classList.remove(ICON_SEARCH);\n      searchToggleIcon.classList.add(ICON_CLOSE);\n      const input = searchbar.querySelector(\"input[type='search']\");\n      input.focus();\n    } else {\n      searchbar.classList.remove(SEARCH_SHOWN_STYLE);\n      button.setAttribute(ARIA_EXPANDED, 'false');\n      searchToggleIcon.classList.remove(ICON_CLOSE);\n      searchToggleIcon.classList.add(ICON_SEARCH);\n    }\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';\r\nimport {ARIA_EXPANDED, ICON_CLOSE, ICON_SELECTOR} from '../../menu/menu-constants';\r\nimport {\r\n  HEADER_SELECTOR, SEARCH_PANEL, SEARCH_SHOWN_STYLE, ICON_SEARCH\r\n} from './../header-constants';\r\n\r\n@Component({\r\n  selector: 'app-jazz-search-button',\r\n  templateUrl: './search-button.component.html'\r\n})\r\nexport class SearchButtonComponent implements OnInit {\r\n\r\n  @ViewChild('searchButtonTemplate', {static: true}) searchButtonTemplate;\r\n\r\n  constructor(\r\n    private viewContainerRef: ViewContainerRef\r\n  ) {\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.viewContainerRef.createEmbeddedView(this.searchButtonTemplate);\r\n  }\r\n\r\n  onSearchClick(event): void {\r\n    const button = event.target as HTMLElement;\r\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\r\n    const expand = !(expandedAttr && expandedAttr === 'true');\r\n    this.showSearch(expand, button);\r\n    event.stopImmediatePropagation();\r\n  }\r\n\r\n  onMainMenuSearchIconClick(event): void {\r\n    const icon = event.target as HTMLElement;\r\n    const button = icon.closest('button');\r\n    const expandedAttr = button.getAttribute(ARIA_EXPANDED);\r\n    const expand = !(expandedAttr && expandedAttr === 'true');\r\n    this.showSearch(expand, button);\r\n    event.stopImmediatePropagation();\r\n  }\r\n\r\n  showSearch(expand, button): void {\r\n    // This makes sure regardless of which button is picked that the search elements are expanded/hidden\r\n    const headerEl = button.closest(HEADER_SELECTOR);\r\n    const searchToggleIcon = button.querySelector(ICON_SELECTOR);\r\n    const searchbar = headerEl.querySelector(SEARCH_PANEL);\r\n\r\n    if (expand) {\r\n      searchbar.classList.add(SEARCH_SHOWN_STYLE);\r\n      button.setAttribute(ARIA_EXPANDED, 'true');\r\n      searchToggleIcon.classList.remove(ICON_SEARCH);\r\n      searchToggleIcon.classList.add(ICON_CLOSE);\r\n      const input = searchbar.querySelector(\"input[type='search']\");\r\n      input.focus();\r\n    } else {\r\n      searchbar.classList.remove(SEARCH_SHOWN_STYLE);\r\n      button.setAttribute(ARIA_EXPANDED, 'false');\r\n      searchToggleIcon.classList.remove(ICON_CLOSE);\r\n      searchToggleIcon.classList.add(ICON_SEARCH);\r\n    }\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -2373,7 +2424,665 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ng-template #searchButtonTemplate>\n  <button class=\"jazz-header__search-bar-toggle\" (click)='onSearchClick($event)'\n          aria-expanded=\"false\" aria-label=\"Search Toggle\">\n    <i class=\"jazz-icon jazz-icon-search\" aria-hidden=\"true\" (click)='onMainMenuSearchIconClick($event)'></i>\n  </button>\n</ng-template>\n"
+            "templateData": "<ng-template #searchButtonTemplate>\r\n  <button class=\"jazz-header__search-bar-toggle\" (click)='onSearchClick($event)'\r\n          aria-expanded=\"false\" aria-label=\"Search Toggle\">\r\n    <i class=\"jazz-icon jazz-icon-search\" aria-hidden=\"true\" (click)='onMainMenuSearchIconClick($event)'></i>\r\n  </button>\r\n</ng-template>\r\n"
+        },
+        {
+            "name": "TabComponent",
+            "id": "component-TabComponent-b48daf08e1afa4295023fc3842a1e97b",
+            "file": "src/app/components/tabs/tabs.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "jazz-tab",
+            "styleUrls": [],
+            "styles": [],
+            "template": "",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "aria-label",
+                    "defaultValue": "null",
+                    "line": 33
+                },
+                {
+                    "name": "aria-labelledby",
+                    "defaultValue": "null",
+                    "line": 34
+                },
+                {
+                    "name": "controls",
+                    "line": 32,
+                    "type": "string"
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "line": 30
+                },
+                {
+                    "name": "label",
+                    "line": 31,
+                    "type": "string"
+                },
+                {
+                    "name": "routeTo",
+                    "line": 36,
+                    "type": "string"
+                },
+                {
+                    "name": "selected",
+                    "defaultValue": "false",
+                    "line": 35
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "tabindex",
+                    "defaultValue": "0",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 28
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {\r\n  AfterContentInit,\r\n  Component,\r\n  ContentChildren,\r\n  ElementRef,\r\n  EventEmitter,\r\n  Input,\r\n  OnInit,\r\n  Output,\r\n  QueryList,\r\n  ViewChildren\r\n} from '@angular/core';\r\nimport {Router} from '@angular/router';\r\nimport {HIDDEN, UtilityFunctions} from '../utility-functions';\r\n\r\n/** Generate unique id for tab list */\r\nlet idGenerator = 0;\r\n\r\n// TODO: icons\r\n\r\n@Component({\r\n  // tslint:disable-next-line:component-selector\r\n  selector: 'jazz-tab',\r\n  template: ``\r\n})\r\nexport class TabComponent {\r\n\r\n  tabindex = 0;\r\n\r\n  @Input() disabled = false;\r\n  @Input() label: string;\r\n  @Input() controls: string;\r\n  @Input('aria-label') ariaLabel = null;\r\n  @Input('aria-labelledby') ariaLabelledby = null;\r\n  @Input() selected = false;\r\n  @Input() routeTo: string;\r\n}\r\n\r\n@Component({\r\n  // tslint:disable-next-line:component-selector\r\n  selector: 'jazz-tabs',\r\n  template: `\r\n    <div\r\n      [id]=\"getTabListId()\"\r\n      class=\"jazz-tablist\"\r\n      [class.jazz-auto-activate]=\"autoActivate\"\r\n      role=\"tablist\">\r\n      <button #button\r\n        [id]=\"getTabId(i)\"\r\n        role=\"tab\"\r\n        [attr.tabindex]=\"tab.tabindex\"\r\n        [disabled]=\"tab.disabled\"\r\n        [attr.aria-selected]=\"tab.selected\"\r\n        [attr.aria-controls]=\"tab.controls\"\r\n        [attr.aria-label]=\"tab.ariaLabel || null\"\r\n        [attr.aria-labelledby]=\"(!tab.ariaLabel && tab.ariaLabelledby) ? tab.ariaLabelledby : null\"\r\n        (click)=\"handleClickEvent(tab)\"\r\n        (keyup)=\"handleKeyboardEvent(tab, i, $event)\"\r\n        *ngFor=\"let tab of tabs; let i = index\">{{ tab.label }}</button>\r\n    </div>\r\n  `\r\n})\r\nexport class TabsComponent implements OnInit, AfterContentInit {\r\n\r\n  @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;\r\n  @ViewChildren('button') buttons: QueryList<ElementRef>;\r\n\r\n  // tslint:disable-next-line:variable-name\r\n  private _autoActivate = false;\r\n\r\n  @Input()\r\n  get autoActivate(): boolean {\r\n    return this._autoActivate;\r\n  }\r\n  set autoActivate(value: boolean) {\r\n    this._autoActivate = value;\r\n  }\r\n\r\n  // @Input()\r\n  // private autoActivate = false;\r\n\r\n  // tslint:disable-next-line:variable-name\r\n  private readonly _elementId: number;\r\n\r\n  constructor(private router: Router) {\r\n    this._elementId = idGenerator++;\r\n  }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n  ngAfterContentInit(): void {\r\n\r\n    this.initializeTabs();\r\n\r\n    this.tabs.changes.subscribe(\r\n      () => {\r\n        this.initializeTabs();\r\n      }\r\n    );\r\n  }\r\n\r\n  initializeTabs(): void {\r\n    let firstSelectedTab: TabComponent = null;\r\n    let firstCurrentRoute: TabComponent = null;\r\n    let firstEnabledTab: TabComponent = null;\r\n\r\n    // find first enabled and first selected (and enabled) tab\r\n\r\n    for (const tab of this.tabs) {\r\n      if (!firstEnabledTab && !tab.disabled) {\r\n        firstEnabledTab = tab;\r\n      }\r\n      if (!firstSelectedTab && !tab.disabled && tab.selected) {\r\n        firstSelectedTab = tab;\r\n      }\r\n      if (!firstCurrentRoute && !tab.disabled && tab.routeTo && this.router.isActive(tab.routeTo, true)) {\r\n        firstCurrentRoute = tab;\r\n      }\r\n    }\r\n\r\n    // select the first selected tab (if it is enabled), otherwise select the first enabled tab or the first route\r\n\r\n    if (firstSelectedTab) {\r\n      this.selectTab(firstSelectedTab);\r\n    } else if (firstEnabledTab) {\r\n      this.selectTab(firstEnabledTab);\r\n    } else if (firstCurrentRoute) {\r\n      this.selectTab(firstCurrentRoute);\r\n    }\r\n  }\r\n\r\n  getTabListId(): string {\r\n    return 'jazz-tabs-' + this._elementId;\r\n  }\r\n\r\n  getTabId(idx: number): string {\r\n    return this.getTabListId() + '-' + idx;\r\n  }\r\n\r\n  setControlledElementVisibility(controlledElementId: string, expanded: boolean): void {\r\n    if (controlledElementId) {\r\n      const controlledElement = document.getElementById(controlledElementId);\r\n      if (!controlledElement) {\r\n        throw new Error(`aria-controls is not properly configured: ${controlledElementId}`);\r\n      }\r\n      if (expanded) {\r\n        controlledElement.removeAttribute(HIDDEN);\r\n      } else {\r\n        controlledElement.setAttribute(HIDDEN, '');\r\n      }\r\n    }\r\n  }\r\n\r\n  navigateToRoute(routeUrl: string): void {\r\n    this.router.navigateByUrl(routeUrl);\r\n  }\r\n\r\n  /**\r\n   * De-select all tabs (buttons) in tablist, except the tab (button) provided.\r\n   *\r\n   * @param tablist\r\n   * @param exceptButton\r\n   */\r\n  deselectAllOtherButtonsInTablist(exceptTab: TabComponent): void {\r\n    this.tabs.forEach((tab) => {\r\n      if (tab !== exceptTab) {\r\n        this.deselectTab(tab);\r\n      }\r\n    });\r\n  }\r\n\r\n  selectTab(tab: TabComponent): void {\r\n\r\n    this.deselectAllOtherButtonsInTablist(tab);\r\n\r\n    // The selected tab is always set to be selected (selected=true).  Selecting an active tab will not de-select it.\r\n\r\n    this.setTabSelection(tab, true);\r\n  }\r\n\r\n  deselectTab(tab: TabComponent): void {\r\n    this.setTabSelection(tab, false);\r\n  }\r\n\r\n  setTabSelection(tab: TabComponent, selected: boolean): void {\r\n    if (tab.routeTo) {\r\n      this.navigateToRoute(tab.routeTo);\r\n    } else {\r\n      this.setControlledElementVisibility(tab.controls, selected);\r\n    }\r\n    if (selected) {\r\n      tab.selected = true;\r\n      tab.tabindex = 0;\r\n    } else {\r\n      tab.selected = false;\r\n      tab.tabindex = -1;\r\n    }\r\n  }\r\n\r\n  handleClickEvent(tab: TabComponent): void {\r\n    if (!tab.disabled && !tab.selected) {\r\n      this.selectTab(tab);\r\n    }\r\n  }\r\n\r\n  handleKeyboardEvent(eventTab: TabComponent, idx: number, keyEvent: KeyboardEvent): void {\r\n\r\n    let focusIdx = -1;\r\n\r\n    // identify the tab that should receive focus based on the key that was pressed\r\n\r\n    if (keyEvent.key === 'ArrowRight') {\r\n      focusIdx = this.getNextOrFirstEnabledTabIndex(idx);\r\n    } else if (keyEvent.key === 'ArrowLeft') {\r\n      focusIdx = this.getPreviousOrLastEnabledTab(idx);\r\n    } else if (keyEvent.key === 'Home') {\r\n      focusIdx = this.getFirstEnabledTabIndex();\r\n    } else if (keyEvent.key === 'End') {\r\n      focusIdx = this.getLastEnabledTabIndex();\r\n    }\r\n\r\n    if (focusIdx !== -1) {\r\n\r\n      // if the tablist is configured to automatically select the tab upon focus, then select the tab\r\n\r\n      if (this.autoActivate) {\r\n        this.selectTab(this.tabs.toArray()[focusIdx]);\r\n      }\r\n\r\n      // set focus to the tab\r\n      this.buttons.toArray()[focusIdx].nativeElement.focus();\r\n\r\n      keyEvent.stopImmediatePropagation();\r\n    }\r\n  }\r\n\r\n  getNextEnabledTabIndex(tabs: TabComponent[], startIdx: number): number {\r\n\r\n    const safeStartIdx = this.clampTabIndex(startIdx);\r\n\r\n    for (let i = safeStartIdx; i < tabs.length; i++) {\r\n      const tab = tabs[i];\r\n      if (!tab.disabled) {\r\n        return i;\r\n      }\r\n    }\r\n\r\n    return -1;\r\n  }\r\n\r\n  getPreviousEnabledTabIndex(tabs: TabComponent[], startIdx: number): number {\r\n\r\n    const safeStartIdx = this.clampTabIndex(startIdx);\r\n\r\n    for (let i = safeStartIdx; i >= 0; i--) {\r\n      const tab = tabs[i];\r\n      if (!tab.disabled) {\r\n        return i;\r\n      }\r\n    }\r\n\r\n    return -1;\r\n  }\r\n\r\n  /**\r\n   * Find the first enabled tab (button) in the list of provided tabs (buttons)\r\n   */\r\n  getFirstEnabledTabIndex(): number {\r\n    return this.getNextEnabledTabIndex(this.tabs.toArray(), 0);\r\n  }\r\n\r\n  /**\r\n   * Find the last enabled tab (button) in the list of provided tabs (buttons).\r\n   */\r\n  getLastEnabledTabIndex(): number {\r\n    return this.getPreviousEnabledTabIndex(this.tabs.toArray(), this.tabs.length - 1);\r\n  }\r\n\r\n  /**\r\n   * Ensure that index is within the appropriate range for the number of tabs that we have.\r\n   *\r\n   * The max function is accounting for the NaN value with the `|| 0` portion of the expression to\r\n   * an infinite loop since Math.max(NaN, 0) === NaN.\r\n   *\r\n   * (per Angular Material Tabs code: https://github.com/angular/components/blob/master/src/material/tabs/tab-group.ts)\r\n   *\r\n   * @param index\r\n   * @private\r\n   */\r\n  private clampTabIndex(index: number | null): number {\r\n    return Math.min(this.tabs.length - 1, Math.max(index || 0, 0));\r\n  }\r\n\r\n  /**\r\n   * Find the next enabled tab (button) in the list of tabs (buttons) provided.\r\n   *\r\n   * The search will begin at the position in the list where the provided tab (button) is located and the search\r\n   * will wrap around to the beginning of the provided list of tabs (buttons) if no enabled tab (button) is found\r\n   * in the list after the location of the provided tab (button).\r\n   *\r\n   * @param refTab the tab to use as a starting point for finding the next enabled tab\r\n   */\r\n  getNextOrFirstEnabledTabIndex(startIdx: number): number {\r\n    const tabsArr = this.tabs.toArray();\r\n    const idx = this.getNextEnabledTabIndex(tabsArr, startIdx + 1);\r\n    if (idx === -1) {\r\n      return this.getNextEnabledTabIndex(tabsArr, 0);\r\n    } else {\r\n      return idx;\r\n    }\r\n  }\r\n\r\n  /**\r\n   * Find the previous enabled tab (button) in the list of tabs (buttons) provided.\r\n   *\r\n   * The search will begin at the position in the list where the provided tab (button) is located and the search\r\n   * will wrap around to the end of the provided list of tabs (buttons) if no enabled tab (button) is found\r\n   * in the list before the location of the provided tab (button).\r\n   *\r\n   * @param tabs\r\n   * @param refButton\r\n   */\r\n  getPreviousOrLastEnabledTab(startIdx: number): number {\r\n    const tabsArr = this.tabs.toArray();\r\n    const idx = this.getPreviousEnabledTabIndex(tabsArr, startIdx - 1);\r\n    if (idx === -1) {\r\n      return this.getPreviousEnabledTabIndex(tabsArr, tabsArr.length - 1);\r\n    } else {\r\n      return idx;\r\n    }\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "TabsComponent",
+            "id": "component-TabsComponent-b48daf08e1afa4295023fc3842a1e97b",
+            "file": "src/app/components/tabs/tabs.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "jazz-tabs",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div\n  [id]=\"getTabListId()\"\n  class=\"jazz-tablist\"\n  [class.jazz-auto-activate]=\"autoActivate\"\n  role=\"tablist\">\n  <button #button\n    [id]=\"getTabId(i)\"\n    role=\"tab\"\n    [attr.tabindex]=\"tab.tabindex\"\n    [disabled]=\"tab.disabled\"\n    [attr.aria-selected]=\"tab.selected\"\n    [attr.aria-controls]=\"tab.controls\"\n    [attr.aria-label]=\"tab.ariaLabel || null\"\n    [attr.aria-labelledby]=\"(!tab.ariaLabel && tab.ariaLabelledby) ? tab.ariaLabelledby : null\"\n    (click)=\"handleClickEvent(tab)\"\n    (keyup)=\"handleKeyboardEvent(tab, i, $event)\"\n    *ngFor=\"let tab of tabs; let i = index\">{{ tab.label }}</button>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "autoActivate",
+                    "line": 72,
+                    "type": "boolean"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "_autoActivate",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 69,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "_elementId",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 83,
+                    "modifierKind": [
+                        112,
+                        132
+                    ]
+                },
+                {
+                    "name": "buttons",
+                    "type": "QueryList<ElementRef>",
+                    "optional": false,
+                    "description": "",
+                    "line": 66,
+                    "decorators": [
+                        {
+                            "name": "ViewChildren",
+                            "stringifiedArguments": "'button'"
+                        }
+                    ]
+                },
+                {
+                    "name": "tabs",
+                    "type": "QueryList<TabComponent>",
+                    "optional": false,
+                    "description": "",
+                    "line": 65,
+                    "decorators": [
+                        {
+                            "name": "ContentChildren",
+                            "stringifiedArguments": "TabComponent"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "clampTabIndex",
+                    "args": [
+                        {
+                            "name": "index",
+                            "type": "number | null"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "number",
+                    "typeParameters": [],
+                    "line": 291,
+                    "description": "<p>Ensure that index is within the appropriate range for the number of tabs that we have.</p>\n<p>The max function is accounting for the NaN value with the <code>|| 0</code> portion of the expression to\nan infinite loop since Math.max(NaN, 0) === NaN.</p>\n<p>(per Angular Material Tabs code: <a href=\"https://github.com/angular/components/blob/master/src/material/tabs/tab-group.ts\">https://github.com/angular/components/blob/master/src/material/tabs/tab-group.ts</a>)</p>\n",
+                    "modifierKind": [
+                        112
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 7853,
+                                "end": 7858,
+                                "flags": 0,
+                                "escapedText": "index"
+                            },
+                            "type": "number | null",
+                            "tagName": {
+                                "pos": 7847,
+                                "end": 7852,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": ""
+                        },
+                        {
+                            "tagName": {
+                                "pos": 7866,
+                                "end": 7873,
+                                "flags": 0,
+                                "escapedText": "private"
+                            },
+                            "comment": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "deselectAllOtherButtonsInTablist",
+                    "args": [
+                        {
+                            "name": "exceptTab",
+                            "type": "TabComponent"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 165,
+                    "description": "<p>De-select all tabs (buttons) in tablist, except the tab (button) provided.</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "exceptTab",
+                            "type": "TabComponent",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "deselectTab",
+                    "args": [
+                        {
+                            "name": "tab",
+                            "type": "TabComponent"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 182,
+                    "jsdoctags": [
+                        {
+                            "name": "tab",
+                            "type": "TabComponent",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getFirstEnabledTabIndex",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "number",
+                    "typeParameters": [],
+                    "line": 269,
+                    "description": "<p>Find the first enabled tab (button) in the list of provided tabs (buttons)</p>\n"
+                },
+                {
+                    "name": "getLastEnabledTabIndex",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "number",
+                    "typeParameters": [],
+                    "line": 276,
+                    "description": "<p>Find the last enabled tab (button) in the list of provided tabs (buttons).</p>\n"
+                },
+                {
+                    "name": "getNextEnabledTabIndex",
+                    "args": [
+                        {
+                            "name": "tabs",
+                            "type": "TabComponent[]"
+                        },
+                        {
+                            "name": "startIdx",
+                            "type": "number"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "number",
+                    "typeParameters": [],
+                    "line": 238,
+                    "jsdoctags": [
+                        {
+                            "name": "tabs",
+                            "type": "TabComponent[]",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "startIdx",
+                            "type": "number",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getNextOrFirstEnabledTabIndex",
+                    "args": [
+                        {
+                            "name": "startIdx",
+                            "type": "number"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "number",
+                    "typeParameters": [],
+                    "line": 304,
+                    "description": "<p>Find the next enabled tab (button) in the list of tabs (buttons) provided.</p>\n<p>The search will begin at the position in the list where the provided tab (button) is located and the search\nwill wrap around to the beginning of the provided list of tabs (buttons) if no enabled tab (button) is found\nin the list after the location of the provided tab (button).</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "startIdx",
+                            "type": "number",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getPreviousEnabledTabIndex",
+                    "args": [
+                        {
+                            "name": "tabs",
+                            "type": "TabComponent[]"
+                        },
+                        {
+                            "name": "startIdx",
+                            "type": "number"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "number",
+                    "typeParameters": [],
+                    "line": 252,
+                    "jsdoctags": [
+                        {
+                            "name": "tabs",
+                            "type": "TabComponent[]",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "startIdx",
+                            "type": "number",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getPreviousOrLastEnabledTab",
+                    "args": [
+                        {
+                            "name": "startIdx",
+                            "type": "number"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "number",
+                    "typeParameters": [],
+                    "line": 324,
+                    "description": "<p>Find the previous enabled tab (button) in the list of tabs (buttons) provided.</p>\n<p>The search will begin at the position in the list where the provided tab (button) is located and the search\nwill wrap around to the end of the provided list of tabs (buttons) if no enabled tab (button) is found\nin the list before the location of the provided tab (button).</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "startIdx",
+                            "type": "number",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getTabId",
+                    "args": [
+                        {
+                            "name": "idx",
+                            "type": "number"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 137,
+                    "jsdoctags": [
+                        {
+                            "name": "idx",
+                            "type": "number",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getTabListId",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 133
+                },
+                {
+                    "name": "handleClickEvent",
+                    "args": [
+                        {
+                            "name": "tab",
+                            "type": "TabComponent"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 201,
+                    "jsdoctags": [
+                        {
+                            "name": "tab",
+                            "type": "TabComponent",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "handleKeyboardEvent",
+                    "args": [
+                        {
+                            "name": "eventTab",
+                            "type": "TabComponent"
+                        },
+                        {
+                            "name": "idx",
+                            "type": "number"
+                        },
+                        {
+                            "name": "keyEvent",
+                            "type": "KeyboardEvent"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 207,
+                    "jsdoctags": [
+                        {
+                            "name": "eventTab",
+                            "type": "TabComponent",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "idx",
+                            "type": "number",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "keyEvent",
+                            "type": "KeyboardEvent",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "initializeTabs",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 103
+                },
+                {
+                    "name": "navigateToRoute",
+                    "args": [
+                        {
+                            "name": "routeUrl",
+                            "type": "string"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 155,
+                    "jsdoctags": [
+                        {
+                            "name": "routeUrl",
+                            "type": "string",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngAfterContentInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 92
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 89
+                },
+                {
+                    "name": "selectTab",
+                    "args": [
+                        {
+                            "name": "tab",
+                            "type": "TabComponent"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 173,
+                    "jsdoctags": [
+                        {
+                            "name": "tab",
+                            "type": "TabComponent",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setControlledElementVisibility",
+                    "args": [
+                        {
+                            "name": "controlledElementId",
+                            "type": "string"
+                        },
+                        {
+                            "name": "expanded",
+                            "type": "boolean"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 141,
+                    "jsdoctags": [
+                        {
+                            "name": "controlledElementId",
+                            "type": "string",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "expanded",
+                            "type": "boolean",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setTabSelection",
+                    "args": [
+                        {
+                            "name": "tab",
+                            "type": "TabComponent"
+                        },
+                        {
+                            "name": "selected",
+                            "type": "boolean"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 186,
+                    "jsdoctags": [
+                        {
+                            "name": "tab",
+                            "type": "TabComponent",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "selected",
+                            "type": "boolean",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {\r\n  AfterContentInit,\r\n  Component,\r\n  ContentChildren,\r\n  ElementRef,\r\n  EventEmitter,\r\n  Input,\r\n  OnInit,\r\n  Output,\r\n  QueryList,\r\n  ViewChildren\r\n} from '@angular/core';\r\nimport {Router} from '@angular/router';\r\nimport {HIDDEN, UtilityFunctions} from '../utility-functions';\r\n\r\n/** Generate unique id for tab list */\r\nlet idGenerator = 0;\r\n\r\n// TODO: icons\r\n\r\n@Component({\r\n  // tslint:disable-next-line:component-selector\r\n  selector: 'jazz-tab',\r\n  template: ``\r\n})\r\nexport class TabComponent {\r\n\r\n  tabindex = 0;\r\n\r\n  @Input() disabled = false;\r\n  @Input() label: string;\r\n  @Input() controls: string;\r\n  @Input('aria-label') ariaLabel = null;\r\n  @Input('aria-labelledby') ariaLabelledby = null;\r\n  @Input() selected = false;\r\n  @Input() routeTo: string;\r\n}\r\n\r\n@Component({\r\n  // tslint:disable-next-line:component-selector\r\n  selector: 'jazz-tabs',\r\n  template: `\r\n    <div\r\n      [id]=\"getTabListId()\"\r\n      class=\"jazz-tablist\"\r\n      [class.jazz-auto-activate]=\"autoActivate\"\r\n      role=\"tablist\">\r\n      <button #button\r\n        [id]=\"getTabId(i)\"\r\n        role=\"tab\"\r\n        [attr.tabindex]=\"tab.tabindex\"\r\n        [disabled]=\"tab.disabled\"\r\n        [attr.aria-selected]=\"tab.selected\"\r\n        [attr.aria-controls]=\"tab.controls\"\r\n        [attr.aria-label]=\"tab.ariaLabel || null\"\r\n        [attr.aria-labelledby]=\"(!tab.ariaLabel && tab.ariaLabelledby) ? tab.ariaLabelledby : null\"\r\n        (click)=\"handleClickEvent(tab)\"\r\n        (keyup)=\"handleKeyboardEvent(tab, i, $event)\"\r\n        *ngFor=\"let tab of tabs; let i = index\">{{ tab.label }}</button>\r\n    </div>\r\n  `\r\n})\r\nexport class TabsComponent implements OnInit, AfterContentInit {\r\n\r\n  @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;\r\n  @ViewChildren('button') buttons: QueryList<ElementRef>;\r\n\r\n  // tslint:disable-next-line:variable-name\r\n  private _autoActivate = false;\r\n\r\n  @Input()\r\n  get autoActivate(): boolean {\r\n    return this._autoActivate;\r\n  }\r\n  set autoActivate(value: boolean) {\r\n    this._autoActivate = value;\r\n  }\r\n\r\n  // @Input()\r\n  // private autoActivate = false;\r\n\r\n  // tslint:disable-next-line:variable-name\r\n  private readonly _elementId: number;\r\n\r\n  constructor(private router: Router) {\r\n    this._elementId = idGenerator++;\r\n  }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n  ngAfterContentInit(): void {\r\n\r\n    this.initializeTabs();\r\n\r\n    this.tabs.changes.subscribe(\r\n      () => {\r\n        this.initializeTabs();\r\n      }\r\n    );\r\n  }\r\n\r\n  initializeTabs(): void {\r\n    let firstSelectedTab: TabComponent = null;\r\n    let firstCurrentRoute: TabComponent = null;\r\n    let firstEnabledTab: TabComponent = null;\r\n\r\n    // find first enabled and first selected (and enabled) tab\r\n\r\n    for (const tab of this.tabs) {\r\n      if (!firstEnabledTab && !tab.disabled) {\r\n        firstEnabledTab = tab;\r\n      }\r\n      if (!firstSelectedTab && !tab.disabled && tab.selected) {\r\n        firstSelectedTab = tab;\r\n      }\r\n      if (!firstCurrentRoute && !tab.disabled && tab.routeTo && this.router.isActive(tab.routeTo, true)) {\r\n        firstCurrentRoute = tab;\r\n      }\r\n    }\r\n\r\n    // select the first selected tab (if it is enabled), otherwise select the first enabled tab or the first route\r\n\r\n    if (firstSelectedTab) {\r\n      this.selectTab(firstSelectedTab);\r\n    } else if (firstEnabledTab) {\r\n      this.selectTab(firstEnabledTab);\r\n    } else if (firstCurrentRoute) {\r\n      this.selectTab(firstCurrentRoute);\r\n    }\r\n  }\r\n\r\n  getTabListId(): string {\r\n    return 'jazz-tabs-' + this._elementId;\r\n  }\r\n\r\n  getTabId(idx: number): string {\r\n    return this.getTabListId() + '-' + idx;\r\n  }\r\n\r\n  setControlledElementVisibility(controlledElementId: string, expanded: boolean): void {\r\n    if (controlledElementId) {\r\n      const controlledElement = document.getElementById(controlledElementId);\r\n      if (!controlledElement) {\r\n        throw new Error(`aria-controls is not properly configured: ${controlledElementId}`);\r\n      }\r\n      if (expanded) {\r\n        controlledElement.removeAttribute(HIDDEN);\r\n      } else {\r\n        controlledElement.setAttribute(HIDDEN, '');\r\n      }\r\n    }\r\n  }\r\n\r\n  navigateToRoute(routeUrl: string): void {\r\n    this.router.navigateByUrl(routeUrl);\r\n  }\r\n\r\n  /**\r\n   * De-select all tabs (buttons) in tablist, except the tab (button) provided.\r\n   *\r\n   * @param tablist\r\n   * @param exceptButton\r\n   */\r\n  deselectAllOtherButtonsInTablist(exceptTab: TabComponent): void {\r\n    this.tabs.forEach((tab) => {\r\n      if (tab !== exceptTab) {\r\n        this.deselectTab(tab);\r\n      }\r\n    });\r\n  }\r\n\r\n  selectTab(tab: TabComponent): void {\r\n\r\n    this.deselectAllOtherButtonsInTablist(tab);\r\n\r\n    // The selected tab is always set to be selected (selected=true).  Selecting an active tab will not de-select it.\r\n\r\n    this.setTabSelection(tab, true);\r\n  }\r\n\r\n  deselectTab(tab: TabComponent): void {\r\n    this.setTabSelection(tab, false);\r\n  }\r\n\r\n  setTabSelection(tab: TabComponent, selected: boolean): void {\r\n    if (tab.routeTo) {\r\n      this.navigateToRoute(tab.routeTo);\r\n    } else {\r\n      this.setControlledElementVisibility(tab.controls, selected);\r\n    }\r\n    if (selected) {\r\n      tab.selected = true;\r\n      tab.tabindex = 0;\r\n    } else {\r\n      tab.selected = false;\r\n      tab.tabindex = -1;\r\n    }\r\n  }\r\n\r\n  handleClickEvent(tab: TabComponent): void {\r\n    if (!tab.disabled && !tab.selected) {\r\n      this.selectTab(tab);\r\n    }\r\n  }\r\n\r\n  handleKeyboardEvent(eventTab: TabComponent, idx: number, keyEvent: KeyboardEvent): void {\r\n\r\n    let focusIdx = -1;\r\n\r\n    // identify the tab that should receive focus based on the key that was pressed\r\n\r\n    if (keyEvent.key === 'ArrowRight') {\r\n      focusIdx = this.getNextOrFirstEnabledTabIndex(idx);\r\n    } else if (keyEvent.key === 'ArrowLeft') {\r\n      focusIdx = this.getPreviousOrLastEnabledTab(idx);\r\n    } else if (keyEvent.key === 'Home') {\r\n      focusIdx = this.getFirstEnabledTabIndex();\r\n    } else if (keyEvent.key === 'End') {\r\n      focusIdx = this.getLastEnabledTabIndex();\r\n    }\r\n\r\n    if (focusIdx !== -1) {\r\n\r\n      // if the tablist is configured to automatically select the tab upon focus, then select the tab\r\n\r\n      if (this.autoActivate) {\r\n        this.selectTab(this.tabs.toArray()[focusIdx]);\r\n      }\r\n\r\n      // set focus to the tab\r\n      this.buttons.toArray()[focusIdx].nativeElement.focus();\r\n\r\n      keyEvent.stopImmediatePropagation();\r\n    }\r\n  }\r\n\r\n  getNextEnabledTabIndex(tabs: TabComponent[], startIdx: number): number {\r\n\r\n    const safeStartIdx = this.clampTabIndex(startIdx);\r\n\r\n    for (let i = safeStartIdx; i < tabs.length; i++) {\r\n      const tab = tabs[i];\r\n      if (!tab.disabled) {\r\n        return i;\r\n      }\r\n    }\r\n\r\n    return -1;\r\n  }\r\n\r\n  getPreviousEnabledTabIndex(tabs: TabComponent[], startIdx: number): number {\r\n\r\n    const safeStartIdx = this.clampTabIndex(startIdx);\r\n\r\n    for (let i = safeStartIdx; i >= 0; i--) {\r\n      const tab = tabs[i];\r\n      if (!tab.disabled) {\r\n        return i;\r\n      }\r\n    }\r\n\r\n    return -1;\r\n  }\r\n\r\n  /**\r\n   * Find the first enabled tab (button) in the list of provided tabs (buttons)\r\n   */\r\n  getFirstEnabledTabIndex(): number {\r\n    return this.getNextEnabledTabIndex(this.tabs.toArray(), 0);\r\n  }\r\n\r\n  /**\r\n   * Find the last enabled tab (button) in the list of provided tabs (buttons).\r\n   */\r\n  getLastEnabledTabIndex(): number {\r\n    return this.getPreviousEnabledTabIndex(this.tabs.toArray(), this.tabs.length - 1);\r\n  }\r\n\r\n  /**\r\n   * Ensure that index is within the appropriate range for the number of tabs that we have.\r\n   *\r\n   * The max function is accounting for the NaN value with the `|| 0` portion of the expression to\r\n   * an infinite loop since Math.max(NaN, 0) === NaN.\r\n   *\r\n   * (per Angular Material Tabs code: https://github.com/angular/components/blob/master/src/material/tabs/tab-group.ts)\r\n   *\r\n   * @param index\r\n   * @private\r\n   */\r\n  private clampTabIndex(index: number | null): number {\r\n    return Math.min(this.tabs.length - 1, Math.max(index || 0, 0));\r\n  }\r\n\r\n  /**\r\n   * Find the next enabled tab (button) in the list of tabs (buttons) provided.\r\n   *\r\n   * The search will begin at the position in the list where the provided tab (button) is located and the search\r\n   * will wrap around to the beginning of the provided list of tabs (buttons) if no enabled tab (button) is found\r\n   * in the list after the location of the provided tab (button).\r\n   *\r\n   * @param refTab the tab to use as a starting point for finding the next enabled tab\r\n   */\r\n  getNextOrFirstEnabledTabIndex(startIdx: number): number {\r\n    const tabsArr = this.tabs.toArray();\r\n    const idx = this.getNextEnabledTabIndex(tabsArr, startIdx + 1);\r\n    if (idx === -1) {\r\n      return this.getNextEnabledTabIndex(tabsArr, 0);\r\n    } else {\r\n      return idx;\r\n    }\r\n  }\r\n\r\n  /**\r\n   * Find the previous enabled tab (button) in the list of tabs (buttons) provided.\r\n   *\r\n   * The search will begin at the position in the list where the provided tab (button) is located and the search\r\n   * will wrap around to the end of the provided list of tabs (buttons) if no enabled tab (button) is found\r\n   * in the list before the location of the provided tab (button).\r\n   *\r\n   * @param tabs\r\n   * @param refButton\r\n   */\r\n  getPreviousOrLastEnabledTab(startIdx: number): number {\r\n    const tabsArr = this.tabs.toArray();\r\n    const idx = this.getPreviousEnabledTabIndex(tabsArr, startIdx - 1);\r\n    if (idx === -1) {\r\n      return this.getPreviousEnabledTabIndex(tabsArr, tabsArr.length - 1);\r\n    } else {\r\n      return idx;\r\n    }\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "router",
+                        "type": "Router"
+                    }
+                ],
+                "line": 83,
+                "jsdoctags": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit",
+                "AfterContentInit"
+            ],
+            "accessors": {
+                "autoActivate": {
+                    "name": "autoActivate",
+                    "setSignature": {
+                        "name": "autoActivate",
+                        "type": "void",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "boolean"
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 75,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "boolean",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
         },
         {
             "name": "UtilityItemComponent",
@@ -2472,9 +3181,6 @@
                     "elements": [
                         {
                             "name": "AppComponent"
-                        },
-                        {
-                            "name": "DocumentationComponent"
                         },
                         {
                             "name": "MainMenu1Component"
@@ -2641,6 +3347,12 @@
                             "name": "SearchButtonComponent"
                         },
                         {
+                            "name": "TabComponent"
+                        },
+                        {
+                            "name": "TabsComponent"
+                        },
+                        {
                             "name": "UtilityItemComponent"
                         },
                         {
@@ -2684,6 +3396,12 @@
                             "name": "PagerComponent"
                         },
                         {
+                            "name": "TabComponent"
+                        },
+                        {
+                            "name": "TabsComponent"
+                        },
+                        {
                             "name": "UtilityItemComponent"
                         },
                         {
@@ -2716,6 +3434,14 @@
                 "name": "ARIA_CONTROLS",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/components/utility-functions.ts",
+                "type": "string",
+                "defaultValue": "'aria-controls'"
+            },
+            {
+                "name": "ARIA_CONTROLS",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/components/accordion/accordion.component.ts",
                 "type": "string",
                 "defaultValue": "'aria-controls'"
@@ -2724,7 +3450,15 @@
                 "name": "ARIA_EXPANDED",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+                "file": "src/app/components/utility-functions.ts",
+                "type": "string",
+                "defaultValue": "'aria-expanded'"
+            },
+            {
+                "name": "ARIA_EXPANDED",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/accordion/accordion.component.ts",
                 "type": "string",
                 "defaultValue": "'aria-expanded'"
             },
@@ -2740,7 +3474,7 @@
                 "name": "ARIA_EXPANDED",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/accordion/accordion.component.ts",
+                "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
                 "type": "string",
                 "defaultValue": "'aria-expanded'"
             },
@@ -2772,7 +3506,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Pager.stories.ts",
+                "file": "src/stories/Header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2780,7 +3514,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
+                "file": "src/stories/Pager.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2806,7 +3540,7 @@
                 "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "defaultValue": "{\r\n  production: false\r\n}"
             },
             {
                 "name": "environment",
@@ -2814,7 +3548,7 @@
                 "subtype": "variable",
                 "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "defaultValue": "{\r\n  production: true\r\n}"
             },
             {
                 "name": "HEADER_NAV_SELECTOR",
@@ -2860,6 +3594,14 @@
                 "name": "HIDDEN",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/components/utility-functions.ts",
+                "type": "string",
+                "defaultValue": "'hidden'"
+            },
+            {
+                "name": "HIDDEN",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/components/accordion/accordion.component.ts",
                 "type": "string",
                 "defaultValue": "'hidden'"
@@ -2900,7 +3642,7 @@
                 "name": "ICON_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/menu/menu-constants.ts",
+                "file": "src/app/components/header/header-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-icon`"
             },
@@ -2908,9 +3650,18 @@
                 "name": "ICON_SELECTOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/header/header-constants.ts",
+                "file": "src/app/components/menu/menu-constants.ts",
                 "type": "",
                 "defaultValue": "`.${PREFIX}-icon`"
+            },
+            {
+                "name": "idGenerator",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/tabs/tabs.component.ts",
+                "type": "number",
+                "defaultValue": "0",
+                "description": "<p>Generate unique id for tab list </p>\n"
             },
             {
                 "name": "INPUT_SELECTORS",
@@ -3054,7 +3805,7 @@
                 "subtype": "variable",
                 "file": "src/jest-config/__mocks__/globalMocks.ts",
                 "type": "",
-                "defaultValue": "() => {\n    let storage = {};\n    return {\n      getItem: key => (key in storage ? storage[key] : null),\n      setItem: (key, value) => (storage[key] = value || ''),\n      removeItem: key => delete storage[key],\n      clear: () => (storage = {}),\n    };\n  }"
+                "defaultValue": "() => {\r\n    let storage = {};\r\n    return {\r\n      getItem: key => (key in storage ? storage[key] : null),\r\n      setItem: (key, value) => (storage[key] = value || ''),\r\n      removeItem: key => delete storage[key],\r\n      clear: () => (storage = {}),\r\n    };\r\n  }"
             },
             {
                 "name": "MULTISELECTABLE",
@@ -3078,7 +3829,7 @@
                 "subtype": "variable",
                 "file": "src/stories/Pager.stories.ts",
                 "type": "object",
-                "defaultValue": "{\n  totalPages: 10,\n  number: 1\n}"
+                "defaultValue": "{\r\n  totalPages: 10,\r\n  number: 1\r\n}"
             },
             {
                 "name": "pageSet2",
@@ -3086,7 +3837,7 @@
                 "subtype": "variable",
                 "file": "src/stories/Pager.stories.ts",
                 "type": "object",
-                "defaultValue": "{\n  totalPages: 20,\n  number: 7\n}"
+                "defaultValue": "{\r\n  totalPages: 20,\r\n  number: 7\r\n}"
             },
             {
                 "name": "prefix",
@@ -3124,25 +3875,25 @@
                 "name": "stories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Alert.stories.ts",
-                "type": "",
-                "defaultValue": "storiesOf('Components/Alert', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AlertComponent],\n    })\n  )"
-            },
-            {
-                "name": "stories",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Accordion.stories.ts",
                 "type": "",
-                "defaultValue": "storiesOf('Components/Accordion', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
+                "defaultValue": "storiesOf('Components/Accordion', module)\r\n  .addDecorator(\r\n    moduleMetadata({\r\n      declarations: [AccordionComponent],\r\n    })\r\n  )"
             },
             {
                 "name": "stories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/HeaderHTML.stories.ts",
+                "file": "src/stories/Alert.stories.ts",
                 "type": "",
-                "defaultValue": "storiesOf('Components/HeaderHTML', module)\n  .addDecorator(\n    moduleMetadata({\n      imports: [RouterModule.forRoot(routes, {useHash: true})],\n      declarations: [HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,\n        SearchButtonComponent,  MainMenuItemComponent, MainMenuComponent, UtilityMenuComponent, UtilityItemComponent]\n    })\n  )"
+                "defaultValue": "storiesOf('Components/Alert', module)\r\n  .addDecorator(\r\n    moduleMetadata({\r\n      declarations: [AlertComponent],\r\n    })\r\n  )"
+            },
+            {
+                "name": "stories",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Breadcrumbs.stories.ts",
+                "type": "",
+                "defaultValue": "storiesOf('Components/Breadcrumbs', module)\r\n  .addDecorator(\r\n    moduleMetadata({\r\n      declarations: [AccordionComponent],\r\n    })\r\n  )"
             },
             {
                 "name": "stories",
@@ -3156,9 +3907,17 @@
                 "name": "stories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Breadcrumbs.stories.ts",
+                "file": "src/stories/HeaderHTML.stories.ts",
                 "type": "",
-                "defaultValue": "storiesOf('Components/Breadcrumbs', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
+                "defaultValue": "storiesOf('Components/HeaderHTML', module)\r\n  .addDecorator(\r\n    moduleMetadata({\r\n      imports: [RouterModule.forRoot(routes, {useHash: true})],\r\n      declarations: [HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,\r\n        SearchButtonComponent,  MainMenuItemComponent, MainMenuComponent, UtilityMenuComponent, UtilityItemComponent]\r\n    })\r\n  )"
+            },
+            {
+                "name": "stories",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Tabs.stories.ts",
+                "type": "",
+                "defaultValue": "storiesOf('Components/Tabs', module)\r\n  .addDecorator(\r\n    moduleMetadata({\r\n      declarations: [TabsComponent, TabComponent, Panel1Component, Panel2Component],\r\n      imports: [\r\n        RouterModule.forRoot([\r\n          { path: 'panel1', component: Panel1Component },\r\n          { path: 'panel2', component: Panel2Component },\r\n        ], {\r\n          useHash: true,\r\n        })\r\n      ],\r\n      providers: [\r\n        { provide: APP_BASE_HREF, useValue: '/'},\r\n      ]\r\n    })\r\n  )"
             },
             {
                 "name": "subMenu1",
@@ -3182,15 +3941,7 @@
                 "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
                 "type": "Story<ButtonComponent>",
-                "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Pager.stories.ts",
-                "type": "Story<PagerComponent>",
-                "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
+                "defaultValue": "(args: ButtonComponent) => ({\r\n  component: ButtonComponent,\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -3198,7 +3949,15 @@
                 "subtype": "variable",
                 "file": "src/stories/Header.stories.ts",
                 "type": "Story<HeaderComponent>",
-                "defaultValue": "(args: HeaderComponent) => ({\n  component: HeaderComponent,\n  props: args,\n})"
+                "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Pager.stories.ts",
+                "type": "Story<PagerComponent>",
+                "defaultValue": "(args: PagerComponent) => ({\r\n  component: PagerComponent,\r\n  props: args\r\n})"
             },
             {
                 "name": "utilityMenu",
@@ -3277,6 +4036,36 @@
                         }
                     }
                 ]
+            },
+            {
+                "name": "simulateKeyupEvent",
+                "file": "src/jest-config/setup.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "element"
+                    },
+                    {
+                        "name": "value"
+                    }
+                ],
+                "returnType": "void",
+                "jsdoctags": [
+                    {
+                        "name": "element",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "value",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             }
         ],
         "typealiases": [],
@@ -3324,14 +4113,30 @@
                     "defaultValue": "'aria-multiselectable'"
                 }
             ],
-            "src/app/components/menu/menu-main-button/menu-main-button.component.ts": [
+            "src/app/components/utility-functions.ts": [
+                {
+                    "name": "ARIA_CONTROLS",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/utility-functions.ts",
+                    "type": "string",
+                    "defaultValue": "'aria-controls'"
+                },
                 {
                     "name": "ARIA_EXPANDED",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+                    "file": "src/app/components/utility-functions.ts",
                     "type": "string",
                     "defaultValue": "'aria-expanded'"
+                },
+                {
+                    "name": "HIDDEN",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/utility-functions.ts",
+                    "type": "string",
+                    "defaultValue": "'hidden'"
                 }
             ],
             "src/app/components/menu/menu-constants.ts": [
@@ -3464,6 +4269,16 @@
                     "defaultValue": "`${PREFIX}-menubar_submenu--shown`"
                 }
             ],
+            "src/app/components/menu/menu-main-button/menu-main-button.component.ts": [
+                {
+                    "name": "ARIA_EXPANDED",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/menu/menu-main-button/menu-main-button.component.ts",
+                    "type": "string",
+                    "defaultValue": "'aria-expanded'"
+                }
+            ],
             "src/stories/Header.stories.ts": [
                 {
                     "name": "compact",
@@ -3575,7 +4390,7 @@
                     "subtype": "variable",
                     "file": "src/stories/Header.stories.ts",
                     "type": "Story<HeaderComponent>",
-                    "defaultValue": "(args: HeaderComponent) => ({\n  component: HeaderComponent,\n  props: args,\n})"
+                    "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  props: args,\r\n})"
                 },
                 {
                     "name": "utilityMenu",
@@ -3609,7 +4424,7 @@
                     "subtype": "variable",
                     "file": "src/stories/Button.stories.ts",
                     "type": "Story<ButtonComponent>",
-                    "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
+                    "defaultValue": "(args: ButtonComponent) => ({\r\n  component: ButtonComponent,\r\n  props: args,\r\n})"
                 }
             ],
             "src/stories/Pager.stories.ts": [
@@ -3635,7 +4450,7 @@
                     "subtype": "variable",
                     "file": "src/stories/Pager.stories.ts",
                     "type": "object",
-                    "defaultValue": "{\n  totalPages: 10,\n  number: 1\n}"
+                    "defaultValue": "{\r\n  totalPages: 10,\r\n  number: 1\r\n}"
                 },
                 {
                     "name": "pageSet2",
@@ -3643,7 +4458,7 @@
                     "subtype": "variable",
                     "file": "src/stories/Pager.stories.ts",
                     "type": "object",
-                    "defaultValue": "{\n  totalPages: 20,\n  number: 7\n}"
+                    "defaultValue": "{\r\n  totalPages: 20,\r\n  number: 7\r\n}"
                 },
                 {
                     "name": "Template",
@@ -3651,7 +4466,7 @@
                     "subtype": "variable",
                     "file": "src/stories/Pager.stories.ts",
                     "type": "Story<PagerComponent>",
-                    "defaultValue": "(args: PagerComponent) => ({\n  component: PagerComponent,\n  props: args\n})"
+                    "defaultValue": "(args: PagerComponent) => ({\r\n  component: PagerComponent,\r\n  props: args\r\n})"
                 }
             ],
             "src/environments/environment.ts": [
@@ -3661,7 +4476,7 @@
                     "subtype": "variable",
                     "file": "src/environments/environment.ts",
                     "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
+                    "defaultValue": "{\r\n  production: false\r\n}"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -3671,7 +4486,7 @@
                     "subtype": "variable",
                     "file": "src/environments/environment.prod.ts",
                     "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
+                    "defaultValue": "{\r\n  production: true\r\n}"
                 }
             ],
             "src/app/components/header/header-constants.ts": [
@@ -3732,6 +4547,17 @@
                     "defaultValue": "`${PREFIX}-header__search-bar-panel--shown`"
                 }
             ],
+            "src/app/components/tabs/tabs.component.ts": [
+                {
+                    "name": "idGenerator",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/tabs/tabs.component.ts",
+                    "type": "number",
+                    "defaultValue": "0",
+                    "description": "<p>Generate unique id for tab list </p>\n"
+                }
+            ],
             "src/app/components/modal-dialog/modal-dialog.component.ts": [
                 {
                     "name": "INPUT_SELECTORS",
@@ -3757,7 +4583,7 @@
                     "subtype": "variable",
                     "file": "src/jest-config/__mocks__/globalMocks.ts",
                     "type": "",
-                    "defaultValue": "() => {\n    let storage = {};\n    return {\n      getItem: key => (key in storage ? storage[key] : null),\n      setItem: (key, value) => (storage[key] = value || ''),\n      removeItem: key => delete storage[key],\n      clear: () => (storage = {}),\n    };\n  }"
+                    "defaultValue": "() => {\r\n    let storage = {};\r\n    return {\r\n      getItem: key => (key in storage ? storage[key] : null),\r\n      setItem: (key, value) => (storage[key] = value || ''),\r\n      removeItem: key => delete storage[key],\r\n      clear: () => (storage = {}),\r\n    };\r\n  }"
                 }
             ],
             "src/app/config.ts": [
@@ -3770,16 +4596,6 @@
                     "defaultValue": "'jazz'"
                 }
             ],
-            "src/stories/Alert.stories.ts": [
-                {
-                    "name": "stories",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Alert.stories.ts",
-                    "type": "",
-                    "defaultValue": "storiesOf('Components/Alert', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AlertComponent],\n    })\n  )"
-                }
-            ],
             "src/stories/Accordion.stories.ts": [
                 {
                     "name": "stories",
@@ -3787,17 +4603,27 @@
                     "subtype": "variable",
                     "file": "src/stories/Accordion.stories.ts",
                     "type": "",
-                    "defaultValue": "storiesOf('Components/Accordion', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
+                    "defaultValue": "storiesOf('Components/Accordion', module)\r\n  .addDecorator(\r\n    moduleMetadata({\r\n      declarations: [AccordionComponent],\r\n    })\r\n  )"
                 }
             ],
-            "src/stories/HeaderHTML.stories.ts": [
+            "src/stories/Alert.stories.ts": [
                 {
                     "name": "stories",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/HeaderHTML.stories.ts",
+                    "file": "src/stories/Alert.stories.ts",
                     "type": "",
-                    "defaultValue": "storiesOf('Components/HeaderHTML', module)\n  .addDecorator(\n    moduleMetadata({\n      imports: [RouterModule.forRoot(routes, {useHash: true})],\n      declarations: [HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,\n        SearchButtonComponent,  MainMenuItemComponent, MainMenuComponent, UtilityMenuComponent, UtilityItemComponent]\n    })\n  )"
+                    "defaultValue": "storiesOf('Components/Alert', module)\r\n  .addDecorator(\r\n    moduleMetadata({\r\n      declarations: [AlertComponent],\r\n    })\r\n  )"
+                }
+            ],
+            "src/stories/Breadcrumbs.stories.ts": [
+                {
+                    "name": "stories",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Breadcrumbs.stories.ts",
+                    "type": "",
+                    "defaultValue": "storiesOf('Components/Breadcrumbs', module)\r\n  .addDecorator(\r\n    moduleMetadata({\r\n      declarations: [AccordionComponent],\r\n    })\r\n  )"
                 }
             ],
             "src/stories/Footer.stories.ts": [
@@ -3810,14 +4636,24 @@
                     "defaultValue": "storiesOf('Components/Footer', module)"
                 }
             ],
-            "src/stories/Breadcrumbs.stories.ts": [
+            "src/stories/HeaderHTML.stories.ts": [
                 {
                     "name": "stories",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Breadcrumbs.stories.ts",
+                    "file": "src/stories/HeaderHTML.stories.ts",
                     "type": "",
-                    "defaultValue": "storiesOf('Components/Breadcrumbs', module)\n  .addDecorator(\n    moduleMetadata({\n      declarations: [AccordionComponent],\n    })\n  )"
+                    "defaultValue": "storiesOf('Components/HeaderHTML', module)\r\n  .addDecorator(\r\n    moduleMetadata({\r\n      imports: [RouterModule.forRoot(routes, {useHash: true})],\r\n      declarations: [HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,\r\n        SearchButtonComponent,  MainMenuItemComponent, MainMenuComponent, UtilityMenuComponent, UtilityItemComponent]\r\n    })\r\n  )"
+                }
+            ],
+            "src/stories/Tabs.stories.ts": [
+                {
+                    "name": "stories",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Tabs.stories.ts",
+                    "type": "",
+                    "defaultValue": "storiesOf('Components/Tabs', module)\r\n  .addDecorator(\r\n    moduleMetadata({\r\n      declarations: [TabsComponent, TabComponent, Panel1Component, Panel2Component],\r\n      imports: [\r\n        RouterModule.forRoot([\r\n          { path: 'panel1', component: Panel1Component },\r\n          { path: 'panel2', component: Panel2Component },\r\n        ], {\r\n          useHash: true,\r\n        })\r\n      ],\r\n      providers: [\r\n        { provide: APP_BASE_HREF, useValue: '/'},\r\n      ]\r\n    })\r\n  )"
                 }
             ]
         },
@@ -3891,6 +4727,38 @@
                         }
                     ]
                 }
+            ],
+            "src/jest-config/setup.ts": [
+                {
+                    "name": "simulateKeyupEvent",
+                    "file": "src/jest-config/setup.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "element"
+                        },
+                        {
+                            "name": "value"
+                        }
+                    ],
+                    "returnType": "void",
+                    "jsdoctags": [
+                        {
+                            "name": "element",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
             ]
         },
         "groupedEnumerations": {},
@@ -3921,10 +4789,6 @@
                     {
                         "path": "mainMenu3",
                         "component": "MainMenu3Component"
-                    },
-                    {
-                        "path": "documentation",
-                        "component": "DocumentationComponent"
                     }
                 ],
                 "kind": "module"
@@ -3932,7 +4796,7 @@
         ]
     },
     "coverage": {
-        "count": 0,
+        "count": 1,
         "status": "low",
         "files": [
             {
@@ -4390,12 +5254,70 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/tabs/tabs.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TabComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/tabs/tabs.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TabsComponent",
+                "coveragePercent": 22,
+                "coverageCount": "6/27",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/tabs/tabs.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "idGenerator",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
                 "filePath": "src/app/components/utility-functions.ts",
                 "type": "class",
                 "linktype": "classe",
                 "name": "UtilityFunctions",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/utility-functions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ARIA_CONTROLS",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/utility-functions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ARIA_EXPANDED",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/utility-functions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "HIDDEN",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -4406,15 +5328,6 @@
                 "name": "prefix",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/main-menu/documentation/documentation.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "DocumentationComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -4524,6 +5437,15 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "mock",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/jest-config/setup.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "simulateKeyupEvent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4804,6 +5726,34 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Tabs.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "Panel1Component",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Tabs.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "Panel2Component",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "stories",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

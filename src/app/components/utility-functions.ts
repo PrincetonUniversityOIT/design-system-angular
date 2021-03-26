@@ -1,3 +1,6 @@
+export const ARIA_EXPANDED = 'aria-expanded';
+export const ARIA_CONTROLS = 'aria-controls';
+export const HIDDEN = 'hidden';
 
 export class UtilityFunctions {
 
@@ -22,5 +25,34 @@ export class UtilityFunctions {
   static selectClosestTo(targetSelector: string, closestToSelector: string, context: Element): any {
     const elements: Element[] = UtilityFunctions.select(targetSelector, context);
     return elements.filter((element) => element.closest(closestToSelector) === context);
+  }
+
+  static toggleControl(target: HTMLElement, expanded?: boolean, attribute?: string): boolean {
+
+    const safeAttribute: string = attribute || ARIA_EXPANDED;
+
+    let safeExpanded = expanded;
+
+    if (typeof safeExpanded !== 'boolean') {
+      // invert the existing button value
+      safeExpanded = target.getAttribute(safeAttribute) === 'false';
+    }
+
+    target.setAttribute(safeAttribute, safeExpanded.toString());
+
+    const controlledElementId = target.getAttribute(ARIA_CONTROLS);
+    if (controlledElementId) {
+      const controlledElement = document.getElementById(controlledElementId);
+      if (!controlledElement) {
+        throw new Error(`aria-controls is not properly configured: ${controlledElementId}`);
+      }
+      if (safeExpanded) {
+        controlledElement.removeAttribute(HIDDEN);
+      } else {
+        controlledElement.setAttribute(HIDDEN, '');
+      }
+    }
+
+    return safeExpanded;
   }
 }
