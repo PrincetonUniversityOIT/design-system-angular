@@ -4,7 +4,7 @@ import { TabsComponent, TabComponent } from './tabs.component';
 import {Router} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 import {of} from 'rxjs';
-import {Component, ContentChildren, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {simulateKeyupEvent} from '../../../jest-config/setup';
 
 @Component({

@@ -3,21 +3,28 @@ import {
   Component,
   ContentChildren,
   ElementRef,
-  EventEmitter,
-  Input,
+  Input, OnDestroy,
   OnInit,
-  Output,
   QueryList,
   ViewChildren
 } from '@angular/core';
 import {Router} from '@angular/router';
-import {HIDDEN, UtilityFunctions} from '../utility-functions';
+import {HIDDEN} from '../utility-functions';
+import {Subscription} from 'rxjs';
 
-/** Generate unique id for tab list */
+/**
+ * Generate unique id for tab list
+ *
+ * @ignore
+ */
 let idGenerator = 0;
 
-// TODO: icons
 
+/**
+ * The TabComponent represents a single tab in a list of tabs.
+ *
+ * This component mostly serves as a data structure, but also helps to expose the API through the jazz-tab element.
+ */
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'jazz-tab',
@@ -25,17 +32,54 @@ let idGenerator = 0;
 })
 export class TabComponent {
 
+  /**
+   * The tabindex of this tab.  This value should never be set by the user because it is controlled by the TabsComponent.
+   *
+   * @ignore
+   */
   tabindex = 0;
 
+  /**
+   * Indicates if the tab is disabled.
+   */
   @Input() disabled = false;
+
+  /**
+   * The label for the tab.
+   */
   @Input() label: string;
+
+  /**
+   * The HTML id of the element/section within the HTML document that is controlled by this tab.
+   */
   @Input() controls: string;
+
+  /**
+   * The HTML aria-label for this tab.
+   */
   @Input('aria-label') ariaLabel = null;
+
+  /**
+   * The HTML aria-labelledby for this tab.
+   */
   @Input('aria-labelledby') ariaLabelledby = null;
+
+  /**
+   * Indicates if the tab is selected.  Only one tab in a set of tabs should be selected at any given time.
+   */
   @Input() selected = false;
+
+  /**
+   * The url route to routeTo when this tab is selected.
+   */
   @Input() routeTo: string;
 }
 
+/**
+ * The TabsComponent represents the wrapper around individual tabs.
+ *
+ * This component is responsible for the rendering of both the wrapping structure and the individual tabs.
+ */
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'jazz-tabs',
@@ -60,14 +104,49 @@ export class TabComponent {
     </div>
   `
 })
-export class TabsComponent implements OnInit, AfterContentInit {
+export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
 
-  @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
-  @ViewChildren('button') buttons: QueryList<ElementRef>;
+  /**
+   * The list of TabComponent objects that are contained in this tab list.
+   *
+   * @ignore
+   * @private
+   */
+  @ContentChildren(TabComponent) private tabs: QueryList<TabComponent>;
 
+  /**
+   * The list of button elements that are contained in this tab list.
+   *
+   * @ignore
+   * @private
+   */
+  @ViewChildren('button') private buttons: QueryList<ElementRef>;
+
+  /**
+   * @ignore
+   */
+  // tslint:disable-next-line:variable-name
+  private _tabsChangeSubscription: Subscription;
+
+  /**
+   * Internal variable for tracking if this component will automatically select tabs when they receive focus.
+   *
+   * @ignore
+   */
   // tslint:disable-next-line:variable-name
   private _autoActivate = false;
 
+  /**
+   * The id of the list of tabs for use in generating the HTML id of the wrapping element.
+   *
+   * @ignore
+   */
+    // tslint:disable-next-line:variable-name
+  private readonly _elementId: number;
+
+  /**
+   * Controls if a tab will become selected when it receives focus.
+   */
   @Input()
   get autoActivate(): boolean {
     return this._autoActivate;
@@ -76,11 +155,12 @@ export class TabsComponent implements OnInit, AfterContentInit {
     this._autoActivate = value;
   }
 
-  // @Input()
-  // private autoActivate = false;
-
-  // tslint:disable-next-line:variable-name
-  private readonly _elementId: number;
+  /**
+   * Returns the list of TabComponent components that are part of this tab list.
+   */
+  getTabs(): TabComponent[] {
+    return this.tabs.toArray();
+  }
 
   constructor(private router: Router) {
     this._elementId = idGenerator++;
@@ -89,18 +169,38 @@ export class TabsComponent implements OnInit, AfterContentInit {
   ngOnInit(): void {
   }
 
+  /**
+   * During this Angular lifecycle phase, the tabs are initialized and a subscription is established for listening for tab changes.
+   */
   ngAfterContentInit(): void {
 
     this.initializeTabs();
 
-    this.tabs.changes.subscribe(
+    this._tabsChangeSubscription = this.tabs.changes.subscribe(
       () => {
         this.initializeTabs();
       }
     );
   }
 
-  initializeTabs(): void {
+  /**
+   * Subscriptions are released and resource handles are destroyed.
+   */
+  ngOnDestroy(): void {
+    this.tabs.destroy();
+    this._tabsChangeSubscription.unsubscribe();
+  }
+
+  /**
+   * Initializes the tabs by identifying the tab that should be selected.
+   *
+   * The logic accounts for the case where multiple tabs are marked as selected by selecting only the first tab that is marked as selected.
+   * The logic also accounts for the case where the selected tab is disabled (selected tabs cannot be disabled) by selecting the first
+   * enabled tab in the list of tabs.
+   *
+   * @ignore
+   */
+  private initializeTabs(): void {
     let firstSelectedTab: TabComponent = null;
     let firstCurrentRoute: TabComponent = null;
     let firstEnabledTab: TabComponent = null;
@@ -130,21 +230,39 @@ export class TabsComponent implements OnInit, AfterContentInit {
     }
   }
 
-  getTabListId(): string {
+  /**
+   * Generates the HTML id for the tab list wrapping element.
+   *
+   * @ignore
+   */
+  private getTabListId(): string {
     return 'jazz-tabs-' + this._elementId;
   }
 
-  getTabId(idx: number): string {
+  /**
+   * Generates the id of an individual tab.
+   *
+   * @ignore
+   */
+  private getTabId(idx: number): string {
     return this.getTabListId() + '-' + idx;
   }
 
-  setControlledElementVisibility(controlledElementId: string, expanded: boolean): void {
+  /**
+   * Changes the visibility of the specified element (which is controlled by the selected tab).
+   *
+   * @ignore
+   * @param controlledElementId the HTML id of the controlled element
+   * @param shown indicates if the element should be expanded (shown) or not (hidden)
+   * @private
+   */
+  private setControlledElementVisibility(controlledElementId: string, shown: boolean): void {
     if (controlledElementId) {
       const controlledElement = document.getElementById(controlledElementId);
       if (!controlledElement) {
         throw new Error(`aria-controls is not properly configured: ${controlledElementId}`);
       }
-      if (expanded) {
+      if (shown) {
         controlledElement.removeAttribute(HIDDEN);
       } else {
         controlledElement.setAttribute(HIDDEN, '');
@@ -152,17 +270,13 @@ export class TabsComponent implements OnInit, AfterContentInit {
     }
   }
 
-  navigateToRoute(routeUrl: string): void {
-    this.router.navigateByUrl(routeUrl);
-  }
-
   /**
    * De-select all tabs (buttons) in tablist, except the tab (button) provided.
    *
-   * @param tablist
-   * @param exceptButton
+   * @ignore
+   * @param exceptTab
    */
-  deselectAllOtherButtonsInTablist(exceptTab: TabComponent): void {
+  private deselectAllOtherButtonsInTablist(exceptTab: TabComponent): void {
     this.tabs.forEach((tab) => {
       if (tab !== exceptTab) {
         this.deselectTab(tab);
@@ -170,6 +284,11 @@ export class TabsComponent implements OnInit, AfterContentInit {
     });
   }
 
+  /**
+   * Selects the specified tab.  By selecting a tab, all other tabs are deselected.
+   *
+   * @param tab the tab to be selected
+   */
   selectTab(tab: TabComponent): void {
 
     this.deselectAllOtherButtonsInTablist(tab);
@@ -179,13 +298,32 @@ export class TabsComponent implements OnInit, AfterContentInit {
     this.setTabSelection(tab, true);
   }
 
+  /**
+   * Delselects the specified tab.
+   *
+   * @param tab the tab to be deselected
+   */
   deselectTab(tab: TabComponent): void {
     this.setTabSelection(tab, false);
   }
 
-  setTabSelection(tab: TabComponent, selected: boolean): void {
-    if (tab.routeTo) {
-      this.navigateToRoute(tab.routeTo);
+  /**
+   * Sets the tab selection based on the specified tab and selection indicator (boolean).
+   *
+   * If the tab has a URL specified (with the routeTo parameter), then the router is used to navigate to that route if the tab is to be
+   * selected.  Otherwise, the element that is controlled by this tab will have its visibility set accordingly.
+   *
+   * The tab is marked as selected/deselected as appropriate and its tabindex is set to control focusability based on if the tab is
+   * selected (will receive focus using the keyboard) or not (will not receive focus using the keyboard).
+   *
+   * @ignore
+   * @param tab
+   * @param selected
+   * @private
+   */
+  private setTabSelection(tab: TabComponent, selected: boolean): void {
+    if (tab.routeTo && selected) {
+      this.router.navigateByUrl(tab.routeTo);
     } else {
       this.setControlledElementVisibility(tab.controls, selected);
     }
@@ -198,13 +336,32 @@ export class TabsComponent implements OnInit, AfterContentInit {
     }
   }
 
-  handleClickEvent(tab: TabComponent): void {
+  /**
+   * Handles click events on individual tabs.  If the tab is enabled and is not already selected, then it will be selected.
+   *
+   * @ignore
+   * @param tab
+   * @private
+   */
+  private handleClickEvent(tab: TabComponent): void {
     if (!tab.disabled && !tab.selected) {
       this.selectTab(tab);
     }
   }
 
-  handleKeyboardEvent(eventTab: TabComponent, idx: number, keyEvent: KeyboardEvent): void {
+  /**
+   * Handles keyboard events on the individual tabs, specifically: ArrowRight, ArrowLeft, Home, and End.  These keyboard events control
+   * which tab has focus.
+   *
+   * If this tab list is configured to autoActive, then the appropriate tab will be selected when it receives focus.
+   *
+   * @ignore
+   * @param eventTab
+   * @param idx
+   * @param keyEvent
+   * @private
+   */
+  private handleKeyboardEvent(eventTab: TabComponent, idx: number, keyEvent: KeyboardEvent): void {
 
     let focusIdx = -1;
 
@@ -235,7 +392,15 @@ export class TabsComponent implements OnInit, AfterContentInit {
     }
   }
 
-  getNextEnabledTabIndex(tabs: TabComponent[], startIdx: number): number {
+  /**
+   * Finds the next enabled tab, starting at the specified index in the tab list.
+   *
+   * @ignore
+   * @param tabs
+   * @param startIdx
+   * @private
+   */
+  private getNextEnabledTabIndex(tabs: TabComponent[], startIdx: number): number {
 
     const safeStartIdx = this.clampTabIndex(startIdx);
 
@@ -249,7 +414,14 @@ export class TabsComponent implements OnInit, AfterContentInit {
     return -1;
   }
 
-  getPreviousEnabledTabIndex(tabs: TabComponent[], startIdx: number): number {
+  /**
+   * Finds the previous enabled tab, starting at the specified index in the tab list.
+   *
+   * @ignore
+   * @param tabs
+   * @param startIdx
+   */
+  private getPreviousEnabledTabIndex(tabs: TabComponent[], startIdx: number): number {
 
     const safeStartIdx = this.clampTabIndex(startIdx);
 
@@ -264,16 +436,20 @@ export class TabsComponent implements OnInit, AfterContentInit {
   }
 
   /**
-   * Find the first enabled tab (button) in the list of provided tabs (buttons)
+   * Finds the first enabled tab (button) in the list of provided tabs (buttons)
+   *
+   * @ignore
    */
-  getFirstEnabledTabIndex(): number {
+  private getFirstEnabledTabIndex(): number {
     return this.getNextEnabledTabIndex(this.tabs.toArray(), 0);
   }
 
   /**
-   * Find the last enabled tab (button) in the list of provided tabs (buttons).
+   * Finds the last enabled tab (button) in the list of provided tabs (buttons).
+   *
+   * @ignore
    */
-  getLastEnabledTabIndex(): number {
+  private getLastEnabledTabIndex(): number {
     return this.getPreviousEnabledTabIndex(this.tabs.toArray(), this.tabs.length - 1);
   }
 
@@ -285,6 +461,7 @@ export class TabsComponent implements OnInit, AfterContentInit {
    *
    * (per Angular Material Tabs code: https://github.com/angular/components/blob/master/src/material/tabs/tab-group.ts)
    *
+   * @ignore
    * @param index
    * @private
    */
@@ -299,9 +476,10 @@ export class TabsComponent implements OnInit, AfterContentInit {
    * will wrap around to the beginning of the provided list of tabs (buttons) if no enabled tab (button) is found
    * in the list after the location of the provided tab (button).
    *
-   * @param refTab the tab to use as a starting point for finding the next enabled tab
+   * @param startIdx the index of the tab to use as a starting point for finding the next enabled tab
+   * @ignore
    */
-  getNextOrFirstEnabledTabIndex(startIdx: number): number {
+  private getNextOrFirstEnabledTabIndex(startIdx: number): number {
     const tabsArr = this.tabs.toArray();
     const idx = this.getNextEnabledTabIndex(tabsArr, startIdx + 1);
     if (idx === -1) {
@@ -318,10 +496,10 @@ export class TabsComponent implements OnInit, AfterContentInit {
    * will wrap around to the end of the provided list of tabs (buttons) if no enabled tab (button) is found
    * in the list before the location of the provided tab (button).
    *
-   * @param tabs
-   * @param refButton
+   * @param startIdx
+   * @ignore
    */
-  getPreviousOrLastEnabledTab(startIdx: number): number {
+  private getPreviousOrLastEnabledTab(startIdx: number): number {
     const tabsArr = this.tabs.toArray();
     const idx = this.getPreviousEnabledTabIndex(tabsArr, startIdx - 1);
     if (idx === -1) {
