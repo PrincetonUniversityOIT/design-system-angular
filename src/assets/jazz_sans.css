@@ -2113,8 +2113,8 @@ label {
 }
 
 .jazz-icon-email {
-  -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iUmF3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4KICA8cmVjdCB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgZmlsbD0ibm9uZSIvPgogIDxwb2x5bGluZSBwb2ludHM9IjIyNCA1NiAxMjggMTQ0IDMyIDU2IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIvPgogIDxwYXRoIGQ9Ik0zMiw1NkgyMjRhMCwwLDAsMCwxLDAsMFYxOTJhOCw4LDAsMCwxLTgsOEg0MGE4LDgsMCwwLDEtOC04VjU2QTAsMCwwLDAsMSwzMiw1NloiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+CiAgPGxpbmUgeDE9IjExMC41NDU0MSIgeTE9IjEyOC4wMDAxMyIgeDI9IjM0LjQ2NjgiIHkyPSIxOTcuNzM5MjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+CiAgPGxpbmUgeDE9IjIyMS41MzQxOCIgeTE9IjE5Ny43MzkyNiIgeDI9IjE0NS40NTQyNCIgeTI9IjEyNy45OTk2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz4KPC9zdmc+Cg==);
-  mask-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iUmF3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4KICA8cmVjdCB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgZmlsbD0ibm9uZSIvPgogIDxwb2x5bGluZSBwb2ludHM9IjIyNCA1NiAxMjggMTQ0IDMyIDU2IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIvPgogIDxwYXRoIGQ9Ik0zMiw1NkgyMjRhMCwwLDAsMCwxLDAsMFYxOTJhOCw4LDAsMCwxLTgsOEg0MGE4LDgsMCwwLDEtOC04VjU2QTAsMCwwLDAsMSwzMiw1NloiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+CiAgPGxpbmUgeDE9IjExMC41NDU0MSIgeTE9IjEyOC4wMDAxMyIgeDI9IjM0LjQ2NjgiIHkyPSIxOTcuNzM5MjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+CiAgPGxpbmUgeDE9IjIyMS41MzQxOCIgeTE9IjE5Ny43MzkyNiIgeDI9IjE0NS40NTQyNCIgeTI9IjEyNy45OTk2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz4KPC9zdmc+Cg==);
+  -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iUmF3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4NCiAgPHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9Im5vbmUiLz4NCiAgPHBvbHlsaW5lIHBvaW50cz0iMjI0IDU2IDEyOCAxNDQgMzIgNTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+DQogIDxwYXRoIGQ9Ik0zMiw1NkgyMjRhMCwwLDAsMCwxLDAsMFYxOTJhOCw4LDAsMCwxLTgsOEg0MGE4LDgsMCwwLDEtOC04VjU2QTAsMCwwLDAsMSwzMiw1NloiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+DQogIDxsaW5lIHgxPSIxMTAuNTQ1NDEiIHkxPSIxMjguMDAwMTMiIHgyPSIzNC40NjY4IiB5Mj0iMTk3LjczOTI2IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIvPg0KICA8bGluZSB4MT0iMjIxLjUzNDE4IiB5MT0iMTk3LjczOTI2IiB4Mj0iMTQ1LjQ1NDI0IiB5Mj0iMTI3Ljk5OTY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIvPg0KPC9zdmc+DQo=);
+  mask-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iUmF3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4NCiAgPHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9Im5vbmUiLz4NCiAgPHBvbHlsaW5lIHBvaW50cz0iMjI0IDU2IDEyOCAxNDQgMzIgNTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+DQogIDxwYXRoIGQ9Ik0zMiw1NkgyMjRhMCwwLDAsMCwxLDAsMFYxOTJhOCw4LDAsMCwxLTgsOEg0MGE4LDgsMCwwLDEtOC04VjU2QTAsMCwwLDAsMSwzMiw1NloiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+DQogIDxsaW5lIHgxPSIxMTAuNTQ1NDEiIHkxPSIxMjguMDAwMTMiIHgyPSIzNC40NjY4IiB5Mj0iMTk3LjczOTI2IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIvPg0KICA8bGluZSB4MT0iMjIxLjUzNDE4IiB5MT0iMTk3LjczOTI2IiB4Mj0iMTQ1LjQ1NDI0IiB5Mj0iMTI3Ljk5OTY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIvPg0KPC9zdmc+DQo=);
 }
 
 .jazz-accordion h1,
@@ -3876,7 +3876,7 @@ ul.jazz-menubar.jazz-menubar--shown {
     color: #fff;
     padding-left: 0rem;
     padding-right: 0.625rem;
-    margin: 0.625rem;
+    margin: 0.625rem 0.625rem 0 0.625rem;
     position: relative;
     height: 1.875rem;
   }
@@ -4327,6 +4327,26 @@ ul.jazz-pill-bag li a:hover {
   left: auto;
 }
 
+.jazz-skip-links a {
+  color: #fff;
+}
+
+.jazz-skip-links a:visited {
+  color: #fff;
+}
+
+.jazz-skip-links a:focus {
+  color: #fff;
+}
+
+.jazz-skip-links a:active {
+  color: #fff;
+}
+
+.jazz-skip-links a:hover {
+  color: #fff;
+}
+
 .jazz-table__bordered {
   border: 1px solid #717171;
   border-collapse: collapse;
@@ -4374,7 +4394,7 @@ ul.jazz-pill-bag li a:hover {
   border-bottom: 0.25rem solid #EEEEEE;
 }
 
-.jazz-tablist[role=tablist] > button[role=tab] {
+.jazz-tablist[role=tablist] button[role=tab] {
   background-color: #fff;
   color: #000;
   height: 2.5rem;
@@ -4396,20 +4416,20 @@ ul.jazz-pill-bag li a:hover {
   padding-right: 0.3125rem;
 }
 
-.jazz-tablist[role=tablist] > button[role=tab]:focus {
+.jazz-tablist[role=tablist] button[role=tab]:focus {
   outline: 0.15625rem solid #0B7097;
   outline-offset: -0.15625rem;
 }
 
-.jazz-tablist[role=tablist] > button[role=tab]:not([disabled]):not([aria-selected=true]):hover {
+.jazz-tablist[role=tablist] button[role=tab]:not([disabled]):not([aria-selected=true]):hover {
   border-bottom: 0.25rem solid #717171;
 }
 
-.jazz-tablist[role=tablist] > button[role=tab][aria-selected=true] {
+.jazz-tablist[role=tablist] button[role=tab][aria-selected=true] {
   border-bottom: 0.25rem solid #E77500;
 }
 
-.jazz-tablist[role=tablist] > button[role=tab][disabled]:not([disabled=false]) {
+.jazz-tablist[role=tablist] button[role=tab][disabled]:not([disabled=false]) {
   color: #717171;
   border-bottom: transparent solid #EEEEEE;
 }
