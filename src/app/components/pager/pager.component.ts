@@ -2,7 +2,7 @@ import {DataPage} from '../../model/data-page';
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: 'app-jazz-pager',
+  selector: 'jazz-pager',
   templateUrl: './pager.component.html'
 })
 export class PagerComponent {

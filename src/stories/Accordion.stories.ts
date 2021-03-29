@@ -11,7 +11,7 @@ const stories = storiesOf('Components/Accordion', module)
 stories.add('Default', () => {
   return {
     template:  `
-        <app-jazz-accordion>
+        <jazz-accordion>
         <h2>
           <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">Sed porttitor lectus nibh?</button>
         </h2>
@@ -49,7 +49,7 @@ stories.add('Default', () => {
           posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
           Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
         </div>
-      </app-jazz-accordion>
+      </jazz-accordion>
 `
   };
 });

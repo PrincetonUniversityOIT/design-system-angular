@@ -16,7 +16,8 @@ export const ARIA_CONTROLS = 'aria-controls';
 export const HIDDEN = 'hidden';
 
 @Component({
-  selector: 'app-jazz-accordion',
+  // tslint:disable-next-line:component-selector
+  selector: 'jazz-accordion',
   templateUrl: './accordion.component.html'
 })
 export class AccordionComponent implements OnInit, AfterContentInit {

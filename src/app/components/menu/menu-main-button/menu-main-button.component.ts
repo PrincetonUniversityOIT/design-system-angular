@@ -10,7 +10,7 @@ import {
 export const ARIA_EXPANDED = 'aria-expanded';
 
 @Component({
-  selector: 'app-jazz-menu-main-button',
+  selector: 'jazz-menu-main-button',
   templateUrl: './menu-main-button.component.html'
 })
 export class MenuMainButtonComponent implements OnInit {

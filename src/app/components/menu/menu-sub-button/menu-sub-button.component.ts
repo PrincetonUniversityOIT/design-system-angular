@@ -8,7 +8,7 @@ import {
 } from '../menu-constants';
 
 @Component({
-  selector: 'app-jazz-sub-button',
+  selector: 'jazz-sub-button',
   templateUrl: './menu-sub-button.component.html'
 })
 export class MenuSubButtonComponent implements OnInit {

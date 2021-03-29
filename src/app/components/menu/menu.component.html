@@ -3,11 +3,11 @@
 
   <div class="jazz-container">
     <div class="jazz-menu__main-menu-navbar">
-      <app-jazz-menu-main-button></app-jazz-menu-main-button>
+      <jazz-menu-main-button></jazz-menu-main-button>
       <div class="jazz-menu__nav-container">
         <ul *ngIf="menuItems && menuItems.length > 0" class="jazz-menubar" role="list">
             <li *ngFor="let level1item of menuItems" (mouseleave)="onMouseOut($event)">
-              <app-jazz-menu-item [menuItem]="level1item" (closeSubMenus)="closeSubMenus()" (resetSubMenus)="resetSubMenus()"></app-jazz-menu-item>
+              <jazz-menu-item [menuItem]="level1item" (closeSubMenus)="closeSubMenus()" (resetSubMenus)="resetSubMenus()"></jazz-menu-item>
             </li>
         </ul>
         <div class="jazz-header__utility-menu jazz-header__utility-menu--hide-large">

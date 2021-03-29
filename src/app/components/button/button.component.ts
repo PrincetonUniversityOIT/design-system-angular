@@ -1,7 +1,8 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
-  selector: 'app-jazz-button',
+  // tslint:disable-next-line:component-selector
+  selector: 'jazz-button',
   templateUrl: './button.component.html'
 })
 export class ButtonComponent {

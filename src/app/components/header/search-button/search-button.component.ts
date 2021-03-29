@@ -5,7 +5,7 @@ import {
 } from './../header-constants';
 
 @Component({
-  selector: 'app-jazz-search-button',
+  selector: 'jazz-search-button',
   templateUrl: './search-button.component.html'
 })
 export class SearchButtonComponent implements OnInit {

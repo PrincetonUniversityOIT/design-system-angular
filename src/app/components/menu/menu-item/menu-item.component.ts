@@ -2,7 +2,8 @@ import {MenuItem} from '../../../model/menu-item';
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';
 
 @Component({
-  selector: 'app-jazz-menu-item',
+  // tslint:disable-next-line:component-selector
+  selector: 'jazz-menu-item',
   templateUrl: './menu-item.component.html'
 })
 export class MenuItemComponent implements OnInit {

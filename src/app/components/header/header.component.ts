@@ -20,7 +20,8 @@ import {MainMenuItemComponent} from './main-menu/main-menu-item';
 import {UtilityMenuComponent} from './utility-menu/utility-menu';
 
 @Component({
-  selector: 'app-jazz-header',
+  // tslint:disable-next-line:component-selector
+  selector: 'jazz-header',
   templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked {

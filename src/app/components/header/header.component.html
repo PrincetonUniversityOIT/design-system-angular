@@ -19,7 +19,7 @@
       </div>
       <div class="jazz-header__search-bar" *ngIf="headerOptions.showSearch">
           <h2 class="jazz-visually-hidden">Search</h2>
-          <app-jazz-search-button></app-jazz-search-button>
+          <jazz-search-button></jazz-search-button>
           <div class="jazz-header__search-bar-panel">
             <form action="javascript:void(0)" method="get" accept-charset="UTF-8" role="search">
               <label class="jazz-visually-hidden" for="search-field">Search</label>
@@ -66,9 +66,9 @@
       </div>
     </div>
   </div>
-  <app-jazz-menu [menuItems]="headerOptions.menuItems" [utilityItems]="headerOptions.utilityItems">
+  <jazz-menu [menuItems]="headerOptions.menuItems" [utilityItems]="headerOptions.utilityItems">
 
-  </app-jazz-menu>
+  </jazz-menu>
   </div>
 </header>
 
@@ -113,7 +113,7 @@
       <div class="jazz-header-break"></div>
       <nav aria-label="Main Menu" class="jazz-menu__main-menu">
         <div class="jazz-menu__main-menu-navbar">
-          <app-jazz-menu-main-button></app-jazz-menu-main-button>
+          <jazz-menu-main-button></jazz-menu-main-button>
           <div class="jazz-menu__nav-container">
             <div class="jazz-header-compact__utility-menu">
               <ul class="jazz-menubar">

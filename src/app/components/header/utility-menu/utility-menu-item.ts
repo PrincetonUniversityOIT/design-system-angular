@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-jazz-utility-item',
+  selector: 'jazz-utility-item',
   template: `
       <ng-content></ng-content>
   `,

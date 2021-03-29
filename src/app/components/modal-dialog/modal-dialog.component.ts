@@ -12,9 +12,9 @@ const INPUT_SELECTORS_EXCL_CLOSE = 'a[href]:not([disabled]), button:not([disable
 const INPUT_SELECTORS = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])';
 
 @Component({
-  selector: 'app-jazz-modal-dialog',
-  templateUrl: './modal-dialog.component.html',
-  styleUrls: ['./modal-dialog.component.css']
+  // tslint:disable-next-line:component-selector
+  selector: 'jazz-modal-dialog',
+  templateUrl: './modal-dialog.component.html'
 })
 export class ModalDialogComponent implements OnInit {
 

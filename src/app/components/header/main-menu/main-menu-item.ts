@@ -1,7 +1,8 @@
 import {Component, ContentChildren, Input, QueryList} from '@angular/core';
 
 @Component({
-  selector: 'app-jazz-main-menu-item',
+  // tslint:disable-next-line:component-selector
+  selector: 'jazz-main-menu-item',
   template: `
       <ng-content></ng-content>
   `,

@@ -51,25 +51,25 @@ const stories = storiesOf('Components/HeaderHTML', module)
 stories.add('Default', () => {
   return {
     template:  `
-    <app-jazz-header [title]="'Princeton University Design System'" [siteBrandingName]="'RELATIVITY'" [siteBrandingSlogan]="'The Princeton University Design System'" [showCompact]='false' [showSearch]='true'>
-      <app-jazz-main-menu>
-        <app-jazz-main-menu-item label="Main Menu 1" url="/mainMenu1">
-            <app-jazz-main-menu-item label="Level 2 Menu 1" url="/level2item1" shownByDefault="true">
-              <app-jazz-main-menu-item label="Level 3 Menu 1" url="/level3item1"></app-jazz-main-menu-item>
-              <app-jazz-main-menu-item label="Level 3 Menu 2" url="/level3item1"></app-jazz-main-menu-item>
-              <app-jazz-main-menu-item label="Level 3 Menu 3" url="/level3item1"></app-jazz-main-menu-item>
-            </app-jazz-main-menu-item>
-            <app-jazz-main-menu-item label="Level 2 Menu 2" url="/level2item1"></app-jazz-main-menu-item>
-            <app-jazz-main-menu-item label="Level 2 Menu 3" url="/level2item1"></app-jazz-main-menu-item>
-        </app-jazz-main-menu-item>
-        <app-jazz-main-menu-item label="Main Menu 2" url="/mainMenu2"></app-jazz-main-menu-item>
-        <app-jazz-main-menu-item label="Main Menu 3" externalUrl="http://www.microsoft.com"></app-jazz-main-menu-item>
-    </app-jazz-main-menu>
-    <app-jazz-utility-menu>
-      <app-jazz-utility-item label="Documentation" externalUrl="http://www.google.com"></app-jazz-utility-item>
-      <app-jazz-utility-item label="Log In" url="/login"></app-jazz-utility-item>
-    </app-jazz-utility-menu>
-    </app-jazz-header>
+    <jazz-header [title]="'Princeton University Design System'" [siteBrandingName]="'RELATIVITY'" [siteBrandingSlogan]="'The Princeton University Design System'" [showCompact]='false' [showSearch]='true'>
+      <jazz-main-menu>
+        <jazz-main-menu-item label="Main Menu 1" url="/mainMenu1">
+            <jazz-main-menu-item label="Level 2 Menu 1" url="/level2item1" shownByDefault="true">
+              <jazz-main-menu-item label="Level 3 Menu 1" url="/level3item1"></jazz-main-menu-item>
+              <jazz-main-menu-item label="Level 3 Menu 2" url="/level3item1"></jazz-main-menu-item>
+              <jazz-main-menu-item label="Level 3 Menu 3" url="/level3item1"></jazz-main-menu-item>
+            </jazz-main-menu-item>
+            <jazz-main-menu-item label="Level 2 Menu 2" url="/level2item1"></jazz-main-menu-item>
+            <jazz-main-menu-item label="Level 2 Menu 3" url="/level2item1"></jazz-main-menu-item>
+        </jazz-main-menu-item>
+        <jazz-main-menu-item label="Main Menu 2" url="/mainMenu2"></jazz-main-menu-item>
+        <jazz-main-menu-item label="Main Menu 3" externalUrl="http://www.microsoft.com"></jazz-main-menu-item>
+    </jazz-main-menu>
+    <jazz-utility-menu>
+      <jazz-utility-item label="Documentation" externalUrl="http://www.google.com"></jazz-utility-item>
+      <jazz-utility-item label="Log In" url="/login"></jazz-utility-item>
+    </jazz-utility-menu>
+    </jazz-header>
 `
   };
 });
@@ -77,12 +77,12 @@ stories.add('Default', () => {
 stories.add('Compact', () => {
   return {
     template:  `
-    <app-jazz-header [title]="'Princeton University Design System'" [siteBrandingName]="'RELATIVITY'" [siteBrandingSlogan]="'The Princeton University Design System'" [showCompact]='true' [showSearch]='true'>
-    <app-jazz-utility-menu>
-      <app-jazz-utility-item label="Documentation" externalUrl="http://www.google.com"></app-jazz-utility-item>
-      <app-jazz-utility-item label="Log In" url="/login"></app-jazz-utility-item>
-    </app-jazz-utility-menu>
-    </app-jazz-header>
+    <jazz-header [title]="'Princeton University Design System'" [siteBrandingName]="'RELATIVITY'" [siteBrandingSlogan]="'The Princeton University Design System'" [showCompact]='true' [showSearch]='true'>
+    <jazz-utility-menu>
+      <jazz-utility-item label="Documentation" externalUrl="http://www.google.com"></jazz-utility-item>
+      <jazz-utility-item label="Log In" url="/login"></jazz-utility-item>
+    </jazz-utility-menu>
+    </jazz-header>
 `
   };
 });

@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: 'app-jazz-alert',
+  // tslint:disable-next-line:component-selector
+  selector: 'jazz-alert',
   templateUrl: './alert.component.html'
 })
 export class AlertComponent {

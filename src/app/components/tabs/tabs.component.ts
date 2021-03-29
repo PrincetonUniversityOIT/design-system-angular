@@ -110,9 +110,8 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
    * The list of TabComponent objects that are contained in this tab list.
    *
    * @ignore
-   * @private
    */
-  @ContentChildren(TabComponent) private tabs: QueryList<TabComponent>;
+  @ContentChildren(TabComponent) public tabs: QueryList<TabComponent>;
 
   /**
    * The list of button elements that are contained in this tab list.
@@ -234,7 +233,7 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
    *
    * @ignore
    */
-  private getTabListId(): string {
+  public getTabListId(): string {
     return 'jazz-tabs-' + this._elementId;
   }
 

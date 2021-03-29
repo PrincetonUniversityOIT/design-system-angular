@@ -11,7 +11,8 @@ import {
 
 
 @Component({
-  selector: 'app-jazz-menu',
+  // tslint:disable-next-line:component-selector
+  selector: 'jazz-menu',
   templateUrl: './menu.component.html'
 })
 export class MenuComponent {

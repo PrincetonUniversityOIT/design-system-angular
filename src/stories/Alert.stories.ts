@@ -13,9 +13,9 @@ const stories = storiesOf('Components/Alert', module)
 stories.add('Default', () => {
   return {
     template: `
-        <app-jazz-alert heading='Alerts' title="Alert Title" (onClose)="onClose($event)">
+        <jazz-alert heading='Alerts' title="Alert Title" (onClose)="onClose($event)">
                 <p>This is the alert content</p>
-        </app-jazz-alert>
+        </jazz-alert>
      `,
     props: {
       onClose: action('onClose')
