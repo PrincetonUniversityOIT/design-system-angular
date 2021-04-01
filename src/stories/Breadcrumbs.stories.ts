@@ -1,29 +1,67 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {AccordionComponent} from '../app/components/accordion/accordion.component';
+import {BreadcrumbComponent, BreadcrumbsComponent} from '../app/components/breadcrumbs/breadcrumbs.component';
+import {RouterModule, Routes} from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: ''
+  },
+  {
+    path: 'mainMenu1',
+    pathMatch: 'full',
+    redirectTo: ''
+  },
+  {
+    path: 'level2item1',
+    pathMatch: 'full',
+    redirectTo: ''
+  },
+  {
+    path: 'level3item1',
+    pathMatch: 'full',
+    redirectTo: ''
+  }
+];
 
 const stories = storiesOf('Components/Breadcrumbs', module)
   .addDecorator(
     moduleMetadata({
-      declarations: [AccordionComponent],
+      imports: [RouterModule.forRoot(routes, {useHash: true})],
+      declarations: [BreadcrumbComponent, BreadcrumbsComponent]
     })
   );
 
-stories.add('Default', () => {
+stories.add('Just Styles', () => {
   return {
     template:  `
        <nav class="jazz-breadcrumb" aria-label="Breadcrumbs">
-        <ol class="jazz-breadcrumb__list">
-          <li class="jazz-breadcrumb__list-item">
-            <a href="#" class="jazz-breadcrumb__link">Home</a>
+        <ol>
+          <li>
+            <a href="javascript:void(0)">Home</a>
           </li>
-          <li class="jazz-breadcrumb__list-item">
-            <a href="#" class="jazz-breadcrumb__link">Another Link</a>
+          <li>
+            <a href="#">Another Link</a>
           </li>
-          <li class="jazz-breadcrumb__list-item">
-            <a href="#" class="jazz-breadcrumb__link">Yet Another Link Level</a>
+          <li>
+            <a href="#">Yet Another Link Level</a>
           </li>
-          <li class="jazz-breadcrumb__list-item jazz-current" aria-current="page">And finally here were are the page description</li>
+          <li aria-current="page">And finally here were are the page description</li>
         </ol>
        </nav>`
+  };
+});
+
+stories.add('Component', () => {
+  return {
+    template:  `
+      <jazz-breadcrumbs>
+            <jazz-breadcrumb url="/" label="Home"></jazz-breadcrumb>
+            <jazz-breadcrumb url="/mainMenu1" label="Main Menu 1"></jazz-breadcrumb>
+            <jazz-breadcrumb url="/level2item1" label="Level 2 Menu 1"></jazz-breadcrumb>
+            <jazz-breadcrumb url="/level3item1" label="Level 3 Menu 1"></jazz-breadcrumb>
+      </jazz-breadcrumbs>
+      `
   };
 });

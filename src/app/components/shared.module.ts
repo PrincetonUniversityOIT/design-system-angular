@@ -21,6 +21,8 @@ import {ModalDialogModule} from './modal-dialog/modal-dialog.module';
 import {PagerModule} from './pager/pager.module';
 import {TabsModule} from './tabs/tabs.module';
 import {MenuComponent} from './menu/menu.component';
+import {BreadcrumbComponent, BreadcrumbsComponent} from './breadcrumbs/breadcrumbs.component';
+import {BreadcrumbsModule} from './breadcrumbs/breadcrumbs.module';
 
 @NgModule({
   imports: [
@@ -28,6 +30,7 @@ import {MenuComponent} from './menu/menu.component';
     RouterModule,
     AccordionModule,
     AlertModule,
+    BreadcrumbsModule,
     ButtonModule,
     HeaderModule,
     MenuModule,
@@ -38,6 +41,8 @@ import {MenuComponent} from './menu/menu.component';
   exports: [
     AccordionComponent,
     AlertComponent,
+    BreadcrumbComponent,
+    BreadcrumbsComponent,
     ButtonComponent,
     HeaderComponent,
     MenuComponent,

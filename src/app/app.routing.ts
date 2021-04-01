@@ -4,7 +4,9 @@ import {MainMenu1Component} from './main-menu/main-menu1/main-menu1.component';
 import {MainMenu2Component} from './main-menu/main-menu2/main-menu2.component';
 import {MainMenu3Component} from './main-menu/main-menu3/main-menu3.component';
 import {MainPageComponent} from './main-page/main-page.component';
-// import {DocumentationComponent} from './main-menu/documentation/documentation.component';
+import {Level2Menu1Component} from './main-menu/level2-menu1/level2-menu1.component';
+import {Level3Menu1Component} from './main-menu/level3-menu1/level3-menu1.component';
+import {DocumentationComponent} from './main-menu/documentation/documentation.component';
 
 export const routes: Routes = [
   {
@@ -22,12 +24,20 @@ export const routes: Routes = [
   {
     path: 'mainMenu3',
     component: MainMenu3Component
+  },
+  {
+    path: 'level2item1',
+    component: Level2Menu1Component
+  },
+  {
+    path: 'level3item1',
+    component: Level3Menu1Component
   }
-  // ,
-  // {
-  //   path: 'documentation',
-  //   component: DocumentationComponent
-  // }
+  ,
+  {
+    path: 'documentation',
+    component: DocumentationComponent
+  }
 ];
 
 @NgModule({

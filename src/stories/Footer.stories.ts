@@ -1,5 +1,4 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {AccordionComponent} from '../app/components/accordion/accordion.component';
 
 const stories = storiesOf('Components/Footer', module);
 
