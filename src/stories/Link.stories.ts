@@ -59,11 +59,3 @@ stories.add('Hover', () => {
 `
   };
 });
-
-stories.add('Disabled', () => {
-  return {
-    template:  `
-    <a href="javascript:void(0);" class="jazz-link-disabled" disabled>Link Text</a>
-`
-  };
-});
