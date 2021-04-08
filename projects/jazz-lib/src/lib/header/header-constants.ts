@@ -1,4 +1,4 @@
-import {prefix as PREFIX} from '../../config';
+import {prefix as PREFIX} from '../config';
 
 // Main Menu Selectors
 export const HEADER_SELECTOR = `.${PREFIX}-header`;

@@ -2,19 +2,15 @@
 
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {APP_BASE_HREF, CommonModule} from '@angular/common';
-import {HeaderComponent} from '../app/components/header/header.component';
-import {MenuItem} from '../app/model/menu-item';
 import {RouterModule} from '@angular/router';
-import {MenuMainButtonComponent} from '../app/components/menu/menu-main-button/menu-main-button.component';
-import {MenuSubButtonComponent} from '../app/components/menu/menu-sub-button/menu-sub-button.component';
-import {MenuItemComponent} from '../app/components/menu/menu-item/menu-item.component';
-import {MenuComponent} from '../app/components/menu/menu.component';
-import {HeaderOptions} from '../app/model/header-options';
-import {SearchButtonComponent} from '../app/components/header/search-button/search-button.component';
-import {MainMenuItemComponent} from '../app/components/header/main-menu/main-menu-item';
-import {MainMenuComponent} from '../app/components/header/main-menu/main-menu';
-import {UtilityMenuComponent} from '../app/components/header/utility-menu/utility-menu';
-import {UtilityItemComponent} from '../app/components/header/utility-menu/utility-menu-item';
+
+import {
+  HeaderComponent, HeaderOptions,
+  MainMenuComponent,
+  MainMenuItemComponent,
+  MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,
+  SearchButtonComponent, UtilityItemComponent, UtilityMenuComponent
+} from 'jazz-lib';
 
 export default {
   title: 'Components/Header',

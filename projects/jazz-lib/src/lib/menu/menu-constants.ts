@@ -1,4 +1,4 @@
-import {prefix as PREFIX} from '../../config';
+import {prefix as PREFIX} from '../config';
 
 export const ARIA_EXPANDED = 'aria-expanded';
 

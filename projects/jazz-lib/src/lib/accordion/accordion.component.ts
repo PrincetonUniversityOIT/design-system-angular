@@ -6,12 +6,12 @@ import {
   OnInit,
   QueryList
 } from '@angular/core';
-import {prefix as PREFIX} from '../../config';
+import {prefix as PREFIX} from '../config';
+import {ARIA_EXPANDED} from "../utility-functions";
 
 const ACCORDION_SELECTOR = `.${PREFIX}-accordion`;
 const MULTISELECTABLE = 'aria-multiselectable';
 
-export const ARIA_EXPANDED = 'aria-expanded';
 export const ARIA_CONTROLS = 'aria-controls';
 export const HIDDEN = 'hidden';
 

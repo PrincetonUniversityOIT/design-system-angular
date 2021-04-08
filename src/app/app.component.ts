@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuItem} from './model/menu-item';
-import {HeaderOptions} from './model/header-options';
+import {HeaderOptions, MenuItem} from 'jazz-lib';
+
 
 @Component({
   selector: 'app-root',

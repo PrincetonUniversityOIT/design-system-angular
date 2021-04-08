@@ -4,7 +4,7 @@ import {
   Input,
   AfterViewInit, ChangeDetectorRef, AfterViewChecked, ContentChild, OnInit
 } from '@angular/core';
-import {HeaderOptions} from '../../model/header-options';
+import {HeaderOptions} from '../model/header-options';
 import {ARIA_EXPANDED} from '../menu/menu-constants';
 import {
   ICON_CLOSE,
@@ -14,7 +14,7 @@ import {
   SEARCH_SELECTOR,
   SEARCH_SHOWN_STYLE
 } from './header-constants';
-import {MenuItem} from '../../model/menu-item';
+import {MenuItem} from '../model/menu-item';
 import {MainMenuComponent} from './main-menu/main-menu';
 import {MainMenuItemComponent} from './main-menu/main-menu-item';
 import {UtilityMenuComponent} from './utility-menu/utility-menu';

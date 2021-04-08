@@ -2,8 +2,8 @@ import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import { CommonModule } from '@angular/common';
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 
-import {PagerComponent} from '../app/components/pager/pager.component';
 import {action} from '@storybook/addon-actions';
+import {PagerComponent} from "jazz-lib";
 
 export default {
   title: 'Components/Pager',

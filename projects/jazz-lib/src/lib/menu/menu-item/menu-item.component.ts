@@ -1,4 +1,4 @@
-import {MenuItem} from '../../../model/menu-item';
+import {MenuItem} from '../../model/menu-item';
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';
 
 @Component({

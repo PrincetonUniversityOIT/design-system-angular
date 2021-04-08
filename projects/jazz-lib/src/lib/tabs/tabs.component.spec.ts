@@ -5,7 +5,8 @@ import {Router} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 import {of} from 'rxjs';
 import {Component, ViewChild} from '@angular/core';
-import {simulateKeyupEvent} from '../../../jest-config/setup';
+import {simulateKeyupEvent} from '../../../../../src/jest-config/setup';
+
 
 @Component({
   template: `
