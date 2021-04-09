@@ -1,6 +1,9 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/jazz-lib",
+  "dest": "../../dist/design-system-angular-lib",
+  "assets": [
+    "LICENSE.md"
+  ],
   "lib": {
     "entryFile": "src/public-api.ts"
   }

@@ -1,6 +1,6 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
 import {RouterModule, Routes} from '@angular/router';
-import {BreadcrumbComponent, BreadcrumbsComponent} from 'jazz-lib';
+import {BreadcrumbComponent, BreadcrumbsComponent} from "design-system-angular-lib";
 
 export const routes: Routes = [
   {

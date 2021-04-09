@@ -1,5 +1,5 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {AccordionComponent} from 'jazz-lib';
+import {AccordionComponent} from "design-system-angular-lib";
 
 const stories = storiesOf('Components/Accordion', module)
   .addDecorator(

@@ -1,8 +1,8 @@
 /*
- * Public API Surface of jazz-lib
+ * Public API Surface of design-system-angular-lib
  */
 
-export * from './lib/jazz-lib.module';
+export * from './lib/design-system-angular-lib.module';
 export * from './lib/accordion/accordion.component';
 export * from './lib/alert/alert.component';
 export * from './lib/breadcrumbs/breadcrumbs.component';

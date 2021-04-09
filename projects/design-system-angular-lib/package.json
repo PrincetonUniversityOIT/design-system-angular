@@ -1,5 +1,5 @@
 {
-  "name": "jazz-lib",
+  "name": "@princeton-design/design-system-angular-lib",
   "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^11.0.6",

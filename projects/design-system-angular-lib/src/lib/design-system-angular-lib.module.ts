@@ -64,4 +64,4 @@ import {MenuSubButtonComponent} from './menu/menu-sub-button/menu-sub-button.com
     TabsComponent
   ]
 })
-export class JazzLibModule { }
+export class DesignSystemAngularLibModule { }

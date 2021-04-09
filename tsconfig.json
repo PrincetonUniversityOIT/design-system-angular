@@ -18,9 +18,9 @@
       "dom"
     ],
     "paths": {
-      "jazz-lib": [
-        "dist/jazz-lib/jazz-lib",
-        "dist/jazz-lib"
+      "design-system-angular-lib": [
+        "dist/design-system-angular-lib/design-system-angular-lib",
+        "dist/design-system-angular-lib"
       ]
     }
   }

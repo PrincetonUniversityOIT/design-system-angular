@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HeaderOptions, MenuItem} from 'jazz-lib';
+import {HeaderOptions, MenuItem} from 'design-system-angular-lib';
 
 
 @Component({

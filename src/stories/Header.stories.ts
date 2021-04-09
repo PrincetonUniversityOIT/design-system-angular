@@ -10,7 +10,7 @@ import {
   MainMenuItemComponent,
   MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,
   SearchButtonComponent, UtilityItemComponent, UtilityMenuComponent
-} from 'jazz-lib';
+} from 'design-system-angular-lib';
 
 export default {
   title: 'Components/Header',
