@@ -1,6 +1,6 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import {Meta, Story} from '@storybook/angular';
-import {ButtonComponent} from '../app/components/button/button.component';
+import {ButtonComponent} from "design-system-angular-lib";
 
 export default {
   title: 'Components/Button',

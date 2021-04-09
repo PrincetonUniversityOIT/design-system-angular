@@ -1,6 +1,5 @@
 import {CUSTOM_ELEMENTS_SCHEMA, Directive, HostBinding, Input, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {AppComponent} from './app.component';
-import {SharedModule} from './components/shared.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
 import {MainMenu1Component} from './main-menu/main-menu1/main-menu1.component';
@@ -11,13 +10,14 @@ import {MainPageComponent} from './main-page/main-page.component';
 import {Level2Menu1Component} from './main-menu/level2-menu1/level2-menu1.component';
 import {Level3Menu1Component} from './main-menu/level3-menu1/level3-menu1.component';
 import {DocumentationComponent} from './main-menu/documentation/documentation.component';
+import {DesignSystemAngularLibModule} from 'design-system-angular-lib';
 
 @NgModule({
   imports: [
     AppRoutingModule,
     BrowserModule,
     CommonModule,
-    SharedModule
+    DesignSystemAngularLibModule
   ],
   declarations: [
     AppComponent,

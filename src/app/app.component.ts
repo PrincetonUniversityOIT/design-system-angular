@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuItem} from './model/menu-item';
-import {HeaderOptions} from './model/header-options';
+import {HeaderOptions, MenuItem} from 'design-system-angular-lib';
+
 
 @Component({
   selector: 'app-root',

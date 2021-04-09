@@ -1,4 +1,4 @@
-import {MenuItem} from '../../model/menu-item';
+import {MenuItem} from '../model/menu-item';
 import {Component, HostListener, Input} from '@angular/core';
 import {
   ARIA_EXPANDED,

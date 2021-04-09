@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "intro-storybook-angular-template": {
+    "jazz-design-system": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/intro-storybook-angular-template",
+            "outputPath": "dist/jazz-design-system",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -21,12 +21,17 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@princeton-design/design-system",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/jazz_sans.css",
-              "src/assets/jazz_fonts.css"
+              "./node_modules/@princeton-design/design-system/jazz_fonts.css",
+              "./node_modules/@princeton-design/design-system/jazz_sans.css",
+              "./node_modules/@princeton-design/design-system/jazz_serif.css"
             ],
             "scripts": []
           },
@@ -63,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "intro-storybook-angular-template:build"
+            "browserTarget": "jazz-design-system:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "intro-storybook-angular-template:build:production"
+              "browserTarget": "jazz-design-system:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "intro-storybook-angular-template:build"
+            "browserTarget": "jazz-design-system:build"
           }
         },
         "test": {
@@ -93,7 +98,46 @@
           }
         }
       }
+    },
+    "design-system-angular-lib": {
+      "projectType": "library",
+      "root": "projects/design-system-angular-lib",
+      "sourceRoot": "projects/design-system-angular-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/design-system-angular-lib/tsconfig.lib.json",
+            "project": "projects/design-system-angular-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/design-system-angular-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/design-system-angular-lib/src/test.ts",
+            "tsConfig": "projects/design-system-angular-lib/tsconfig.spec.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/design-system-angular-lib/tsconfig.lib.json",
+              "projects/design-system-angular-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
-  "defaultProject": "intro-storybook-angular-template"
+  "defaultProject": "jazz-design-system"
 }

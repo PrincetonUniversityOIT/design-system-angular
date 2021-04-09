@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';
-import {MenuItem} from '../../../model/menu-item';
+import {MenuItem} from '../../model/menu-item';
 import {
   ARIA_EXPANDED,
   MENU_HIDE_STYLE,
@@ -8,6 +8,7 @@ import {
 } from '../menu-constants';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'jazz-sub-button',
   templateUrl: './menu-sub-button.component.html'
 })

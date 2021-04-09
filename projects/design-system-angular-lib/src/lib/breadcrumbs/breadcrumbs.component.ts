@@ -1,5 +1,5 @@
 import {Component, ContentChildren, Input, OnInit, QueryList} from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   // tslint:disable-next-line:component-selector

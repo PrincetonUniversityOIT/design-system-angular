@@ -1,7 +1,8 @@
-import {DataPage} from '../../model/data-page';
+import {DataPage} from '../model/data-page';
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'jazz-pager',
   templateUrl: './pager.component.html'
 })

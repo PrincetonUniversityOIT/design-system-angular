@@ -1,7 +1,7 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {AlertComponent} from '../app/components/alert/alert.component';
 import {action} from '@storybook/addon-actions';
+import {AlertComponent} from "design-system-angular-lib";
 
 const stories = storiesOf('Components/Alert', module)
   .addDecorator(

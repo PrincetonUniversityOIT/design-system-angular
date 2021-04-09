@@ -1,8 +1,8 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {TabsComponent, TabComponent} from '../app/components/tabs/tabs.component';
 import {APP_BASE_HREF} from '@angular/common';
 import {RouterLink, RouterModule} from '@angular/router';
 import {Component} from '@angular/core';
+import {TabComponent, TabsComponent} from "design-system-angular-lib";
 
 @Component({
   // tslint:disable-next-line:component-selector

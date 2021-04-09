@@ -1,15 +1,12 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {MenuComponent} from '../app/components/menu/menu.component';
-import {MenuItemComponent} from '../app/components/menu/menu-item/menu-item.component';
-import {MenuMainButtonComponent} from '../app/components/menu/menu-main-button/menu-main-button.component';
-import {MenuSubButtonComponent} from '../app/components/menu/menu-sub-button/menu-sub-button.component';
-import {SearchButtonComponent} from '../app/components/header/search-button/search-button.component';
-import {MainMenuItemComponent} from '../app/components/header/main-menu/main-menu-item';
-import {MainMenuComponent} from '../app/components/header/main-menu/main-menu';
-import {UtilityMenuComponent} from '../app/components/header/utility-menu/utility-menu';
-import {UtilityItemComponent} from '../app/components/header/utility-menu/utility-menu-item';
-import {HeaderComponent} from '../app/components/header/header.component';
 import {RouterModule, Routes} from '@angular/router';
+import {
+  HeaderComponent,
+  MainMenuComponent,
+  MainMenuItemComponent,
+  MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,
+  SearchButtonComponent, UtilityItemComponent, UtilityMenuComponent
+} from 'design-system-angular-lib';
 
 export const routes: Routes = [
   {
