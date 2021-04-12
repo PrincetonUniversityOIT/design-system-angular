@@ -28,7 +28,7 @@ jobs:
       - run: npm run build-lib
 
       - uses: JS-DevTools/npm-publish@v1
-          with:
+        with:
             package: "./dist/design-system-angular/package.json"
             token: ${{ secrets.NPM_TOKEN }}
             access: public
