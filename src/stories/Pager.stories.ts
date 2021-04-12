@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 
 import {action} from '@storybook/addon-actions';
-import {PagerComponent} from "design-system-angular-lib";
+import {PagerComponent} from 'design-system-angular';
 
 export default {
   title: 'Components/Pager',

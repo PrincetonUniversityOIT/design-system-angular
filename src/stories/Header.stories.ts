@@ -10,7 +10,7 @@ import {
   MainMenuItemComponent,
   MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,
   SearchButtonComponent, UtilityItemComponent, UtilityMenuComponent
-} from 'design-system-angular-lib';
+} from 'design-system-angular';
 
 export default {
   title: 'Components/Header',

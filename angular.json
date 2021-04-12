@@ -99,37 +99,37 @@
         }
       }
     },
-    "design-system-angular-lib": {
+    "design-system-angular": {
       "projectType": "library",
-      "root": "projects/design-system-angular-lib",
-      "sourceRoot": "projects/design-system-angular-lib/src",
+      "root": "projects/design-system-angular",
+      "sourceRoot": "projects/design-system-angular/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/design-system-angular-lib/tsconfig.lib.json",
-            "project": "projects/design-system-angular-lib/ng-package.json"
+            "tsConfig": "projects/design-system-angular/tsconfig.lib.json",
+            "project": "projects/design-system-angular/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/design-system-angular-lib/tsconfig.lib.prod.json"
+              "tsConfig": "projects/design-system-angular/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/design-system-angular-lib/src/test.ts",
-            "tsConfig": "projects/design-system-angular-lib/tsconfig.spec.json"
+            "main": "projects/design-system-angular/src/test.ts",
+            "tsConfig": "projects/design-system-angular/tsconfig.spec.json"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/design-system-angular-lib/tsconfig.lib.json",
-              "projects/design-system-angular-lib/tsconfig.spec.json"
+              "projects/design-system-angular/tsconfig.lib.json",
+              "projects/design-system-angular/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -139,5 +139,5 @@
       }
     }
   },
-  "defaultProject": "jazz-design-system"
+  "defaultProject": "design-system-angular"
 }

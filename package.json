@@ -1,5 +1,5 @@
 {
-  "name": "design-system-angular",
+  "name": "design-system-angular-project",
   "version": "0.1.0",
   "description": "This is the Princeton Design System project leveraging Angular for components",
   "author": "Princeton University",
@@ -16,12 +16,12 @@
     "start": "ng serve",
     "build": "ng build",
     "build-prod": "ng build --prod",
-    "build-lib": "ng build design-system-angular-lib --prod",
+    "build-lib": "ng build design-system-angular --prod",
     "test": "jest --watchAll",
     "lint": "ng lint",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "docs:serve": "compodoc -p ./tsconfig.json -s",
-    "storybook": "npm run docs:json && start-storybook -p 6006",
+    "storybook": "npm run docs:json && start-storybook -s./node_modules/@princeton-design/design-system:assets -p 6006",
     "build-storybook": "npm run docs:json && build-storybook"
   },
   "private": true,

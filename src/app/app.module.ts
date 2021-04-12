@@ -10,14 +10,15 @@ import {MainPageComponent} from './main-page/main-page.component';
 import {Level2Menu1Component} from './main-menu/level2-menu1/level2-menu1.component';
 import {Level3Menu1Component} from './main-menu/level3-menu1/level3-menu1.component';
 import {DocumentationComponent} from './main-menu/documentation/documentation.component';
-import {DesignSystemAngularLibModule} from 'design-system-angular-lib';
+import {DesignSystemAngularModule} from 'design-system-angular';
+
 
 @NgModule({
   imports: [
     AppRoutingModule,
     BrowserModule,
     CommonModule,
-    DesignSystemAngularLibModule
+    DesignSystemAngularModule
   ],
   declarations: [
     AppComponent,
