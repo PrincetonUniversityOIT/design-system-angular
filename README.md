@@ -1,23 +1,52 @@
-# Princeton Design System
+# Princeton Design System for Angular
+The design system is a library of components to be primarily used for Angular projects.
 
-## Getting Started
-
-The instructions below assume that you have Node/NPM properly installed on your system.
-
-After cloning the repo to your local system, be sure to install the project dependencies.
+## Installation
 
 ```
-npm install
+npm install @princeton-design/design-system-angular --save
 ```
 
-You will want to run the build for the Angular components and CSS before running the server.
+## Using Angular Components
+In Angular environments, include the following code in the angular.json file order to map images and css files from the @princeton-design/design-system package.
 
 ```
-ng build
+ "assets": [
+   "src/assets",
+     {
+       "glob": "**/*",
+       "input": "./node_modules/@princeton-design/design-system",
+       "output": "/assets/"
+     }
+ ],
+ "styles": [
+   "src/styles.css",
+   "./node_modules/@princeton-design/design-system/jazz_fonts.css",
+   "./node_modules/@princeton-design/design-system/jazz_sans.css",
+   "./node_modules/@princeton-design/design-system/jazz_serif.css"
+ ],
 ```
 
-After that you should be ready to run the site locally.
+In the project's module file import the library
+```
+import {DesignSystemAngularModule} from "@princeton-design/design-system-angular";
+```
+
+Also include the DesignSystemAngularModule in the module file
 
 ```
-npm run storybook
+@NgModule({
+  imports: [
+    DesignSystemAngularModule
+  ]
+})
+```
+
+## Using CSS. icons and images from the  @princeton-design/design-system project
+
+In order to get the appropriate assets needed for the components to render properly you will need to install the @princeton-design/design-system
+package which contains the stylesheets, icons and images that the components need.
+
+```
+npm install @princeton-design/design-system --save
 ```

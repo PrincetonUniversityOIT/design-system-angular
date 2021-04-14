@@ -32,4 +32,3 @@ jobs:
             package: "./dist/design-system-angular/package.json"
             token: ${{ secrets.NPM_TOKEN }}
             access: public
-            dry-run: true
