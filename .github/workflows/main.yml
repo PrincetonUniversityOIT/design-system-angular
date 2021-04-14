@@ -6,9 +6,8 @@ name: Publish a Release
 # events but only for the master branch
 
 on:
-  push
-  #release:
-  #  types: [created]
+  release:
+    types: [created]
 
 jobs:
   build:
