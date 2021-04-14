@@ -1,24 +1,52 @@
-# design-system-angular
+# Princeton Design System for Angular
+The design system is a library of components to be primarily used for Angular projects.
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
+## Installation
 
-## Code scaffolding
+```
+npm install @princeton-design/design-system-angular --save
+```
 
-Run `ng generate component component-name --project design-system-angular` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project design-system-angular`.
-> Note: Don't forget to add `--project design-system-angular` or else it will be added to the default project in your `angular.json` file. 
+## Using Angular Components
+In Angular environments, include the following code in the angular.json file order to map images and css files from the @princeton-design/design-system package.
 
-## Build
+```
+ "assets": [
+   "src/assets",
+     {
+       "glob": "**/*",
+       "input": "./node_modules/@princeton-design/design-system",
+       "output": "/assets/"
+     }
+ ],
+ "styles": [
+   "src/styles.css",
+   "./node_modules/@princeton-design/design-system/jazz_fonts.css",
+   "./node_modules/@princeton-design/design-system/jazz_sans.css",
+   "./node_modules/@princeton-design/design-system/jazz_serif.css"
+ ],
+```
 
-Run `ng build design-system-angular` to build the project. The build artifacts will be stored in the `dist/` directory.
+In the project's module file import the library
+```
+import {DesignSystemAngularModule} from "@princeton-design/design-system-angular";
+```
 
-## Publishing
+Also include the DesignSystemAngularModule in the module file
 
-After building your library with `ng build design-system-angular`, go to the dist folder `cd dist/design-system-angular` and run `npm publish`.
+```
+@NgModule({
+  imports: [
+    DesignSystemAngularModule
+  ]
+})
+```
 
-## Running unit tests
+## Using CSS. icons and images from the  @princeton-design/design-system project
 
-Run `ng test design-system-angular` to execute the unit tests via jest
+In order to get the appropriate assets needed for the components to render properly you will need to install the @princeton-design/design-system
+package which contains the stylesheets, icons and images that the components need.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+npm install @princeton-design/design-system --save
+```
