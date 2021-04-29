@@ -28,11 +28,9 @@
               }
             ],
             "styles": [
-              "src/styles.css",
               "./node_modules/@princeton-design/design-system/jazz_fonts.css",
-              "./node_modules/@princeton-design/design-system/jazz_sans.css",
-              "./node_modules/@princeton-design/design-system/jazz_serif.css"
-            ],
+              "./node_modules/@princeton-design/design-system/jazz_custom.css",
+              "src/styles.css"            ],
             "scripts": []
           },
           "configurations": {

@@ -13,4 +13,7 @@ export class MainMenu3Component implements OnInit {
 
   }
 
+  changePage(event$): void {
+    console.log('current page is ' + event$);
+  }
 }

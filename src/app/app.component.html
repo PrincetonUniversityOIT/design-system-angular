@@ -21,18 +21,18 @@
     </jazz-utility-menu>
 </jazz-header>
 
-<main>
-  <div class="jazz-container">
-    <router-outlet></router-outlet>
-  </div>
-</main>
+  <main>
+    <div class="jazz-container">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
 
   <footer role="contentinfo" class="jazz-footer">
     <div class="jazz-container jazz-footer__content">
       <div class="row">
         <div class="col-sm-3 col-xs-12">
           <ul class="jazz-footer__list">
-            <li><a href="javascript:void(0);"><i class="jazz-icon jazz-icon-envelope jazz-icon-white" aria-hidden="true"></i>  finance@princeton.edu</a></li>
+            <li><i class="jazz-icon jazz-icon-envelope jazz-icon-white" aria-hidden="true"></i><a href="javascript:void(0);">  finance@princeton.edu</a></li>
           </ul>
         </div>
         <div class="col-sm-3 col-xs-12">
@@ -55,20 +55,19 @@
         </div>
       </div>
     </div>
-    <div class="jazz-footer__subfooter">
-      <div class="jazz-container">
-        <div class="row">
-          <div class="col-sm-4 col-xs-12">
-            <a href="javascript:void(0)">Accessibility</a>
-          </div>
-          <div class="col-sm-4 col-xs-12 jazz-footer-text--center">
-            &copy; 2020 The Trustees of Princeton University
-          </div>
-          <div class="col-sm-4 col-xs-12">
-            <a href="https://www.princeton.edu" target="_blank" class="jazz-no-icon"><img class="jazz-footer__logo" src="./assets/icons/pu-logo-stacked-white.svg" alt="Princeton University" /></a>
-          </div>
+    <div class="jazz-subfooter">
+      <div class="jazz-subfooter__layout">
+        <div>
+          <a href="https://accessibility.princeton.edu/help">Accessibility</a>
+        </div>
+        <div class="jazz-subfooter__copyright">
+          <i class="jazz-icon jazz-icon-copyright"><span class="jazz-visually-hidden">&copy;</span></i> 2021 The Trustees of Princeton University
+        </div>
+        <div class="jazz-subfooter__logo">
+          <a href="https://www.princeton.edu"><img src="./assets/logos/pu-logo-stacked-white.svg" alt="Princeton University Home Page" /></a>
         </div>
       </div>
     </div>
   </footer>
+
 </div>

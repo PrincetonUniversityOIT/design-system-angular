@@ -15,30 +15,20 @@ export default {
   ],
 } as Meta;
 
-const pageSet1 = {
-  totalPages: 10,
-  number: 1
-}
-
-const pageSet2 = {
-  totalPages: 20,
-  number: 7
-}
-
 const Template: Story<PagerComponent> = (args: PagerComponent) => ({
   component: PagerComponent,
-  props: args
+  props: {totalPages: 10, currentPage: 1}
 });
 
 export const Default = Template.bind({});
 Default.args = {
-  dataPage: pageSet1,
+  dataPage: {totalPages: 10, currentPage: 1},
   pagerChange: action('pagerChange')
 };
 
 export const DoubleTruncated = Template.bind({});
 DoubleTruncated.args = {
-  dataPage: pageSet2,
+  dataPage: {totalPages: 20, currentPage: 7},
   pagerChange: action('pagerChange')
 };
 

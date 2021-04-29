@@ -44,5 +44,4 @@ build-storybook.log
 # System Files
 .DS_Store
 Thumbs.db
-documentation/
 documentation.json

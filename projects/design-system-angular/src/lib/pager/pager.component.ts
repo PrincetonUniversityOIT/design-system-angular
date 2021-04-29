@@ -1,4 +1,3 @@
-import {DataPage} from '../model/data-page';
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
@@ -8,8 +7,11 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class PagerComponent {
 
-  @Input('dataPage')
-  public dataPage: DataPage<any>;
+  @Input('totalPages')
+  public totalPages: number;
+
+  @Input('currentPage')
+  public currentPage: number;
 
   @Output()
   public pagerChange: EventEmitter<any> = new EventEmitter();
@@ -18,25 +20,23 @@ export class PagerComponent {
 
   iterablePages(): number[] {
 
-    const totalPages: number = this.dataPage.totalPages;
-    const currentPage: number = this.dataPage.number;
     const pages: number[] = [];
     const delta = 4;
     let maxPages = 9;
     let truncate = true;
     let pageNum = 0;
 
-    if (totalPages < maxPages) {
-      maxPages = totalPages;
+    if (this.totalPages < maxPages) {
+      maxPages = this.totalPages;
       truncate = false;
       pageNum = 0;
     } else {
-      if (currentPage - delta < 0) {
+      if (this.currentPage - delta < 0) {
         pageNum = 0;
-      } else if (currentPage + delta > totalPages - 1) {
-        pageNum = totalPages - maxPages;
+      } else if (this.currentPage + delta > this.totalPages - 1) {
+        pageNum = this.totalPages - maxPages;
       } else {
-        pageNum = currentPage - delta;
+        pageNum = this.currentPage - delta;
       }
     }
 
@@ -50,8 +50,8 @@ export class PagerComponent {
           pages.push(-1);
         } else if (pageIdx === maxPages - 1) {
           // always show the last page number
-          pages.push(totalPages - 1);
-        } else if (pageIdx === maxPages - 2 && pageNum !== totalPages - 2) {
+          pages.push(this.totalPages - 1);
+        } else if (pageIdx === maxPages - 2 && pageNum !== this.totalPages - 2) {
           // show '...' if there is a gap between next to last page and last page
           pages.push(-1);
         } else {
@@ -67,8 +67,8 @@ export class PagerComponent {
   }
 
   setPage(page: number): void {
-    if (page >= 0 && page <= this.dataPage.totalPages) {
-      this.dataPage.number = page;
+    if (page >= 0 && page <= this.totalPages) {
+      this.currentPage = page;
       this.pagerChange.emit(page);
     }
   }

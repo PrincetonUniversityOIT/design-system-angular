@@ -20,6 +20,5 @@ export * from './lib/menu/menu-sub-button/menu-sub-button.component';
 export * from './lib/pager/pager.component';
 export * from './lib/modal-dialog/modal-dialog.component';
 export * from './lib/tabs/tabs.component';
-export * from './lib/model/data-page';
 export * from './lib/model/header-options';
 export * from './lib/model/menu-item';
