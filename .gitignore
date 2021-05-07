@@ -46,3 +46,4 @@ build-storybook.log
 Thumbs.db
 documentation.json
 _site/
+documentation/
