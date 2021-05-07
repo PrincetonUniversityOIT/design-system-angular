@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PagerComponent should render properly for a double truncated pager 1`] = `
+"<ul><li><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a data-page=\\"Previous\\">Previous</a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><!--bindings={
+  \\"ng-reflect-ng-for-of\\": \\"0,-1,5,6,7,8,9,-1,19\\"
+}--><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 1\\" data-page=\\"1\\">1 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><span>...</span></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 6\\" data-page=\\"6\\">6 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"page\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 7\\" data-page=\\"7\\">7 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 8\\" data-page=\\"8\\">8 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 9\\" data-page=\\"9\\">9 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 10\\" data-page=\\"10\\">10 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><span>...</span></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 20\\" data-page=\\"20\\">20 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a data-page=\\"Next\\">Next</a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li></ul>"
+`;
+
+exports[`PagerComponent should render properly for simple pager 1`] = `
+"<ul><li><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a data-page=\\"Previous\\">Previous</a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><!--bindings={
+  \\"ng-reflect-ng-for-of\\": \\"0,-1,3,4,5,6,7,8,9\\"
+}--><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 1\\" data-page=\\"1\\">1 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><span>...</span></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 4\\" data-page=\\"4\\">4 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"page\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 5\\" data-page=\\"5\\">5 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 6\\" data-page=\\"6\\">6 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 7\\" data-page=\\"7\\">7 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 8\\" data-page=\\"8\\">8 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 9\\" data-page=\\"9\\">9 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li aria-current=\\"\\"><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a aria-label=\\"Go to 10\\" data-page=\\"10\\">10 </a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li><li><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><a data-page=\\"Next\\">Next</a><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></li></ul>"
+`;
