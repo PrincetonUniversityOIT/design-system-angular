@@ -37,10 +37,12 @@
   <div class="jazz-header-break"></div>
   <div class="jazz-header__site-branding">
     <div class="jazz-header__site-branding-contents">
-      <a href="./" title="Home" rel="home" tabindex="-1" aria-hidden="true" class="jazz-header__site-branding-home-link"><img src="./assets/logos/shield.svg" alt="{{ headerOptions.siteBrandingName }}"/></a>
+      <a href="{{ headerOptions.siteBrandingUrl }}" title="Home" rel="home" tabindex="-1" aria-hidden="true" class="jazz-header__site-branding-home-link">
+        <img src="{{ getSiteBrandingLogo() }}" alt="{{ headerOptions.siteBrandingName }}"/>
+      </a>
       <div class="jazz-header__site-branding-info">
         <div class="jazz-header__site-branding-name">
-          <a href="./" title="Home" rel="home">{{ headerOptions.siteBrandingName }}</a>
+          <a href="{{ headerOptions.siteBrandingUrl }}" title="Home" rel="home">{{ headerOptions.siteBrandingName }}</a>
         </div>
         <div class="jazz-header__site-branding-slogan">
           {{ headerOptions.siteBrandingSlogan }}
@@ -52,14 +54,14 @@
     <div class="jazz-container">
       <div class="jazz-header-collapsed-container">
         <div class="jazz-header-collapsed__pu-branding">
-          <a href="javascript:void(0);" title="{{headerOptions.title}}"><img src="./assets/logos/shield.svg" alt="{{headerOptions.title}}" /></a>
+          <a href="{{ headerOptions.siteBrandingUrl }}" title="{{headerOptions.title}}"><img src="{{getSiteBrandingLogo()}}" alt="{{headerOptions.title}}" /></a>
         </div>
         <div class="jazz-header-collapsed__site-branding--divider">
         </div>
         <div class="jazz-header-collapsed__site-branding">
           <div class="jazz-header-collapsed__site-branding-info">
             <div class="jazz-header-collapsed__site-branding-name">
-              <a href="javascript:void(0);" title="Home" rel="home">{{ headerOptions.siteBrandingName }}</a>
+              <a href="{{ headerOptions.siteBrandingUrl }}" title="Home" rel="home">{{ headerOptions.siteBrandingName }}</a>
             </div>
           </div>
         </div>
@@ -72,67 +74,43 @@
   </div>
 </header>
 
-<header role="banner" class="jazz-header-compact" *ngIf="headerOptions.showCompact">
+<header role="banner" class="jazz-utility-header" *ngIf="headerOptions.showCompact">
   <h1 class="jazz-visually-hidden">{{ headerOptions.title }}</h1>
   <div class="jazz-skip-links">
     <a href="#main-content" class="jazz-skip-link">Skip to main content</a>
     <a href="#search" class="jazz-skip-link">Skip to search options</a>
   </div>
   <div class="jazz-container">
-    <div class="jazz-header-compact-container">
-      <div class="jazz-header-compact-logo">
-        <div class="jazz-header-compact__pu-branding">
-          <a href="javascript:void(0);" title="{{ headerOptions.title }}"><img src="./assets/logos/pu-standard-ww-ws.png" alt="{{ headerOptions.title }}" /></a>
-        </div>
-        <div class="jazz-header-compact__site-branding--divider">
-        </div>
-        <div class="jazz-header-compact__site-branding">
-          <div class="jazz-header-compact__site-branding-info">
-            <div class="jazz-header-compact__site-branding-name">
-              <a href="javascript:void(0);" title="Home" rel="home">{{ headerOptions.siteBrandingName }}</a>
-            </div>
-          </div>
-        </div>
+    <div class="jazz-utility-header__branding">
+      <a class="jazz-utility-header__pu_logo" href="{{ headerOptions.siteBrandingUrl }}" title="{{ headerOptions.title }}">
+        <img src="{{ getSiteBrandingLogo() }}" alt="{{ headerOptions.title }}" /></a>
+      <div class="jazz-div"></div>
+      <div class="jazz-utility-header__site-branding">
+        <a class="jazz-utility-header__site-name" href="javascript:void(0);" title="{{ headerOptions.siteBrandingName }}" rel="home">{{ headerOptions.siteBrandingName }}</a>
+        <div class="jazz-utility-header__site-slogan">{{ headerOptions.siteBrandingSlogan }}</div>
       </div>
-      <div class="jazz-header-collapsed-header">
-        <div class="jazz-header-collapsed-container">
-          <div class="jazz-header-collapsed__pu-branding">
-            <a href="javascript:void(0);" title="{{ headerOptions.title }}"><img src="./assets/logos/shield.svg" alt="{{ headerOptions.title }}" /></a>
-          </div>
-          <div class="jazz-header-collapsed__site-branding--divider">
-          </div>
-          <div class="jazz-header-collapsed__site-branding">
-            <div class="jazz-header-collapsed__site-branding-info">
-              <div class="jazz-header-collapsed__site-branding-name">
-                <a href="javascript:void(0);" title="Home" rel="home">{{ headerOptions.siteBrandingName }}</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="jazz-header-break"></div>
-      <nav aria-label="Main Menu" class="jazz-menu__main-menu">
-        <div class="jazz-menu__main-menu-navbar">
-          <jazz-menu-main-button></jazz-menu-main-button>
-          <div class="jazz-menu__nav-container">
-            <div class="jazz-header-compact__utility-menu">
-              <ul class="jazz-menubar">
-                <li *ngFor="let menuItem of headerOptions.utilityItems">
-                  <a *ngIf="menuItem.url" [routerLink]="menuItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
-                     [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{menuItem.label}}</a>
-                  <a *ngIf="menuItem.externalUrl" href="{{menuItem.externalUrl}}">{{menuItem.label}}</a>
-                </li>
-              </ul>
-            </div>
-            <div class="jazz-header-compact__utility-menu--divider"></div>
-            <div class="jazz-header-compact__utility-menu">
-              <ul class="jazz-menubar">
-                <li><a href="javascript void(0);">Net Id</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
+    </div>
+    <div class="jazz-utility-header__options">
+      <section class="jazz-utility-header__nav">
+        <h2 class="jazz-visually-hidden">Related Links</h2>
+        <jazz-menu-main-button [buttonClass]="'jazz-utility-header__nav-toggle'" [showCompact]="true"></jazz-menu-main-button>
+        <nav class="jazz-nav">
+          <ul>
+            <li *ngFor="let menuItem of headerOptions.utilityItems">
+              <a *ngIf="menuItem.url" [routerLink]="menuItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
+                 [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{menuItem.label}}</a>
+              <a *ngIf="menuItem.externalUrl" href="{{menuItem.externalUrl}}">{{menuItem.label}}</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+      <div class="jazz-div"></div>
+      <section class="jazz-utility-header__user-options">
+        <h2 class="jazz-visually-hidden">User Options</h2>
+        <ul>
+          <li><a href="javascript:void(0);">Log In</a></li>
+        </ul>
+      </section>
     </div>
   </div>
 </header>

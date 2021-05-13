@@ -85,6 +85,7 @@ const compact = Object.assign({}, headerOptions);
 compact.menuItems = [];
 compact.showSearch = false;
 compact.showCompact = true;
+compact.siteBrandingLogo = './assets/logos/pu-logo-stacked-white.svg';
 
 export const Default = Template.bind({});
 Default.args = {

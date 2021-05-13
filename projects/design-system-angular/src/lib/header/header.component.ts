@@ -38,10 +38,16 @@ export class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked 
   siteBrandingSlogan?: string;
 
   @Input()
-  showSearch?: boolean = true;
+  siteBrandingUrl?: string;
 
   @Input()
-  showCompact?: boolean = false;
+  siteBrandingLogo?: string;
+
+  @Input()
+  showSearch = true;
+
+  @Input()
+  showCompact = false;
 
   @ContentChild(MainMenuComponent)
   mainMenu: MainMenuComponent;
@@ -72,6 +78,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked 
             title: this.title,
             siteBrandingName: this.siteBrandingName,
             siteBrandingSlogan: this.siteBrandingSlogan,
+            siteBrandingLogo: this.siteBrandingLogo,
+            siteBrandingUrl: this.siteBrandingUrl,
             showSearch: this.showSearch,
             showCompact: this.showCompact
        });
@@ -135,5 +143,15 @@ export class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked 
       searchToggleIcon.classList.remove(ICON_CLOSE);
       searchToggleIcon.classList.add(ICON_SEARCH);
     });
+  }
+
+  getSiteBrandingLogo(): string {
+    if (this.headerOptions.siteBrandingLogo) {
+      return this.headerOptions.siteBrandingLogo;
+    }
+    if (this.headerOptions.showCompact) {
+        return './assets/logos/pu-logo-stacked-white.svg';
+    }
+    return './assets/logos/pu-shield.svg';
   }
 }
