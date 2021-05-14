@@ -4,11 +4,9 @@ import {
   HeaderComponent,
   MainMenuComponent,
   MainMenuItemComponent,
-  MenuComponent, MenuItemComponent, MenuSubButtonComponent,
-  SearchButtonComponent, UtilityMenuComponent
+  MenuComponent, MenuItemComponent, MenuSubButtonComponent, MenuMainButtonComponent,
+  SearchButtonComponent, UtilityMenuComponent, UtilityItemComponent
 } from 'design-system-angular';
-import {UtilityItemComponent} from '../../projects/design-system-angular/src/lib/header/utility-menu/utility-menu-item';
-import {MenuMainButtonComponent} from '../../projects/design-system-angular/src/lib/menu/menu-main-button/menu-main-button.component';
 
 export const routes: Routes = [
   {
@@ -51,7 +49,7 @@ stories.add('Default', () => {
   return {
     template:  `
     <jazz-header [title]="'Princeton University Design System'"
-        [siteBrandingName]="'RELATIVITY'"
+        [siteBrandingName]="'RELATIVITY'" [siteBrandingUrl]="'http://www.princeton.edu'"
         [siteBrandingSlogan]="'The Princeton University Design System'" [showCompact]='false' [showSearch]='true'>
       <jazz-main-menu>
         <jazz-main-menu-item label="Main Menu 1" url="/mainMenu1">
@@ -78,7 +76,7 @@ stories.add('Default', () => {
 stories.add('Compact', () => {
   return {
     template:  `
-    <jazz-header [title]="'Princeton University Design System'" [siteBrandingName]="'RELATIVITY'" [siteBrandingSlogan]="'The Princeton University Design System'" [showCompact]='true' [showSearch]='true'>
+    <jazz-header [title]="'Princeton University Design System'" [siteBrandingName]="'RELATIVITY'" [siteBrandingUrl]="'http://www.princeton.edu'" [siteBrandingSlogan]="'The Princeton University Design System'" [showCompact]='true' [showSearch]='true'>
     <jazz-utility-menu>
       <jazz-utility-item label="Documentation" externalUrl="http://www.google.com"></jazz-utility-item>
       <jazz-utility-item label="Log In" url="/login"></jazz-utility-item>
