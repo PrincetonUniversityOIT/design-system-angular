@@ -1,113 +1,89 @@
-// also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
-
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {APP_BASE_HREF, CommonModule} from '@angular/common';
-import {RouterModule} from '@angular/router';
-
+import {moduleMetadata, storiesOf} from '@storybook/angular';
+import {RouterModule, Routes} from '@angular/router';
 import {
-  HeaderComponent, HeaderOptions,
+  HeaderComponent,
   MainMenuComponent,
   MainMenuItemComponent,
-  MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent,
-  SearchButtonComponent, UtilityItemComponent, UtilityMenuComponent
+  MenuComponent, MenuItemComponent, MenuSubButtonComponent,
+  SearchButtonComponent, UtilityMenuComponent
 } from 'design-system-angular';
+import {UtilityItemComponent} from '../../projects/design-system-angular/src/lib/header/utility-menu/utility-menu-item';
+import {MenuMainButtonComponent} from '../../projects/design-system-angular/src/lib/menu/menu-main-button/menu-main-button.component';
 
-export default {
-  title: 'Components/Header',
-  component: HeaderComponent,
-  decorators: [
+export const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: ''
+  },
+  {
+    path: 'mainMenu1',
+    pathMatch: 'full',
+    redirectTo: ''
+  },
+  {
+    path: 'mainMenu2',
+    pathMatch: 'full',
+    redirectTo: ''
+  },
+  {
+    path: 'mainMenu3',
+    pathMatch: 'full',
+    redirectTo: ''
+  },
+  {
+    path: 'documentation',
+    pathMatch: 'full',
+    redirectTo: ''
+  }
+];
+
+const stories = storiesOf('Components/Header', module)
+  .addDecorator(
     moduleMetadata({
-      declarations: [MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, SearchButtonComponent,
-        MainMenuItemComponent, MainMenuComponent, UtilityMenuComponent, UtilityItemComponent],
-      imports: [CommonModule, RouterModule.forRoot([])],
-      providers: [
-        {provide: APP_BASE_HREF, useValue: '/'}
-      ]
-    }),
-  ],
-} as Meta;
+      imports: [RouterModule.forRoot(routes, {useHash: true})],
+      declarations: [HeaderComponent, MenuComponent, MenuItemComponent, MenuSubButtonComponent, MenuMainButtonComponent,
+        SearchButtonComponent,  MainMenuItemComponent, MainMenuComponent, UtilityItemComponent, UtilityMenuComponent]
+    })
+  );
 
-
-const subMenu2: MenuItem[] = [];
-subMenu2.push(new MenuItem('Level 3 Menu 1', '/level3item1' ));
-subMenu2.push(new MenuItem('Level 3 Menu 2', '/level3item2' ));
-subMenu2.push(new MenuItem('Level 3 Menu 3', '/level3item3' ));
-
-const subMenu1: MenuItem[] = [];
-subMenu1.push(new MenuItem('Level 2 Menu 1', '/level2item1', subMenu2));
-subMenu1.push(new MenuItem('Level 2 Menu 2', '/level2item2'));
-subMenu1.push(new MenuItem('Level 2 Menu 3', '/level2item2'));
-
-const mainMenu: MenuItem[] = [];
-mainMenu.push(new MenuItem('Main Menu 1', '/level1item1', subMenu1 ));
-mainMenu.push(new MenuItem('Main Menu 2', '/level1item2'));
-mainMenu.push(new MenuItem('Main Menu 3', '/level1item3'));
-
-const utilityMenu: MenuItem[] = [];
-const utilityMenu1 = new MenuItem('Documentation');
-utilityMenu1.externalUrl = 'http://www.google.com';
-
-const utilityMenu2 = new MenuItem('Log In');
-utilityMenu2.url = '/login';
-
-utilityMenu.push(utilityMenu1);
-utilityMenu.push(utilityMenu2);
-
-const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
-  component: HeaderComponent,
-  props: args,
+stories.add('Default', () => {
+  return {
+    template:  `
+    <jazz-header [title]="'Princeton University Design System'"
+        [siteBrandingName]="'RELATIVITY'"
+        [siteBrandingSlogan]="'The Princeton University Design System'" [showCompact]='false' [showSearch]='true'>
+      <jazz-main-menu>
+        <jazz-main-menu-item label="Main Menu 1" url="/mainMenu1">
+            <jazz-main-menu-item label="Level 2 Menu 1" url="/level2item1" shownByDefault="true">
+              <jazz-main-menu-item label="Level 3 Menu 1" url="/level3item1"></jazz-main-menu-item>
+              <jazz-main-menu-item label="Level 3 Menu 2" url="/level3item1"></jazz-main-menu-item>
+              <jazz-main-menu-item label="Level 3 Menu 3" url="/level3item1"></jazz-main-menu-item>
+            </jazz-main-menu-item>
+            <jazz-main-menu-item label="Level 2 Menu 2" url="/level2item1"></jazz-main-menu-item>
+            <jazz-main-menu-item label="Level 2 Menu 3" url="/level2item1"></jazz-main-menu-item>
+        </jazz-main-menu-item>
+        <jazz-main-menu-item label="Main Menu 2" url="/mainMenu2"></jazz-main-menu-item>
+        <jazz-main-menu-item label="Main Menu 3" externalUrl="http://www.microsoft.com"></jazz-main-menu-item>
+    </jazz-main-menu>
+    <jazz-utility-menu>
+      <jazz-utility-item label="Documentation" externalUrl="http://www.google.com"></jazz-utility-item>
+      <jazz-utility-item label="Log In" url="/login"></jazz-utility-item>
+    </jazz-utility-menu>
+    </jazz-header>
+`
+  };
 });
 
-const headerOptions = new HeaderOptions();
-headerOptions.title = 'Princeton University Design System';
-headerOptions.siteBrandingName = 'RELATIVITY';
-headerOptions.siteBrandingSlogan = 'The Princeton University Design System';
-headerOptions.showCompact = false;
-headerOptions.showSearch = true;
-headerOptions.menuItems = mainMenu;
-headerOptions.utilityItems = utilityMenu;
-
-const headerOptionsOnlyUtility = Object.assign({}, headerOptions);
-headerOptionsOnlyUtility.menuItems = [];
-headerOptionsOnlyUtility.showSearch = false;
-
-const justSearch = Object.assign({}, headerOptions);
-justSearch.showSearch = true;
-justSearch.menuItems = [];
-justSearch.utilityItems = [];
-
-const justHeader = Object.assign({}, headerOptions);
-justHeader.showSearch = false;
-justHeader.menuItems = [];
-justHeader.utilityItems = [];
-
-const compact = Object.assign({}, headerOptions);
-compact.menuItems = [];
-compact.showSearch = false;
-compact.showCompact = true;
-compact.siteBrandingLogo = './assets/logos/pu-logo-stacked-white.svg';
-
-export const Default = Template.bind({});
-Default.args = {
-  headerOptions
-};
-
-export const OnlyUtilityMenu = Template.bind({});
-OnlyUtilityMenu.args = {
-  headerOptions: headerOptionsOnlyUtility
-};
-
-export const JustSearch = Template.bind({});
-JustSearch.args = {
-  headerOptions: justSearch
-};
-
-export const JustHeader = Template.bind({});
-JustHeader.args = {
-  headerOptions: justHeader
-};
-
-export const Compact = Template.bind({});
-Compact.args = {
-  headerOptions: compact
-};
+stories.add('Compact', () => {
+  return {
+    template:  `
+    <jazz-header [title]="'Princeton University Design System'" [siteBrandingName]="'RELATIVITY'" [siteBrandingSlogan]="'The Princeton University Design System'" [showCompact]='true' [showSearch]='true'>
+    <jazz-utility-menu>
+      <jazz-utility-item label="Documentation" externalUrl="http://www.google.com"></jazz-utility-item>
+      <jazz-utility-item label="Log In" url="/login"></jazz-utility-item>
+    </jazz-utility-menu>
+    </jazz-header>
+`
+  };
+});

@@ -6,6 +6,8 @@ import {
   MENU_RECENTLY_OPENED_ID,
   MENU_STICKY_STYLE, MENU_SUB_NAV_EXPANDED_STYLE, MENUBAR_SUB_SHOWN_STYLE
 } from '../menu-constants';
+import {MenuItemComponent} from "../menu-item/menu-item.component";
+import {MainMenuItemComponent} from "../../header/main-menu/main-menu-item";
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -14,7 +16,7 @@ import {
 })
 export class MenuSubButtonComponent implements OnInit {
   @Input()
-  menuItem: MenuItem;
+  menuItem: MainMenuItemComponent;
 
   @Output()
   closeSubMenus: EventEmitter<void> = new EventEmitter();

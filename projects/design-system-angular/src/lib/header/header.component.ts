@@ -2,9 +2,8 @@ import {
   Component,
   HostListener,
   Input,
-  AfterViewInit, ChangeDetectorRef, AfterViewChecked, ContentChild, OnInit
+  ChangeDetectorRef, AfterViewChecked, ContentChild, AfterContentChecked
 } from '@angular/core';
-import {HeaderOptions} from '../model/header-options';
 import {ARIA_EXPANDED} from '../menu/menu-constants';
 import {
   ICON_CLOSE,
@@ -14,9 +13,7 @@ import {
   SEARCH_SELECTOR,
   SEARCH_SHOWN_STYLE
 } from './header-constants';
-import {MenuItem} from '../model/menu-item';
 import {MainMenuComponent} from './main-menu/main-menu';
-import {MainMenuItemComponent} from './main-menu/main-menu-item';
 import {UtilityMenuComponent} from './utility-menu/utility-menu';
 
 @Component({
@@ -24,24 +21,22 @@ import {UtilityMenuComponent} from './utility-menu/utility-menu';
   selector: 'jazz-header',
   templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked {
-  @Input()
-  headerOptions?: HeaderOptions;
+export class HeaderComponent implements AfterViewChecked, AfterContentChecked {
 
   @Input()
-  title?: string;
+  title: string;
 
   @Input()
-  siteBrandingName?: string;
+  siteBrandingName: string;
 
   @Input()
-  siteBrandingSlogan?: string;
+  siteBrandingSlogan: string;
 
   @Input()
-  siteBrandingUrl?: string;
+  siteBrandingUrl: string;
 
   @Input()
-  siteBrandingLogo?: string;
+  siteBrandingLogo: string;
 
   @Input()
   showSearch = true;
@@ -64,71 +59,12 @@ export class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked 
     private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit(): void {
-    this.checkInputs();
-  }
-
-  checkInputs(): void {
-    if (this.headerOptions &&  (this.siteBrandingName || this.siteBrandingSlogan || this.title || this.showSearch || this.showCompact)) {
-       console.warn('Please specify either the headerOptions or the individual properties for the header');
-    }
-
-    if (!this.headerOptions) {
-       this.headerOptions = Object.assign({}, {
-            title: this.title,
-            siteBrandingName: this.siteBrandingName,
-            siteBrandingSlogan: this.siteBrandingSlogan,
-            siteBrandingLogo: this.siteBrandingLogo,
-            siteBrandingUrl: this.siteBrandingUrl,
-            showSearch: this.showSearch,
-            showCompact: this.showCompact
-       });
-    }
-  }
-
-  ngAfterViewInit(): void {
-    this.retrieveMainMenu();
-    this.retrieveUtilityMenus();
-  }
-
-  retrieveUtilityMenus(): void {
-    if (!this.headerOptions.utilityItems && this.utilityMenu && this.utilityMenu.utilityMenuComponents.length > 0) {
-      const utilityMenu: MenuItem[] = [];
-      this.utilityMenu.utilityMenuComponents.forEach((item) => {
-         utilityMenu.push(Object.assign({}, {label: item.label, url: item.url, externalUrl: item.externalUrl}));
-      });
-      this.headerOptions.utilityItems = utilityMenu;
-    }
-  }
-
-  retrieveMainMenu(): void {
-    if (!this.headerOptions.menuItems && this.mainMenu && this.mainMenu.menuComponents.length > 0) {
-      const mainMenu: MenuItem[] = [];
-      this.mainMenu.menuComponents.forEach((item) => {
-        mainMenu.push(this.retrieveMenuItems(item));
-      });
-      this.headerOptions.menuItems = mainMenu;
-    }
-  }
-
-  retrieveMenuItems(menuComponent: MainMenuItemComponent): MenuItem {
-    const menuItem: MenuItem = Object.assign(new MenuItem(menuComponent.label), {
-      shownByDefault: menuComponent.shownByDefault ? menuComponent.shownByDefault : false,
-      url: menuComponent.url,
-      externalUrl: menuComponent.externalUrl,
-      subItems: []
-    });
-    if (menuComponent.menuComponents.length > 0) {
-      const removeSelf = menuComponent.menuComponents.filter(x => x !== menuComponent);
-      removeSelf.forEach((comp) => {
-        menuItem.subItems.push(this.retrieveMenuItems(comp));
-      });
-    }
-    return menuItem;
-  }
-
   ngAfterViewChecked(): void {
     this.cdr.detectChanges();
+  }
+
+  ngAfterContentChecked(): void {
+    // console.log('utilityMenu', this.utilityMenu);
   }
 
   displayWindowSize(): void {
@@ -146,10 +82,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked 
   }
 
   getSiteBrandingLogo(): string {
-    if (this.headerOptions.siteBrandingLogo) {
-      return this.headerOptions.siteBrandingLogo;
+    if (this.siteBrandingLogo) {
+      return this.siteBrandingLogo;
     }
-    if (this.headerOptions.showCompact) {
+    if (this.showCompact) {
         return './assets/logos/pu-logo-stacked-white.svg';
     }
     return './assets/logos/pu-shield.svg';

@@ -5,7 +5,7 @@
   --jazz-header-pu-branding-color: var(--jazz-white);
   --jazz-header-site-branding-divider-bgcolor: var(--jazz-gray-10);
   --jazz-header-site-branding-bgcolor: var(--jazz-gray);
-  --jazz-header-site-branding-color: var(--jazz-white);
+  --jazz-header-site-branding-color: var(--jazz-princeton-orange);
   --jazz-header-site-branding-slogan-color: var(--jazz-white);
   --jazz-header-menu-icon-color: var(--jazz-white);
   --jazz-header-utility-menu-bgcolor: var(--jazz-gray);
@@ -17,14 +17,9 @@
   --jazz-header-navbar-color: var(--jazz-white);
   --jazz-header-nav-bgcolor: var(--jazz-gray);
   --jazz-header-nav-color: var(--jazz-white);
-  --jazz-header-searchbar-bgcolor: var(--jazz-gray);
-  --jazz-header-searchbar-color: var(--jazz-white);
-  --jazz-header-search-panel-bottom-border-color: var(--jazz-princeton-orange);
   --jazz-header-search-input-bgcolor: var(--jazz-gray);
   --jazz-header-search-input-color: var(--jazz-white);
   --jazz-header-search-input-border-color: var(--jazz-white);
-  --jazz-header-search-placeholder-color: var(--jazz-gray-20);
-
   --jazz-menubar-lg-primary-bgcolor: var(--jazz-gray);
   --jazz-menubar-lg-primary-color: var(--jazz-white);
   --jazz-menubar-lg-primary-hover-underline-color: var(--jazz-princeton-orange);
@@ -44,12 +39,5 @@
   --jazz-menubar-sm-hover-bottom-border-color: var(--jazz-princeton-orange);
   --jazz-menu-toggle-bgcolor: var(--jazz-gray);
   --jazz-menu-toggle-color: var(--jazz-white);
-
-  --jazz-footer-bgcolor: var(--jazz-gray);
-  --jazz-footer-color: var(--jazz-white);
-  --jazz-footer-subfooter-bgcolor: var(--jazz-gray);
-  --jazz-footer-subfooter-color: var(--jazz-white);
-  --jazz-footer-subfooter-divider-color: var(--jazz-white);
-  --jazz-footer-top-border-color: var(--jazz-white);
 
 }

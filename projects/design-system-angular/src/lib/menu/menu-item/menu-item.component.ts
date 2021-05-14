@@ -1,5 +1,5 @@
-import {MenuItem} from '../../model/menu-item';
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef} from '@angular/core';
+import {MainMenuItemComponent} from '../../header/main-menu/main-menu-item';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -11,7 +11,7 @@ export class MenuItemComponent implements OnInit {
   @ViewChild('template', {static: true}) template;
 
   @Input()
-  menuItem: MenuItem;
+  menuItem: MainMenuItemComponent;
 
   @Output()
   closeSubMenus: EventEmitter<void> = new EventEmitter();
@@ -29,6 +29,15 @@ export class MenuItemComponent implements OnInit {
 
   getClass(): string {
     return this.menuItem.shownByDefault ? 'jazz-menubar__submenu--shown-by-default' : '';
+  }
+
+  // Storybook arrays for some reason has the original component in the children list
+  // This results in an infinite loop
+  removeSelf(comp): boolean {
+    if (comp === this.menuItem) {
+      return true;
+    }
+    return false;
   }
 
   close(): void {

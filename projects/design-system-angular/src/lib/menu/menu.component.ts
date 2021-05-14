@@ -1,4 +1,3 @@
-import {MenuItem} from '../model/menu-item';
 import {Component, HostListener, Input} from '@angular/core';
 import {
   ARIA_EXPANDED,
@@ -8,6 +7,8 @@ import {
   MENU_STICKY_STYLE, MENU_SUB_NAV_EXPANDED_STYLE,
   MENUBAR_SHOWN_STYLE, MENUBAR_SUB_SHOWN_STYLE
 } from './menu-constants';
+import {MainMenuItemComponent} from '../header/main-menu/main-menu-item';
+import {UtilityItemComponent} from '../header/utility-menu/utility-menu-item';
 
 
 @Component({
@@ -18,13 +19,10 @@ import {
 export class MenuComponent {
 
   @Input()
-  menuItems?: MenuItem[];
+  menuItems?: MainMenuItemComponent[];
 
   @Input()
-  utilityItems?: MenuItem[];
-
-  @Input()
-  mainMenuItems?: MenuItem[];
+  utilityItems?: UtilityItemComponent[];
 
   @HostListener('window:resize', ['$event'])
   onResize(event): void {
