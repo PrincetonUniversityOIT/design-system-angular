@@ -103,11 +103,6 @@ stories.add('Compact', () => {
 stories.add('Utility Header', () => {
   return {
     template: `
-    <style>
-    .jazz-utility-header__site-name {
-        color: var(--jazz-utility-header-site-name-color) !important;
-    }
-    </style>
     <jazz-utility-header
         primaryHeading="Text Primary Heading"
         puBrandingTitle="PU Branding Title"
@@ -115,12 +110,16 @@ stories.add('Utility Header', () => {
         siteBrandingName="Site Branding Name"
         siteBrandingSlogan="Site Branding Slogan"
         siteBrandingTitle="SiteBranding Title"
+        loginUrl="https://www.google.com/"
+        logoutUrl="https://www.microsoft.com/"
+        username=""
         [stuckDesktop]="true"
         [stuckMobile]="true"
         utilityLinksHeading="Related Links">
         <jazz-utility-header-link label="Google" url="https://www.google.com/"></jazz-utility-header-link>
         <jazz-utility-header-link label="Princeton" url="https://www.princeton.edu/"></jazz-utility-header-link>
         <jazz-utility-header-link label="Microsoft" url="https://www.microsoft.com/"></jazz-utility-header-link>
+
     </jazz-utility-header>
     `
   };

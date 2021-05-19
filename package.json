@@ -18,7 +18,7 @@
     "build-prod": "ng build --prod",
     "build-lib": "ng build design-system-angular --prod",
     "test": "jest --watchAll",
-    "test-components": "jest --passWithNoTests --testPathPattern=projects/design-system-angular/src/lib --silent=false",
+    "test-components": "jest --passWithNoTests --testPathPattern=projects/design-system-angular/src/lib --silent=false --verbose",
     "lint": "ng lint",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "docs:serve": "compodoc -p ./tsconfig.json -s",

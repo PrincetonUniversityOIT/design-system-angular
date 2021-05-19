@@ -1,4 +1,4 @@
-import {Component, Input, ContentChildren, QueryList} from '@angular/core';
+import {Component, Input, ContentChildren, QueryList, ViewChild, TemplateRef} from '@angular/core';
 import {UtilityHeaderLinkComponent} from './utility-header-link.component';
 
 @Component({
@@ -25,7 +25,7 @@ import {UtilityHeaderLinkComponent} from './utility-header-link.component';
             <div class="jazz-utility-header__options">
                 <section class="jazz-utility-header__nav" [class.jazz-expanded]="menuExpanded">
                     <h2 class="jazz-visually-hidden">{{ utilityLinksHeading }}</h2>
-                    <button class="jazz-utility-header__nav-toggle" aria-expanded="false" (click)="toggleMenu()"><i class="jazz-icon jazz-icon-menu" [class.jazz-icon-menu]="!menuExpanded" [class.jazz-icon-close]="menuExpanded" aria-hidden="true"></i><span class="jazz-visually-hidden">{{ menuButtonLabel }}</span></button>
+                    <button class="jazz-utility-header__nav-toggle" [attr.aria-expanded]="menuExpanded" (click)="toggleMenu()"><i class="jazz-icon jazz-icon-menu" [class.jazz-icon-menu]="!menuExpanded" [class.jazz-icon-close]="menuExpanded" aria-hidden="true"></i><span class="jazz-visually-hidden">{{ menuButtonLabel }}</span></button>
                     <nav class="jazz-nav">
                         <ul>
                             <li *ngFor="let link of links"><a [href]="link.url" [attr.target]="link.external ? '_blank' : null">{{ link.label }}</a></li>
@@ -35,9 +35,12 @@ import {UtilityHeaderLinkComponent} from './utility-header-link.component';
                 <div class="jazz-div"></div>
                 <section class="jazz-utility-header__user-options">
                     <h2 class="jazz-visually-hidden">User Options</h2>
-                    <ul>
-                        <li><a href="javascript:void(0);">Log In</a></li>
-                    </ul>
+                    <ng-template [ngIf]="!userOptionsTemplate" [ngIfElse]="userOptionsTemplate">
+                      <ul>
+                        <li *ngIf="!username"><a [href]="loginUrl">Log In</a></li>
+                        <li *ngIf="username"><a [href]="logoutUrl">Log Out</a></li>
+                      </ul>
+                    </ng-template>
                 </section>
             </div>
         </div>
@@ -47,6 +50,8 @@ import {UtilityHeaderLinkComponent} from './utility-header-link.component';
 export class UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */ {
 
   @ContentChildren(UtilityHeaderLinkComponent) links: QueryList<UtilityHeaderLinkComponent>;
+  @ViewChild('defaultUserOptions') private defaultUserOptionsTemplate: TemplateRef<any>;
+  @Input() private userOptionsTemplate: TemplateRef<any>;
 
   @Input()
   stuckMobile = true;
@@ -77,6 +82,15 @@ export class UtilityHeaderComponent /* implements AfterViewChecked, AfterContent
 
   @Input()
   utilityLinksHeading = 'Related Links';
+
+  @Input()
+  loginUrl: string;
+
+  @Input()
+  logoutUrl: string;
+
+  @Input()
+  username: string;
 
   menuExpanded = false;
   menuButtonLabel = 'Open Navigation Menu';
