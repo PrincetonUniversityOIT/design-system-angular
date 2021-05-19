@@ -13,7 +13,7 @@ import {UtilityHeaderLinkComponent} from './utility-header-link.component';
         <h1 class="jazz-visually-hidden">{{ primaryHeading }}</h1>
         <div class="jazz-container">
             <div class="jazz-utility-header__branding">
-                <a class="jazz-utility-header__pu_logo" href="javascript:void(0);" [title]="puBrandingTitle">
+                <a class="jazz-utility-header__pu_logo" href="https://www.princeton.edu/" [title]="puBrandingTitle">
                 <img [src]="puBrandingLogo" alt="Princeton University Logo" />
                 </a>
                 <div class="jazz-div"></div>
