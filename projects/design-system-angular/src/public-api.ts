@@ -21,3 +21,5 @@ export * from './lib/pager/pager.component';
 export * from './lib/modal-dialog/modal-dialog.component';
 export * from './lib/tabs/tabs.component';
 export * from './lib/model/menu-item';
+export * from './lib/utility-header/utility-header.component';
+export * from './lib/utility-header/utility-header-link.component';

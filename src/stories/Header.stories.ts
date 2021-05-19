@@ -5,7 +5,9 @@ import {
   MainMenuComponent,
   MainMenuItemComponent,
   MenuComponent, MenuItemComponent, MenuSubButtonComponent, MenuMainButtonComponent,
-  SearchButtonComponent, UtilityMenuComponent, UtilityItemComponent
+  SearchButtonComponent, UtilityMenuComponent, UtilityItemComponent,
+  UtilityHeaderComponent,
+  UtilityHeaderLinkComponent
 } from 'design-system-angular';
 
 export const routes: Routes = [
@@ -40,8 +42,20 @@ const stories = storiesOf('Components/Header', module)
   .addDecorator(
     moduleMetadata({
       imports: [RouterModule.forRoot(routes, {useHash: true})],
-      declarations: [HeaderComponent, MenuComponent, MenuItemComponent, MenuSubButtonComponent, MenuMainButtonComponent,
-        SearchButtonComponent,  MainMenuItemComponent, MainMenuComponent, UtilityItemComponent, UtilityMenuComponent]
+      declarations: [
+        HeaderComponent,
+        MenuComponent,
+        MenuItemComponent,
+        MenuSubButtonComponent,
+        MenuMainButtonComponent,
+        SearchButtonComponent,
+        MainMenuItemComponent,
+        MainMenuComponent,
+        UtilityItemComponent,
+        UtilityMenuComponent,
+        UtilityHeaderComponent,
+        UtilityHeaderLinkComponent
+      ]
     })
   );
 
@@ -83,5 +97,31 @@ stories.add('Compact', () => {
     </jazz-utility-menu>
     </jazz-header>
 `
+  };
+});
+
+stories.add('Utility Header', () => {
+  return {
+    template: `
+    <style>
+    .jazz-utility-header__site-name {
+        color: var(--jazz-utility-header-site-name-color) !important;
+    }
+    </style>
+    <jazz-utility-header
+        primaryHeading="Text Primary Heading"
+        puBrandingTitle="PU Branding Title"
+        siteBrandingLink="https://communications.princeton.edu"
+        siteBrandingName="Site Branding Name"
+        siteBrandingSlogan="Site Branding Slogan"
+        siteBrandingTitle="SiteBranding Title"
+        [stuckDesktop]="true"
+        [stuckMobile]="true"
+        utilityLinksHeading="Related Links">
+        <jazz-utility-header-link label="Google" url="https://www.google.com/"></jazz-utility-header-link>
+        <jazz-utility-header-link label="Princeton" url="https://www.princeton.edu/"></jazz-utility-header-link>
+        <jazz-utility-header-link label="Microsoft" url="https://www.microsoft.com/"></jazz-utility-header-link>
+    </jazz-utility-header>
+    `
   };
 });

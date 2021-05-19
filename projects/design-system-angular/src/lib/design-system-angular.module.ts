@@ -27,6 +27,9 @@ import {TabComponent, TabsComponent} from './tabs/tabs.component';
 import {MenuItemComponent} from './menu/menu-item/menu-item.component';
 import {MenuMainButtonComponent} from './menu/menu-main-button/menu-main-button.component';
 import {MenuSubButtonComponent} from './menu/menu-sub-button/menu-sub-button.component';
+import {UtilityHeaderModule} from './utility-header/utility-header.module';
+import {UtilityHeaderComponent} from './utility-header/utility-header.component';
+import {UtilityHeaderLinkComponent} from './utility-header/utility-header-link.component';
 
 @NgModule({
   imports: [
@@ -40,7 +43,8 @@ import {MenuSubButtonComponent} from './menu/menu-sub-button/menu-sub-button.com
     MenuModule,
     ModalDialogModule,
     PagerModule,
-    TabsModule
+    TabsModule,
+    UtilityHeaderModule
   ],
   exports: [
     AccordionComponent,
@@ -61,7 +65,9 @@ import {MenuSubButtonComponent} from './menu/menu-sub-button/menu-sub-button.com
     MainMenuItemComponent,
     MainMenuComponent,
     TabComponent,
-    TabsComponent
+    TabsComponent,
+    UtilityHeaderComponent,
+    UtilityHeaderLinkComponent
   ]
 })
 export class DesignSystemAngularModule { }
