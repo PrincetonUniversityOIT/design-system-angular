@@ -119,7 +119,6 @@ stories.add('Utility Header', () => {
         <jazz-utility-header-link label="Google" url="https://www.google.com/"></jazz-utility-header-link>
         <jazz-utility-header-link label="Princeton" url="https://www.princeton.edu/"></jazz-utility-header-link>
         <jazz-utility-header-link label="Microsoft" url="https://www.microsoft.com/"></jazz-utility-header-link>
-
     </jazz-utility-header>
     `
   };
