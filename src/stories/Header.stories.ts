@@ -123,3 +123,86 @@ stories.add('Utility Header', () => {
     `
   };
 });
+
+stories.add('Utility Header with User Options Template', () => {
+  return {
+    template: `
+    <ng-template #userOptionsTemplate>
+          <ul>
+            <li><a [href]="'https://www.google.com'">Go to Google</a></li>
+          </ul>
+    </ng-template>
+    <jazz-utility-header
+        primaryHeading="Text Primary Heading"
+        puBrandingTitle="PU Branding Title"
+        siteBrandingLink="https://communications.princeton.edu"
+        siteBrandingName="Site Branding Name"
+        siteBrandingSlogan="Site Branding Slogan"
+        siteBrandingTitle="SiteBranding Title"
+        loginUrl="https://www.google.com/"
+        logoutUrl="https://www.microsoft.com/"
+        username=""
+        [stuckDesktop]="true"
+        [stuckMobile]="true"
+        [userOptionsTemplate]="userOptionsTemplate"
+        utilityLinksHeading="Related Links">
+        <jazz-utility-header-link label="Google" url="https://www.google.com/"></jazz-utility-header-link>
+        <jazz-utility-header-link label="Princeton" url="https://www.princeton.edu/"></jazz-utility-header-link>
+        <jazz-utility-header-link label="Microsoft" url="https://www.microsoft.com/"></jazz-utility-header-link>
+    </jazz-utility-header>
+    `
+  };
+});
+
+stories.add('Utility Header with Office Of', () => {
+  return {
+    template: `
+    <jazz-utility-header
+        primaryHeading="Text Primary Heading"
+        puBrandingTitle="PU Branding Title"
+        officeOf="Finance & Treasury"
+        officeOfText="Office of"
+        officeOfLink="https://finance.princeton.edu"
+        loginUrl="https://www.google.com/"
+        logoutUrl="https://www.microsoft.com/"
+        username=""
+        [stuckDesktop]="true"
+        [stuckMobile]="true"
+        utilityLinksHeading="Related Links">
+        <jazz-utility-header-link label="Google" url="https://www.google.com/"></jazz-utility-header-link>
+        <jazz-utility-header-link label="Princeton" url="https://www.princeton.edu/"></jazz-utility-header-link>
+        <jazz-utility-header-link label="Microsoft" url="https://www.microsoft.com/"></jazz-utility-header-link>
+    </jazz-utility-header>
+    `
+  };
+});
+
+stories.add('Utility Header with Office Of Template', () => {
+  return {
+    template: `
+    <ng-template #officeOfTemplate>
+      <a class="jazz-utility-header__site-name-office-of" [href]="'https://www.google.com'" title="Dept of Energy" rel="home">Department of
+        <br/>
+        <div class="jazz-utility-header__site-name-office-of-department">Energy</div>
+      </a>
+    </ng-template>
+    <jazz-utility-header
+        primaryHeading="Text Primary Heading"
+        puBrandingTitle="PU Branding Title"
+        officeOf="Finance & Treasury"
+        officeOfText="Office of"
+        officeOfLink="https://finance.princeton.edu"
+        loginUrl="https://www.google.com/"
+        logoutUrl="https://www.microsoft.com/"
+        username=""
+        [stuckDesktop]="true"
+        [stuckMobile]="true"
+        [officeOfTemplate]="officeOfTemplate"
+        utilityLinksHeading="Related Links">
+        <jazz-utility-header-link label="Google" url="https://www.google.com/"></jazz-utility-header-link>
+        <jazz-utility-header-link label="Princeton" url="https://www.princeton.edu/"></jazz-utility-header-link>
+        <jazz-utility-header-link label="Microsoft" url="https://www.microsoft.com/"></jazz-utility-header-link>
+    </jazz-utility-header>
+    `
+  };
+});

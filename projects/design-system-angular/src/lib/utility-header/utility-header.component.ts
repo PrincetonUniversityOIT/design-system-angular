@@ -1,4 +1,10 @@
-import {Component, Input, ContentChildren, QueryList, ViewChild, TemplateRef} from '@angular/core';
+import {
+  Component,
+  Input,
+  ContentChildren,
+  QueryList,
+  TemplateRef
+} from '@angular/core';
 import {UtilityHeaderLinkComponent} from './utility-header-link.component';
 
 @Component({
@@ -18,8 +24,15 @@ import {UtilityHeaderLinkComponent} from './utility-header-link.component';
                 </a>
                 <div class="jazz-div"></div>
                 <div class="jazz-utility-header__site-branding">
-                    <a class="jazz-utility-header__site-name" [href]="siteBrandingLink" [title]="siteBrandingTitle" rel="home">{{ siteBrandingName }}</a>
-                    <div class="jazz-utility-header__site-slogan">{{ siteBrandingSlogan }}</div>
+                    <a *ngIf="siteBrandingName" class="jazz-utility-header__site-name" [href]="siteBrandingLink" [title]="siteBrandingTitle" rel="home">{{ siteBrandingName }}</a>
+                    <div *ngIf="siteBrandingSlogan" class="jazz-utility-header__site-slogan">{{ siteBrandingSlogan }}</div>
+
+                    <ng-template [ngIf]="!officeOfTemplate" [ngIfElse]="officeOfTemplate">
+                      <a *ngIf="officeOf" class="jazz-utility-header__site-name-office-of" [href]="officeOfLink" title="Office of {{officeOf}}" rel="home">Office of
+                          <br/>
+                          <div class="jazz-utility-header__site-name-office-of-department">{{officeOf}}</div>
+                      </a>
+                    </ng-template>
                 </div>
             </div>
             <div class="jazz-utility-header__options">
@@ -50,8 +63,12 @@ import {UtilityHeaderLinkComponent} from './utility-header-link.component';
 export class UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */ {
 
   @ContentChildren(UtilityHeaderLinkComponent) links: QueryList<UtilityHeaderLinkComponent>;
-  @ViewChild('defaultUserOptions') private defaultUserOptionsTemplate: TemplateRef<any>;
-  @Input() private userOptionsTemplate: TemplateRef<any>;
+
+  @Input('officeOfTemplate')
+  officeOfTemplate: TemplateRef<any>;
+
+  @Input('userOptionsTemplate')
+  userOptionsTemplate: TemplateRef<any>;
 
   @Input()
   stuckMobile = true;
@@ -69,16 +86,22 @@ export class UtilityHeaderComponent /* implements AfterViewChecked, AfterContent
   puBrandingLogo = './assets/logos/pu-logo-stacked-white.svg';
 
   @Input()
-  siteBrandingName: string;
+  siteBrandingName?: string;
 
   @Input()
-  siteBrandingSlogan: string;
+  siteBrandingSlogan?: string;
 
   @Input()
   siteBrandingLink: string;
 
   @Input()
   siteBrandingTitle: string;
+
+  @Input()
+  officeOfLink?: string;
+
+  @Input()
+  officeOf?: string;
 
   @Input()
   utilityLinksHeading = 'Related Links';

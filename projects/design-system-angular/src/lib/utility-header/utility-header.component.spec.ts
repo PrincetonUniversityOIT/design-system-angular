@@ -16,6 +16,24 @@ import {Component} from '@angular/core';
 })
 export class TestLinkMockComponent { }
 
+@Component({
+  selector: 'lib-mock-office-of-template',
+  template: `
+    <ng-template #officeOfTemplate>
+      <a class="jazz-utility-header__site-name-office-of" [href]="'https://www.google.com'" title="Dept of Energy" rel="home">Department of
+        <br/>
+        <div class="jazz-utility-header__site-name-office-of-department">Energy</div>
+      </a>
+    </ng-template>
+    <jazz-utility-header [officeOfTemplate]="officeOfTemplate">
+      <jazz-utility-header-link label="Link 1" url="http://link1/"></jazz-utility-header-link>
+      <jazz-utility-header-link label="Link 2" url="http://link2/" *ngIf="false"></jazz-utility-header-link>
+      <jazz-utility-header-link label="Link 3" url="http://link3/" [external]="true"></jazz-utility-header-link>
+    </jazz-utility-header>
+  `
+})
+export class TestOfficeOfMockComponent { }
+
 describe('UtilityHeaderComponent', () => {
   let component: UtilityHeaderComponent;
   let fixture: ComponentFixture<UtilityHeaderComponent>;
@@ -115,5 +133,30 @@ describe('UtilityHeaderComponentTemplate', () => {
     expect(links[1]).toHaveAttribute('href', 'http://link3/');
     expect(links[1]).toHaveTextContent('Link 3');
     expect(links[1]).toHaveAttribute('target', '_blank');
+  });
+});
+
+describe('UtilityHeaderComponentOfficeOfTemplate', () => {
+  let component: TestOfficeOfMockComponent;
+  let fixture: ComponentFixture<TestOfficeOfMockComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [
+        UtilityHeaderComponent,
+        UtilityHeaderLinkComponent,
+        TestOfficeOfMockComponent
+      ]
+    })
+      .compileComponents();
+  });
+
+  it('should put office of template into the office of section of the header', () => {
+    fixture = TestBed.createComponent(TestOfficeOfMockComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+
+    const officeOf = fixture.nativeElement.querySelector('.jazz-utility-header__site-name-office-of');
+    expect(officeOf).toMatchSnapshot();
   });
 });
