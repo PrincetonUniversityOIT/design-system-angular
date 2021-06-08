@@ -4,7 +4,6 @@ import {RouterModule} from '@angular/router';
 import {AccordionModule} from './accordion/accordion.module';
 import {AlertModule} from './alert/alert.module';
 import {BreadcrumbsModule} from './breadcrumbs/breadcrumbs.module';
-import {ButtonModule} from './button/button.module';
 import {HeaderModule} from './header/header.module';
 import {MenuModule} from './menu/menu.module';
 import {ModalDialogModule} from './modal-dialog/modal-dialog.module';
@@ -13,7 +12,6 @@ import {TabsModule} from './tabs/tabs.module';
 import {AccordionComponent} from './accordion/accordion.component';
 import {AlertComponent} from './alert/alert.component';
 import {BreadcrumbComponent, BreadcrumbsComponent} from './breadcrumbs/breadcrumbs.component';
-import {ButtonComponent} from './button/button.component';
 import {MenuComponent} from './menu/menu.component';
 import {HeaderComponent} from './header/header.component';
 import {PagerComponent} from './pager/pager.component';
@@ -38,7 +36,6 @@ import {UtilityHeaderLinkComponent} from './utility-header/utility-header-link.c
     AccordionModule,
     AlertModule,
     BreadcrumbsModule,
-    ButtonModule,
     HeaderModule,
     MenuModule,
     ModalDialogModule,
@@ -51,7 +48,6 @@ import {UtilityHeaderLinkComponent} from './utility-header/utility-header-link.c
     AlertComponent,
     BreadcrumbComponent,
     BreadcrumbsComponent,
-    ButtonComponent,
     HeaderComponent,
     MenuComponent,
     MenuItemComponent,

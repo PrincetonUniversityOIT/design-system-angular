@@ -6,7 +6,6 @@ export * from './lib/design-system-angular.module';
 export * from './lib/accordion/accordion.component';
 export * from './lib/alert/alert.component';
 export * from './lib/breadcrumbs/breadcrumbs.component';
-export * from './lib/button/button.component';
 export * from './lib/header/header.component';
 export * from './lib/header/search-button/search-button.component';
 export * from './lib/header/utility-menu/utility-menu-item';
