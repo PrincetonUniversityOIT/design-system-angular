@@ -84,16 +84,16 @@ export class TabComponent {
   // tslint:disable-next-line:component-selector
   selector: 'jazz-tabs',
   template: `
-    <div
+    <div *ngIf="useButtons"
       [id]="getTabListId()"
       class="jazz-tablist"
       [class.jazz-auto-activate]="autoActivate"
       role="tablist">
-      <button #button
+      <button #tabItem
         [id]="getTabId(i)"
         role="tab"
         [attr.tabindex]="tab.tabindex"
-        [disabled]="tab.disabled"
+        [attr.aria-disabled]="tab.disabled"
         [attr.aria-selected]="tab.selected"
         [attr.aria-controls]="tab.controls"
         [attr.aria-label]="tab.ariaLabel || null"
@@ -101,6 +101,28 @@ export class TabComponent {
         (click)="handleClickEvent(tab)"
         (keyup)="handleKeyboardEvent(tab, i, $event)"
         *ngFor="let tab of tabs; let i = index">{{ tab.label }}</button>
+    </div>
+
+    <div *ngIf="!useButtons"
+         [id]="getTabListId()"
+         class="jazz-tablist"
+         [class.jazz-auto-activate]="autoActivate"
+         role="tablist">
+      <a #tabItem
+              [id]="getTabId(i)"
+              role="tab"
+              [attr.tabindex]="tab.tabindex"
+              [attr.aria-disabled]="tab.disabled"
+              [attr.aria-selected]="tab.selected"
+              [attr.aria-controls]="tab.controls"
+              [routerLink]="tab.routeTo"
+              routerLinkActive="active"
+              #buttonLink="routerLinkActive"
+              [attr.aria-label]="tab.ariaLabel || null"
+              [attr.aria-labelledby]="(!tab.ariaLabel && tab.ariaLabelledby) ? tab.ariaLabelledby : null"
+              (click)="handleClickEvent(tab)"
+              (keyup)="handleKeyboardEvent(tab, i, $event)"
+              *ngFor="let tab of tabs; let i = index">{{ tab.label }}</a>
     </div>
   `
 })
@@ -114,12 +136,12 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
   @ContentChildren(TabComponent) public tabs: QueryList<TabComponent>;
 
   /**
-   * The list of button elements that are contained in this tab list.
+   * The list of tab elements that are contained in this tab list.
    *
    * @ignore
    * @private
    */
-  @ViewChildren('button') private buttons: QueryList<ElementRef>;
+  @ViewChildren('tabItem') private tabItems: QueryList<ElementRef>;
 
   /**
    * @ignore
@@ -144,6 +166,14 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
   private readonly _elementId: number;
 
   /**
+   * Internal variable for tracking if this component will show buttons or links
+   *
+   * @ignore
+   */
+    // tslint:disable-next-line:variable-name
+  private _useButtons = true;
+
+  /**
    * Controls if a tab will become selected when it receives focus.
    */
   @Input()
@@ -152,6 +182,17 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
   }
   set autoActivate(value: boolean) {
     this._autoActivate = value;
+  }
+
+  /**
+   * Controls if a tab will use buttons or links
+   */
+  @Input()
+  get useButtons(): boolean {
+    return this._useButtons;
+  }
+  set useButtons(value: boolean) {
+    this._useButtons = value;
   }
 
   /**
@@ -194,7 +235,7 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
    *
    * The logic accounts for the case where multiple tabs are marked as selected by selecting only the first tab that is marked as selected.
    * The logic also accounts for the case where the selected tab is disabled (selected tabs cannot be disabled) by selecting the first
-   * enabled tab in the list of tabs.
+   * tab in the list of tabs.
    *
    * @ignore
    */
@@ -207,9 +248,11 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
 
     for (const tab of this.tabs) {
       if (!firstEnabledTab && !tab.disabled) {
+      // if (!firstEnabledTab) {
         firstEnabledTab = tab;
       }
       if (!firstSelectedTab && !tab.disabled && tab.selected) {
+      // if (!firstSelectedTab && !tab.disabled) {
         firstSelectedTab = tab;
       }
       if (!firstCurrentRoute && !tab.disabled && tab.routeTo && this.router.isActive(tab.routeTo, true)) {
@@ -221,10 +264,10 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
 
     if (firstSelectedTab) {
       this.selectTab(firstSelectedTab);
-    } else if (firstEnabledTab) {
-      this.selectTab(firstEnabledTab);
     } else if (firstCurrentRoute) {
       this.selectTab(firstCurrentRoute);
+    } else if (firstEnabledTab) {
+      this.selectTab(firstEnabledTab);
     }
   }
 
@@ -269,7 +312,7 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
   }
 
   /**
-   * De-select all tabs (buttons) in tablist, except the tab (button) provided.
+   * De-select all tabs in tablist, except the tab provided.
    *
    * @ignore
    * @param exceptTab
@@ -335,7 +378,7 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
   }
 
   /**
-   * Handles click events on individual tabs.  If the tab is enabled and is not already selected, then it will be selected.
+   * Handles click events on individual tabs.  If the tab is not already selected, then it will be selected.
    *
    * @ignore
    * @param tab
@@ -366,13 +409,13 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
     // identify the tab that should receive focus based on the key that was pressed
 
     if (keyEvent.key === 'ArrowRight') {
-      focusIdx = this.getNextOrFirstEnabledTabIndex(idx);
+      focusIdx = this.getNextOrFirstTabIndex(idx);
     } else if (keyEvent.key === 'ArrowLeft') {
-      focusIdx = this.getPreviousOrLastEnabledTab(idx);
+      focusIdx = this.getPreviousOrLastTab(idx);
     } else if (keyEvent.key === 'Home') {
-      focusIdx = this.getFirstEnabledTabIndex();
+      focusIdx = this.getFirstTabIndex();
     } else if (keyEvent.key === 'End') {
-      focusIdx = this.getLastEnabledTabIndex();
+      focusIdx = this.getLastTabIndex();
     }
 
     if (focusIdx !== -1) {
@@ -380,75 +423,72 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
       // if the tablist is configured to automatically select the tab upon focus, then select the tab
 
       if (this.autoActivate) {
-        this.selectTab(this.tabs.toArray()[focusIdx]);
+        const nextTab = this.tabs.toArray()[focusIdx];
+        if (!nextTab.disabled) {
+          this.selectTab(this.tabs.toArray()[focusIdx]);
+        }
       }
 
       // set focus to the tab
-      this.buttons.toArray()[focusIdx].nativeElement.focus();
+      this.tabItems.toArray()[focusIdx].nativeElement.focus();
 
       keyEvent.stopImmediatePropagation();
     }
   }
 
   /**
-   * Finds the next enabled tab, starting at the specified index in the tab list.
+   * Finds the next tab, starting at the specified index in the tab list.
    *
    * @ignore
    * @param tabs
    * @param startIdx
    * @private
    */
-  private getNextEnabledTabIndex(tabs: TabComponent[], startIdx: number): number {
+  private getNextTabIndex(tabs: TabComponent[], startIdx: number): number {
 
     const safeStartIdx = this.clampTabIndex(startIdx);
 
     for (let i = safeStartIdx; i < tabs.length; i++) {
-      const tab = tabs[i];
-      if (!tab.disabled) {
-        return i;
-      }
+      return i;
     }
 
     return -1;
   }
 
   /**
-   * Finds the previous enabled tab, starting at the specified index in the tab list.
+   * Finds the previous tab, starting at the specified index in the tab list.
    *
    * @ignore
    * @param tabs
    * @param startIdx
    */
-  private getPreviousEnabledTabIndex(tabs: TabComponent[], startIdx: number): number {
+  private getPreviousTabIndex(tabs: TabComponent[], startIdx: number): number {
 
     const safeStartIdx = this.clampTabIndex(startIdx);
 
     for (let i = safeStartIdx; i >= 0; i--) {
-      const tab = tabs[i];
-      if (!tab.disabled) {
-        return i;
-      }
+      return i;
     }
 
     return -1;
   }
 
   /**
-   * Finds the first enabled tab (button) in the list of provided tabs (buttons)
+   * Finds the first tab in the list of provided tabs
    *
    * @ignore
    */
-  private getFirstEnabledTabIndex(): number {
-    return this.getNextEnabledTabIndex(this.tabs.toArray(), 0);
+  private getFirstTabIndex(): number {
+    return this.getNextTabIndex(this.tabs.toArray(), 0);
   }
 
   /**
-   * Finds the last enabled tab (button) in the list of provided tabs (buttons).
+   * Finds the last tab in the list of provided tabs.
    *
    * @ignore
    */
-  private getLastEnabledTabIndex(): number {
-    return this.getPreviousEnabledTabIndex(this.tabs.toArray(), this.tabs.length - 1);
+  private getLastTabIndex(): number {
+    return this.getPreviousTabIndex(this.tabs.toArray(), this.tabs.length - 1);
   }
 
   /**
@@ -468,40 +508,38 @@ export class TabsComponent implements OnInit, AfterContentInit, OnDestroy {
   }
 
   /**
-   * Find the next enabled tab (button) in the list of tabs (buttons) provided.
+   * Find the next tab in the list of tabs provided.
    *
-   * The search will begin at the position in the list where the provided tab (button) is located and the search
-   * will wrap around to the beginning of the provided list of tabs (buttons) if no enabled tab (button) is found
-   * in the list after the location of the provided tab (button).
+   * The search will begin at the position in the list where the provided tab is located and the search
+   * will wrap around to the beginning of the provided list of tabs.
    *
-   * @param startIdx the index of the tab to use as a starting point for finding the next enabled tab
+   * @param startIdx the index of the tab to use as a starting point for finding the next tab
    * @ignore
    */
-  private getNextOrFirstEnabledTabIndex(startIdx: number): number {
+  private getNextOrFirstTabIndex(startIdx: number): number {
     const tabsArr = this.tabs.toArray();
-    const idx = this.getNextEnabledTabIndex(tabsArr, startIdx + 1);
+    const idx = this.getNextTabIndex(tabsArr, startIdx + 1);
     if (idx === -1) {
-      return this.getNextEnabledTabIndex(tabsArr, 0);
+      return this.getNextTabIndex(tabsArr, 0);
     } else {
       return idx;
     }
   }
 
   /**
-   * Find the previous enabled tab (button) in the list of tabs (buttons) provided.
+   * Find the previous tab in the list of tabs provided.
    *
-   * The search will begin at the position in the list where the provided tab (button) is located and the search
-   * will wrap around to the end of the provided list of tabs (buttons) if no enabled tab (button) is found
-   * in the list before the location of the provided tab (button).
+   * The search will begin at the position in the list where the provided tab is located and the search
+   * will wrap around to the end of the provided list of tabs.
    *
    * @param startIdx
    * @ignore
    */
-  private getPreviousOrLastEnabledTab(startIdx: number): number {
+  private getPreviousOrLastTab(startIdx: number): number {
     const tabsArr = this.tabs.toArray();
-    const idx = this.getPreviousEnabledTabIndex(tabsArr, startIdx - 1);
+    const idx = this.getPreviousTabIndex(tabsArr, startIdx - 1);
     if (idx === -1) {
-      return this.getPreviousEnabledTabIndex(tabsArr, tabsArr.length - 1);
+      return this.getPreviousTabIndex(tabsArr, tabsArr.length - 1);
     } else {
       return idx;
     }

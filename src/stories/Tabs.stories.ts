@@ -49,11 +49,23 @@ stories.add('Default', () => {
   };
 });
 
+stories.add('Default (Links)', () => {
+  return {
+    template:  `
+<jazz-tabs [useButtons]="false">
+    <jazz-tab label="Tab 1"></jazz-tab>
+    <jazz-tab label="Tab 2"></jazz-tab>
+</jazz-tabs>
+`
+  };
+});
+
 stories.add('Controlled Sections', () => {
     return {
       template:  `
 <jazz-tabs>
     <jazz-tab label="Tab 1" controls="panel1"></jazz-tab>
+    <jazz-tab label="Tab Disabled" disabled="true"></jazz-tab>
     <jazz-tab label="Tab 2" controls="panel2"></jazz-tab>
 </jazz-tabs>
 <div id="panel1">
@@ -64,6 +76,24 @@ Panel 2
 </div>
 `
     };
+});
+
+stories.add('Controlled Sections (Links)', () => {
+  return {
+    template:  `
+<jazz-tabs [useButtons]="false">
+    <jazz-tab label="Tab 1" controls="panel1"></jazz-tab>
+    <jazz-tab label="Tab Disabled" disabled="true"></jazz-tab>
+    <jazz-tab label="Tab 2" controls="panel2"></jazz-tab>
+</jazz-tabs>
+<div id="panel1">
+Panel 1
+</div>
+<div id="panel2">
+Panel 2
+</div>
+`
+  };
 });
 
 stories.add('Routing Support', () => {
@@ -78,11 +108,61 @@ stories.add('Routing Support', () => {
   };
 });
 
+stories.add('Routing Support (Links)', () => {
+  return {
+    template:  `
+<jazz-tabs [useButtons]="false">
+    <jazz-tab label="Tab 1" routeTo="/panel1"></jazz-tab>
+    <jazz-tab label="Tab 2" routeTo="/panel2"></jazz-tab>
+</jazz-tabs>
+<router-outlet></router-outlet>
+`
+  };
+});
+
 stories.add('Routing Support (Selection)', () => {
   return {
     template:  `
 <jazz-tabs>
     <jazz-tab label="Tab 1" routeTo="/panel1"></jazz-tab>
+    <jazz-tab label="Tab 2" routeTo="/panel2" selected="true"></jazz-tab>
+</jazz-tabs>
+<router-outlet></router-outlet>
+`
+  };
+});
+
+stories.add('Routing Support (Links with Selection)', () => {
+  return {
+    template:  `
+<jazz-tabs [useButtons]="false">
+    <jazz-tab label="Tab 1" routeTo="/panel1"></jazz-tab>
+    <jazz-tab label="Tab 2" routeTo="/panel2" selected="true"></jazz-tab>
+</jazz-tabs>
+<router-outlet></router-outlet>
+`
+  };
+});
+
+stories.add('Routing Support (Selection/Auto Activate)', () => {
+  return {
+    template:  `
+<jazz-tabs [autoActivate]="true">
+    <jazz-tab label="Tab 1" routeTo="/panel1"></jazz-tab>
+    <jazz-tab label="Tab Disabled" disabled="true"></jazz-tab>
+    <jazz-tab label="Tab 2" routeTo="/panel2" selected="true"></jazz-tab>
+</jazz-tabs>
+<router-outlet></router-outlet>
+`
+  };
+});
+
+stories.add('Routing Support (Selection/Auto Activate/Links)', () => {
+  return {
+    template:  `
+<jazz-tabs [autoActivate]="true" [useButtons]="false">
+    <jazz-tab label="Tab 1" routeTo="/panel1"></jazz-tab>
+    <jazz-tab label="Tab Disabled" disabled="true"></jazz-tab>
     <jazz-tab label="Tab 2" routeTo="/panel2" selected="true"></jazz-tab>
 </jazz-tabs>
 <router-outlet></router-outlet>

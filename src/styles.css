@@ -41,3 +41,9 @@
   --jazz-menu-toggle-color: var(--jazz-white);
 
 }
+
+@media(min-width:75rem) {
+  .alt-tab-nav {
+    display: none !important;
+  }
+}

@@ -12,5 +12,6 @@ export class UtilityHeaderLinkComponent {
   @Input() url?: string;
   @Input() label: string;
   @Input() external = false;
+  @Input() class?: string;
   @Input() routerLink: RouterLink;
 }

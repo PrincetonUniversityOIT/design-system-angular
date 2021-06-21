@@ -10,7 +10,7 @@ import {simulateKeyupEvent} from '../../../../../src/jest-config/setup';
 
 @Component({
   template: `
-    <jazz-tabs>
+    <jazz-tabs [useButtons]=false>
       <jazz-tab label="Tab Label 1"></jazz-tab>
       <jazz-tab label="Tab Label 2" selected="true"></jazz-tab>
       <jazz-tab label="Tab Disabled" disabled="true"></jazz-tab>
@@ -24,7 +24,7 @@ class InitTestHost1Component {
 
 @Component({
   template: `
-    <jazz-tabs [autoActivate]=true>
+    <jazz-tabs [autoActivate]=true [useButtons]=false>
       <jazz-tab label="Tab Label 1"></jazz-tab>
       <jazz-tab label="Tab Label 2" selected="true"></jazz-tab>
       <jazz-tab label="Tab Disabled" disabled="true"></jazz-tab>
@@ -38,7 +38,7 @@ class TestAutoActivateComponent {
 
 @Component({
   template: `
-    <jazz-tabs>
+    <jazz-tabs [useButtons]=false>
       <jazz-tab label="Tab Label 1"></jazz-tab>
       <jazz-tab label="Tab Label 2" selected="true"></jazz-tab>
       <jazz-tab label="Tab Label 3" disabled="true"></jazz-tab>
@@ -52,7 +52,7 @@ class LastTwoTabsDisabledComponent {
 
 @Component({
   template: `
-    <jazz-tabs>
+    <jazz-tabs [useButtons]=false>
       <jazz-tab label="Tab Label 1" disabled="true"></jazz-tab>
       <jazz-tab label="Tab Label 2" selected="true"></jazz-tab>
       <jazz-tab label="Tab Label 3"></jazz-tab>
@@ -66,7 +66,7 @@ class FirstAndLastTabsDisabledComponent {
 
 @Component({
   template: `
-    <jazz-tabs>
+    <jazz-tabs [useButtons]=false>
       <jazz-tab label="Tab Label 1" disabled="true"></jazz-tab>
       <jazz-tab label="Tab Label 2" selected="true"></jazz-tab>
       <jazz-tab label="Tab Label 3"></jazz-tab>
@@ -80,7 +80,7 @@ class FirstTabDisabledComponent {
 
 @Component({
   template: `
-    <jazz-tabs>
+    <jazz-tabs [useButtons]=false>
       <jazz-tab controls="panel1" label="Tab Label 1"></jazz-tab>
       <jazz-tab controls="panel2" [selected]=true label="Tab Label 2"></jazz-tab>
       <jazz-tab controls="panel_disabled" disabled="true" label="Tab Disabled"></jazz-tab>
@@ -151,7 +151,7 @@ describe('Tabs', () => {
 
   describe('Tab initialization behavior', () => {
 
-    it('should not throw an error when a selected tab button does not define what it controls', () => {
+    it('should not throw an error when a selected tab link does not define what it controls', () => {
       const fixture = initComponent(InitTestHost1Component);
       expect(fixture.componentInstance).toBeTruthy();
     });
@@ -162,9 +162,9 @@ describe('Tabs', () => {
 
       const tablist = document.querySelector('.jazz-tablist');
       expect(tablist).toHaveAttribute('role', 'tablist');
-      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
-      buttons.forEach((button) => {
-        expect(button).toHaveAttribute('role', 'tab');
+      const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
+      links.forEach((link) => {
+        expect(link).toHaveAttribute('role', 'tab');
       });
     });
 
@@ -189,73 +189,73 @@ describe('Tabs', () => {
 
       const tablist = document.querySelector('.jazz-tablist');
       expect(tablist).toHaveAttribute('role', 'tablist');
-      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
-      expect(buttons.length).toEqual(4);
-      buttons.forEach((button) => {
-        if (button.getAttribute('aria-selected') === 'true') {
-          expect(button).toHaveAttribute('tabindex', '0');
+      const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
+      expect(links.length).toEqual(4);
+      links.forEach((link) => {
+        if (link.getAttribute('aria-selected') === 'true') {
+          expect(link).toHaveAttribute('tabindex', '0');
         } else {
-          expect(button).toHaveAttribute('tabindex', '-1');
+          expect(link).toHaveAttribute('tabindex', '-1');
         }
       });
     });
   });
 
-  describe('Tab button click behavior', () => {
-    it('should select a tab button when that tab button is clicked', () => {
+  describe('Tab link click behavior', () => {
+    it('should select a tab link when that tab link is clicked', () => {
 
       const fixture = initComponent(InitTestHost1Component);
 
-      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+      const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-      const button3 = buttons.item(3);
-      expect(button3).not.toHaveAttribute('aria-selected', 'true');
+      const link3 = links.item(3);
+      expect(link3).not.toHaveAttribute('aria-selected', 'true');
 
-      button3.click();
+      link3.click();
       fixture.detectChanges();
 
-      expect(button3).toHaveAttribute('aria-selected', 'true');
+      expect(link3).toHaveAttribute('aria-selected', 'true');
     });
 
-    it('should not de-select an active tab button when it is clicked', () => {
+    it('should not de-select an active tab link when it is clicked', () => {
 
       const fixture = initComponent(InitTestHost1Component);
 
-      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+      const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-      const button = buttons.item(1);
-      expect(button).toHaveAttribute('aria-selected', 'true');
+      const link = links.item(1);
+      expect(link).toHaveAttribute('aria-selected', 'true');
 
-      button.click();
+      link.click();
       fixture.detectChanges();
 
-      expect(button).toHaveAttribute('aria-selected', 'true');
+      expect(link).toHaveAttribute('aria-selected', 'true');
     });
 
-    it('should remove selection of a tab button when another tab button is clicked', () => {
+    it('should remove selection of a tab link when another tab link is clicked', () => {
 
       const fixture = initComponent(InitTestHost1Component);
 
-      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+      const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-      const buttonLast = buttons.item(buttons.length - 1);
-      const buttonOriginallySelected = buttons.item(1);
-      expect(buttonLast).not.toHaveAttribute('aria-selected', 'true');
-      expect(buttonOriginallySelected).toHaveAttribute('aria-selected', 'true');
+      const linkLast = links.item(links.length - 1);
+      const linkOriginallySelected = links.item(1);
+      expect(linkLast).not.toHaveAttribute('aria-selected', 'true');
+      expect(linkOriginallySelected).toHaveAttribute('aria-selected', 'true');
 
-      buttonLast.click();
+      linkLast.click();
 
       fixture.detectChanges();
 
-      expect(buttonLast).toHaveAttribute('aria-selected', 'true');
-      expect(buttonOriginallySelected).not.toHaveAttribute('aria-selected', 'true');
+      expect(linkLast).toHaveAttribute('aria-selected', 'true');
+      expect(linkOriginallySelected).not.toHaveAttribute('aria-selected', 'true');
     });
 
-    it('should show the section associated with the button that is clicked', () => {
+    it('should show the section associated with the link that is clicked', () => {
 
       const fixture = initComponent(PanelTestHost1Component);
 
-      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+      const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
       const panel1 = document.getElementById('panel1');
       const panel2 = document.getElementById('panel2');
@@ -267,8 +267,8 @@ describe('Tabs', () => {
       expect(panel3).not.toBeVisible();
       expect(panelDisabled).not.toBeVisible();
 
-      const button3 = buttons.item(3);
-      button3.click();
+      const link3 = links.item(3);
+      link3.click();
 
       fixture.detectChanges();
 
@@ -279,225 +279,227 @@ describe('Tabs', () => {
     });
   });
 
-  describe('tab button right arrow key behavior', () => {
+  describe('tab link right arrow key behavior', () => {
     describe('auto active is disabled', () => {
-      it('should set focus to the next tab button without changing the selected tab button', () => {
+      it('should set focus to the next tab link without changing the selected tab link', () => {
 
         const fixture = initComponent(InitTestHost1Component);
 
-        const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+        const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-        const button1 = buttons.item(0);
-        const button2 = buttons.item(1);
-        button1.click();
+        const link1 = links.item(0);
+        const link2 = links.item(1);
+        link1.click();
         fixture.detectChanges();
-        button1.focus();
+        link1.focus();
         fixture.detectChanges();
-        expect(button1).toHaveFocus();
-        expect(button1).toHaveAttribute('aria-selected', 'true');
+        expect(link1).toHaveFocus();
+        expect(link1).toHaveAttribute('aria-selected', 'true');
 
-        simulateKeyupEvent(button1, 'ArrowRight');
+        simulateKeyupEvent(link1, 'ArrowRight');
 
         fixture.detectChanges();
 
-        expect(button2).toHaveFocus();
-        expect(button1).toHaveAttribute('aria-selected', 'true');
-        expect(button2).toHaveAttribute('aria-selected', 'false');
+        expect(link2).toHaveFocus();
+        expect(link1).toHaveAttribute('aria-selected', 'true');
+        expect(link2).toHaveAttribute('aria-selected', 'false');
       });
 
-      it('should not skip over disabled tab buttons and not change the selected tab button', () => {
+      it('should not skip over disabled tab links and not change the selected tab link', () => {
 
         const fixture = initComponent(InitTestHost1Component);
-        const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+        const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-        const button1 = buttons.item(1);
-        const button2 = buttons.item(3);
-        const buttonDisabled = buttons.item(2);
+        const link1 = links.item(1);
+        const link2 = links.item(3);
+        const linkDisabled = links.item(2);
 
-        button1.click();
+        link1.click();
         fixture.detectChanges();
-        button1.focus();
+        link1.focus();
         fixture.detectChanges();
-        expect(button1).toHaveFocus();
-        expect(button1).toHaveAttribute('aria-selected', 'true');
+        expect(link1).toHaveFocus();
+        expect(link1).toHaveAttribute('aria-selected', 'true');
 
-        simulateKeyupEvent(button1, 'ArrowRight');
+        simulateKeyupEvent(link1, 'ArrowRight');
         fixture.detectChanges();
 
-        expect(buttonDisabled).toHaveFocus();
-        expect(button1).toHaveAttribute('aria-selected', 'true');
-        expect(button2).toHaveAttribute('aria-selected', 'false');
+        expect(linkDisabled).toHaveFocus();
+        expect(link1).toHaveAttribute('aria-selected', 'true');
+        expect(link2).toHaveAttribute('aria-selected', 'false');
       });
     });
 
     describe('auto active is enabled', () => {
-      it('should set focus to the next tab button without changing the selected tab button', () => {
+      it('should set focus to the next tab link without changing the selected tab link', () => {
 
         const fixture = initComponent(InitTestHost1Component);
         fixture.componentInstance.autoActivate = true;
-        const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+        const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-        const button1 = buttons.item(0);
-        const button2 = buttons.item(1);
-        button1.focus();
+        const link1 = links.item(0);
+        const link2 = links.item(1);
+        link1.focus();
         fixture.detectChanges();
-        expect(button1).toHaveFocus();
+        expect(link1).toHaveFocus();
 
-        simulateKeyupEvent(button1, 'ArrowRight');
+        simulateKeyupEvent(link1, 'ArrowRight');
         fixture.detectChanges();
 
-        expect(button2).toHaveFocus();
-        expect(button1).toHaveAttribute('aria-selected', 'false');
-        expect(button2).toHaveAttribute('aria-selected', 'true');
+        expect(link2).toHaveFocus();
+        expect(link1).toHaveAttribute('aria-selected', 'false');
+        expect(link2).toHaveAttribute('aria-selected', 'true');
       });
 
-      it('should not skip over disabled tab buttons and not change the selected tab button', () => {
+      it('should not skip over disabled tab links and not change the selected tab link', () => {
 
         const fixture = initComponent(InitTestHost1Component);
         fixture.componentInstance.tabs.autoActivate = true;
         fixture.detectChanges();
-        const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+        const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-        const button1 = buttons.item(1);
-        const button2 = buttons.item(3);
-        const buttonDisabled = buttons.item(2);
+        const link1 = links.item(1);
+        const link2 = links.item(3);
+        const linkDisabled = links.item(2);
 
-        button1.focus();
+        link1.focus();
         fixture.detectChanges();
-        expect(button1).toHaveFocus();
-        expect(button1).toHaveAttribute('aria-selected', 'true');
+        expect(link1).toHaveFocus();
+        expect(link1).toHaveAttribute('aria-selected', 'true');
 
-        simulateKeyupEvent(button1, 'ArrowRight');
+        simulateKeyupEvent(link1, 'ArrowRight');
         fixture.detectChanges();
 
-        expect(buttonDisabled).toHaveFocus();
-        expect(button1).toHaveAttribute('aria-selected', 'true');
-        expect(button2).toHaveAttribute('aria-selected', 'false');
+        expect(linkDisabled).toHaveFocus();
+        expect(link1).toHaveAttribute('aria-selected', 'true');
+        expect(link2).toHaveAttribute('aria-selected', 'false');
       });
+
     });
   });
 
-  describe('tab button left arrow key behavior', () => {
-    it('should navigate to the previous tab button', () => {
+  describe('tab link left arrow key behavior', () => {
+    it('should navigate to the previous tab link', () => {
 
       const fixture = initComponent(InitTestHost1Component);
-      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+      const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-      const button1 = buttons.item(0);
-      const button2 = buttons.item(1);
-      button2.click();
+      const link1 = links.item(0);
+      const link2 = links.item(1);
+      link2.click();
       fixture.detectChanges();
-      button2.focus();
+      link2.focus();
       fixture.detectChanges();
-      expect(button2).toHaveFocus();
-      expect(button2).toHaveAttribute('aria-selected', 'true');
+      expect(link2).toHaveFocus();
+      expect(link2).toHaveAttribute('aria-selected', 'true');
 
-      simulateKeyupEvent(button2, 'ArrowLeft');
+      simulateKeyupEvent(link2, 'ArrowLeft');
       fixture.detectChanges();
 
-      expect(button1).toHaveFocus();
+      expect(link1).toHaveFocus();
     });
 
-    it('should not skip over disabled tab buttons', () => {
+    it('should not skip over disabled tab links', () => {
 
       const fixture = initComponent(InitTestHost1Component);
-      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+      const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-      const button1 = buttons.item(3);
-      const button2 = buttons.item(1);
-      const buttonDisabled = buttons.item(2);
+      const link1 = links.item(3);
+      const link2 = links.item(1);
+      const linkDisabled = links.item(2);
 
-      button1.focus();
+      link1.focus();
       fixture.detectChanges();
-      expect(button1).toHaveFocus();
+      expect(link1).toHaveFocus();
 
-      simulateKeyupEvent(button1, 'ArrowLeft');
+      simulateKeyupEvent(link1, 'ArrowLeft');
       fixture.detectChanges();
 
-      expect(buttonDisabled).toHaveFocus();
+      expect(linkDisabled).toHaveFocus();
     });
+
   });
 
-  describe('tab button Home key behavior', () => {
-    it('should navigate to the first tab button', () => {
+  describe('tab link Home key behavior', () => {
+    it('should navigate to the first tab link', () => {
 
       const fixture = initComponent(InitTestHost1Component);
-      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+      const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-      const button1 = buttons.item(1);
-      const button2 = buttons.item(0);
-      button1.click();
+      const link1 = links.item(1);
+      const link2 = links.item(0);
+      link1.click();
       fixture.detectChanges();
-      button1.focus();
+      link1.focus();
       fixture.detectChanges();
-      expect(button1).toHaveFocus();
-      expect(button1).toHaveAttribute('aria-selected', 'true');
+      expect(link1).toHaveFocus();
+      expect(link1).toHaveAttribute('aria-selected', 'true');
 
-      simulateKeyupEvent(button1, 'Home');
+      simulateKeyupEvent(link1, 'Home');
       fixture.detectChanges();
 
-      expect(button2).toHaveFocus();
+      expect(link2).toHaveFocus();
     });
 
     it('should choose the first tab (even disabled) when the first tab is disabled', () => {
       const fixture = initComponent(FirstTabDisabledComponent);
-      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+      const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-      const button1 = buttons.item(2);
-      const button2 = buttons.item(1);
-      const buttonDisabled = buttons.item(0);
-      button2.click();
+      const link1 = links.item(2);
+      const link2 = links.item(1);
+      const linkDisabled = links.item(0);
+      link2.click();
       fixture.detectChanges();
-      expect(button2).toHaveAttribute('aria-selected', 'true');
-      button1.focus();
-      expect(button1).toHaveFocus();
+      expect(link2).toHaveAttribute('aria-selected', 'true');
+      link1.focus();
+      expect(link1).toHaveFocus();
 
-      simulateKeyupEvent(button1, 'Home');
+      simulateKeyupEvent(link1, 'Home');
       fixture.detectChanges();
 
-      expect(buttonDisabled).toHaveFocus();
+      expect(linkDisabled).toHaveFocus();
     });
   });
 
-  describe('tab button End key behavior', () => {
-    it('should navigate to the last tab button', () => {
+  describe('tab link End key behavior', () => {
+    it('should navigate to the last tab link', () => {
       const fixture = initComponent(InitTestHost1Component);
-      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+      const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-      const button1 = buttons.item(1);
-      const button2 = buttons.item(3);
-      button1.click();
+      const link1 = links.item(1);
+      const link2 = links.item(3);
+      link1.click();
       fixture.detectChanges();
-      button1.focus();
+      link1.focus();
       fixture.detectChanges();
-      expect(button1).toHaveFocus();
-      expect(button1).toHaveAttribute('aria-selected', 'true');
+      expect(link1).toHaveFocus();
+      expect(link1).toHaveAttribute('aria-selected', 'true');
 
-      simulateKeyupEvent(button1, 'End');
+      simulateKeyupEvent(link1, 'End');
       fixture.detectChanges();
 
-      expect(button2).toHaveFocus();
+      expect(link2).toHaveFocus();
     });
 
     it('should choose the last tab even when the last tab is disabled', () => {
 
       const fixture = initComponent(FirstAndLastTabsDisabledComponent);
-      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist button');
+      const links: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.jazz-tablist a');
 
-      const button1 = buttons.item(1);
-      const button2 = buttons.item(2);
-      const buttonDisabled = buttons.item(3);
-      button1.click();
+      const link1 = links.item(1);
+      const link2 = links.item(2);
+      const linkDisabled = links.item(3);
+      link1.click();
       fixture.detectChanges();
-      button1.focus();
+      link1.focus();
       fixture.detectChanges();
-      expect(button1).toHaveFocus();
-      expect(button1).toHaveAttribute('aria-selected', 'true');
+      expect(link1).toHaveFocus();
+      expect(link1).toHaveAttribute('aria-selected', 'true');
 
-      simulateKeyupEvent(button1, 'End');
+      simulateKeyupEvent(link1, 'End');
       fixture.detectChanges();
 
-      expect(buttonDisabled).toHaveFocus();
+      expect(linkDisabled).toHaveFocus();
     });
   });
 });
