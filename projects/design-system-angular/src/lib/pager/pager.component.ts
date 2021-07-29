@@ -1,5 +1,13 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
+/**
+ * The Pager allows users to navigate through a set of items or rows which have been separated into pages.
+ *
+ * @example
+  `` `
+  <jazz-pager [totalPages]="20" [currentPage]="5" (pagerChange)="changePage($event);"></jazz-pager>
+   `` `
+ */
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'jazz-pager',
@@ -66,6 +74,9 @@ export class PagerComponent {
     return pages;
   }
 
+  /**
+   * This is used to set the next page in the pager based on the page that was clicked.
+   */
   setPage(page: number): void {
     if (page >= 0 && page <= this.totalPages) {
       this.currentPage = page;

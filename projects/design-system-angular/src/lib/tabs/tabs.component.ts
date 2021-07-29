@@ -24,6 +24,10 @@ let idGenerator = 0;
  * The TabComponent represents a single tab in a list of tabs.
  *
  * This component mostly serves as a data structure, but also helps to expose the API through the jazz-tab element.
+ * @example
+ `` `
+     <jazz-tab label="Tab 1" routeTo="/panel1"></jazz-tab>
+ `` `
  */
 @Component({
   // tslint:disable-next-line:component-selector
@@ -79,6 +83,14 @@ export class TabComponent {
  * The TabsComponent represents the wrapper around individual tabs.
  *
  * This component is responsible for the rendering of both the wrapping structure and the individual tabs.
+ * @example
+ `` `
+  <jazz-tabs [autoActivate]="true">
+     <jazz-tab label="Tab 1" routeTo="/panel1"></jazz-tab>
+     <jazz-tab label="Tab Disabled" disabled="true"></jazz-tab>
+     <jazz-tab label="Tab 2" routeTo="/panel2" selected="true"></jazz-tab>
+  </jazz-tabs>
+ `` `
  */
 @Component({
   // tslint:disable-next-line:component-selector

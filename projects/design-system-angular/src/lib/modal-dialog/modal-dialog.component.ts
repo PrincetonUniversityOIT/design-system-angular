@@ -11,6 +11,14 @@ import {UtilityFunctions} from '../utility-functions';
 const INPUT_SELECTORS_EXCL_CLOSE = 'a[href]:not([disabled]), button:not([disabled]):not(.jazz-modal-button__close), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])';
 const INPUT_SELECTORS = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])';
 
+/**
+ * @example
+ `` `
+   <jazz-modal-dialog [title]="'Sample Dialog'" [buttonLabel]="'Click Me!'" (buttonClicked)="clicked()">
+     This is the content of the dialog
+   </jazz-modal-dialog>
+ `` `
+ */
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'jazz-modal-dialog',
@@ -39,8 +47,6 @@ export class ModalDialogComponent implements OnInit {
   }
 
   onAction(event: Event): void {
-    console.log('onAction')
-
     if (!this.handleKeyEvents(event)) {
       return;
     }
@@ -53,7 +59,7 @@ export class ModalDialogComponent implements OnInit {
     event.stopImmediatePropagation();
   }
 
-  handleKeyEvents(event: Event): boolean {
+  private handleKeyEvents(event: Event): boolean {
     if (event instanceof KeyboardEvent) {
       const keyEvent: KeyboardEvent = event as KeyboardEvent;
       const isTabPressed = (keyEvent.key === 'Tab');
@@ -74,14 +80,14 @@ export class ModalDialogComponent implements OnInit {
     return true;
   }
 
-  focusOnFirstInput(): void {
+  private focusOnFirstInput(): void {
     const focusableEls: HTMLElement[] = UtilityFunctions.select(INPUT_SELECTORS_EXCL_CLOSE, this.modalWrapper.nativeElement);
     if (focusableEls.length > 0) {
       focusableEls[0].focus();
     }
   }
 
-  keepFocusWithin(keyEvent): void {
+  private keepFocusWithin(keyEvent): void {
     const focusableEls: HTMLElement[] = UtilityFunctions.select(INPUT_SELECTORS, this.modalWrapper.nativeElement);
     const firstFocusableEl = focusableEls[0];
     const lastFocusableEl = focusableEls[focusableEls.length - 1];
@@ -100,7 +106,6 @@ export class ModalDialogComponent implements OnInit {
   }
 
   close(): void {
-    console.log('close')
     this.modalWrapper.nativeElement.classList.remove('jazz-modal__wrapper--visible');
   }
 
