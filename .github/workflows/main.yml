@@ -26,11 +26,11 @@ jobs:
 
       - run: npm run build-lib
 
-      #- uses: JS-DevTools/npm-publish@v1
-      #  with:
-      #      package: "./dist/design-system-angular/package.json"
-      #      token: ${{ secrets.NPM_TOKEN }}
-      #      access: public
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+            package: "./dist/design-system-angular/package.json"
+            token: ${{ secrets.NPM_TOKEN }}
+            access: public
 
       - run: npm run docs:html
 
