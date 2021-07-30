@@ -1,0 +1,14 @@
+{
+  "name": "@princeton-design/design-system-element-components",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PrincetonUniversityOIT/design-system-angular"
+  },
+  "files": [
+    "main.js",
+    "polyfill.js",
+    "runtime.js",
+    "styles.css"],
+  "license": "ISC"
+}

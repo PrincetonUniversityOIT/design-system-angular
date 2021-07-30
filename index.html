@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="dist/elements/styles.css">
+  <link rel="stylesheet" href="./node_modules/@princeton-design/design-system/jazz_fonts.css">
+  <link rel="stylesheet" href="./node_modules/@princeton-design/design-system/jazz_custom.css">
+  <script src="dist/elements/runtime.js"></script>
+  <script src="dist/elements/polyfills.js"></script>
+  <script src="dist/elements/main.js"></script>
+</head>
+<body>
+<h1>Web Component</h1>
+  <jazz-pager-component current-page="5" total-pages="10"></jazz-pager-component>
+  <script>
+    const el = document.querySelector('jazz-pager-component');
+    el.addEventListener('pagerChange', (ev) => {
+      console.log(ev);
+    });
+  </script>
+</body>
+</html>

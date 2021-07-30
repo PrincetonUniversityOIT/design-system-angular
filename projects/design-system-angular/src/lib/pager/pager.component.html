@@ -1,10 +1,10 @@
 <nav *ngIf="totalPages && currentPage" class="jazz-pager" role="navigation" aria-label="pagination">
   <ul>
     <li>
-      <a *ngIf="(currentPage !== 1)" href="javascript:void(0);" (click)="setPage(currentPage - 1)" data-page="Previous"><i class="jazz-icon jazz-icon-caret-left"></i>Previous</a>
-      <span *ngIf="(currentPage === 1)" [attr.aria-disabled]="true" data-page="Previous"><i class="jazz-icon jazz-icon-caret-left"></i>Previous</span>
+      <a *ngIf="(currentPage != 1)" href="javascript:void(0);" (click)="setPage(currentPage - 1)" data-page="Previous"><i class="jazz-icon jazz-icon-caret-left"></i>Previous</a>
+      <span *ngIf="(currentPage == 1)" [attr.aria-disabled]="true" data-page="Previous"><i class="jazz-icon jazz-icon-caret-left"></i>Previous</span>
     </li>
-    <li *ngFor="let page of iterablePages()" attr.aria-current="{{ (currentPage === (page + 1)) ?'page': ''}}">
+    <li *ngFor="let page of iterablePages()" attr.aria-current="{{ (currentPage == (page + 1)) ?'page': ''}}">
       <a *ngIf="page >= 0" href="javascript:void(0);" (click)="setPage(page + 1)"
          attr.aria-label="Go to {{page + 1}}"
          attr.data-page="{{page + 1}}">{{page + 1}}
@@ -12,8 +12,8 @@
       <span *ngIf="page < 0">...</span>
     </li>
     <li>
-      <a *ngIf="(currentPage !== totalPages)" href="javascript:void(0);" (click)="setPage(currentPage+ 1)" data-page="Next">Next<i class="jazz-icon jazz-icon-caret-right"></i></a>
-      <span *ngIf="(currentPage === totalPages)" [attr.aria-disabled]="true" data-page="Next">Next<i class="jazz-icon jazz-icon-caret-right"></i></span>
+      <a *ngIf="(currentPage != totalPages)" href="javascript:void(0);" (click)="setPage(currentPage+ 1)" data-page="Next">Next<i class="jazz-icon jazz-icon-caret-right"></i></a>
+      <span *ngIf="(currentPage == totalPages)" [attr.aria-disabled]="true" data-page="Next">Next<i class="jazz-icon jazz-icon-caret-right"></i></span>
     </li>
   </ul>
 </nav>

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, Output} from '@angular/core';
 
 /**
  * The Pager allows users to navigate through a set of items or rows which have been separated into pages.
@@ -24,7 +24,9 @@ export class PagerComponent {
   @Output()
   public pagerChange: EventEmitter<any> = new EventEmitter();
 
-  constructor() {}
+  constructor(
+    private ref: ChangeDetectorRef
+  ) {}
 
   iterablePages(): number[] {
 
@@ -81,6 +83,8 @@ export class PagerComponent {
     if (page >= 0 && page <= this.totalPages) {
       this.currentPage = page;
       this.pagerChange.emit(page);
+      this.ref.detectChanges();
+      console.log('setPage', page, this.currentPage);
     }
   }
 }
