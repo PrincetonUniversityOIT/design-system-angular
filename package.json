@@ -26,6 +26,10 @@
     "storybook": "npm run docs:json && start-storybook -s./node_modules/@princeton-design/design-system:assets -p 6006",
     "build-storybook": "npm run docs:json && build-storybook",
     "build:elements": "ng build --prod --project elements --output-hashing none",
+    "build-docsite": "npx @11ty/eleventy",
+    "build-docsite-prod": "npx @11ty/eleventy --pathprefix 'design-system'",
+    "serve-docsite": "npx @11ty/eleventy --serve",
+    "serve-docsite-prod": "npx @11ty/eleventy --serve --pathprefix 'design-system'",
     "e2e": "ng e2e"
   },
   "private": true,

@@ -1,0 +1,66 @@
+{
+  "primary": [
+    {
+      "label": "Getting Started",
+      "url": "/getting_started/",
+      "items": [
+        {
+          "label": "About The Design System",
+          "url": "/getting_started/"
+        }
+      ]
+    },
+    {
+      "label": "Design",
+      "url": "/design/",
+      "items": [
+        {
+          "label": "Themes",
+          "url": "/design/themes"
+        },
+        {
+          "label": "Icons",
+          "url": "/design/icons"
+        }
+      ]
+    },
+    {
+      "label": "Components",
+      "url": "/components/",
+      "items": [
+        {
+          "label": "About Components",
+          "url": "/components/"
+        },
+        {
+          "label": "Accordion",
+          "url": "/components/accordion/"
+        },
+        {
+          "label": "Breadcrumbs",
+          "url": "/components/breadcrumbs/"
+        },
+        {
+          "label": "Buttons",
+          "url": "/components/buttons/"
+        },
+        {
+          "label": "Pager",
+          "url": "/components/pager/"
+        },
+        {
+          "label": "Tabs",
+          "url": "/components/tabs/"
+        }
+      ]
+    },
+    {
+      "label": "Templates",
+      "url": "/templates/"
+    },
+    {
+      "label": "Contribute",
+      "url": "/contribute/"
+    }
+  ]
+}

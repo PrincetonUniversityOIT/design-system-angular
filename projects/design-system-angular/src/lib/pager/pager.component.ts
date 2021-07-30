@@ -30,6 +30,9 @@ export class PagerComponent {
 
   iterablePages(): number[] {
 
+    this.totalPages = Number(this.totalPages);
+    this.currentPage = Number(this.currentPage);
+
     const pages: number[] = [];
     const delta = 4;
     let maxPages = 9;
@@ -43,7 +46,7 @@ export class PagerComponent {
     } else {
       if (this.currentPage - delta < 0) {
         pageNum = 0;
-      } else if (this.currentPage + delta > this.totalPages - 1) {
+      } else if ( (this.currentPage + delta) > (this.totalPages - 1)) {
         pageNum = this.totalPages - maxPages;
       } else {
         pageNum = this.currentPage - delta;
@@ -84,7 +87,7 @@ export class PagerComponent {
       this.currentPage = page;
       this.pagerChange.emit(page);
       this.ref.detectChanges();
-      console.log('setPage', page, this.currentPage);
+      // console.log('setPage', page, this.currentPage);
     }
   }
 }

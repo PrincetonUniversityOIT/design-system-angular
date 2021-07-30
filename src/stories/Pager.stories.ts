@@ -21,14 +21,11 @@ const Template: Story<PagerComponent> = (args: PagerComponent) => ({
 });
 
 export const Default = Template.bind({});
-Default.args = {
-  dataPage: {totalPages: 10, currentPage: 1},
-  pagerChange: action('pagerChange')
-};
 
-export const DoubleTruncated = Template.bind({});
-DoubleTruncated.args = {
-  dataPage: {totalPages: 20, currentPage: 7},
-  pagerChange: action('pagerChange')
-};
+const DoubleTemplate: Story<PagerComponent> = (args: PagerComponent) => ({
+  component: PagerComponent,
+  props: {totalPages: 20, currentPage: 7}
+});
+
+export const DoubleTruncated = DoubleTemplate.bind({});
 

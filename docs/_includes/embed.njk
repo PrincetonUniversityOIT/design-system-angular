@@ -1,0 +1,26 @@
+---
+title: Component Example
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Princeton Design System</title>
+   <link rel="stylesheet" href="{{ '/jazz_custom.css' | url }}">
+   <link rel="stylesheet" href="{{ '/jazz_fonts.css' | url }}">
+   <link rel="stylesheet" href="{{ '/jazz_curated_icons.css' | url }}">
+   <link rel="stylesheet" href="{{ '//prism-atom-dark.css' | url }}">
+</head>
+<body>
+<!-- Example Start -->
+<div style="width:90%;height:90%;padding:10px;">
+{{ content | safe }}
+</div>
+<!-- Example End -->
+<script src="{{'/runtime.js' | url }}"></script>
+<script src="{{'/polyfills.js' | url }}"></script>
+<script src="{{'/main.js' | url }}"></script>
+</body>
+</html>
