@@ -1,0 +1,51 @@
+{
+  "_args": [
+    [
+      "@princeton-design/design-system@1.0.32",
+      "/home/runner/work/design-system-angular/design-system-angular"
+    ]
+  ],
+  "_from": "@princeton-design/design-system@1.0.32",
+  "_id": "@princeton-design/design-system@1.0.32",
+  "_inBundle": false,
+  "_integrity": "sha512-0B+u7+LuXxTvk+EEzCYckECmfRTR3AcHpaR8Q1Nmc2X6UlvqFu6yve8ExJmXO0gkGpfkgBZKYo4N/aCvmjphXA==",
+  "_location": "/@princeton-design/design-system",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@princeton-design/design-system@1.0.32",
+    "name": "@princeton-design/design-system",
+    "escapedName": "@princeton-design%2fdesign-system",
+    "scope": "@princeton-design",
+    "rawSpec": "1.0.32",
+    "saveSpec": null,
+    "fetchSpec": "1.0.32"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@princeton-design/design-system/-/design-system-1.0.32.tgz",
+  "_spec": "1.0.32",
+  "_where": "/home/runner/work/design-system-angular/design-system-angular",
+  "author": {
+    "name": "Princeton University"
+  },
+  "bugs": {
+    "url": "https://github.com/PrincetonUniversityOIT/design-system/issues"
+  },
+  "dependencies": {},
+  "description": "Princeton Design System",
+  "homepage": "https://github.com/PrincetonUniversityOIT/design-system#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "@princeton-design/design-system",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrincetonUniversityOIT/design-system.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.32"
+}
