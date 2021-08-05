@@ -13,10 +13,9 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "build-prod": "ng build --prod",
+    "start": "ng serve jazz-design-system",
     "build-lib": "ng build design-system-angular --prod",
+    "build-site": "ng build jazz-design-system --prod",
     "test": "jest --watchAll",
     "test-components": "jest --passWithNoTests --testPathPattern=projects/design-system-angular/src/lib --silent=false --verbose",
     "lint": "ng lint",
@@ -25,12 +24,10 @@
     "docs:serve": "compodoc -p ./projects/design-system-angular/tsconfig.lib.compodoc.json -n \"Princeton Design System for Angular\" --disableCoverage --hideGenerator --theme material -s",
     "storybook": "npm run docs:json && start-storybook -s./node_modules/@princeton-design/design-system:assets -p 6006",
     "build-storybook": "npm run docs:json && build-storybook",
-    "build:elements": "ng build --prod --project elements --output-hashing none",
     "build-docsite": "npx @11ty/eleventy",
-    "build-docsite-prod": "npx @11ty/eleventy --pathprefix 'design-system'",
+    "build-docsite-prod": "npx @11ty/eleventy --pathprefix 'design-system-angular'",
     "serve-docsite": "npx @11ty/eleventy --serve",
-    "serve-docsite-prod": "npx @11ty/eleventy --serve --pathprefix 'design-system'",
-    "e2e": "ng e2e"
+    "serve-docsite-prod": "npx @11ty/eleventy --serve --pathprefix 'design-system-angular'"
   },
   "private": true,
   "dependencies": {
@@ -40,7 +37,6 @@
     "@angular/common": "~11.0.6",
     "@angular/compiler": "~11.0.6",
     "@angular/core": "~11.0.6",
-    "@angular/elements": "^11.0.7",
     "@angular/forms": "~11.0.6",
     "@angular/platform-browser": "~11.0.6",
     "@angular/platform-browser-dynamic": "~11.0.6",

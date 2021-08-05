@@ -18,6 +18,7 @@ export const HIDDEN = 'hidden';
 /**
  * An Accordion is a vertically stacked set of headings that each control the visibility of an associated content section.
  *
+ * <example-url>http://localhost:4200/#/accordion/accordionExample</example-url>
  * @example
    `` `
    <jazz-accordion>

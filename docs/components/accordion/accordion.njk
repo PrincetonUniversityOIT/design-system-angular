@@ -5,6 +5,7 @@ tags: components
 ---
 
 {% from "../../_includes/example.njk" import example %}
+{% from "../../_includes/example-angular.njk" import exampleAngular %}
 
 <h1 class="jazz-page-title">Accordion</h1>
 
@@ -12,7 +13,7 @@ tags: components
 An Accordion is a vertically stacked set of headings that each control the visibility of an associated content section.</p>
 </p>
 
-{{ example("/components/accordion/accordion-example1", "Demonstration", "code-panel-demo") }}
+{{ exampleAngular("http://localhost:4200/#/accordion/accordionExample", "/components/accordion/accordion-example1.angular", "Demonstration", "code-panel-demo") }}
 
 <h2>Best Practices</h2>
 

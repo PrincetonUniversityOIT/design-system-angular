@@ -32,7 +32,6 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.setUseGitIgnore(false);
 
-    eleventyConfig.addWatchTarget("./dist/elements/");
     eleventyConfig.addWatchTarget("./docs/**/*.code");
 
     eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/jazz_fonts.css": "jazz_fonts.css" });
@@ -43,9 +42,6 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "dist/img": "img" });
     eleventyConfig.addPassthroughCopy({ "dist/logos": "logos" });
     eleventyConfig.addPassthroughCopy({ "docs/favicon.ico": "favicon.ico" });
-    eleventyConfig.addPassthroughCopy({ "dist/elements/runtime.js": "runtime.js" });
-    eleventyConfig.addPassthroughCopy({ "dist/elements/polyfills.js": "polyfills.js" });
-    eleventyConfig.addPassthroughCopy({ "dist/elements/main.js": "main.js" });
     eleventyConfig.addPassthroughCopy({ "docs/css/prism-atom-dark.css": "prism-atom-dark.css" });
 
     eleventyConfig.addNunjucksShortcode("src", function(path) { return getSourceCode(configObj, path); });

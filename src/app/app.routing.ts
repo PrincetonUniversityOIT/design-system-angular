@@ -37,6 +37,14 @@ export const routes: Routes = [
   {
     path: 'documentation',
     component: DocumentationComponent
+  },
+  {
+    path: 'pager',
+    loadChildren: () => import('./examples/pager/pager.module').then(m => m.PagerModule)
+  },
+  {
+    path: 'accordion',
+    loadChildren: () => import('./examples/accordion/accordion.module').then(m => m.AccordionModule)
   }
 ];
 
