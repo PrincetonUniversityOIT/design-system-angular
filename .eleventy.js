@@ -38,10 +38,10 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/jazz_fonts.css": "jazz_fonts.css" });
     eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/jazz_custom.css": "jazz_custom.css" });
     eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/jazz_curated_icons.css": "jazz_curated_icons.css" });
-    eleventyConfig.addPassthroughCopy({ "dist/fonts": "fonts" });
-    eleventyConfig.addPassthroughCopy({ "dist/icons": "icons" });
-    eleventyConfig.addPassthroughCopy({ "dist/img": "img" });
-    eleventyConfig.addPassthroughCopy({ "dist/logos": "logos" });
+    eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/fonts": "fonts" });
+    eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/icons": "icons" });
+    eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/img": "img" });
+    eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/logos": "logos" });
     eleventyConfig.addPassthroughCopy({ "docs/favicon.ico": "favicon.ico" });
     eleventyConfig.addPassthroughCopy({ "docs/css/prism-atom-dark.css": "prism-atom-dark.css" });
 
