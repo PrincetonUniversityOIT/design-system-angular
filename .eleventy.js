@@ -3,7 +3,8 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 const configObj = {
     dir: {
-        input: "docs"
+        input: "docs",
+        output: "dist"
     }
 };
 

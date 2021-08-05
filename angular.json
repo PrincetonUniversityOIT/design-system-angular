@@ -19,7 +19,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "baseHref": "https://princetonuniversityoit.github.io/design-system-angular/",
+            "baseHref": "https://princetonuniversityoit.github.io/design-system-angular/jazz-design-system",
             "assets": [
               "src/favicon.ico",
               {
