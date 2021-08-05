@@ -1,0 +1,16 @@
+export declare const ARIA_EXPANDED = "aria-expanded";
+export declare const MENU_SELECTOR: string;
+export declare const MENU_BUTTON_SELECTOR: string;
+export declare const HEADER_NAV_SELECTOR: string;
+export declare const MENU_MAIN_MENU_SELECTOR: string;
+export declare const HEADER_SUB_MENU_SELECTOR: string;
+export declare const MENU_STICKY_STYLE: string;
+export declare const MENU_HIDE_STYLE: string;
+export declare const MENU_NAV_EXPANDED_STYLE: string;
+export declare const MENU_SUB_NAV_EXPANDED_STYLE: string;
+export declare const MENUBAR_SHOWN_STYLE: string;
+export declare const MENUBAR_SUB_SHOWN_STYLE: string;
+export declare const ICON_SELECTOR: string;
+export declare const ICON_CLOSE: string;
+export declare const ICON_MENU: string;
+export declare const MENU_RECENTLY_OPENED_ID: string;

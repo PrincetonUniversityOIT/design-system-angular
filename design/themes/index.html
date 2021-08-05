@@ -1,0 +1,415 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>themes - Princeton Design System</title>
+    <link rel="icon" href="/design-system-angular/jazz-design-system/favicon.ico">
+    <link rel="stylesheet" href="/design-system-angular/jazz-design-system/jazz_custom.css">
+    <link rel="stylesheet" href="/design-system-angular/jazz-design-system/jazz_fonts.css">
+    <link rel="stylesheet" href="/design-system-angular/jazz-design-system/jazz_curated_icons.css">
+    <link rel="stylesheet" href="/design-system-angular/jazz-design-system/prism-atom-dark.css">
+    <style>
+        .core {
+            display: flex;
+        }
+        .core-content {
+            flex: 1 1 auto;
+            margin-left: 20px;
+            min-width: 0px; /* This is necessary to stop the code from pushing the rest of the page out. */
+        }
+        main {
+            margin-bottom: 20px;
+        }
+        iframe {
+            border: 1px solid lightgrey;
+            display: block;
+            padding: 10px;
+            width: 100%;
+            overflow-y: hidden;
+            box-shadow:
+                0px 2px 4px rgba(0, 0, 0, 0.14),
+                0px 4px 5px rgba(0, 0, 0, 0.12),
+                0px 1px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        .jazz__small-device {
+            width: 40%;
+        }
+        .jazz-sidebar-menu {
+            min-width: 200px;
+        }
+        .code {
+            background-color: #ddd;
+            font-family: monospace;
+        }
+
+        p, ol, ul {
+            line-height: 1.5em;
+        }
+    </style>
+</head>
+<body onload="registerAllIframes()">
+<header role="banner" class="jazz-header">
+    <h1 class="jazz-visually-hidden">Princeton University Design System</h1>
+    <div class="jazz-skip-links">
+        <a href="#main-content" class="jazz-skip-link">Skip to main content</a>
+        <a href="#search" class="jazz-skip-link">Skip to search options</a>
+    </div>
+    <div class="jazz-container">
+    <div class="jazz-header-container">
+        <div class="jazz-header-right-container">
+            <div class="jazz-header__utility-menu jazz-header__utility-menu--hide-small">
+                <ul>
+                    <li><a href="javascript void(0);">Help</a></li>
+                </ul>
+            </div>
+            <div class="jazz-header__search-bar">
+                <h2 class="jazz-visually-hidden">Search</h2>
+                <button id="my-search-toggle" class="jazz-header__search-bar-toggle" aria-expanded="false" aria-label="Search Menu Toggle"><i class="jazz-icon jazz-icon-search" aria-hidden="true"></i><span class="jazz-visually-hidden">Search Menu Toggle</span></button>
+                <div id="jazz-header-search-bar-panel" class="jazz-header__search-bar-panel">
+                    <form action="javascript:void(0)" method="get" accept-charset="UTF-8" role="search">
+                        <label class="jazz-visually-hidden" for="search-field">Search</label>
+                        <a name="search">
+                            <input type="search" id="search-field" placeholder="Search" autocomplete="off" />
+                        </a>
+                        <button class="jazz-button" type="submit">
+                            <span class="jazz-visually-hidden">Search</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+         </div>
+    </div>
+    <div class="jazz-header-break"></div>
+        <div class="jazz-header__site-branding">
+        <div class="jazz-container jazz-header__site-branding-contents">
+            <a href="javascript:void(0)" title="Home" rel="home" tabindex="-1" aria-hidden="true" class="jazz-header__site-branding-home-link"><img src="/design-system-angular/jazz-design-system/logos/pu-shield.svg" /></a>
+            <div class="jazz-header__site-branding-info">
+                <div class="jazz-header__site-branding-name">
+                    <a href="/" title="Home" rel="home">Jazz</a>
+                </div>
+                <div class="jazz-header__site-branding-slogan">
+                    The Princeton University Design System
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="jazz-header-collapsed-header">
+        <div class="jazz-container">
+        <div class="jazz-header-collapsed-container">
+           <div class="jazz-header-collapsed__pu-branding">
+               <a href="javascript:void(0);" title="Princeton University"><img src="/design-system-angular/jazz-design-system/logos/pu-shield.svg" alt="Princeton University" /></a>
+           </div>
+           <div class="jazz-header-collapsed__site-branding--divider">
+           </div>
+           <div class="jazz-header-collapsed__site-branding">
+               <div class="jazz-header-collapsed__site-branding-info">
+                   <div class="jazz-header-collapsed__site-branding-name">
+                       <a href="javascript:void(0);" title="Home" rel="home">Jazz - Princeton University Design System</a>
+                   </div>
+               </div>
+           </div>
+         </div>
+         </div>
+    </div>
+    <nav aria-label="Main Menu" class="jazz-menu__main-menu">
+        <h2 class="jazz-visually-hidden">Main Menu</h2>
+        <div class="jazz-container">
+            <div class="jazz-menu__main-menu-navbar">
+                <button class="jazz-menu__menu-toggle jazz-menu__menu-toggle-absolute" aria-expanded="false" aria-label="Navigation Menu Toggle">Menu<i class="jazz-icon jazz-icon-menu" aria-hidden="true"></i></button>
+                <div  class="jazz-menu__nav-container">
+                    <ul class="jazz-menubar" role="list"><li><a href="/design-system-angular/jazz-design-system/getting_started/" >Getting Started</a>
+                             <button type="button" class="jazz-menu__submenu-toggle" aria-expanded="false">
+                                 <span class="jazz-visually-hidden">Getting Started</span>
+                             </button>
+                             
+                                <ul>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/getting_started/"  >About The Design System</a></li>
+                                    
+                                </ul>
+                             
+                        </li><li><a href="/design-system-angular/jazz-design-system/design/"  aria-current="page">Design</a>
+                             <button type="button" class="jazz-menu__submenu-toggle" aria-expanded="false">
+                                 <span class="jazz-visually-hidden">Design</span>
+                             </button>
+                             
+                                <ul>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/design/themes"  >Themes</a></li>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/design/icons"  >Icons</a></li>
+                                    
+                                </ul>
+                             
+                        </li><li><a href="/design-system-angular/jazz-design-system/components/" >Components</a>
+                             <button type="button" class="jazz-menu__submenu-toggle" aria-expanded="false">
+                                 <span class="jazz-visually-hidden">Components</span>
+                             </button>
+                             
+                                <ul>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/components/"  >About Components</a></li>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/components/accordion/"  >Accordion</a></li>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/components/breadcrumbs/"  >Breadcrumbs</a></li>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/components/buttons/"  >Buttons</a></li>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/components/pager/"  >Pager</a></li>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/components/tabs/"  >Tabs</a></li>
+                                    
+                                </ul>
+                             
+                        </li><li><a href="/design-system-angular/jazz-design-system/templates/" >Templates</a>
+                             <button type="button" class="jazz-menu__submenu-toggle" aria-expanded="false">
+                                 <span class="jazz-visually-hidden">Templates</span>
+                             </button>
+                             
+                        </li><li><a href="/design-system-angular/jazz-design-system/contribute/" >Contribute</a>
+                             <button type="button" class="jazz-menu__submenu-toggle" aria-expanded="false">
+                                 <span class="jazz-visually-hidden">Contribute</span>
+                             </button>
+                             
+                        </li></ul>
+                    <div class="jazz-header__utility-menu jazz-header__utility-menu--hide-large">
+                        <ul>
+                            <li><a href="javascript void(0);">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- /div -->
+</header>
+<main class="jazz-container">
+    <div class="core">
+        <nav class="jazz-sidebar-menu" aria-label="Section Navigation">
+            <h2 class="jazz-visually-hidden">Section Menu</h2>
+            <ul class="jazz-sidebar-menu__list" role="list">
+                
+                
+                
+                
+                
+                <li  class="jazz-sidebar-menu__list-item">
+                    <a href="/design-system-angular/jazz-design-system/design/themes" >Themes<span class="jazz-visually-hidden">, (current page)</span></a>
+                </li>
+                
+                <li  class="jazz-sidebar-menu__list-item">
+                    <a href="/design-system-angular/jazz-design-system/design/icons" >Icons<span class="jazz-visually-hidden">, (current page)</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+        </nav>
+        <div class="core-content">
+            <a name="main-content" id="main-content"></a>
+            <h1 class="jazz-page-title">Themes</h1>
+
+<p>The Design System provides basic theming support that allows developers to easily modify color and font attributes for individual components (within reason).</p>
+
+<h2>Best Practices</h2>
+
+<p>Because the theming capabilities within the Design System are mostly limited to font and color, best practices for theming tend to follow best practices for color and font use.</p>
+<ul>
+  <li>Try to utilize fonts that have similar font metrics and characteristics to the default fonts used within the Design System (Public Sans, Roboto & Lora).</li>
+  <li>When replacing logos and images, utilize images that have the same size as those tha you are replacing. The value of the Design System diminishes significantly if styles need to be modified beyond what is provided in the theming capabilities.</li>
+  <li>Color contrast for your theme should align with accessibility best practeices.</li>
+  <li>Be consistent with how themes are applied to components. Components should look as though they belong together.</li>
+  <li>Although they do not need to be used as the primary colors in site designs, Princeton Orange & Black (or dark gray) should be part of every design.</li>
+</ul>
+
+
+<h2>Theme Capabilities</h2>
+
+<p>There are two options available for themes in the Design System:</p>
+<ol>
+  <li>CSS Themes - Theme changes are applied using CSS "variables" (a.k.a. CSS Custom Properties).</li>
+  <li>SCSS Themes - Theme changes are applied by modifying variables in the SCSS files used to build the Design System CSS style sheets.</li>
+</ol>
+
+<table class="jazz-table__bordered">
+  <tr>
+    <th style="width: 16%;"></th>
+    <th style="width: 42%;">Advantages</th>
+    <th style="width: 42%;">Disadvantages</th>
+  </tr>
+  <tr>
+    <td>CSS Themes</td>
+    <td>
+      <ul>
+        <li>Simple</li>
+        <li>Fast</li>
+        <li>Does not require a build process</li>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li>CSS variables (CSS Custom Properties) are not natively supported in all web browsers. Internet Explorer 11 is one example of an older browser that does not support CSS variables.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>SCSS Themes</td>
+    <td>
+      <ul>
+        <li>Can be integrated with existing build processes.</li>
+        <li>More explicit than using CSS variables.</li>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li>Requires knowledge of front-end build processes and SCSS.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<h2>CSS Themes</h2>
+
+<p>Using CSS variables to modify the theme is by far the easiest way to create a custom theme for the Design System.  The Design System style sheets expose a number of variables that can be used to control colors, background colors, fonts, and logos that are used within the component designs.  Using CSS variables (CSS Custom Properties), developers can override these values to meet their needs.</p>
+
+<p>To utilize the default theme, there is no additional configuration needed.  Default values are included as part of the CSS stylesheet and will be applied if no other variable configurations are provided by the developer.</p>
+
+<p>If you wish to override the theme, provide the CSS variable overrides after you import the CSS stylesheet into your page.  Below is an example that demonstrates how to override the background color.</p>
+
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jazz_custom.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">:root</span> <span class="token punctuation">{</span>
+    <span class="token property">--jazz-header-bgcolor</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--jazz-gray<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">--jazz-header-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--jazz-white<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
+
+<p>See the “CSS Theme Variables” section within each component to see which aspects of the component design that can be controlled through the theming capabilities built into the Design System.</p>
+
+<p>The <span class="code">jazz_custom.css</span> must be used if you plan to override CSS variables.  Other CSS stylesheets provided with the design system do not support CSS variables.  If you have no intention of overriding CSS variables, then you can use one of the other stylesheets (<span class="code">jazz_serif.css</span> or <span class="code">jazz_sans.css</span>, depending on your font preference).  The <span class="code">jazz_custom.css</span> and <span class="code">jazz_sans.css</span> stylesheets are equivalent if you do not override any of the CSS variables.</p>
+
+<p>For convenience, CSS variables have been provided for each color in the Design System palette.  See the “Colors” section of this documentation for more information about the color variables and how to use them.</p>
+
+<h2>SCSS Themes</h2>
+<p>Using SCSS Theme capabilities is useful for developers that already have a front-end build process in place for their application/site, and they are planning on integrating or supplementing the Design System styles anyway.</p>
+
+<p>The Design System root SCSS files import the theme configuration:</p>
+
+<pre class="language-scss"><code class="language-scss"><span class="token keyword">@import</span> <span class="token string">'theme_default'</span><span class="token punctuation">;</span></code></pre>
+
+<p>You can replace this file with a configuration file that contains your own theme preferences.  The recommended approach for doing this is to copy the file, rename it, and modify it to your liking:</p>
+
+<pre class="language-scss"><code class="language-scss"><span class="token keyword">@import</span> <span class="token string">'theme_my_customized_theme'</span><span class="token punctuation">;</span></code></pre>
+
+<p>A couple of functions are provided with the Design System to simplify references to Design System colors and fonts: </p>
+
+<ul>
+  <li><span class="code">jazz-color($color_name)</span> - where <span class="code">$color-name</span> is one of the colors from the Design System palette.</li>
+  <li><span class="code">jazz-font($font_name)</span> - where <span class="code">$font-name</span> is one of the fonts from the Design System palette.</li>
+</ul>
+
+<p>To change theme properties in the custom SCSS theme file, simply change the value in the SCSS map:</p>
+
+<pre class="language-scss"><code class="language-scss"><span class="token property"><span class="token variable">$jazz-theme-feature</span></span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
+  ...
+  <span class="token property">accordion-header-bgcolor</span><span class="token punctuation">:</span> <span class="token function">jazz-color</span><span class="token punctuation">(</span>jazz-green<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  ...
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+        </div>
+    </div>
+</main>
+<footer role="contentinfo" class="jazz-footer">
+    <div class="jazz-container jazz-footer__content">
+        <div class="row">
+            <div class="col-sm-3 col-xs-12">
+                <h2>General Information</h2>
+                <ul class="jazz-footer__list">
+                    <li><a href="javascript:void(0);">Contact Us</a></li>
+                    <li><a href="javascript:void(0);">About Us</a></li>
+                    <li><a href="javascript:void(0);">News</a></li>
+                    <li><a href="javascript:void(0);">Data Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <h2>Services</h2>
+                <ul class="jazz-footer__list">
+                    <li><a href="javascript:void(0);">Update Your Info</a></li>
+                    <li><a href="javascript:void(0);">Online Resources</a></li>
+                    <li><a href="javascript:void(0);">Visiting Campus</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <h2>University Links</h2>
+                <ul class="jazz-footer__list">
+                    <li><a href="https://www.princeton.edu/">Princeton University</a></li>
+                    <li><a href="https://communications.princeton.edu/">Office of Communications</a></li>
+                    <li><a href="https://ux.princeton.edu/">User Experience Office</a></li>
+                    <li><a href="https://wds.princeton.edu/">Web Development Services</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <h2>Resources</h2>
+                <ul class="jazz-footer__icon-list">
+                    <li><a href="javascript:void(0);"><i class="jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-facebook"></i><span class="jazz-visually-hidden">Go to GitHub</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="jazz-subfooter">
+        <div class="jazz-subfooter__layout">
+            <div>
+                <a href="https://accessibility.princeton.edu/help">Accessibility</a>
+            </div>
+            <div class="jazz-subfooter__copyright">
+                <i class="jazz-icon jazz-icon-copyright"><span class="jazz-visually-hidden">&copy;</span></i> 2021 The Trustees of Princeton University
+            </div>
+            <div class="jazz-subfooter__logo">
+                <a href="https://www.princeton.edu"><img src="/design-system-angular/jazz-design-system/logos/pu-logo-stacked.svg" alt="Princeton University Home Page" /></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/design-system-angular/jazz-design-system/runtime.js"></script>
+<script src="/design-system-angular/jazz-design-system/polyfills.js"></script>
+<script src="/design-system-angular/jazz-design-system/main.js"></script>
+<script type="text/javascript">
+    function resizeIframe(iframe) {
+        iframe.height = (iframe.contentWindow.document.body.scrollHeight + 22) + "px";
+    }
+
+    function registerIframe(iframe) {
+        // register a listener to list to changes to the iframe content
+        const observer = new MutationObserver((/* mutationsList, observer*/) => {
+            resizeIframe(iframe);
+        });
+        observer.observe(iframe.contentWindow.document.body, { attributes: true, childList: true, subtree: true });
+        // resize immediately for initial load
+        resizeIframe(iframe);
+    }
+
+    function registerAllIframes() {
+        const iframes = document.querySelectorAll("iframe.jazz-docs__code-sample");
+        for (const iframe of iframes) {
+            registerIframe(iframe);
+        }
+    }
+
+    function copyCode(button) {
+        navigator.clipboard.writeText(button.parentNode.querySelector("pre.language-html > code.language-html").innerText);
+    }
+</script>
+</body>
+</html>

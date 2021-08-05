@@ -1,0 +1,358 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - Princeton Design System</title>
+    <link rel="icon" href="/design-system-angular/jazz-design-system/favicon.ico">
+    <link rel="stylesheet" href="/design-system-angular/jazz-design-system/jazz_custom.css">
+    <link rel="stylesheet" href="/design-system-angular/jazz-design-system/jazz_fonts.css">
+    <link rel="stylesheet" href="/design-system-angular/jazz-design-system/jazz_curated_icons.css">
+    <link rel="stylesheet" href="/design-system-angular/jazz-design-system/prism-atom-dark.css">
+    <style>
+        .core {
+            display: flex;
+        }
+        .core-content {
+            flex: 1 1 auto;
+            margin-left: 20px;
+            min-width: 0px; /* This is necessary to stop the code from pushing the rest of the page out. */
+        }
+        main {
+            margin-bottom: 20px;
+        }
+        iframe {
+            border: 1px solid lightgrey;
+            display: block;
+            padding: 10px;
+            width: 100%;
+            overflow-y: hidden;
+            box-shadow:
+                0px 2px 4px rgba(0, 0, 0, 0.14),
+                0px 4px 5px rgba(0, 0, 0, 0.12),
+                0px 1px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        .jazz__small-device {
+            width: 40%;
+        }
+        .jazz-sidebar-menu {
+            min-width: 200px;
+        }
+        .code {
+            background-color: #ddd;
+            font-family: monospace;
+        }
+
+        p, ol, ul {
+            line-height: 1.5em;
+        }
+    </style>
+</head>
+<body onload="registerAllIframes()">
+<header role="banner" class="jazz-header">
+    <h1 class="jazz-visually-hidden">Princeton University Design System</h1>
+    <div class="jazz-skip-links">
+        <a href="#main-content" class="jazz-skip-link">Skip to main content</a>
+        <a href="#search" class="jazz-skip-link">Skip to search options</a>
+    </div>
+    <div class="jazz-container">
+    <div class="jazz-header-container">
+        <div class="jazz-header-right-container">
+            <div class="jazz-header__utility-menu jazz-header__utility-menu--hide-small">
+                <ul>
+                    <li><a href="javascript void(0);">Help</a></li>
+                </ul>
+            </div>
+            <div class="jazz-header__search-bar">
+                <h2 class="jazz-visually-hidden">Search</h2>
+                <button id="my-search-toggle" class="jazz-header__search-bar-toggle" aria-expanded="false" aria-label="Search Menu Toggle"><i class="jazz-icon jazz-icon-search" aria-hidden="true"></i><span class="jazz-visually-hidden">Search Menu Toggle</span></button>
+                <div id="jazz-header-search-bar-panel" class="jazz-header__search-bar-panel">
+                    <form action="javascript:void(0)" method="get" accept-charset="UTF-8" role="search">
+                        <label class="jazz-visually-hidden" for="search-field">Search</label>
+                        <a name="search">
+                            <input type="search" id="search-field" placeholder="Search" autocomplete="off" />
+                        </a>
+                        <button class="jazz-button" type="submit">
+                            <span class="jazz-visually-hidden">Search</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+         </div>
+    </div>
+    <div class="jazz-header-break"></div>
+        <div class="jazz-header__site-branding">
+        <div class="jazz-container jazz-header__site-branding-contents">
+            <a href="javascript:void(0)" title="Home" rel="home" tabindex="-1" aria-hidden="true" class="jazz-header__site-branding-home-link"><img src="/design-system-angular/jazz-design-system/logos/pu-shield.svg" /></a>
+            <div class="jazz-header__site-branding-info">
+                <div class="jazz-header__site-branding-name">
+                    <a href="/" title="Home" rel="home">Jazz</a>
+                </div>
+                <div class="jazz-header__site-branding-slogan">
+                    The Princeton University Design System
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="jazz-header-collapsed-header">
+        <div class="jazz-container">
+        <div class="jazz-header-collapsed-container">
+           <div class="jazz-header-collapsed__pu-branding">
+               <a href="javascript:void(0);" title="Princeton University"><img src="/design-system-angular/jazz-design-system/logos/pu-shield.svg" alt="Princeton University" /></a>
+           </div>
+           <div class="jazz-header-collapsed__site-branding--divider">
+           </div>
+           <div class="jazz-header-collapsed__site-branding">
+               <div class="jazz-header-collapsed__site-branding-info">
+                   <div class="jazz-header-collapsed__site-branding-name">
+                       <a href="javascript:void(0);" title="Home" rel="home">Jazz - Princeton University Design System</a>
+                   </div>
+               </div>
+           </div>
+         </div>
+         </div>
+    </div>
+    <nav aria-label="Main Menu" class="jazz-menu__main-menu">
+        <h2 class="jazz-visually-hidden">Main Menu</h2>
+        <div class="jazz-container">
+            <div class="jazz-menu__main-menu-navbar">
+                <button class="jazz-menu__menu-toggle jazz-menu__menu-toggle-absolute" aria-expanded="false" aria-label="Navigation Menu Toggle">Menu<i class="jazz-icon jazz-icon-menu" aria-hidden="true"></i></button>
+                <div  class="jazz-menu__nav-container">
+                    <ul class="jazz-menubar" role="list"><li><a href="/design-system-angular/jazz-design-system/getting_started/"  aria-current="page">Getting Started</a>
+                             <button type="button" class="jazz-menu__submenu-toggle" aria-expanded="false">
+                                 <span class="jazz-visually-hidden">Getting Started</span>
+                             </button>
+                             
+                                <ul>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/getting_started/"  aria-current="page" class="is-active"  >About The Design System</a></li>
+                                    
+                                </ul>
+                             
+                        </li><li><a href="/design-system-angular/jazz-design-system/design/" >Design</a>
+                             <button type="button" class="jazz-menu__submenu-toggle" aria-expanded="false">
+                                 <span class="jazz-visually-hidden">Design</span>
+                             </button>
+                             
+                                <ul>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/design/themes"  >Themes</a></li>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/design/icons"  >Icons</a></li>
+                                    
+                                </ul>
+                             
+                        </li><li><a href="/design-system-angular/jazz-design-system/components/" >Components</a>
+                             <button type="button" class="jazz-menu__submenu-toggle" aria-expanded="false">
+                                 <span class="jazz-visually-hidden">Components</span>
+                             </button>
+                             
+                                <ul>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/components/"  >About Components</a></li>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/components/accordion/"  >Accordion</a></li>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/components/breadcrumbs/"  >Breadcrumbs</a></li>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/components/buttons/"  >Buttons</a></li>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/components/pager/"  >Pager</a></li>
+                                    
+                                        <li><a href="/design-system-angular/jazz-design-system/components/tabs/"  >Tabs</a></li>
+                                    
+                                </ul>
+                             
+                        </li><li><a href="/design-system-angular/jazz-design-system/templates/" >Templates</a>
+                             <button type="button" class="jazz-menu__submenu-toggle" aria-expanded="false">
+                                 <span class="jazz-visually-hidden">Templates</span>
+                             </button>
+                             
+                        </li><li><a href="/design-system-angular/jazz-design-system/contribute/" >Contribute</a>
+                             <button type="button" class="jazz-menu__submenu-toggle" aria-expanded="false">
+                                 <span class="jazz-visually-hidden">Contribute</span>
+                             </button>
+                             
+                        </li></ul>
+                    <div class="jazz-header__utility-menu jazz-header__utility-menu--hide-large">
+                        <ul>
+                            <li><a href="javascript void(0);">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- /div -->
+</header>
+<main class="jazz-container">
+    <div class="core">
+        <nav class="jazz-sidebar-menu" aria-label="Section Navigation">
+            <h2 class="jazz-visually-hidden">Section Menu</h2>
+            <ul class="jazz-sidebar-menu__list" role="list">
+                
+                
+                
+                <li  class="jazz-sidebar-menu__list-item--active">
+                    <a href="/design-system-angular/jazz-design-system/getting_started/"  aria-current="page" class="is-active">About The Design System<span class="jazz-visually-hidden">, (current page)</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+        </nav>
+        <div class="core-content">
+            <a name="main-content" id="main-content"></a>
+            
+<h1 class="jazz-page-title">Getting Started</h1>
+
+<h2>Installation</h2>
+
+<p>
+    This section describes the Jazz Design System installation process for projects that use
+    <a href="https://docs.npmjs.com/about-npm">NPM</a> (Node Package Manager) to manage project dependencies.
+</p>
+<p>
+    In your javascript project, run the following command to install the Jazz Design System libraries into your project:
+</p>
+<pre class="language-javascript"><code class="language-javascript">npm install @</code></pre>
+
+<p>
+    The Jazz Design System project structure should accommodate most use cases.  Some options are described below:
+</p>
+<ul>
+    <li>As part of your build process, copy the appropriate files (i.e. resources folder, jazz_serif.css,
+        jazz_fonts.css, and jazz_behavior.js) from the Jazz Design System node_modules folder into the appropriate
+        location in your project.  Then follow the steps in the “Basic Installation” to link the CSS and javascript
+        resources into your project.
+    </li>
+    <li>
+        If you plan to integrate the Jazz Design System with other resources in your build pipeline, you would be most
+        interested in source code provided in the “src/scss” and “src/js” folders.  It is recommended that
+        customizations to the Design System be made alongside Design System resources as opposed to directly
+        modifying the Design System sources themselves.
+    </li>
+</ul>
+
+<h2>Installation Without NPM</h2>
+
+<p>
+    This section describes the installation process for projects that are not using NPM to manage project dependencies.
+</p>
+
+<ol>
+    <li><a href="https://github.com/PrincetonUniversityOIT/design-system/releases">Download</a> the desired release bundle (jazz.zip file).</li>
+    <li>Extract (unzip) the contents of the release bundle into the folder alongside the rest of the web assets that
+        are to be delivered with your application or web site.</li>
+    <li>Link the styles and fonts CSS files into your web page.  You may need to adjust the “href” value to suit
+        your specific case:</li>
+</ol>
+
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/design-system-angular/jazz-design-system/jazz_serif.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/design-system-angular/jazz-design-system/jazz_fonts.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/design-system-angular/jazz-design-system/prism-atom-dark.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
+
+Link the script file in at the bottom of your web page body (<body>) and execute the logic to enable the Princeton Design System:
+
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/design-system-angular/jazz-design-system/runtime.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/design-system-angular/jazz-design-system/polyfills.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/design-system-angular/jazz-design-system/main.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+
+
+        </div>
+    </div>
+</main>
+<footer role="contentinfo" class="jazz-footer">
+    <div class="jazz-container jazz-footer__content">
+        <div class="row">
+            <div class="col-sm-3 col-xs-12">
+                <h2>General Information</h2>
+                <ul class="jazz-footer__list">
+                    <li><a href="javascript:void(0);">Contact Us</a></li>
+                    <li><a href="javascript:void(0);">About Us</a></li>
+                    <li><a href="javascript:void(0);">News</a></li>
+                    <li><a href="javascript:void(0);">Data Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <h2>Services</h2>
+                <ul class="jazz-footer__list">
+                    <li><a href="javascript:void(0);">Update Your Info</a></li>
+                    <li><a href="javascript:void(0);">Online Resources</a></li>
+                    <li><a href="javascript:void(0);">Visiting Campus</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <h2>University Links</h2>
+                <ul class="jazz-footer__list">
+                    <li><a href="https://www.princeton.edu/">Princeton University</a></li>
+                    <li><a href="https://communications.princeton.edu/">Office of Communications</a></li>
+                    <li><a href="https://ux.princeton.edu/">User Experience Office</a></li>
+                    <li><a href="https://wds.princeton.edu/">Web Development Services</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <h2>Resources</h2>
+                <ul class="jazz-footer__icon-list">
+                    <li><a href="javascript:void(0);"><i class="jazz-icon jazz-icon-2x jazz-footer__icon jazz-icon-facebook"></i><span class="jazz-visually-hidden">Go to GitHub</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="jazz-subfooter">
+        <div class="jazz-subfooter__layout">
+            <div>
+                <a href="https://accessibility.princeton.edu/help">Accessibility</a>
+            </div>
+            <div class="jazz-subfooter__copyright">
+                <i class="jazz-icon jazz-icon-copyright"><span class="jazz-visually-hidden">&copy;</span></i> 2021 The Trustees of Princeton University
+            </div>
+            <div class="jazz-subfooter__logo">
+                <a href="https://www.princeton.edu"><img src="/design-system-angular/jazz-design-system/logos/pu-logo-stacked.svg" alt="Princeton University Home Page" /></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/design-system-angular/jazz-design-system/runtime.js"></script>
+<script src="/design-system-angular/jazz-design-system/polyfills.js"></script>
+<script src="/design-system-angular/jazz-design-system/main.js"></script>
+<script type="text/javascript">
+    function resizeIframe(iframe) {
+        iframe.height = (iframe.contentWindow.document.body.scrollHeight + 22) + "px";
+    }
+
+    function registerIframe(iframe) {
+        // register a listener to list to changes to the iframe content
+        const observer = new MutationObserver((/* mutationsList, observer*/) => {
+            resizeIframe(iframe);
+        });
+        observer.observe(iframe.contentWindow.document.body, { attributes: true, childList: true, subtree: true });
+        // resize immediately for initial load
+        resizeIframe(iframe);
+    }
+
+    function registerAllIframes() {
+        const iframes = document.querySelectorAll("iframe.jazz-docs__code-sample");
+        for (const iframe of iframes) {
+            registerIframe(iframe);
+        }
+    }
+
+    function copyCode(button) {
+        navigator.clipboard.writeText(button.parentNode.querySelector("pre.language-html > code.language-html").innerText);
+    }
+</script>
+</body>
+</html>

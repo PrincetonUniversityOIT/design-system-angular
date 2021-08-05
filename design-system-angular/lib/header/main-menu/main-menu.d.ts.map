@@ -1,0 +1,1 @@
+{"version":3,"file":"main-menu.d.ts","sources":["main-menu.d.ts"],"names":[],"mappings":"AAAA;AACA;;AACA;AACA;;;AACA","sourcesContent":["import { QueryList } from '@angular/core';\nimport { MainMenuItemComponent } from './main-menu-item';\nexport declare class MainMenuComponent {\n    menuComponents: QueryList<MainMenuItemComponent>;\n}\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"utility-menu.d.ts","sources":["utility-menu.d.ts"],"names":[],"mappings":"AAAA;AACA;;AACA;AACA;;;AACA","sourcesContent":["import { QueryList } from '@angular/core';\nimport { UtilityItemComponent } from './utility-menu-item';\nexport declare class UtilityMenuComponent {\n    utilityMenuComponents: QueryList<UtilityItemComponent>;\n}\n"]}
