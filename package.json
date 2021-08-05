@@ -15,7 +15,7 @@
     "ng": "ng",
     "start": "ng serve jazz-design-system",
     "build-lib": "ng build design-system-angular --prod",
-    "build-site": "ng build jazz-design-system --prod --base-href https:///princetonuniversityoit.github.io/design-system-angular/",
+    "build-site": "ng build jazz-design-system --prod",
     "test": "jest --watchAll",
     "test-components": "jest --passWithNoTests --testPathPattern=projects/design-system-angular/src/lib --silent=false --verbose",
     "lint": "ng lint",
