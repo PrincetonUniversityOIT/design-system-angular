@@ -1,0 +1,11 @@
+<ng-template #template>
+  <a *ngIf="menuItem.url" [routerLink]="menuItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
+    [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{menuItem.label}}</a>
+  <a *ngIf="menuItem.externalUrl" href="{{menuItem.externalUrl}}">{{menuItem.label}}</a>
+  <jazz-sub-button [menuItem]="menuItem" (closeSubMenus)="close()" (resetSubMenus)="reset()"></jazz-sub-button>
+  <ul *ngIf="menuItem && menuItem.menuComponents && menuItem.menuComponents.length > 0" [class]="getClass()">
+    <li *ngFor="let levelItem of menuItem.menuComponents">
+        <jazz-menu-item *ngIf="!removeSelf(levelItem)" [menuItem]="levelItem"></jazz-menu-item>
+    </li>
+  </ul>
+</ng-template>

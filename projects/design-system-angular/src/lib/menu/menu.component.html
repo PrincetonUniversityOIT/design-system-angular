@@ -1,0 +1,24 @@
+<nav aria-label="Main Menu" class="jazz-menu__main-menu">
+  <h2 class="jazz-visually-hidden">Main Menu</h2>
+
+  <div class="jazz-container">
+    <div class="jazz-menu__main-menu-navbar">
+      <jazz-menu-main-button buttonClass="jazz-menu__menu-toggle" [showCompact]="false"></jazz-menu-main-button>
+      <div class="jazz-menu__nav-container">
+        <ul *ngIf="menuItems && menuItems.length > 0" class="jazz-menubar" role="list">
+            <li *ngFor="let level1item of menuItems" (mouseleave)="onMouseOut($event)">
+              <jazz-menu-item [menuItem]="level1item" (closeSubMenus)="closeSubMenus()" (resetSubMenus)="resetSubMenus()"></jazz-menu-item>
+            </li>
+        </ul>
+        <div class="jazz-header__utility-menu jazz-header__utility-menu--hide-large">
+          <ul *ngIf="utilityItems && utilityItems.length > 0">
+            <li *ngFor="let utilityItem of utilityItems" >
+              <a [routerLink]="utilityItem.url" routerLinkActive="active" #menuLink="routerLinkActive"
+                [attr.aria-current]="menuLink.isActive ? 'page' : undefined">{{utilityItem.label}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

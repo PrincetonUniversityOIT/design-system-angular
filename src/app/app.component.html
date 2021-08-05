@@ -1,0 +1,103 @@
+<div class="jazz-body-flex-container">
+<!--  <jazz-header [title]="'Princeton University Design System'"-->
+<!--               [siteBrandingName]="'RELATIVITY'"-->
+<!--               [siteBrandingUrl]="'https://www.princeton.edu'"-->
+<!--               [siteBrandingSlogan]="'The Princeton University Design System'"-->
+<!--               [showCompact]=false-->
+<!--               [showSearch]=true>-->
+<!--    <jazz-main-menu>-->
+<!--      <jazz-main-menu-item label="Main Menu 1" url="/mainMenu1">-->
+<!--          <jazz-main-menu-item label="Level 2 Menu 1" url="/level2item1" shownByDefault="true">-->
+<!--            <jazz-main-menu-item label="Level 3 Menu 1" url="/level3item1"></jazz-main-menu-item>-->
+<!--            <jazz-main-menu-item label="Level 3 Menu 2" url="/level3item2"></jazz-main-menu-item>-->
+<!--            <jazz-main-menu-item label="Level 3 Menu 3" externalUrl="http://www.google.com" *ngIf="activeFlag"></jazz-main-menu-item>-->
+<!--          </jazz-main-menu-item>-->
+<!--          <jazz-main-menu-item label="Level 2 Menu 2" url="/level2item2"></jazz-main-menu-item>-->
+<!--          <jazz-main-menu-item label="Level 2 Menu 3" url="/level2item3"></jazz-main-menu-item>-->
+<!--      </jazz-main-menu-item>-->
+<!--      <jazz-main-menu-item label="Main Menu 2" url="/mainMenu2"></jazz-main-menu-item>-->
+<!--      <jazz-main-menu-item label="Main Menu 3" url="/mainMenu3"></jazz-main-menu-item>-->
+<!--    </jazz-main-menu>-->
+
+<!--    <jazz-utility-menu>-->
+<!--      <jazz-utility-item label="Documentation" externalUrl="http://www.google.com"></jazz-utility-item>-->
+<!--      <jazz-utility-item *ngIf=false label="Log In" url="/login"></jazz-utility-item>-->
+<!--    </jazz-utility-menu>-->
+<!--  </jazz-header>-->
+
+  <jazz-utility-header
+    primaryHeading="Text Primary Heading"
+    puBrandingTitle="PU Branding Title"
+    siteBrandingLink="https://communications.princeton.edu"
+    siteBrandingName="Site Branding Name"
+    siteBrandingSlogan="Site Branding Slogan"
+    siteBrandingTitle="SiteBranding Title"
+    loginUrl="https://www.google.com/"
+    logoutUrl="https://www.microsoft.com/"
+    username=""
+    [stuckDesktop]="true"
+    [stuckMobile]="true"
+    utilityLinksHeading="Related Links">
+    <jazz-utility-header-link label="Google" url="https://www.google.com/" class="alt-tab-nav"></jazz-utility-header-link>
+    <jazz-utility-header-link label="Princeton" url="https://www.princeton.edu/"></jazz-utility-header-link>
+    <jazz-utility-header-link label="Microsoft" url="https://www.microsoft.com/"></jazz-utility-header-link>
+  </jazz-utility-header>
+
+  <main>
+    <div class="jazz-container">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- used to test *ngIf for menu items
+    <button (click)="clickMe()">Click Test! - {{activeFlag}}</button>
+    -->
+
+  </main>
+
+  <footer role="contentinfo" class="jazz-footer">
+    <div class="jazz-container jazz-footer__content">
+      <div class="row">
+        <div class="col-sm-3 col-xs-12">
+          <ul class="jazz-footer__list">
+            <li><i class="jazz-icon jazz-icon-envelope jazz-icon-white" aria-hidden="true"></i><a href="javascript:void(0);">  finance@princeton.edu</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <ul class="jazz-footer__list">
+            <li><a href="javascript:void(0);"><i class="jazz-icon jazz-icon-phone jazz-icon-white" aria-hidden="true"></i>  609-258-3080</a></li>
+            <li><a href="javascript:void(0);"><i class="jazz-icon jazz-icon-printer jazz-icon-white" aria-hidden="true"></i>  609-258-3080</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <ul class="jazz-footer__list">
+            <li><i class="jazz-icon jazz-icon-map-pin jazz-icon-transparent" aria-hidden="true"></i>  701 Carnegie Center</li>
+            <li><i class="jazz-icon jazz-icon-map-pin jazz-icon-white" aria-hidden="true"></i>  Suite 435</li>
+            <li><i class="jazz-icon jazz-icon-map-pin jazz-icon-transparent" aria-hidden="true"></i>  Princeton, NJ 08540</li>
+          </ul>
+        </div>
+        <div class="col-sm-3 col-xs-12 jazz-footer-text--right">
+          <ul class="jazz-footer__list">
+            <li>RELATED LINKS</li>
+            <li><a href="https://www.princeton.edu/hr/progserv/sds/applications/selfservice.html">HR Portal</a></li>
+            <li><a href="https://finance.princeton.edu/risk-management-tax-rents-mortgages/mortgages">Mortgages Home</a></li>
+            <li><a href="http://princeton.edu">Princeton.edu</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="jazz-subfooter">
+      <div class="jazz-subfooter__layout">
+        <div>
+          <a href="https://accessibility.princeton.edu/help">Accessibility</a>
+        </div>
+        <div class="jazz-subfooter__copyright">
+          <i class="jazz-icon jazz-icon-copyright"><span class="jazz-visually-hidden">&copy;</span></i> 2021 The Trustees of Princeton University
+        </div>
+        <div class="jazz-subfooter__logo">
+          <a href="https://www.princeton.edu"><img src="./assets/logos/pu-logo-stacked-white.svg" alt="Princeton University Home Page" /></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>

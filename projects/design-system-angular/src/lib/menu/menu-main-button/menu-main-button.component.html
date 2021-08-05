@@ -1,0 +1,7 @@
+<ng-template #mainButtonTemplate>
+  <button class="{{ buttonClass }}" (click)='onMainMenuClick($event)'
+          aria-expanded="false" aria-label="Navigation Menu Toggle">
+    {{getMenuText()}}<i class="jazz-icon jazz-icon-menu" aria-hidden="true" (click)='onMainMenuClick($event)'></i>
+    <span class="jazz-visually-hidden">Open Navigation Menu</span>
+  </button>
+</ng-template>

@@ -1,0 +1,49 @@
+:root {
+  --jazz-header-bgcolor: var(--jazz-gray);
+  --jazz-header-color: var(--jazz-white);
+  --jazz-header-pu-branding-bgcolor:var(--jazz-gray);
+  --jazz-header-pu-branding-color: var(--jazz-white);
+  --jazz-header-site-branding-divider-bgcolor: var(--jazz-gray-10);
+  --jazz-header-site-branding-bgcolor: var(--jazz-gray);
+  --jazz-header-site-branding-color: var(--jazz-princeton-orange);
+  --jazz-header-site-branding-slogan-color: var(--jazz-white);
+  --jazz-header-menu-icon-color: var(--jazz-white);
+  --jazz-header-utility-menu-bgcolor: var(--jazz-gray);
+  --jazz-header-utility-menu-color: var(--jazz-white);
+  --jazz-header-utility-menu-underline-color: var(--jazz-white);
+  --jazz-header-utility-menu-hover-underline-color: var(--jazz-princeton-orange);
+  --jazz-header-utility-menu-divider-color: var(--jazz-white);
+  --jazz-header-navbar-bgcolor: var(--jazz-gray);
+  --jazz-header-navbar-color: var(--jazz-white);
+  --jazz-header-nav-bgcolor: var(--jazz-gray);
+  --jazz-header-nav-color: var(--jazz-white);
+  --jazz-header-search-input-bgcolor: var(--jazz-gray);
+  --jazz-header-search-input-color: var(--jazz-white);
+  --jazz-header-search-input-border-color: var(--jazz-white);
+  --jazz-menubar-lg-primary-bgcolor: var(--jazz-gray);
+  --jazz-menubar-lg-primary-color: var(--jazz-white);
+  --jazz-menubar-lg-primary-hover-underline-color: var(--jazz-princeton-orange);
+  --jazz-menubar-lg-primary-current-underline-color: var(--jazz-princeton-orange);
+  --jazz-menubar-lg-secondary-bgcolor: var(--jazz-gray);
+  --jazz-menubar-lg-secondary-color: var(--jazz-white);
+  --jazz-menubar-lg-secondary-hover-bgcolor: var(--jazz-gray-80);
+  --jazz-menubar-lg-secondary-hover-color: var(--jazz-white);
+  --jazz-menubar-lg-secondary-current-bgcolor: var(--jazz-gray);
+  --jazz-menubar-lg-secondary-current-color: var(--jazz-white);
+  --jazz-menubar-lg-secondary-border-color: var(--jazz-princeton-orange);
+  --jazz-menubar-sm-bgcolor: var(--jazz-gray);
+  --jazz-menubar-sm-color: var(--jazz-white);
+  --jazz-menubar-sm-current-bgcolor: var(--jazz-gray-80);
+  --jazz-menubar-sm-current-color: var(--jazz-white);
+  --jazz-menubar-sm-bottom-border-color: var(--jazz-white);
+  --jazz-menubar-sm-hover-bottom-border-color: var(--jazz-princeton-orange);
+  --jazz-menu-toggle-bgcolor: var(--jazz-gray);
+  --jazz-menu-toggle-color: var(--jazz-white);
+
+}
+
+@media(min-width:75rem) {
+  .alt-tab-nav {
+    display: none !important;
+  }
+}
