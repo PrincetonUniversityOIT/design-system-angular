@@ -6,8 +6,8 @@ name: Publish a Release
 # events but only for the master branch
 
 on:
-  release:
-    types: [created]
+  #release:
+  #  types: [created]
 
 jobs:
   build:
@@ -26,17 +26,29 @@ jobs:
 
       - run: npm run build-lib
 
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-            package: "./dist/design-system-angular/package.json"
-            token: ${{ secrets.NPM_TOKEN }}
-            access: public
+      - run: npm run build-site
 
-      - run: npm run docs:html
+      - run: npm run build-docsite-prod
+
+      #- uses: JS-DevTools/npm-publish@v1
+      #  with:
+      #      package: "./dist/design-system-angular/package.json"
+      #      token: ${{ secrets.NPM_TOKEN }}
+      #      access: public
+
+      # - run: npm run docs:html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./documentation
+          publish_dir: ./site
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./dist/jazz-design-system
+          destination_dir: jazz-design-system
