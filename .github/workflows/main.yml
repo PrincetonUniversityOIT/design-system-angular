@@ -48,7 +48,7 @@ jobs:
         uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
         with:
            github_access_token: ${{ secrets.GITHUB_TOKEN }}
-           build_configuration: prod
+           build_configuration: production
            base_href: ''
            deploy_branch: gh-pages
            angular_dist_build_folder: dist/jazz-design-system
