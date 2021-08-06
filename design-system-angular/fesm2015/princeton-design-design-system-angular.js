@@ -1,4 +1,4 @@
-import { Component, ContentChildren, ElementRef, NgModule, EventEmitter, Input, Output, ViewContainerRef, ViewChild, ChangeDetectorRef, ContentChild, HostListener, ViewChildren } from '@angular/core';
+import { Component, ContentChildren, ElementRef, Input, NgModule, EventEmitter, Output, ViewContainerRef, ViewChild, ChangeDetectorRef, ContentChild, HostListener, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 
@@ -85,6 +85,7 @@ const HIDDEN = 'hidden';
  */
 class AccordionComponent {
     constructor() {
+        this.showBorder = false;
         /**
          * This click method is added as a click listener for all the jazzAccordionButtons buttons.
          */
@@ -138,12 +139,13 @@ AccordionComponent.decorators = [
     { type: Component, args: [{
                 // tslint:disable-next-line:component-selector
                 selector: 'jazz-accordion',
-                template: "<div class=\"jazz-accordion\" role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
+                template: "<div class=\"jazz-accordion {{showBorder?'jazz-accordion--bordered':''}}\" role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
             },] }
 ];
 AccordionComponent.ctorParameters = () => [];
 AccordionComponent.propDecorators = {
-    accordionButtons: [{ type: ContentChildren, args: ['jazzAccordionButtons', { descendants: true, read: ElementRef },] }]
+    accordionButtons: [{ type: ContentChildren, args: ['jazzAccordionButtons', { descendants: true, read: ElementRef },] }],
+    showBorder: [{ type: Input }]
 };
 
 class AccordionModule {

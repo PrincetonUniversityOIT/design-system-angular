@@ -91,6 +91,7 @@
     var AccordionComponent = /** @class */ (function () {
         function AccordionComponent() {
             var _this = this;
+            this.showBorder = false;
             /**
              * This click method is added as a click listener for all the jazzAccordionButtons buttons.
              */
@@ -146,12 +147,13 @@
         { type: core.Component, args: [{
                     // tslint:disable-next-line:component-selector
                     selector: 'jazz-accordion',
-                    template: "<div class=\"jazz-accordion\" role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
+                    template: "<div class=\"jazz-accordion {{showBorder?'jazz-accordion--bordered':''}}\" role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
                 },] }
     ];
     AccordionComponent.ctorParameters = function () { return []; };
     AccordionComponent.propDecorators = {
-        accordionButtons: [{ type: core.ContentChildren, args: ['jazzAccordionButtons', { descendants: true, read: core.ElementRef },] }]
+        accordionButtons: [{ type: core.ContentChildren, args: ['jazzAccordionButtons', { descendants: true, read: core.ElementRef },] }],
+        showBorder: [{ type: core.Input }]
     };
 
     var AccordionModule = /** @class */ (function () {

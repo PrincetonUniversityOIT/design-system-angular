@@ -37,6 +37,7 @@ export declare class AccordionComponent implements OnInit, AfterContentInit {
      * is identified by the button's aria-controls value which should match the id for that container (div).
      */
     accordionButtons: QueryList<ElementRef>;
+    showBorder: boolean;
     constructor();
     ngOnInit(): void;
     ngAfterContentInit(): void;
