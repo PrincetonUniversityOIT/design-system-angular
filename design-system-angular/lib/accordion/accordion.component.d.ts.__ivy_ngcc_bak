@@ -38,6 +38,7 @@ export declare class AccordionComponent implements OnInit, AfterContentInit {
      */
     accordionButtons: QueryList<ElementRef>;
     showBorder: boolean;
+    multiSelect: boolean;
     constructor();
     ngOnInit(): void;
     ngAfterContentInit(): void;

@@ -39,6 +39,7 @@ export declare class AccordionComponent implements OnInit, AfterContentInit {
      */
     accordionButtons: QueryList<ElementRef>;
     showBorder: boolean;
+    multiSelect: boolean;
     constructor();
     ngOnInit(): void;
     ngAfterContentInit(): void;
@@ -51,7 +52,7 @@ export declare class AccordionComponent implements OnInit, AfterContentInit {
      */
     toggleControl: (target: Element, expanded?: boolean) => any;
     static ɵfac: ɵngcc0.ɵɵFactoryDef<AccordionComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<AccordionComponent, "jazz-accordion", never, { "showBorder": "showBorder"; }, {}, ["accordionButtons"], ["*"]>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<AccordionComponent, "jazz-accordion", never, { "showBorder": "showBorder"; "multiSelect": "multiSelect"; }, {}, ["accordionButtons"], ["*"]>;
 }
 
 //# sourceMappingURL=accordion.component.d.ts.map

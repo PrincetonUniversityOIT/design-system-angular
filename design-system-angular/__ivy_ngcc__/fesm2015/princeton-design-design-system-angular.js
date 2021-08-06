@@ -800,6 +800,7 @@ const HIDDEN = 'hidden';
 class AccordionComponent {
     constructor() {
         this.showBorder = false;
+        this.multiSelect = true;
         /**
          * This click method is added as a click listener for all the jazzAccordionButtons buttons.
          */
@@ -855,27 +856,31 @@ AccordionComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: AccordionComponen
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.accordionButtons = _t);
-    } }, inputs: { showBorder: "showBorder" }, ngContentSelectors: _c1, decls: 2, vars: 3, consts: [["role", "region"]], template: function AccordionComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { showBorder: "showBorder", multiSelect: "multiSelect" }, ngContentSelectors: _c1, decls: 2, vars: 4, consts: [["role", "region"]], template: function AccordionComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵprojectionDef();
         ɵngcc0.ɵɵelementStart(0, "div", 0);
         ɵngcc0.ɵɵprojection(1);
         ɵngcc0.ɵɵelementEnd();
     } if (rf & 2) {
         ɵngcc0.ɵɵclassMapInterpolate1("jazz-accordion ", ctx.showBorder ? "jazz-accordion--bordered" : "", "");
+        ɵngcc0.ɵɵattribute("aria-multiselectable", ctx.multiSelect ? true : false);
     } }, encapsulation: 2 });
 AccordionComponent.ctorParameters = () => [];
 AccordionComponent.propDecorators = {
     accordionButtons: [{ type: ContentChildren, args: ['jazzAccordionButtons', { descendants: true, read: ElementRef },] }],
-    showBorder: [{ type: Input }]
+    showBorder: [{ type: Input }],
+    multiSelect: [{ type: Input }]
 };
 /*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(AccordionComponent, [{
         type: Component,
         args: [{
                 // tslint:disable-next-line:component-selector
                 selector: 'jazz-accordion',
-                template: "<div class=\"jazz-accordion {{showBorder?'jazz-accordion--bordered':''}}\" role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
+                template: "<div class=\"jazz-accordion {{showBorder?'jazz-accordion--bordered':''}}\"\n     [attr.aria-multiselectable]=\"multiSelect ? true : false\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
             }]
     }], function () { return []; }, { showBorder: [{
+            type: Input
+        }], multiSelect: [{
             type: Input
         }], accordionButtons: [{
             type: ContentChildren,
