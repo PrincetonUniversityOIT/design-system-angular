@@ -19,8 +19,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "baseHref": "/jazz-design-system/",
-            "deployUrl": "/jazz-design-system/",
+            "baseHref": "/design-system-angular/jazz-design-system/",
+            "deployUrl": "/design-system-angular/jazz-design-system/",
             "assets": [
               "src/favicon.ico",
               {
