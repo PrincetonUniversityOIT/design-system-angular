@@ -61,6 +61,9 @@ export class AccordionComponent implements OnInit, AfterContentInit {
   @Input()
   showBorder = false;
 
+  @Input()
+  multiSelect = true;
+
   constructor() { }
 
   ngOnInit(): void {

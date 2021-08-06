@@ -28,7 +28,8 @@
     "build-docsite": "npx @11ty/eleventy",
     "build-docsite-prod": "npx @11ty/eleventy --pathprefix design-system-angular",
     "serve-docsite": "npx @11ty/eleventy --serve",
-    "serve-docsite-prod": "npx @11ty/eleventy --serve --pathprefix 'design-system-angular'"
+    "serve-docsite-prod": "npx @11ty/eleventy --serve --pathprefix 'design-system-angular'",
+    "test-dev": "npm run build-lib && npm run build-site-dev && npm run build-docsite && serve dist"
   },
   "private": true,
   "dependencies": {

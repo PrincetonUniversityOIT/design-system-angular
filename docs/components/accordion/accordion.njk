@@ -34,18 +34,18 @@ An Accordion is a vertically stacked set of headings that each control the visib
 
 <h3>Borderless</h3>
 
-{{ example("/components/accordion/accordion-borderless-example", "Borderless Example", "code-panel-borderless") }}
+{{ exampleAngular("/jazz-design-system/#/accordion/accordionBorderlessExample", "/components/accordion/accordion-borderless-example", "Borderless Example", "code-panel-borderless") }}
 
 <h3>Single Selection</h3>
 
 <p>
     The preferred behavior for Accordions would normally be to allow multiple sections of the accordion to be expanded at the same time.
     This is to allow the user to be in control of the content as much as possible.
-    However, if conditions require that only one Accordion panel be expanded at a time, remove (or leave out) the <span class="code">aria-multiselectable</span> attribute.
-    Without this attribute, the behavior of the Accordion will change to collapse all other accordion items when an accordion item is selected.
+    However, if conditions require that only one Accordion panel be expanded at a time, set the <span class="code">multiSelect</span> property to false.
+    When this property is set to false, the behavior of the Accordion will change to collapse all other accordion items when an accordion item is selected.
 </p>
 
-{{ example("/components/accordion/accordion-example-single", "Single Selection Example", "code-panel-single-selection") }}
+{{ exampleAngular("/jazz-design-system/#/accordion/accordionSingleExample", "/components/accordion/accordion-single-example", "Single Selection Example", "code-panel-single-selection") }}
 
 <h3>Overflow</h3>
 
@@ -53,16 +53,7 @@ An Accordion is a vertically stacked set of headings that each control the visib
     Where there is too much text content within the Accordion Header, the content will wrap as other paragraph text normally does.
 </p>
 
-{{ example("/components/accordion/accordion-example-overflow", "Overflow Example", "code-panel-overflow") }}
-
-<h3>Header Above the Accordion</h3>
-
-<p>
-    This demonstrates the structure when there is a header above the accordion.
-</p>
-
-{{ example("/components/accordion/accordion-example-header", "With Header Example", "code-panel-header") }}
-
+{{ exampleAngular("/jazz-design-system/#/accordion/accordionOverflowExample", "/components/accordion/accordion-overflow-example", "Overflow Example", "code-panel-overflow") }}
 
 <h2>Detailed Specification</h2>
 
@@ -78,35 +69,23 @@ An Accordion is a vertically stacked set of headings that each control the visib
 <h3>Code</h3>
 
 <ul>
-    <li>The outer element of an accordion can be a <span class="code">div</span> or a <span class="code">section</span>.In either case, the element is given the <span class="code">jazz-accordion</span> class.</li>
-    <li>Using the <span class="code">section</span> element with an appropriate <span class="code">aria-label</span> or <span class="code">aria-labeledby</span> attribute will help to define a valid landmark in assistive devices.</li>
-    <li>When using a <span class="code">div</span> element, identify the region (<span class="code">role=”region”</span>) and provide an appropriate <span class="code">aria-label</span> or <span class="code">aria-labeledby</span> attribute to define a valid landmark in assistive devices.</li>
-    <li>For a bordered Accordion, add the <span class="code">jazz-accordion--bordered</span> class to the div or section that uses the <span class="code">jazz-accordion</span> class.
+    <li>For a bordered Accordion, set the <span class="code">showBorder</span> property to true.
       {% highlight "html" %}
-           <div class="jazz-accordion jazz-accordion--bordered" role="region">
+           <jazz-accordion [showBorder]="true">
       {% endhighlight %}
     </li>
     <li>The entire section header for each item is selectable for expanding/collapsing its corresponding section.  This provides a large selection target.  To implement this behavior, each header is implemented as a button to avoid the need to otherwise replicate the default semantic behavior of a button (accepting focus, be selectable, and otherwise be operable using a keyboard).
+        The header button needs to have the tag <span class="code">#jazzAccordionButtons</span> to identify it as the header that controls hiding and showing the
+        corresponding panel.
          {% highlight "html" %}
-             <button class="jazz-accordion__button" aria-controls="content1">Sed porttitor lectus nibh?</button>
+                 <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">Sed porttitor lectus nibh?</button>
          {% endhighlight %}
     </li>
     <li>Section headers are wrapped in HTML headers to define appropriate document structure.  All heading levels (H1-H6) are supported and their style has been redefined for a consistent style within the Accordion.</li>
     <li>Each section header button is associated with its corresponding panel by way of the <span class="code">aria-controls</span> attribute.  Each panel must be given a unique id, so that id can be referenced in the <span class="code">aria-controls</span> attribute of the corresponding button.</li>
-    <li>The <span class="code">aria-expanded</span> attribute of the button in each section header dictates the visibility of the corresponding region.
+    <li>The <span class="code">multiSelect</span> property controls whether multiple sections can be expanded at once.
          {% highlight "html" %}
-            <button class="jazz-accordion__button" aria-expanded="true" aria-controls="content2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?</button>
-          {% endhighlight %}
-    </li>
-    <li>The <span class="code">hidden</span> attribute of an accordion panel should not be set explicitly to allow the content to be usable even if browser scripting is not enabled or fails to execute.
-         {% highlight "html" %}
-            <div aria-hidden="false" class="jazz-accordion__content" id="content2">Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet</div>
-          {% endhighlight %}
-    </li>
-    <li>After the page has loaded, the <span class="code">hidden</span> attribute of each panel will be set based on the value of the <span class="code">aria-expanded</span> attribute of the corresponding button.</li>
-    <li>The <span class="code">aria-multiselectable</span> attribute on an <span class="code">jazz-accordion</span> element controls whether multiple sections can be expanded at once.
-         {% highlight "html" %}
-               <div class="jazz-accordion" role="region" aria-multiselectable="true">
+            <jazz-accordion [multiSelect]="false">
          {% endhighlight %}
     </li>
     <li>Buttons for collapsed sections will display a “Plus” icon to indicate that they can be expanded.</li>
@@ -135,8 +114,8 @@ An Accordion is a vertically stacked set of headings that each control the visib
 <p>Accordions have two options for borders:</p>
 
 <ul>
-    <li>Borderless (Default) - The <span class="code">jazz-accordion</span> class defines a borderless accordion.</li>
-    <li>Bordered - The <span class="code">jazz-accordion--bordered</span> class defines a bordered accordion.</li>
+    <li>Borderless (Default) - Setting the <span class="code">showBorder</span> property to false creates borderless accordion.</li>
+    <li>Bordered - Setting the <span class="code">showBorder</span> property to true creates bordered accordion.</li>
 </ul>
 
 <p>The Border option does not impact the Accordion’s behavior.</p>
@@ -145,8 +124,13 @@ An Accordion is a vertically stacked set of headings that each control the visib
 <p>Accordions have two “selection” options:</p>
 
 <ul>
-    <li>Single - No more than one Accordion Panel can be shown at a time.  Expansion of an Accordion Item will collapse all other items.</li>
-    <li>Multiple - More than one Accordion Item can be expanded at a time.  Expansion of an Accordion Item will have no effect on other items.  The preferred behavior for an Accordion would normally be to have it be multiselectable.  An Accordion can be made multiselectable by adding the following attribute to the element that is identified with the <span class="code">jazz-accordion</span> class: <span class="code">aria-multiselectable=”true”</span></li>
+    <li>
+      Multiple - More than one Accordion Item can be expanded at a time.  Expansion of an Accordion Item will have no effect on other items. An Accordion is multiselectable by default
+    </li>
+    <li>
+      Single - No more than one Accordion Panel can be shown at a time.  Expansion of an Accordion Item will collapse all other items.
+      An Accordion is multiselectable by default if you want to make the accordion single select set the <span class="code">multiSelect</span> property to false.
+    </li>
 </ul>
 
 <h2>Theme Variables</h2>
@@ -176,7 +160,7 @@ An Accordion is a vertically stacked set of headings that each control the visib
 
 <h4>Header</h4>
 
-<table class="jazz-table__bordered">
+<table class="jazz-table">
     <tr>
         <th>CSS Variable</th>
         <th>SCSS Theme Key</th>
@@ -257,7 +241,7 @@ An Accordion is a vertically stacked set of headings that each control the visib
 
 <h4>Body</h4>
 
-<table class="jazz-table__bordered">
+<table class="jazz-table">
     <tr>
         <th>CSS Variable</th>
         <th>SCSS Theme Key</th>
