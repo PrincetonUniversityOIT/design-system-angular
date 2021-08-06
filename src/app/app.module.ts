@@ -11,6 +11,7 @@ import {Level2Menu1Component} from './main-menu/level2-menu1/level2-menu1.compon
 import {Level3Menu1Component} from './main-menu/level3-menu1/level3-menu1.component';
 import {DocumentationComponent} from './main-menu/documentation-menu/documentation.component';
 import {DesignSystemAngularModule} from 'design-system-angular';
+import {HomeComponent} from './home.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {DesignSystemAngularModule} from 'design-system-angular';
   ],
   declarations: [
     AppComponent,
+    HomeComponent,
     MainMenu1Component,
     MainMenu2Component,
     MainMenu3Component,
