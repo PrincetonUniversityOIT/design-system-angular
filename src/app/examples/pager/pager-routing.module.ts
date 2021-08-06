@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {PagerSimpleExampleComponent} from './pager-simple-example.component';
 import {PagerMainComponent} from './pager-main.component';
+import {PagerExampleComponent} from './pager-example/pager-example.component';
 
 const routes: Routes = [
   {
@@ -11,7 +11,7 @@ const routes: Routes = [
       title: 'Pager'
     },
     children: [
-      { path: 'pagerSimpleExample', component: PagerSimpleExampleComponent }
+      { path: 'pagerExample', component: PagerExampleComponent }
     ]
   }
 ];

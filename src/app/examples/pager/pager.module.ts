@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {DesignSystemAngularModule} from 'design-system-angular';
-import {PagerSimpleExampleComponent} from './pager-simple-example.component';
 import {PagerRoutingModule} from './pager-routing.module';
 import {PagerMainComponent} from './pager-main.component';
 import {CommonModule} from '@angular/common';
+import {PagerExampleComponent} from './pager-example/pager-example.component';
 
 @NgModule({
   imports: [
@@ -13,10 +13,10 @@ import {CommonModule} from '@angular/common';
   ],
   declarations: [
     PagerMainComponent,
-    PagerSimpleExampleComponent
+    PagerExampleComponent
   ],
   exports: [
-    PagerSimpleExampleComponent
+    PagerExampleComponent
   ]
 })
 export class PagerModule {

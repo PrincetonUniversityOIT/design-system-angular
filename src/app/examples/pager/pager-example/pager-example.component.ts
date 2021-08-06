@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'pager-simple-example',
-  templateUrl: './pager-simple-example.component.html'
+  selector: 'pager-example',
+  templateUrl: './pager-example.component.html'
 })
-export class PagerSimpleExampleComponent implements OnInit {
+export class PagerExampleComponent implements OnInit {
 
   constructor() { }
 

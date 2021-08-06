@@ -16,6 +16,7 @@
     "start": "ng serve jazz-design-system",
     "build-lib": "ng build design-system-angular --prod",
     "build-site": "ng build jazz-design-system --prod",
+    "build-site-dev": "ng build jazz-design-system",
     "test": "jest --watchAll",
     "test-components": "jest --passWithNoTests --testPathPattern=projects/design-system-angular/src/lib --silent=false --verbose",
     "lint": "ng lint",

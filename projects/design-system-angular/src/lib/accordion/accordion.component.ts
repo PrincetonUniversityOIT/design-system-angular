@@ -2,7 +2,7 @@ import {
   AfterContentInit,
   Component,
   ContentChildren,
-  ElementRef,
+  ElementRef, Input,
   OnInit,
   QueryList
 } from '@angular/core';
@@ -57,6 +57,9 @@ export class AccordionComponent implements OnInit, AfterContentInit {
    * is identified by the button's aria-controls value which should match the id for that container (div).
    */
   @ContentChildren('jazzAccordionButtons', {descendants: true, read: ElementRef}) accordionButtons: QueryList<ElementRef>;
+
+  @Input()
+  showBorder = false;
 
   constructor() { }
 
