@@ -4,11 +4,8 @@ title: Pager
 tags: components
 ---
 
-{% from "../../_includes/example.njk" import example %}
 {% from "../../_includes/example-angular.njk" import exampleAngular %}
 {% from "../../_includes/example-small-device.njk" import exampleSmall %}
-{% from "../../_includes/example-small-device-angular.njk" import exampleSmallAngular %}
-
 
 <h1 class="jazz-page-title">Pager</h1>
 
@@ -20,7 +17,7 @@ tags: components
     Pagination (like scrolling) is a strategy for remediating the situation where a data set takes up too much space to list in its entirety.  The Pager component implements the pagination strategy.
 </p>
 
-{{ exampleAngular("/jazz-design-system/#/pager/pagerSimpleExample", "/components/pager/pager-example-simple.angular", "Demonstration", "code-panel-pager") }}
+{{ exampleAngular("/jazz-design-system/#/pager/pagerExample", "/components/pager/pager-example-simple", "Demonstration", "code-panel-pager") }}
 
 <h2>Best Practices</h2>
 
@@ -52,7 +49,7 @@ tags: components
     <li>Hover, Focus, and Active states are demonstrated.</li>
 </ul>
 
-{{ exampleAngular("/components/pager/pager-example-basic", "/components/pager/pager-example-basic.angular", "Pager Example", "code-panel-pager-basic") }}
+{{ exampleAngular("/jazz-design-system/#/pager/pagerSimpleExample", "/components/pager/pager-example-basic", "Pager Example", "code-panel-pager-basic") }}
 
 <h3>Truncation</h3>
 
@@ -72,27 +69,19 @@ tags: components
     If the current page is within the first 4 pages, then no spacer will be shown on the left side of the paging links.  A spacer will be shown on the right side of the paging links as necessary.
 </p>
 
-{{ exampleAngular("/components/pager/pager-example-truncation-right", "/components/pager/pager-example-truncation-right.angular", "Truncation at Right Side Example", "code-panel-truncation-right") }}
+{{ exampleAngular("/jazz-design-system/#/pager/pagerTruncatedRightExample", "/components/pager/pager-example-truncation-right", "Truncation at Right Side Example", "code-panel-truncation-right") }}
 
 <p>
     If the current page is within 4 pages of the last page, then no spacer will be shown on the right side of the paging links.  A spacer will be shown on the left side of the paging links as necessary.
 </p>
 
-{{ exampleAngular("/components/pager/pager-example-truncation-left", "/components/pager/pager-example-truncation-left.angular", "Truncation at Left Side Example", "code-panel-truncation-left") }}
+{{ exampleAngular("/jazz-design-system/#/pager/pagerTruncatedLeftExample", "/components/pager/pager-example-truncation-left", "Truncation at Left Side Example", "code-panel-truncation-left") }}
 
 <p>
     If the data set is small enough that all pages will fit comfortably within the horizontal space, then no spacers will be introduced because they are not necessary.
 </p>
 
-{{ exampleAngular("/components/pager/pager-example-no-truncation", "/components/pager/pager-example-no-truncation.angular", "No Truncation Needed Example", "code-panel-no-truncation") }}
-
-<h3>Low Resolution Devices</h3>
-
-<p>
-    On low resolution devices that have limited horizontal space, only the current page and the next and previous links will be shown.
-</p>
-
-{{ exampleSmallAngular("/components/pager/pager-example-small-device", "/components/pager/pager-example-small-device.angular", "Lower Resolution Example", "code-panel-pager-lower-res") }}
+{{ exampleAngular("/jazz-design-system/#/pager/pagerNoTruncationExample", "/components/pager/pager-example-no-truncation", "No Truncation Needed Example", "code-panel-no-truncation") }}
 
 <h2>Detailed Specification</h2>
 
@@ -116,43 +105,28 @@ tags: components
 </p>
 
 <ul>
-    <li>The containing element for the Pager component is the <span class="code">nav</span> element.  Wrapping the entire structure in a <span class="code">nav</span> element leverages semantic meaning and avoids the need to override ARIA roles.</li>
-    <li>The <span class="code">nav</span> element is given an aria-label of “Pagination Navigation, Current Page {n}”.</li>
-    <li>The <span class="code">nav</span> element is given a class of <span class="code">jazz-pager</span>to allow it to be identified by the Design System for styling and interaction.</li>
-    <li>The paging links are represented as an unordered list (<span class="code">ul</span>), with each pagination link represented as a link (<span class="code">a</span>) within a list item (<span class="code">li</span>).</li>
-    <li>Each link (<span class="code">a</span>) is given an aria-label of “Go to Page {n}” to describe its purpose more clearly for users of assistive devices.  Sited users will be able to deduce the purpose of the numbered links based on the visual structure.</li>
+    <li>The pager component uses the <span class="code">jazz-pager</span> selector.
+    <li>The <span class="code">currentPage</span> property identifies the current page that the user is on.”.</li>
+    <li>The <span class="code">totalPages</span> property tells the pager component how many total pages there are.</li>
+    <li>The pager component creates the "pages" based on the total number of pages and the current page.</li>
+    <li>The pager component takes care of adding the necessary aria attributes needed for accessibility.</li>
     <li>The current page is indicated on the appropriate link using the <span class="code">aria-current=”page”</span> attribute.  The current page will be disabled.</li>
-    <li>When links are disabled, they should be displayed as a <span class="code">span</span> element with a class of <span class="code">jazz-pager__link--disabled</span>.  Provide an attribute to reinforce that it is disabled (<span class="code">aria-disabled=”true”</span>).</li>
-    <li>The <span class="code">data-page</span> attribute can also be set to the page number for each link to simplify programmatic use of the page number.</li>
+    <li>The <span class="code">data-page</span> attribute is also set to the page number for each link to simplify programmatic use of the page number.</li>
+    <li>The <span class="code">pagerChange</span> event can be used to intercept the page change in case you want to do something when the page changes.</li>
 </ul>
 
  {% highlight "html" %}
-    <nav class="jazz-pager" role="navigation" aria-label="Pagination Navigation, Current Page 11">
-        <ul data-total-pages="20" data-current-page="7">
-           <li><a href="javascript:setPage(Previous);" aria-label="Previous" data-page="Previous"><i class="jazz-icon jazz-icon-caret-left"></i>Previous</a></li>
-           <li><a href="javascript:setPage(1);" aria-label="Go to Page 1" data-page="1">1</a></li>
-           <li><span aria-disabled="true" data-page="...">...</span></li>
-           <li><a href="javascript:setPage(10);" aria-label="Go to Page 10" data-page="10">10</a></li>
-           <li><a href="javascript:setPage(11);" aria-label="Go to Page 11" data-page="11" aria-current="page">11</a></li>
-           <li><a href="javascript:setPage(12);" aria-label="Go to Page 12" data-page="12">12</a></li>
-           <li><a href="javascript:setPage(13;" aria-label="Go to Page 13" data-page="13">13</a></li>
-           <li><a href="javascript:setPage(14);" aria-label="Go to Page 14" data-page="14">14</a></li>
-           <li><span aria-disabled="true" data-page="...">...</span></li>
-           <li><a href="javascript:setPage(20);" aria-label="Go to Page 20" data-page="20">20</a></li>
-           <li><a href="javascript:setPage(Next);" aria-label="Next" data-page="Next">Next<i class="jazz-icon jazz-icon-caret-right"></i></a></li>
-        </ul>
-    </nav>
+    <jazz-pager currentPage="7" totalPages="20"></jazz-pager>
  {% endhighlight %}
 
 <p>
     The “Previous” and “”Next” page links may not be useful depending on which page is the current page.
     For example, the “Previous” link is not useful when the first page is the current page.
     Even when a “Previous” or “Next” link is not useful for navigation, it is useful to include the links in the interface to preserve the position.
-    Display the disabled link with a <span class="code">span</span> element and an <span class="code">aria-disabled</span> attribute to reinforce that it is disabled.
 </p>
 
  {% highlight "html" %}
-    <span aria-disabled="true" data-page="Previous">Previous</span>
+    <jazz-pager currentPage="20" totalPages="20"></jazz-pager>
  {% endhighlight %}
 
 <h3>Truncation</h3>
@@ -181,6 +155,14 @@ tags: components
 </ul>
 
 <p>At lower resolutions, display the “Previous” link, the current page, and the “Next” link.</p>
+
+<h3>Low Resolution Devices</h3>
+
+<p>
+    On low resolution devices that have limited horizontal space, only the current page and the next and previous links will be shown.
+</p>
+
+{{ exampleSmall("/jazz-design-system/#/pager/pagerSmallExample", "/components/pager/pager-example-small", "Lower Resolution Example", "code-panel-pager-lower-res") }}
 
 <h3>States</h3>
 
@@ -240,7 +222,7 @@ tags: components
 
 <h3>Pager Variables </h3>
 
-<table class="jazz-table__bordered">
+<table class="jazz-table">
     <tr>
         <th>CSS Variable</th>
         <th>SCSS Theme Key</th>

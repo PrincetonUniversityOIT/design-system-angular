@@ -4,6 +4,11 @@ import {PagerRoutingModule} from './pager-routing.module';
 import {PagerMainComponent} from './pager-main.component';
 import {CommonModule} from '@angular/common';
 import {PagerExampleComponent} from './pager-example/pager-example.component';
+import {PagerSimpleExampleComponent} from './pager-simple-example/pager-simple-example.component';
+import {PagerTruncatedLeftExampleComponent} from './pager-truncated-left-example/pager-truncated-left-example.component';
+import {PagerTruncatedRightExampleComponent} from './pager-truncated-right-example/pager-truncated-right-example.component';
+import {PagerNoTruncationExampleComponent} from './pager-no-truncation-example/pager-no-truncation-example.component';
+import {PagerSmallExampleComponent} from './pager-small-example/pager-small-example.component';
 
 @NgModule({
   imports: [
@@ -13,10 +18,20 @@ import {PagerExampleComponent} from './pager-example/pager-example.component';
   ],
   declarations: [
     PagerMainComponent,
-    PagerExampleComponent
+    PagerExampleComponent,
+    PagerSimpleExampleComponent,
+    PagerTruncatedLeftExampleComponent,
+    PagerTruncatedRightExampleComponent,
+    PagerNoTruncationExampleComponent,
+    PagerSmallExampleComponent
   ],
   exports: [
-    PagerExampleComponent
+    PagerExampleComponent,
+    PagerSimpleExampleComponent,
+    PagerTruncatedLeftExampleComponent,
+    PagerTruncatedRightExampleComponent,
+    PagerNoTruncationExampleComponent,
+    PagerSmallExampleComponent
   ]
 })
 export class PagerModule {

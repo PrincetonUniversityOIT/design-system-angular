@@ -1,4 +1,4 @@
-{% macro exampleAngular(path, angularPath, name, id) %}
+{% macro exampleAngular(path, codePath, name, id) %}
 
 <iframe src="{{ path | url }}" title="{{ title }}" class="jazz-docs__code-sample"></iframe>
 
@@ -9,7 +9,7 @@
     <div class="jazz-accordion__content jazz-code-panel" id="{{ id }}">
         <button class="jazz-btn" onclick="copyCode(this)">Copy</button>
         {% highlight "html" %}
-        {% src angularPath %}
+        {% src codePath %}
         {% endhighlight %}
     </div>
 </div>

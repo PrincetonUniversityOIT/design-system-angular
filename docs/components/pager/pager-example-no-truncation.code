@@ -1,1 +1,1 @@
-<jazz-pager-component current-page="4" total-pages="7"></jazz-pager-component>
+<jazz-pager currentPage="4" totalPages="7"></jazz-pager>
