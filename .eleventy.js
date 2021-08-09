@@ -42,6 +42,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/icons": "icons" });
     eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/img": "img" });
     eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/logos": "logos" });
+    eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/jazz_behavior.js": "jazz_behavior.js" });
     eleventyConfig.addPassthroughCopy({ "docs/favicon.ico": "favicon.ico" });
     eleventyConfig.addPassthroughCopy({ "docs/css/prism-atom-dark.css": "prism-atom-dark.css" });
 

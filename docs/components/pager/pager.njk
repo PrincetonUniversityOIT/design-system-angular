@@ -115,19 +115,14 @@ tags: components
     <li>The <span class="code">pagerChange</span> event can be used to intercept the page change in case you want to do something when the page changes.</li>
 </ul>
 
- {% highlight "html" %}
-    <jazz-pager currentPage="7" totalPages="20"></jazz-pager>
- {% endhighlight %}
-
 <p>
     The “Previous” and “”Next” page links may not be useful depending on which page is the current page.
     For example, the “Previous” link is not useful when the first page is the current page.
     Even when a “Previous” or “Next” link is not useful for navigation, it is useful to include the links in the interface to preserve the position.
 </p>
 
- {% highlight "html" %}
-    <jazz-pager currentPage="20" totalPages="20"></jazz-pager>
- {% endhighlight %}
+{{ exampleAngular("/jazz-design-system/#/pager/pagerPrevExample", "/components/pager/pager-example-prev", "Previous Disabled Example", "code-panel-prev-disabled") }}
+
 
 <h3>Truncation</h3>
 

@@ -9,6 +9,7 @@ import {PagerTruncatedLeftExampleComponent} from './pager-truncated-left-example
 import {PagerTruncatedRightExampleComponent} from './pager-truncated-right-example/pager-truncated-right-example.component';
 import {PagerNoTruncationExampleComponent} from './pager-no-truncation-example/pager-no-truncation-example.component';
 import {PagerSmallExampleComponent} from './pager-small-example/pager-small-example.component';
+import {PagerPrevExampleComponent} from './pager-prev-example/pager-prev-example.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {PagerSmallExampleComponent} from './pager-small-example/pager-small-exam
     PagerTruncatedLeftExampleComponent,
     PagerTruncatedRightExampleComponent,
     PagerNoTruncationExampleComponent,
-    PagerSmallExampleComponent
+    PagerSmallExampleComponent,
+    PagerPrevExampleComponent
   ],
   exports: [
     PagerExampleComponent,
@@ -31,7 +33,8 @@ import {PagerSmallExampleComponent} from './pager-small-example/pager-small-exam
     PagerTruncatedLeftExampleComponent,
     PagerTruncatedRightExampleComponent,
     PagerNoTruncationExampleComponent,
-    PagerSmallExampleComponent
+    PagerSmallExampleComponent,
+    PagerPrevExampleComponent
   ]
 })
 export class PagerModule {

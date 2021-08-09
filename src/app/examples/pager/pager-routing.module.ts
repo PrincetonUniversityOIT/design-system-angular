@@ -7,6 +7,7 @@ import {PagerTruncatedLeftExampleComponent} from './pager-truncated-left-example
 import {PagerTruncatedRightExampleComponent} from './pager-truncated-right-example/pager-truncated-right-example.component';
 import {PagerNoTruncationExampleComponent} from './pager-no-truncation-example/pager-no-truncation-example.component';
 import {PagerSmallExampleComponent} from './pager-small-example/pager-small-example.component';
+import {PagerPrevExampleComponent} from './pager-prev-example/pager-prev-example.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: 'pagerTruncatedLeftExample', component: PagerTruncatedLeftExampleComponent },
       { path: 'pagerTruncatedRightExample', component: PagerTruncatedRightExampleComponent },
       { path: 'pagerNoTruncationExample', component: PagerNoTruncationExampleComponent },
-      { path: 'pagerSmallExample', component: PagerSmallExampleComponent }
+      { path: 'pagerSmallExample', component: PagerSmallExampleComponent },
+      { path: 'pagerPrevExample', component: PagerPrevExampleComponent }
     ]
   }
 ];
