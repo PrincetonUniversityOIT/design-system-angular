@@ -411,15 +411,27 @@
     <li>The <span class="code">pagerChange</span> event can be used to intercept the page change in case you want to do something when the page changes.</li>
 </ul>
 
- <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>jazz-pager</span> <span class="token attr-name">currentPage</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>7<span class="token punctuation">"</span></span> <span class="token attr-name">totalPages</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>jazz-pager</span><span class="token punctuation">></span></span></code></pre>
-
 <p>
     The “Previous” and “”Next” page links may not be useful depending on which page is the current page.
     For example, the “Previous” link is not useful when the first page is the current page.
     Even when a “Previous” or “Next” link is not useful for navigation, it is useful to include the links in the interface to preserve the position.
 </p>
 
- <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>jazz-pager</span> <span class="token attr-name">currentPage</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">totalPages</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>jazz-pager</span><span class="token punctuation">></span></span></code></pre>
+
+
+<iframe src="/design-system-angular/jazz-design-system/#/pager/pagerPrevExample" title="" class="jazz-docs__code-sample"></iframe>
+
+<div class="jazz-accordion" role="region">
+    <h3>
+        <button class="jazz-accordion__button" aria-controls="code-panel-prev-disabled">HTML Code</button>
+    </h3>
+    <div class="jazz-accordion__content jazz-code-panel" id="code-panel-prev-disabled">
+        <button class="jazz-btn" onclick="copyCode(this)">Copy</button>
+        <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>jazz-pager</span> <span class="token attr-name">currentPage</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">totalPages</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>7<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>jazz-pager</span><span class="token punctuation">></span></span></code></pre>
+    </div>
+</div>
+
+
 
 <h3>Truncation</h3>
 
@@ -637,7 +649,9 @@
     </div>
 </footer>
 
+<script src="/design-system-angular/jazz_behavior.js"></script>
 <script type="text/javascript">
+    PrincetonDesignSystem.enable();
     function resizeIframe(iframe) {
         iframe.height = (iframe.contentWindow.document.body.scrollHeight + 22) + "px";
     }
