@@ -12,6 +12,7 @@ export declare class BreadcrumbComponent {
     disabled: boolean;
     label: string;
     url: string;
+    iconClass?: string;
 }
 /**
  * Breadcrumbs are a hierarchical list of links that indicate where the current page is situated within the overall

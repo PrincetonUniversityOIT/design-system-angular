@@ -235,7 +235,8 @@ BreadcrumbComponent.decorators = [
 BreadcrumbComponent.propDecorators = {
     disabled: [{ type: Input }],
     label: [{ type: Input }],
-    url: [{ type: Input }]
+    url: [{ type: Input }],
+    iconClass: [{ type: Input }]
 };
 /**
  * Breadcrumbs are a hierarchical list of links that indicate where the current page is situated within the overall
@@ -268,7 +269,7 @@ BreadcrumbsComponent.decorators = [
     { type: Component, args: [{
                 // tslint:disable-next-line:component-selector
                 selector: 'jazz-breadcrumbs',
-                template: "<nav class=\"jazz-breadcrumb\" aria-label=\"Breadcrumbs\">\n  <ol>\n    <li *ngFor=\"let crumb of breadcrumbs\">\n      <a *ngIf=\"crumb.url && !isActiveRoute(crumb.url)\" [routerLink]=\"crumb.url\" routerLinkActive=\"active\" #crumbLink=\"routerLinkActive\"\n         [routerLinkActiveOptions]=\"{ exact: true }\"\n         [attr.aria-current]=\"crumbLink.isActive ? 'page' : undefined\">{{crumb.label}}\n      </a>\n\n      <span *ngIf=\"isActiveRoute(crumb.url)\"\n            [attr.aria-current]=\"isActiveRoute(crumb.url) ? 'page' : undefined\">\n        {{crumb.label}}\n      </span>\n    </li>\n  </ol>\n</nav>\n",
+                template: "<nav class=\"jazz-breadcrumb\" aria-label=\"Breadcrumbs\">\n  <ol>\n    <li *ngFor=\"let crumb of breadcrumbs\">\n      <i *ngIf=\"crumb.iconClass\" class=\"jazz-icon {{crumb.iconClass}}\"></i>\n      <a *ngIf=\"crumb.url && !isActiveRoute(crumb.url)\" [routerLink]=\"crumb.url\" routerLinkActive=\"active\" #crumbLink=\"routerLinkActive\"\n         [routerLinkActiveOptions]=\"{ exact: true }\"\n         [attr.aria-current]=\"crumbLink.isActive ? 'page' : undefined\">{{crumb.label}}\n      </a>\n\n      <span *ngIf=\"isActiveRoute(crumb.url)\"\n            [attr.aria-current]=\"isActiveRoute(crumb.url) ? 'page' : undefined\">\n        {{crumb.label}}\n      </span>\n    </li>\n  </ol>\n</nav>\n",
                 styles: [""]
             },] }
 ];

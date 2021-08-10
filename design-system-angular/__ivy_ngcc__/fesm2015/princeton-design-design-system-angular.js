@@ -8,38 +8,47 @@ import * as ɵngcc2 from '@angular/common';
 
 const _c0 = ["jazzAccordionButtons"];
 const _c1 = ["*"];
+function BreadcrumbsComponent_li_2_i_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i");
+} if (rf & 2) {
+    const crumb_r1 = ɵngcc0.ɵɵnextContext().$implicit;
+    ɵngcc0.ɵɵclassMapInterpolate1("jazz-icon ", crumb_r1.iconClass, "");
+} }
 const _c2 = function () { return { exact: true }; };
-function BreadcrumbsComponent_li_2_a_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "a", 4, 5);
+function BreadcrumbsComponent_li_2_a_2_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "a", 5, 6);
     ɵngcc0.ɵɵtext(2);
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const _r4 = ɵngcc0.ɵɵreference(1);
+    const _r6 = ɵngcc0.ɵɵreference(1);
     const crumb_r1 = ɵngcc0.ɵɵnextContext().$implicit;
     ɵngcc0.ɵɵproperty("routerLink", crumb_r1.url)("routerLinkActiveOptions", ɵngcc0.ɵɵpureFunction0(4, _c2));
-    ɵngcc0.ɵɵattribute("aria-current", _r4.isActive ? "page" : undefined);
+    ɵngcc0.ɵɵattribute("aria-current", _r6.isActive ? "page" : undefined);
     ɵngcc0.ɵɵadvance(2);
     ɵngcc0.ɵɵtextInterpolate1("", crumb_r1.label, " ");
 } }
-function BreadcrumbsComponent_li_2_span_2_Template(rf, ctx) { if (rf & 1) {
+function BreadcrumbsComponent_li_2_span_3_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "span");
     ɵngcc0.ɵɵtext(1);
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const crumb_r1 = ɵngcc0.ɵɵnextContext().$implicit;
-    const ctx_r3 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵattribute("aria-current", ctx_r3.isActiveRoute(crumb_r1.url) ? "page" : undefined);
+    const ctx_r4 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵattribute("aria-current", ctx_r4.isActiveRoute(crumb_r1.url) ? "page" : undefined);
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate1(" ", crumb_r1.label, " ");
 } }
 function BreadcrumbsComponent_li_2_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "li");
-    ɵngcc0.ɵɵtemplate(1, BreadcrumbsComponent_li_2_a_1_Template, 3, 5, "a", 2);
-    ɵngcc0.ɵɵtemplate(2, BreadcrumbsComponent_li_2_span_2_Template, 2, 2, "span", 3);
+    ɵngcc0.ɵɵtemplate(1, BreadcrumbsComponent_li_2_i_1_Template, 1, 3, "i", 2);
+    ɵngcc0.ɵɵtemplate(2, BreadcrumbsComponent_li_2_a_2_Template, 3, 5, "a", 3);
+    ɵngcc0.ɵɵtemplate(3, BreadcrumbsComponent_li_2_span_3_Template, 2, 2, "span", 4);
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const crumb_r1 = ctx.$implicit;
     const ctx_r0 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", crumb_r1.iconClass);
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵproperty("ngIf", crumb_r1.url && !ctx_r0.isActiveRoute(crumb_r1.url));
     ɵngcc0.ɵɵadvance(1);
@@ -1008,11 +1017,12 @@ class BreadcrumbComponent {
     }
 }
 BreadcrumbComponent.ɵfac = function BreadcrumbComponent_Factory(t) { return new (t || BreadcrumbComponent)(); };
-BreadcrumbComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: BreadcrumbComponent, selectors: [["jazz-breadcrumb"]], inputs: { disabled: "disabled", label: "label", url: "url" }, decls: 0, vars: 0, template: function BreadcrumbComponent_Template(rf, ctx) { }, encapsulation: 2 });
+BreadcrumbComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: BreadcrumbComponent, selectors: [["jazz-breadcrumb"]], inputs: { disabled: "disabled", label: "label", url: "url", iconClass: "iconClass" }, decls: 0, vars: 0, template: function BreadcrumbComponent_Template(rf, ctx) { }, encapsulation: 2 });
 BreadcrumbComponent.propDecorators = {
     disabled: [{ type: Input }],
     label: [{ type: Input }],
-    url: [{ type: Input }]
+    url: [{ type: Input }],
+    iconClass: [{ type: Input }]
 };
 /*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(BreadcrumbComponent, [{
         type: Component,
@@ -1026,6 +1036,8 @@ BreadcrumbComponent.propDecorators = {
         }], label: [{
             type: Input
         }], url: [{
+            type: Input
+        }], iconClass: [{
             type: Input
         }] }); })();
 /**
@@ -1061,10 +1073,10 @@ BreadcrumbsComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: BreadcrumbsComp
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.breadcrumbs = _t);
-    } }, decls: 3, vars: 1, consts: [["aria-label", "Breadcrumbs", 1, "jazz-breadcrumb"], [4, "ngFor", "ngForOf"], ["routerLinkActive", "active", 3, "routerLink", "routerLinkActiveOptions", 4, "ngIf"], [4, "ngIf"], ["routerLinkActive", "active", 3, "routerLink", "routerLinkActiveOptions"], ["crumbLink", "routerLinkActive"]], template: function BreadcrumbsComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 3, vars: 1, consts: [["aria-label", "Breadcrumbs", 1, "jazz-breadcrumb"], [4, "ngFor", "ngForOf"], [3, "class", 4, "ngIf"], ["routerLinkActive", "active", 3, "routerLink", "routerLinkActiveOptions", 4, "ngIf"], [4, "ngIf"], ["routerLinkActive", "active", 3, "routerLink", "routerLinkActiveOptions"], ["crumbLink", "routerLinkActive"]], template: function BreadcrumbsComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵelementStart(0, "nav", 0);
         ɵngcc0.ɵɵelementStart(1, "ol");
-        ɵngcc0.ɵɵtemplate(2, BreadcrumbsComponent_li_2_Template, 3, 2, "li", 1);
+        ɵngcc0.ɵɵtemplate(2, BreadcrumbsComponent_li_2_Template, 4, 3, "li", 1);
         ɵngcc0.ɵɵelementEnd();
         ɵngcc0.ɵɵelementEnd();
     } if (rf & 2) {
@@ -1082,7 +1094,7 @@ BreadcrumbsComponent.propDecorators = {
         args: [{
                 // tslint:disable-next-line:component-selector
                 selector: 'jazz-breadcrumbs',
-                template: "<nav class=\"jazz-breadcrumb\" aria-label=\"Breadcrumbs\">\n  <ol>\n    <li *ngFor=\"let crumb of breadcrumbs\">\n      <a *ngIf=\"crumb.url && !isActiveRoute(crumb.url)\" [routerLink]=\"crumb.url\" routerLinkActive=\"active\" #crumbLink=\"routerLinkActive\"\n         [routerLinkActiveOptions]=\"{ exact: true }\"\n         [attr.aria-current]=\"crumbLink.isActive ? 'page' : undefined\">{{crumb.label}}\n      </a>\n\n      <span *ngIf=\"isActiveRoute(crumb.url)\"\n            [attr.aria-current]=\"isActiveRoute(crumb.url) ? 'page' : undefined\">\n        {{crumb.label}}\n      </span>\n    </li>\n  </ol>\n</nav>\n",
+                template: "<nav class=\"jazz-breadcrumb\" aria-label=\"Breadcrumbs\">\n  <ol>\n    <li *ngFor=\"let crumb of breadcrumbs\">\n      <i *ngIf=\"crumb.iconClass\" class=\"jazz-icon {{crumb.iconClass}}\"></i>\n      <a *ngIf=\"crumb.url && !isActiveRoute(crumb.url)\" [routerLink]=\"crumb.url\" routerLinkActive=\"active\" #crumbLink=\"routerLinkActive\"\n         [routerLinkActiveOptions]=\"{ exact: true }\"\n         [attr.aria-current]=\"crumbLink.isActive ? 'page' : undefined\">{{crumb.label}}\n      </a>\n\n      <span *ngIf=\"isActiveRoute(crumb.url)\"\n            [attr.aria-current]=\"isActiveRoute(crumb.url) ? 'page' : undefined\">\n        {{crumb.label}}\n      </span>\n    </li>\n  </ol>\n</nav>\n",
                 styles: [""]
             }]
     }], function () { return [{ type: ɵngcc1.Router }]; }, { breadcrumbs: [{

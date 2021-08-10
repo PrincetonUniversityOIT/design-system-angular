@@ -13,8 +13,9 @@ export declare class BreadcrumbComponent {
     disabled: boolean;
     label: string;
     url: string;
+    iconClass?: string;
     static ɵfac: ɵngcc0.ɵɵFactoryDef<BreadcrumbComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<BreadcrumbComponent, "jazz-breadcrumb", never, { "disabled": "disabled"; "label": "label"; "url": "url"; }, {}, never, never>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<BreadcrumbComponent, "jazz-breadcrumb", never, { "disabled": "disabled"; "label": "label"; "url": "url"; "iconClass": "iconClass"; }, {}, never, never>;
 }
 /**
  * Breadcrumbs are a hierarchical list of links that indicate where the current page is situated within the overall
