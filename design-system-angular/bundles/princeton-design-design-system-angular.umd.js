@@ -62,7 +62,7 @@
     /**
      * An Accordion is a vertically stacked set of headings that each control the visibility of an associated content section.
      *
-     * <example-url>http://localhost:4200/#/accordion/accordionExample</example-url>
+     * <example-url>http://localhost:4200/jazz-design-system/#/accordion/accordionExample</example-url>
      * @example
        `` `
        <jazz-accordion>
@@ -258,6 +258,7 @@
      * Breadcrumbs are a hierarchical list of links that indicate where the current page is situated within the overall
      * information architecture.
      *
+     * <example-url>http://localhost:4200/jazz-design-system/#/breacrumbs/breadcrumbsExample</example-url>
      * @example
      `` `
         <jazz-breadcrumbs>
@@ -1048,7 +1049,7 @@
     /**
      * The Pager allows users to navigate through a set of items or rows which have been separated into pages.
      *
-     * <example-url>http://localhost:4200/#/pager/pagerSimpleExample</example-url>
+     * <example-url>http://localhost:4200/jazz-design-system/#/pager/pagerSimpleExample</example-url>
      * @example
       `` `
       <jazz-pager [totalPages]="20" [currentPage]="5" (pagerChange)="changePage($event);"></jazz-pager>

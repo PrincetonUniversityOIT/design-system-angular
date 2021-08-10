@@ -21,6 +21,7 @@ export declare class BreadcrumbComponent {
  * Breadcrumbs are a hierarchical list of links that indicate where the current page is situated within the overall
  * information architecture.
  *
+ * <example-url>http://localhost:4200/jazz-design-system/#/breacrumbs/breadcrumbsExample</example-url>
  * @example
  `` `
     <jazz-breadcrumbs>

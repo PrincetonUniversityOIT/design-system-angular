@@ -2,7 +2,7 @@ import { ChangeDetectorRef, EventEmitter } from '@angular/core';
 /**
  * The Pager allows users to navigate through a set of items or rows which have been separated into pages.
  *
- * <example-url>http://localhost:4200/#/pager/pagerSimpleExample</example-url>
+ * <example-url>http://localhost:4200/jazz-design-system/#/pager/pagerSimpleExample</example-url>
  * @example
   `` `
   <jazz-pager [totalPages]="20" [currentPage]="5" (pagerChange)="changePage($event);"></jazz-pager>
