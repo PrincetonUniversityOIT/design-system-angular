@@ -19,6 +19,7 @@ export class BreadcrumbComponent {
   @Input() disabled = false;
   @Input() label: string;
   @Input() url: string;
+  @Input() iconClass?: string;
 }
 
 /**

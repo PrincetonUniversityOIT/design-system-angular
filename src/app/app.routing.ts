@@ -30,6 +30,10 @@ export const routes: Routes = [
   {
     path: 'accordion',
     loadChildren: () => import('./examples/accordion/accordion.module').then(m => m.AccordionModule)
+  },
+  {
+    path: 'breadcrumbs',
+    loadChildren: () => import('./examples/breadcrumbs/breadcrumbs.module').then(m => m.BreadcrumbsModule)
   }
 ];
 

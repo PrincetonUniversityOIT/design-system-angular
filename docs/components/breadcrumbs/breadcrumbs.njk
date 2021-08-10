@@ -5,6 +5,7 @@ tags: components
 ---
 
 {% from "../../_includes/example.njk" import example %}
+{% from "../../_includes/example-angular.njk" import exampleAngular %}
 
 <h1 class="jazz-page-title">Breadcrumbs</h1>
 
@@ -16,7 +17,7 @@ Breadcrumbs are a hierarchical list of links that indicate where the current pag
 Each link in the Breadcrumbs provides quick navigation to related pages in the site hierarchy.
 </p>
 
-{{ example("/components/breadcrumbs/breadcrumbs-example1", "Demonstration", "code-panel-demo") }}
+{{ exampleAngular("/jazz-design-system/#/breadcrumbs/breadcrumbsExample", "/components/breadcrumbs/breadcrumbs-example", "Demonstration", "code-panel-demo") }}
 
 <h2>Best Practices</h2>
 
@@ -48,7 +49,7 @@ Each link in the Breadcrumbs provides quick navigation to related pages in the s
     <li>Focus</li>
 </ul>
 
-{{ example("/components/breadcrumbs/breadcrumbs-example-simple", "Simple Example", "code-panel-simple") }}
+{{ exampleAngular("/jazz-design-system/#/breadcrumbs/breadcrumbsSimpleExample", "/components/breadcrumbs/breadcrumbs-example-simple", "Simple Example", "code-panel-simple") }}
 
 <h3>Icons</h3>
 
@@ -62,7 +63,7 @@ Each link in the Breadcrumbs provides quick navigation to related pages in the s
     <li>If an icon is represented on any single label in the Breadcrumb trail, then icons should be used for all labels in the Breadcrumb trail.</li>
 </ul>
 
-{{ example("/components/breadcrumbs/breadcrumbs-example-with-icons", "Breadcrumbs Example With Icons", "code-panel-with-icons") }}
+{{ exampleAngular("/jazz-design-system/#/breadcrumbs/breadcrumbsIconExample", "/components/breadcrumbs/breadcrumbs-example-with-icons", "Breadcrumbs Example With Icons",  "code-panel-with-icons") }}
 
 <h3>Parent Only</h3>
 
@@ -90,14 +91,12 @@ Each link in the Breadcrumbs provides quick navigation to related pages in the s
 <h3>Code</h3>
 
 <ul>
-    <li>Breadcrumbs are wrapped in a <span class="code">nav</span> element to indicate their purpose.</li>
-    <li>The <span class="code">nav</span> element is given an <span class="code">aria-label</span> of “Breadcrumbs” for use by assistive technologies.</li>
-    <li>The list of links is implemented as a simple order list (<span class="code">ol</span>).</li>
-    <li>The current page is indicated by adding the <span class="code">aria-current=’page’</span> attribute to the appropriate <span class="code">li</span>.</li>
+    <li>Breadcrumbs are wrapped in a <span class="code">jazz-breadcrumbs</span> element to indicate their purpose.</li>
+    <li>The list of links is implemented as a simple list of breadcrumbs (<span class="code">jazz-breadcrumb</span>).</li>
+    <li>The current page is indicated by the <span class="code">aria-current=’page’</span> attribute to the appropriate <span class="code">span</span>.</li>
     <li>The forward slash (“/”) is used as a separator between items in the Breadcrumb list. </li>
     <li>The last Breadcrumb item represents the current page and should not be an active link.</li>
     <li>Breadcrumbs will never wrap.</li>
-    <li>The Breadcrumbs will be truncated (with ellipsis: “...”) when the Breadcrumbs are too wide to fit on the screen.</li>
     <li>Breadcrumb labels will never wrap.</li>
     <li>If icons are used as part of the label, they should always be on the left side of the label and should never be used alone.</li>
 </ul>
@@ -145,7 +144,7 @@ Each link in the Breadcrumbs provides quick navigation to related pages in the s
 
 <h3>Breadcrumbs Variables </h3>
 
-<table class="jazz-table__bordered">
+<table class="jazz-table">
     <tr>
         <th>CSS Variable</th>
         <th>SCSS Theme Key</th>

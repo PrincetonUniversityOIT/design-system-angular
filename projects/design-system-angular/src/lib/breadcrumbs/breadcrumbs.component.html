@@ -1,6 +1,7 @@
 <nav class="jazz-breadcrumb" aria-label="Breadcrumbs">
   <ol>
     <li *ngFor="let crumb of breadcrumbs">
+      <i *ngIf="crumb.iconClass" class="jazz-icon {{crumb.iconClass}}"></i>
       <a *ngIf="crumb.url && !isActiveRoute(crumb.url)" [routerLink]="crumb.url" routerLinkActive="active" #crumbLink="routerLinkActive"
          [routerLinkActiveOptions]="{ exact: true }"
          [attr.aria-current]="crumbLink.isActive ? 'page' : undefined">{{crumb.label}}
