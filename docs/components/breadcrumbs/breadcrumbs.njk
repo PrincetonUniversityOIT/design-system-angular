@@ -92,8 +92,30 @@ Each link in the Breadcrumbs provides quick navigation to related pages in the s
 
 <ul>
     <li>Breadcrumbs are wrapped in a <span class="code">jazz-breadcrumbs</span> element to indicate their purpose.</li>
-    <li>The list of links is implemented as a simple list of breadcrumbs (<span class="code">jazz-breadcrumb</span>).</li>
-    <li>The current page is indicated by the <span class="code">aria-current=’page’</span> attribute to the appropriate <span class="code">span</span>.</li>
+    <li>The list of links is implemented as a simple list of breadcrumbs (<span class="code">jazz-breadcrumb</span>).
+       {% highlight "html" %}
+          <jazz-breadcrumb iconClass="jazz-icon-plus" url="/level3item1" label="Level 3 Menu 1"></jazz-breadcrumb>
+       {% endhighlight %}
+    </li>
+    <li>For each breadcrumb you can specify the following:
+        <ul>
+            <li>
+                You can specify the route that the link will use if you set the <span class="code">url</span> attribute with the appropriate route.
+                The current page is rendered as a span with the <span class="code">aria-current=’page’</span> attribute.
+            </li>
+            <li>You can specify the breadcrumb label using the <span class="code">label</span> attribute.</li>
+            <li>
+                You can specify the breadcrumb icon using the <span class="code">iconClass</span> attribute. You can specify the class for the icon that you want to use.
+                Here is an example of an icon class style:
+                {% highlight "html" %}
+                  .jazz-icon-#{$name} {
+                    -webkit-mask-image: url('../icons/phosphor/gear.svg');
+                    mask-image: url('../icons/phosphor/gear.svg');
+                  }
+                {% endhighlight %}
+            </li>
+        </ul>
+    </li>
     <li>The forward slash (“/”) is used as a separator between items in the Breadcrumb list. </li>
     <li>The last Breadcrumb item represents the current page and should not be an active link.</li>
     <li>Breadcrumbs will never wrap.</li>
