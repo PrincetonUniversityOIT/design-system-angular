@@ -1,1 +1,1 @@
-{"version":3,"file":"design-system-angular.module.d.ts","sources":["design-system-angular.module.d.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AACA","sourcesContent":["export declare class DesignSystemAngularModule {\n}\n"]}
+{"version":3,"file":"design-system-angular.module.d.ts","sources":["design-system-angular.module.d.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AACA","sourcesContent":["export declare class DesignSystemAngularModule {\n}\n"]}

@@ -1,6 +1,7 @@
-import { Component, ContentChildren, ElementRef, Input, NgModule, EventEmitter, Output, ViewContainerRef, ViewChild, ChangeDetectorRef, ContentChild, HostListener, ViewChildren } from '@angular/core';
+import { Component, ContentChildren, ElementRef, Input, NgModule, EventEmitter, Output, ViewContainerRef, ViewChild, ChangeDetectorRef, ContentChild, HostListener, ViewChildren, Directive } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { NgControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const prefix = 'jazz';
 
@@ -1774,6 +1775,169 @@ UtilityHeaderModule.decorators = [
             },] }
 ];
 
+/**
+ * Use 'invalid' validation error key to display any validation message
+ */
+class FormFieldErrorComponent {
+    constructor() {
+        this.messageParm = (key) => this.messageParms && this.messageParms[key] ? this.messageParms[key] : '';
+    }
+    hasError() {
+        const field = this.form.get(this.controlName);
+        return (field.touched && field.dirty && field.invalid);
+    }
+}
+FormFieldErrorComponent.decorators = [
+    { type: Component, args: [{
+                // tslint:disable-next-line:component-selector
+                selector: 'field-error',
+                template: `
+    <ng-container *ngIf="form.get(controlName).touched && form.get(controlName).dirty">
+      <div class="field-error" *ngIf="form.get(controlName).hasError('maxlength') && messageParm('maxlength')">Max Length: {{messageParm('maxlength')}}</div>
+      <div class="field-error" *ngIf="form.get(controlName).hasError('maxlength') && !messageParm('maxlength')">Max Length Exceeded</div>
+      <div class="field-error" *ngIf="form.get(controlName).hasError('minlength') && messageParm('minlength')">Min Length: {{messageParm('minlength')}}</div>
+      <div class="field-error" *ngIf="form.get(controlName).hasError('minlength') && !messageParm('minlength')">Min Length Required</div>
+      <div class="field-error" *ngIf="form.get(controlName).hasError('min') && messageParm('min')">Min Value: {{messageParm('min')}}</div>
+      <div class="field-error" *ngIf="form.get(controlName).hasError('min') && !messageParm('min')">Min Value Not Met</div>
+      <div class="field-error" *ngIf="form.get(controlName).hasError('email') && !form.get(controlName).hasError('required')">{{messageParm('email')}}</div>
+      <div class="field-error" *ngIf="form.get(controlName).hasError('invalidDate')">Invalid Date</div>
+      <div class="field-error" *ngIf="form.get(controlName).hasError('invalidYear')">Invalid Year</div>
+      <div class="field-error" *ngIf="form.get(controlName).hasError('required') && !form.get(controlName).hasError('invalidDate')">{{label}} is Required</div>
+      <div class="field-error" *ngIf="form.get(controlName).hasError('invalid')">{{form.get(controlName).errors['invalid']}}</div>
+    </ng-container>
+    <div *ngIf="!hasError()">&nbsp;</div>
+  `
+            },] }
+];
+FormFieldErrorComponent.propDecorators = {
+    form: [{ type: Input, args: ['form',] }],
+    controlName: [{ type: Input, args: ['controlName',] }],
+    label: [{ type: Input, args: ['label',] }],
+    messageParms: [{ type: Input, args: ['messageParms',] }]
+};
+
+class FormInputDirective {
+    constructor(formControl) {
+        this.formControl = formControl;
+    }
+    get hasError() {
+        return this.formControl.dirty && this.formControl.invalid;
+    }
+    get errors() {
+        if (this.hasError && this.formControl.errors) {
+            return this.formControl.errors;
+        }
+        return '';
+    }
+}
+FormInputDirective.decorators = [
+    { type: Directive, args: [{
+                // tslint:disable-next-line:directive-selector
+                selector: '[formInput]'
+            },] }
+];
+FormInputDirective.ctorParameters = () => [
+    { type: NgControl }
+];
+
+const FORM_FIELD_GLOBAL_MSGS = {
+    maxlength: 'Maximum field length has been exceeded.',
+    minlength: 'Minimum field length requirement has not been met.',
+    min: 'The specified value is below the minimum value required.',
+    invalidDate: 'Date is not valid.',
+    invalidYear: 'Year is not valid.',
+    required: 'This field is required.',
+    pattern: 'Invalid format.'
+};
+class FormFieldComponent {
+    constructor() {
+        this.messageConfig = {};
+        this.disabled = '';
+    }
+    get labelClass() {
+        return this.required + ' ' + this.disabled;
+    }
+    get divClass() {
+        return this.hasError() ? 'jazz-form-field--error' : 'jazz-form-field';
+    }
+    ngOnInit() {
+    }
+    enable(enable = true) {
+        this.disabled = enable ? '' : 'disabled';
+    }
+    hasError() {
+        if (!this.formInput) {
+            throw new Error('You have probably forgotten to put the formInput directive on one of the elements inside of the form-field tag.');
+        }
+        return this.formInput.hasError;
+    }
+    get errorMessages() {
+        if (!this.formInput) {
+            throw new Error('You have probably forgotten to put the formInput directive on one of the elements inside of the form-field tag.');
+        }
+        const errors = this.formInput.errors;
+        const messages = [];
+        const errorKeys = Object.keys(errors);
+        errorKeys.forEach((errorKey) => {
+            if (this.messageConfig[errorKey]) {
+                messages.push(this.messageConfig[errorKey]);
+            }
+            else if (FORM_FIELD_GLOBAL_MSGS[errorKey]) {
+                messages.push(FORM_FIELD_GLOBAL_MSGS[errorKey]);
+            }
+            else {
+                messages.push(errorKey);
+            }
+        });
+        return messages;
+    }
+}
+FormFieldComponent.decorators = [
+    { type: Component, args: [{
+                // tslint:disable-next-line:component-selector
+                selector: 'form-field',
+                template: `
+    <div class="{{ divClass }}">
+      <label for="{{ for }}">{{label}}</label>
+      <ng-container *ngIf="hasError">
+        <span class="jazz-form-field-error-msg" role="alert" *ngFor="let msg of errorMessages">{{msg}}</span>
+      </ng-container>
+      <ng-content></ng-content>
+    </div>
+  `
+            },] }
+];
+FormFieldComponent.propDecorators = {
+    for: [{ type: Input }],
+    label: [{ type: Input }],
+    required: [{ type: Input }],
+    messageConfig: [{ type: Input }],
+    formInput: [{ type: ContentChild, args: [FormInputDirective,] }]
+};
+
+class DesignSystemFormsModule {
+}
+DesignSystemFormsModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [
+                    CommonModule,
+                    RouterModule,
+                    FormsModule,
+                    ReactiveFormsModule
+                ],
+                declarations: [
+                    FormFieldErrorComponent,
+                    FormFieldComponent,
+                    FormInputDirective
+                ],
+                exports: [
+                    FormFieldErrorComponent,
+                    FormFieldComponent,
+                    FormInputDirective
+                ]
+            },] }
+];
+
 class DesignSystemAngularModule {
 }
 DesignSystemAngularModule.decorators = [
@@ -1789,7 +1953,8 @@ DesignSystemAngularModule.decorators = [
                     ModalDialogModule,
                     PagerModule,
                     TabsModule,
-                    UtilityHeaderModule
+                    UtilityHeaderModule,
+                    DesignSystemFormsModule
                 ],
                 exports: [
                     AccordionComponent,
@@ -1811,7 +1976,10 @@ DesignSystemAngularModule.decorators = [
                     TabComponent,
                     TabsComponent,
                     UtilityHeaderComponent,
-                    UtilityHeaderLinkComponent
+                    UtilityHeaderLinkComponent,
+                    FormFieldComponent,
+                    FormFieldErrorComponent,
+                    FormInputDirective
                 ]
             },] }
 ];
@@ -1836,5 +2004,5 @@ class MenuItem {
  * Generated bundle index. Do not edit.
  */
 
-export { ARIA_CONTROLS, ARIA_EXPANDED, AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, DesignSystemAngularModule, HIDDEN, HeaderComponent, MainMenuComponent, MainMenuItemComponent, MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, ModalDialogComponent, PagerComponent, SearchButtonComponent, TabComponent, TabsComponent, UtilityHeaderComponent, UtilityHeaderLinkComponent, UtilityItemComponent, UtilityMenuComponent, AccordionModule as ɵa, AlertModule as ɵb, BreadcrumbsModule as ɵc, HeaderModule as ɵd, MenuModule as ɵe, ModalDialogModule as ɵf, PagerModule as ɵg, TabsModule as ɵh, UtilityHeaderModule as ɵi };
+export { ARIA_CONTROLS, ARIA_EXPANDED, AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, DesignSystemAngularModule, HIDDEN, HeaderComponent, MainMenuComponent, MainMenuItemComponent, MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, ModalDialogComponent, PagerComponent, SearchButtonComponent, TabComponent, TabsComponent, UtilityHeaderComponent, UtilityHeaderLinkComponent, UtilityItemComponent, UtilityMenuComponent, AccordionModule as ɵa, AlertModule as ɵb, BreadcrumbsModule as ɵc, HeaderModule as ɵd, MenuModule as ɵe, ModalDialogModule as ɵf, PagerModule as ɵg, TabsModule as ɵh, UtilityHeaderModule as ɵi, DesignSystemFormsModule as ɵj, FormFieldErrorComponent as ɵk, FormFieldComponent as ɵl, FormInputDirective as ɵm };
 //# sourceMappingURL=princeton-design-design-system-angular.js.map
