@@ -28,6 +28,10 @@ import {MenuSubButtonComponent} from './menu/menu-sub-button/menu-sub-button.com
 import {UtilityHeaderModule} from './utility-header/utility-header.module';
 import {UtilityHeaderComponent} from './utility-header/utility-header.component';
 import {UtilityHeaderLinkComponent} from './utility-header/utility-header-link.component';
+import {DesignSystemFormsModule} from './forms/forms.module';
+import {FormFieldComponent} from './forms/form-field.component';
+import {FormFieldErrorComponent} from './forms/form-field-error.component';
+import {FormInputDirective} from './forms/form-input.directive';
 
 @NgModule({
   imports: [
@@ -41,7 +45,8 @@ import {UtilityHeaderLinkComponent} from './utility-header/utility-header-link.c
     ModalDialogModule,
     PagerModule,
     TabsModule,
-    UtilityHeaderModule
+    UtilityHeaderModule,
+    DesignSystemFormsModule
   ],
   exports: [
     AccordionComponent,
@@ -63,7 +68,10 @@ import {UtilityHeaderLinkComponent} from './utility-header/utility-header-link.c
     TabComponent,
     TabsComponent,
     UtilityHeaderComponent,
-    UtilityHeaderLinkComponent
+    UtilityHeaderLinkComponent,
+    FormFieldComponent,
+    FormFieldErrorComponent,
+    FormInputDirective
   ]
 })
 export class DesignSystemAngularModule { }
