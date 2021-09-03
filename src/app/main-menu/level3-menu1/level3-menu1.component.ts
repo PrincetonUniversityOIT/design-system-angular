@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-level3-menu1',
@@ -7,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Level3Menu1Component implements OnInit {
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder
+  ) { }
+
+  form: FormGroup;
 
   ngOnInit(): void {
-
+    this.createForm();
   }
 
+  private createForm(): void {
+
+    const controlsConfig = {
+     field1: new FormControl(undefined, {validators: [Validators.required]}),
+     field2: new FormControl(undefined, {validators: [Validators.required]})
+    };
+
+    this.form = this.formBuilder.group(controlsConfig);
+  }
 }

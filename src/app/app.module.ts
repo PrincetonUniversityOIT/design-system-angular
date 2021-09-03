@@ -12,6 +12,7 @@ import {Level3Menu1Component} from './main-menu/level3-menu1/level3-menu1.compon
 import {DocumentationComponent} from './main-menu/documentation-menu/documentation.component';
 import {DesignSystemAngularModule} from 'design-system-angular';
 import {HomeComponent} from './home.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import {HomeComponent} from './home.component';
     AppRoutingModule,
     BrowserModule,
     CommonModule,
-    DesignSystemAngularModule
+    DesignSystemAngularModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,

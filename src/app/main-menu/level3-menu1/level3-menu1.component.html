@@ -7,5 +7,19 @@
 
 <h1 class="jazz-page-title">Level 3 Menu 1</h1>
 <p>
-  This section describes the level 3 menu 1.
+  This section shows a quick form
 </p>
+
+<form [formGroup]="form" novalidate>
+  <form-field label="Field 1" for="field1" [messageConfig]="{'maxlength': '\'Field 1\' cannot exceed 10 characters.'}" required="required">
+    <input type="text" maxlength="10" formInput id="field1" class="jazz-input"
+           [class.jazz-input--error]="form.get('field1').invalid && (form.get('field1').dirty || form.get('field1').touched)"
+           formControlName="field1" required />
+  </form-field>
+
+  <form-field label="Field 2" for="field2" [messageConfig]="{'maxlength': '\'Field 2\' cannot exceed 10 characters.'}" required="required">
+    <input type="text" maxlength="10" formInput id="field2" class="jazz-input"
+           [class.jazz-input--error]="form.get('field2').invalid && (form.get('field2').dirty || form.get('field2').touched)"
+           formControlName="field2" required />
+  </form-field>
+</form>`
