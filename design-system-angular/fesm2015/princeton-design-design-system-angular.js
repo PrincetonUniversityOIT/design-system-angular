@@ -1,7 +1,6 @@
-import { Component, ContentChildren, ElementRef, Input, NgModule, EventEmitter, Output, ViewContainerRef, ViewChild, ChangeDetectorRef, ContentChild, HostListener, ViewChildren, Directive } from '@angular/core';
+import { Component, ContentChildren, ElementRef, Input, NgModule, EventEmitter, Output, ViewContainerRef, ViewChild, ChangeDetectorRef, ContentChild, HostListener, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { NgControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const prefix = 'jazz';
 
@@ -53,6 +52,9 @@ class UtilityFunctions {
 
 const ACCORDION_SELECTOR = `.${prefix}-accordion`;
 const MULTISELECTABLE = 'aria-multiselectable';
+const ACCORDION_BUTTON_SELECTOR = `.${prefix}-accordion__button`;
+const ACCORDION_MULTISELECTABLE_CLASSNAME = `${prefix}-accordion-multiselectable`;
+const ACCORDION_CONTENT_EXPANDED_CLASSNAME = `${prefix}-accordion__content--expanded`;
 const ARIA_CONTROLS = 'aria-controls';
 const HIDDEN = 'hidden';
 /**
@@ -60,48 +62,90 @@ const HIDDEN = 'hidden';
  *
  * <example-url>http://localhost:4200/jazz-design-system/#/accordion/accordionExample</example-url>
  * @example
-   `` `
-   <jazz-accordion>
-     <h2>
-       <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">
-         Sed porttitor lectus nibh?
-         </button>
-     </h2>
-     <div class="jazz-accordion__content" id="content1" hidden>
-       Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
-       pellentesque nec, egestas non nisi.
-     </div>
-     <h2>
-       <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="true" aria-controls="content2">
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?
-       </button>
-     </h2>
-     <div aria-hidden="false" class="jazz-accordion__content" id="content2">
-       Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet
-       et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
-       Cras ultricies ligula sed magna dictum porta.
-     </div>
-  </jazz-accordion>
-   `` `
+ ```
+ <jazz-accordion>
+ <h2>
+ <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">
+ Sed porttitor lectus nibh?
+ </button>
+ </h2>
+ <div class="jazz-accordion__content" id="content1" hidden>
+ Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
+ pellentesque nec, egestas non nisi.
+ </div>
+ <h2>
+ <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="true" aria-controls="content2">
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?
+ </button>
+ </h2>
+ <div aria-hidden="false" class="jazz-accordion__content" id="content2">
+ Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet
+ et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
+ Cras ultricies ligula sed magna dictum porta.
+ </div>
+ </jazz-accordion>
+ ```
  */
 class AccordionComponent {
     constructor() {
         this.showBorder = false;
         this.multiSelect = true;
         /**
+         * Delegreater file
+         */
+        this.isElement = (value) => {
+            return value && typeof value === 'object' && value.nodeType === 1;
+        };
+        this.select = (selector, context) => {
+            if (typeof selector !== 'string') {
+                return [];
+            }
+            if (!context || !this.isElement(context)) {
+                context = window.document; // eslint-disable-line no-param-reassign
+            }
+            const selection = context.querySelectorAll(selector);
+            return Array.prototype.slice.call(selection);
+        };
+        this.selectClosestTo = (targetSelector, closestToSelector, context) => {
+            const elements = this.select(targetSelector, context);
+            return elements.filter((element) => element.closest(closestToSelector) === context);
+        };
+        this.getButtonMatchingContent = (button, accordion) => {
+            const matchVal = button.getAttribute('aria-controls');
+            return accordion.querySelector(`#${matchVal}`);
+        };
+        this.getAccordionButtons = (accordion) => {
+            return this.selectClosestTo(ACCORDION_BUTTON_SELECTOR, ACCORDION_SELECTOR, accordion);
+        };
+        this.closeExpandedContents = (accordion, clickedButton) => {
+            return this.getAccordionButtons(accordion).forEach((button) => {
+                if (button !== clickedButton) {
+                    this.toggleControl(button, false);
+                    this.getButtonMatchingContent(button, accordion).classList.remove(ACCORDION_CONTENT_EXPANDED_CLASSNAME);
+                }
+            });
+        };
+        /**
          * This click method is added as a click listener for all the jazzAccordionButtons buttons.
          */
         this.click = (event) => {
             const button = event.target;
             const accordionEl = button.closest(ACCORDION_SELECTOR);
-            const multiselectable = accordionEl.getAttribute(MULTISELECTABLE) === 'true';
+            const multiselectable = accordionEl.classList.contains(ACCORDION_MULTISELECTABLE_CLASSNAME);
             const expanded = this.toggleControl(button, null);
-            if (expanded && !multiselectable) {
-                this.accordionButtons.forEach((other) => {
-                    if (other.nativeElement !== button) {
-                        this.toggleControl(other.nativeElement, false);
-                    }
-                });
+            const content = this.getButtonMatchingContent(button, accordionEl);
+            if (expanded) {
+                if (!multiselectable) {
+                    this.closeExpandedContents(accordionEl, button);
+                }
+                content.classList.add(ACCORDION_CONTENT_EXPANDED_CLASSNAME);
+                // this.accordionButtons.forEach((other) => {
+                //   if (other.nativeElement !== button) {
+                //     this.toggleControl(other.nativeElement, false);
+                //   }
+            }
+            else {
+                content.classList.remove(ACCORDION_CONTENT_EXPANDED_CLASSNAME);
             }
             event.stopImmediatePropagation();
         };
@@ -120,12 +164,6 @@ class AccordionComponent {
             if (!controlledElement) {
                 throw new Error(`aria-controls is not properly configured: ${controlledElementId}`);
             }
-            if (safeExpanded) {
-                controlledElement.removeAttribute(HIDDEN);
-            }
-            else {
-                controlledElement.setAttribute(HIDDEN, '');
-            }
             return safeExpanded;
         };
     }
@@ -141,7 +179,7 @@ AccordionComponent.decorators = [
     { type: Component, args: [{
                 // tslint:disable-next-line:component-selector
                 selector: 'jazz-accordion',
-                template: "<div class=\"jazz-accordion {{showBorder?'jazz-accordion--bordered':''}}\"\n     [attr.aria-multiselectable]=\"multiSelect ? true : false\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
+                template: "<div class=\"jazz-accordion {{ showBorder && 'jazz-accordion--bordered' }} {{ multiSelect && 'jazz-accordion-multiselectable' }}\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
             },] }
 ];
 AccordionComponent.ctorParameters = () => [];
@@ -1775,169 +1813,6 @@ UtilityHeaderModule.decorators = [
             },] }
 ];
 
-/**
- * Use 'invalid' validation error key to display any validation message
- */
-class FormFieldErrorComponent {
-    constructor() {
-        this.messageParm = (key) => this.messageParms && this.messageParms[key] ? this.messageParms[key] : '';
-    }
-    hasError() {
-        const field = this.form.get(this.controlName);
-        return (field.touched && field.dirty && field.invalid);
-    }
-}
-FormFieldErrorComponent.decorators = [
-    { type: Component, args: [{
-                // tslint:disable-next-line:component-selector
-                selector: 'field-error',
-                template: `
-    <ng-container *ngIf="form.get(controlName).touched && form.get(controlName).dirty">
-      <div class="field-error" *ngIf="form.get(controlName).hasError('maxlength') && messageParm('maxlength')">Max Length: {{messageParm('maxlength')}}</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('maxlength') && !messageParm('maxlength')">Max Length Exceeded</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('minlength') && messageParm('minlength')">Min Length: {{messageParm('minlength')}}</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('minlength') && !messageParm('minlength')">Min Length Required</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('min') && messageParm('min')">Min Value: {{messageParm('min')}}</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('min') && !messageParm('min')">Min Value Not Met</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('email') && !form.get(controlName).hasError('required')">{{messageParm('email')}}</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('invalidDate')">Invalid Date</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('invalidYear')">Invalid Year</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('required') && !form.get(controlName).hasError('invalidDate')">{{label}} is Required</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('invalid')">{{form.get(controlName).errors['invalid']}}</div>
-    </ng-container>
-    <div *ngIf="!hasError()">&nbsp;</div>
-  `
-            },] }
-];
-FormFieldErrorComponent.propDecorators = {
-    form: [{ type: Input, args: ['form',] }],
-    controlName: [{ type: Input, args: ['controlName',] }],
-    label: [{ type: Input, args: ['label',] }],
-    messageParms: [{ type: Input, args: ['messageParms',] }]
-};
-
-class FormInputDirective {
-    constructor(formControl) {
-        this.formControl = formControl;
-    }
-    get hasError() {
-        return this.formControl.dirty && this.formControl.invalid;
-    }
-    get errors() {
-        if (this.hasError && this.formControl.errors) {
-            return this.formControl.errors;
-        }
-        return '';
-    }
-}
-FormInputDirective.decorators = [
-    { type: Directive, args: [{
-                // tslint:disable-next-line:directive-selector
-                selector: '[formInput]'
-            },] }
-];
-FormInputDirective.ctorParameters = () => [
-    { type: NgControl }
-];
-
-const FORM_FIELD_GLOBAL_MSGS = {
-    maxlength: 'Maximum field length has been exceeded.',
-    minlength: 'Minimum field length requirement has not been met.',
-    min: 'The specified value is below the minimum value required.',
-    invalidDate: 'Date is not valid.',
-    invalidYear: 'Year is not valid.',
-    required: 'This field is required.',
-    pattern: 'Invalid format.'
-};
-class FormFieldComponent {
-    constructor() {
-        this.messageConfig = {};
-        this.disabled = '';
-    }
-    get labelClass() {
-        return this.required + ' ' + this.disabled;
-    }
-    get divClass() {
-        return this.hasError() ? 'jazz-form-field--error' : 'jazz-form-field';
-    }
-    ngOnInit() {
-    }
-    enable(enable = true) {
-        this.disabled = enable ? '' : 'disabled';
-    }
-    hasError() {
-        if (!this.formInput) {
-            throw new Error('You have probably forgotten to put the formInput directive on one of the elements inside of the form-field tag.');
-        }
-        return this.formInput.hasError;
-    }
-    get errorMessages() {
-        if (!this.formInput) {
-            throw new Error('You have probably forgotten to put the formInput directive on one of the elements inside of the form-field tag.');
-        }
-        const errors = this.formInput.errors;
-        const messages = [];
-        const errorKeys = Object.keys(errors);
-        errorKeys.forEach((errorKey) => {
-            if (this.messageConfig[errorKey]) {
-                messages.push(this.messageConfig[errorKey]);
-            }
-            else if (FORM_FIELD_GLOBAL_MSGS[errorKey]) {
-                messages.push(FORM_FIELD_GLOBAL_MSGS[errorKey]);
-            }
-            else {
-                messages.push(errorKey);
-            }
-        });
-        return messages;
-    }
-}
-FormFieldComponent.decorators = [
-    { type: Component, args: [{
-                // tslint:disable-next-line:component-selector
-                selector: 'form-field',
-                template: `
-    <div class="{{ divClass }}">
-      <label for="{{ for }}">{{label}}</label>
-      <ng-container *ngIf="hasError">
-        <span class="jazz-form-field-error-msg" role="alert" *ngFor="let msg of errorMessages">{{msg}}</span>
-      </ng-container>
-      <ng-content></ng-content>
-    </div>
-  `
-            },] }
-];
-FormFieldComponent.propDecorators = {
-    for: [{ type: Input }],
-    label: [{ type: Input }],
-    required: [{ type: Input }],
-    messageConfig: [{ type: Input }],
-    formInput: [{ type: ContentChild, args: [FormInputDirective,] }]
-};
-
-class DesignSystemFormsModule {
-}
-DesignSystemFormsModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    RouterModule,
-                    FormsModule,
-                    ReactiveFormsModule
-                ],
-                declarations: [
-                    FormFieldErrorComponent,
-                    FormFieldComponent,
-                    FormInputDirective
-                ],
-                exports: [
-                    FormFieldErrorComponent,
-                    FormFieldComponent,
-                    FormInputDirective
-                ]
-            },] }
-];
-
 class DesignSystemAngularModule {
 }
 DesignSystemAngularModule.decorators = [
@@ -1953,8 +1828,7 @@ DesignSystemAngularModule.decorators = [
                     ModalDialogModule,
                     PagerModule,
                     TabsModule,
-                    UtilityHeaderModule,
-                    DesignSystemFormsModule
+                    UtilityHeaderModule
                 ],
                 exports: [
                     AccordionComponent,
@@ -1976,10 +1850,7 @@ DesignSystemAngularModule.decorators = [
                     TabComponent,
                     TabsComponent,
                     UtilityHeaderComponent,
-                    UtilityHeaderLinkComponent,
-                    FormFieldComponent,
-                    FormFieldErrorComponent,
-                    FormInputDirective
+                    UtilityHeaderLinkComponent
                 ]
             },] }
 ];
@@ -2004,5 +1875,5 @@ class MenuItem {
  * Generated bundle index. Do not edit.
  */
 
-export { ARIA_CONTROLS, ARIA_EXPANDED, AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, DesignSystemAngularModule, HIDDEN, HeaderComponent, MainMenuComponent, MainMenuItemComponent, MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, ModalDialogComponent, PagerComponent, SearchButtonComponent, TabComponent, TabsComponent, UtilityHeaderComponent, UtilityHeaderLinkComponent, UtilityItemComponent, UtilityMenuComponent, AccordionModule as ɵa, AlertModule as ɵb, BreadcrumbsModule as ɵc, HeaderModule as ɵd, MenuModule as ɵe, ModalDialogModule as ɵf, PagerModule as ɵg, TabsModule as ɵh, UtilityHeaderModule as ɵi, DesignSystemFormsModule as ɵj, FormFieldErrorComponent as ɵk, FormFieldComponent as ɵl, FormInputDirective as ɵm };
+export { ARIA_CONTROLS, ARIA_EXPANDED, AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, DesignSystemAngularModule, HIDDEN, HeaderComponent, MainMenuComponent, MainMenuItemComponent, MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, ModalDialogComponent, PagerComponent, SearchButtonComponent, TabComponent, TabsComponent, UtilityHeaderComponent, UtilityHeaderLinkComponent, UtilityItemComponent, UtilityMenuComponent, AccordionModule as ɵa, AlertModule as ɵb, BreadcrumbsModule as ɵc, HeaderModule as ɵd, MenuModule as ɵe, ModalDialogModule as ɵf, PagerModule as ɵg, TabsModule as ɵh, UtilityHeaderModule as ɵi };
 //# sourceMappingURL=princeton-design-design-system-angular.js.map

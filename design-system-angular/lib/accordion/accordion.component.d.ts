@@ -7,29 +7,29 @@ export declare const HIDDEN = "hidden";
  *
  * <example-url>http://localhost:4200/jazz-design-system/#/accordion/accordionExample</example-url>
  * @example
-   `` `
-   <jazz-accordion>
-     <h2>
-       <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">
-         Sed porttitor lectus nibh?
-         </button>
-     </h2>
-     <div class="jazz-accordion__content" id="content1" hidden>
-       Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
-       pellentesque nec, egestas non nisi.
-     </div>
-     <h2>
-       <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="true" aria-controls="content2">
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?
-       </button>
-     </h2>
-     <div aria-hidden="false" class="jazz-accordion__content" id="content2">
-       Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet
-       et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
-       Cras ultricies ligula sed magna dictum porta.
-     </div>
-  </jazz-accordion>
-   `` `
+ ```
+ <jazz-accordion>
+ <h2>
+ <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">
+ Sed porttitor lectus nibh?
+ </button>
+ </h2>
+ <div class="jazz-accordion__content" id="content1" hidden>
+ Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
+ pellentesque nec, egestas non nisi.
+ </div>
+ <h2>
+ <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="true" aria-controls="content2">
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?
+ </button>
+ </h2>
+ <div aria-hidden="false" class="jazz-accordion__content" id="content2">
+ Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet
+ et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
+ Cras ultricies ligula sed magna dictum porta.
+ </div>
+ </jazz-accordion>
+ ```
  */
 export declare class AccordionComponent implements OnInit, AfterContentInit {
     /**
@@ -43,6 +43,15 @@ export declare class AccordionComponent implements OnInit, AfterContentInit {
     constructor();
     ngOnInit(): void;
     ngAfterContentInit(): void;
+    /**
+     * Delegreater file
+     */
+    isElement: (value: any) => boolean;
+    select: (selector: string, context: ParentNode) => any;
+    selectClosestTo: (targetSelector: string, closestToSelector: string, context: Element) => any;
+    getButtonMatchingContent: (button: HTMLElement, accordion: Element) => Element;
+    getAccordionButtons: (accordion: Element) => any;
+    closeExpandedContents: (accordion: Element, clickedButton: Element) => any;
     /**
      * This click method is added as a click listener for all the jazzAccordionButtons buttons.
      */

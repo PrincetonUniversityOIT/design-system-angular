@@ -1,7 +1,0 @@
-import { NgControl } from '@angular/forms';
-export declare class FormInputDirective {
-    private formControl;
-    constructor(formControl: NgControl);
-    get hasError(): boolean;
-    get errors(): any;
-}

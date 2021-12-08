@@ -1,12 +1,10 @@
-import { Component, ContentChildren, ElementRef, Input, NgModule, EventEmitter, Output, ViewContainerRef, ViewChild, ChangeDetectorRef, ContentChild, HostListener, ViewChildren, Directive } from '@angular/core';
+import { Component, ContentChildren, ElementRef, Input, NgModule, EventEmitter, Output, ViewContainerRef, ViewChild, ChangeDetectorRef, ContentChild, HostListener, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { NgControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import * as ɵngcc0 from '@angular/core';
 import * as ɵngcc1 from '@angular/router';
 import * as ɵngcc2 from '@angular/common';
-import * as ɵngcc3 from '@angular/forms';
 
 const _c0 = ["jazzAccordionButtons"];
 const _c1 = ["*"];
@@ -727,147 +725,6 @@ function UtilityHeaderComponent_ng_template_27_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵproperty("ngIf", ctx_r4.username);
 } }
-function FormFieldErrorComponent_ng_container_0_div_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 2);
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r2 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate1("Max Length: ", ctx_r2.messageParm("maxlength"), "");
-} }
-function FormFieldErrorComponent_ng_container_0_div_2_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 2);
-    ɵngcc0.ɵɵtext(1, "Max Length Exceeded");
-    ɵngcc0.ɵɵelementEnd();
-} }
-function FormFieldErrorComponent_ng_container_0_div_3_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 2);
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r4 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate1("Min Length: ", ctx_r4.messageParm("minlength"), "");
-} }
-function FormFieldErrorComponent_ng_container_0_div_4_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 2);
-    ɵngcc0.ɵɵtext(1, "Min Length Required");
-    ɵngcc0.ɵɵelementEnd();
-} }
-function FormFieldErrorComponent_ng_container_0_div_5_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 2);
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r6 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate1("Min Value: ", ctx_r6.messageParm("min"), "");
-} }
-function FormFieldErrorComponent_ng_container_0_div_6_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 2);
-    ɵngcc0.ɵɵtext(1, "Min Value Not Met");
-    ɵngcc0.ɵɵelementEnd();
-} }
-function FormFieldErrorComponent_ng_container_0_div_7_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 2);
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r8 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ctx_r8.messageParm("email"));
-} }
-function FormFieldErrorComponent_ng_container_0_div_8_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 2);
-    ɵngcc0.ɵɵtext(1, "Invalid Date");
-    ɵngcc0.ɵɵelementEnd();
-} }
-function FormFieldErrorComponent_ng_container_0_div_9_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 2);
-    ɵngcc0.ɵɵtext(1, "Invalid Year");
-    ɵngcc0.ɵɵelementEnd();
-} }
-function FormFieldErrorComponent_ng_container_0_div_10_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 2);
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r11 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate1("", ctx_r11.label, " is Required");
-} }
-function FormFieldErrorComponent_ng_container_0_div_11_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 2);
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r12 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ctx_r12.form.get(ctx_r12.controlName).errors["invalid"]);
-} }
-function FormFieldErrorComponent_ng_container_0_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementContainerStart(0);
-    ɵngcc0.ɵɵtemplate(1, FormFieldErrorComponent_ng_container_0_div_1_Template, 2, 1, "div", 1);
-    ɵngcc0.ɵɵtemplate(2, FormFieldErrorComponent_ng_container_0_div_2_Template, 2, 0, "div", 1);
-    ɵngcc0.ɵɵtemplate(3, FormFieldErrorComponent_ng_container_0_div_3_Template, 2, 1, "div", 1);
-    ɵngcc0.ɵɵtemplate(4, FormFieldErrorComponent_ng_container_0_div_4_Template, 2, 0, "div", 1);
-    ɵngcc0.ɵɵtemplate(5, FormFieldErrorComponent_ng_container_0_div_5_Template, 2, 1, "div", 1);
-    ɵngcc0.ɵɵtemplate(6, FormFieldErrorComponent_ng_container_0_div_6_Template, 2, 0, "div", 1);
-    ɵngcc0.ɵɵtemplate(7, FormFieldErrorComponent_ng_container_0_div_7_Template, 2, 1, "div", 1);
-    ɵngcc0.ɵɵtemplate(8, FormFieldErrorComponent_ng_container_0_div_8_Template, 2, 0, "div", 1);
-    ɵngcc0.ɵɵtemplate(9, FormFieldErrorComponent_ng_container_0_div_9_Template, 2, 0, "div", 1);
-    ɵngcc0.ɵɵtemplate(10, FormFieldErrorComponent_ng_container_0_div_10_Template, 2, 1, "div", 1);
-    ɵngcc0.ɵɵtemplate(11, FormFieldErrorComponent_ng_container_0_div_11_Template, 2, 1, "div", 1);
-    ɵngcc0.ɵɵelementContainerEnd();
-} if (rf & 2) {
-    const ctx_r0 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.form.get(ctx_r0.controlName).hasError("maxlength") && ctx_r0.messageParm("maxlength"));
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.form.get(ctx_r0.controlName).hasError("maxlength") && !ctx_r0.messageParm("maxlength"));
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.form.get(ctx_r0.controlName).hasError("minlength") && ctx_r0.messageParm("minlength"));
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.form.get(ctx_r0.controlName).hasError("minlength") && !ctx_r0.messageParm("minlength"));
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.form.get(ctx_r0.controlName).hasError("min") && ctx_r0.messageParm("min"));
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.form.get(ctx_r0.controlName).hasError("min") && !ctx_r0.messageParm("min"));
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.form.get(ctx_r0.controlName).hasError("email") && !ctx_r0.form.get(ctx_r0.controlName).hasError("required"));
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.form.get(ctx_r0.controlName).hasError("invalidDate"));
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.form.get(ctx_r0.controlName).hasError("invalidYear"));
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.form.get(ctx_r0.controlName).hasError("required") && !ctx_r0.form.get(ctx_r0.controlName).hasError("invalidDate"));
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.form.get(ctx_r0.controlName).hasError("invalid"));
-} }
-function FormFieldErrorComponent_div_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div");
-    ɵngcc0.ɵɵtext(1, "\u00A0");
-    ɵngcc0.ɵɵelementEnd();
-} }
-function FormFieldComponent_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "span", 3);
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const msg_r2 = ctx.$implicit;
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(msg_r2);
-} }
-function FormFieldComponent_ng_container_3_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementContainerStart(0);
-    ɵngcc0.ɵɵtemplate(1, FormFieldComponent_ng_container_3_span_1_Template, 2, 1, "span", 2);
-    ɵngcc0.ɵɵelementContainerEnd();
-} if (rf & 2) {
-    const ctx_r0 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngForOf", ctx_r0.errorMessages);
-} }
 const prefix = 'jazz';
 
 const ARIA_EXPANDED$2 = 'aria-expanded';
@@ -918,6 +775,9 @@ class UtilityFunctions {
 
 const ACCORDION_SELECTOR = `.${prefix}-accordion`;
 const MULTISELECTABLE = 'aria-multiselectable';
+const ACCORDION_BUTTON_SELECTOR = `.${prefix}-accordion__button`;
+const ACCORDION_MULTISELECTABLE_CLASSNAME = `${prefix}-accordion-multiselectable`;
+const ACCORDION_CONTENT_EXPANDED_CLASSNAME = `${prefix}-accordion__content--expanded`;
 const ARIA_CONTROLS = 'aria-controls';
 const HIDDEN = 'hidden';
 /**
@@ -925,48 +785,90 @@ const HIDDEN = 'hidden';
  *
  * <example-url>http://localhost:4200/jazz-design-system/#/accordion/accordionExample</example-url>
  * @example
-   `` `
-   <jazz-accordion>
-     <h2>
-       <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">
-         Sed porttitor lectus nibh?
-         </button>
-     </h2>
-     <div class="jazz-accordion__content" id="content1" hidden>
-       Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
-       pellentesque nec, egestas non nisi.
-     </div>
-     <h2>
-       <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="true" aria-controls="content2">
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?
-       </button>
-     </h2>
-     <div aria-hidden="false" class="jazz-accordion__content" id="content2">
-       Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet
-       et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
-       Cras ultricies ligula sed magna dictum porta.
-     </div>
-  </jazz-accordion>
-   `` `
+ ```
+ <jazz-accordion>
+ <h2>
+ <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">
+ Sed porttitor lectus nibh?
+ </button>
+ </h2>
+ <div class="jazz-accordion__content" id="content1" hidden>
+ Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
+ pellentesque nec, egestas non nisi.
+ </div>
+ <h2>
+ <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="true" aria-controls="content2">
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?
+ </button>
+ </h2>
+ <div aria-hidden="false" class="jazz-accordion__content" id="content2">
+ Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet
+ et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
+ Cras ultricies ligula sed magna dictum porta.
+ </div>
+ </jazz-accordion>
+ ```
  */
 class AccordionComponent {
     constructor() {
         this.showBorder = false;
         this.multiSelect = true;
         /**
+         * Delegreater file
+         */
+        this.isElement = (value) => {
+            return value && typeof value === 'object' && value.nodeType === 1;
+        };
+        this.select = (selector, context) => {
+            if (typeof selector !== 'string') {
+                return [];
+            }
+            if (!context || !this.isElement(context)) {
+                context = window.document; // eslint-disable-line no-param-reassign
+            }
+            const selection = context.querySelectorAll(selector);
+            return Array.prototype.slice.call(selection);
+        };
+        this.selectClosestTo = (targetSelector, closestToSelector, context) => {
+            const elements = this.select(targetSelector, context);
+            return elements.filter((element) => element.closest(closestToSelector) === context);
+        };
+        this.getButtonMatchingContent = (button, accordion) => {
+            const matchVal = button.getAttribute('aria-controls');
+            return accordion.querySelector(`#${matchVal}`);
+        };
+        this.getAccordionButtons = (accordion) => {
+            return this.selectClosestTo(ACCORDION_BUTTON_SELECTOR, ACCORDION_SELECTOR, accordion);
+        };
+        this.closeExpandedContents = (accordion, clickedButton) => {
+            return this.getAccordionButtons(accordion).forEach((button) => {
+                if (button !== clickedButton) {
+                    this.toggleControl(button, false);
+                    this.getButtonMatchingContent(button, accordion).classList.remove(ACCORDION_CONTENT_EXPANDED_CLASSNAME);
+                }
+            });
+        };
+        /**
          * This click method is added as a click listener for all the jazzAccordionButtons buttons.
          */
         this.click = (event) => {
             const button = event.target;
             const accordionEl = button.closest(ACCORDION_SELECTOR);
-            const multiselectable = accordionEl.getAttribute(MULTISELECTABLE) === 'true';
+            const multiselectable = accordionEl.classList.contains(ACCORDION_MULTISELECTABLE_CLASSNAME);
             const expanded = this.toggleControl(button, null);
-            if (expanded && !multiselectable) {
-                this.accordionButtons.forEach((other) => {
-                    if (other.nativeElement !== button) {
-                        this.toggleControl(other.nativeElement, false);
-                    }
-                });
+            const content = this.getButtonMatchingContent(button, accordionEl);
+            if (expanded) {
+                if (!multiselectable) {
+                    this.closeExpandedContents(accordionEl, button);
+                }
+                content.classList.add(ACCORDION_CONTENT_EXPANDED_CLASSNAME);
+                // this.accordionButtons.forEach((other) => {
+                //   if (other.nativeElement !== button) {
+                //     this.toggleControl(other.nativeElement, false);
+                //   }
+            }
+            else {
+                content.classList.remove(ACCORDION_CONTENT_EXPANDED_CLASSNAME);
             }
             event.stopImmediatePropagation();
         };
@@ -984,12 +886,6 @@ class AccordionComponent {
             const controlledElement = document.getElementById(controlledElementId);
             if (!controlledElement) {
                 throw new Error(`aria-controls is not properly configured: ${controlledElementId}`);
-            }
-            if (safeExpanded) {
-                controlledElement.removeAttribute(HIDDEN);
-            }
-            else {
-                controlledElement.setAttribute(HIDDEN, '');
             }
             return safeExpanded;
         };
@@ -1014,8 +910,7 @@ AccordionComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: AccordionComponen
         ɵngcc0.ɵɵprojection(1);
         ɵngcc0.ɵɵelementEnd();
     } if (rf & 2) {
-        ɵngcc0.ɵɵclassMapInterpolate1("jazz-accordion ", ctx.showBorder ? "jazz-accordion--bordered" : "", "");
-        ɵngcc0.ɵɵattribute("aria-multiselectable", ctx.multiSelect ? true : false);
+        ɵngcc0.ɵɵclassMapInterpolate2("jazz-accordion ", ctx.showBorder && "jazz-accordion--bordered", " ", ctx.multiSelect && "jazz-accordion-multiselectable", "");
     } }, encapsulation: 2 });
 AccordionComponent.ctorParameters = () => [];
 AccordionComponent.propDecorators = {
@@ -1028,7 +923,7 @@ AccordionComponent.propDecorators = {
         args: [{
                 // tslint:disable-next-line:component-selector
                 selector: 'jazz-accordion',
-                template: "<div class=\"jazz-accordion {{showBorder?'jazz-accordion--bordered':''}}\"\n     [attr.aria-multiselectable]=\"multiSelect ? true : false\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
+                template: "<div class=\"jazz-accordion {{ showBorder && 'jazz-accordion--bordered' }} {{ multiSelect && 'jazz-accordion-multiselectable' }}\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
             }]
     }], function () { return []; }, { showBorder: [{
             type: Input
@@ -3252,242 +3147,6 @@ UtilityHeaderModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function Utili
             }]
     }], null, null); })();
 
-/**
- * Use 'invalid' validation error key to display any validation message
- */
-class FormFieldErrorComponent {
-    constructor() {
-        this.messageParm = (key) => this.messageParms && this.messageParms[key] ? this.messageParms[key] : '';
-    }
-    hasError() {
-        const field = this.form.get(this.controlName);
-        return (field.touched && field.dirty && field.invalid);
-    }
-}
-FormFieldErrorComponent.ɵfac = function FormFieldErrorComponent_Factory(t) { return new (t || FormFieldErrorComponent)(); };
-FormFieldErrorComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: FormFieldErrorComponent, selectors: [["field-error"]], inputs: { form: "form", controlName: "controlName", label: "label", messageParms: "messageParms" }, decls: 2, vars: 2, consts: [[4, "ngIf"], ["class", "field-error", 4, "ngIf"], [1, "field-error"]], template: function FormFieldErrorComponent_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵtemplate(0, FormFieldErrorComponent_ng_container_0_Template, 12, 11, "ng-container", 0);
-        ɵngcc0.ɵɵtemplate(1, FormFieldErrorComponent_div_1_Template, 2, 0, "div", 0);
-    } if (rf & 2) {
-        ɵngcc0.ɵɵproperty("ngIf", ctx.form.get(ctx.controlName).touched && ctx.form.get(ctx.controlName).dirty);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", !ctx.hasError());
-    } }, directives: [ɵngcc2.NgIf], encapsulation: 2 });
-FormFieldErrorComponent.propDecorators = {
-    form: [{ type: Input, args: ['form',] }],
-    controlName: [{ type: Input, args: ['controlName',] }],
-    label: [{ type: Input, args: ['label',] }],
-    messageParms: [{ type: Input, args: ['messageParms',] }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(FormFieldErrorComponent, [{
-        type: Component,
-        args: [{
-                // tslint:disable-next-line:component-selector
-                selector: 'field-error',
-                template: `
-    <ng-container *ngIf="form.get(controlName).touched && form.get(controlName).dirty">
-      <div class="field-error" *ngIf="form.get(controlName).hasError('maxlength') && messageParm('maxlength')">Max Length: {{messageParm('maxlength')}}</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('maxlength') && !messageParm('maxlength')">Max Length Exceeded</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('minlength') && messageParm('minlength')">Min Length: {{messageParm('minlength')}}</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('minlength') && !messageParm('minlength')">Min Length Required</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('min') && messageParm('min')">Min Value: {{messageParm('min')}}</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('min') && !messageParm('min')">Min Value Not Met</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('email') && !form.get(controlName).hasError('required')">{{messageParm('email')}}</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('invalidDate')">Invalid Date</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('invalidYear')">Invalid Year</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('required') && !form.get(controlName).hasError('invalidDate')">{{label}} is Required</div>
-      <div class="field-error" *ngIf="form.get(controlName).hasError('invalid')">{{form.get(controlName).errors['invalid']}}</div>
-    </ng-container>
-    <div *ngIf="!hasError()">&nbsp;</div>
-  `
-            }]
-    }], function () { return []; }, { form: [{
-            type: Input,
-            args: ['form']
-        }], controlName: [{
-            type: Input,
-            args: ['controlName']
-        }], label: [{
-            type: Input,
-            args: ['label']
-        }], messageParms: [{
-            type: Input,
-            args: ['messageParms']
-        }] }); })();
-
-class FormInputDirective {
-    constructor(formControl) {
-        this.formControl = formControl;
-    }
-    get hasError() {
-        return this.formControl.dirty && this.formControl.invalid;
-    }
-    get errors() {
-        if (this.hasError && this.formControl.errors) {
-            return this.formControl.errors;
-        }
-        return '';
-    }
-}
-FormInputDirective.ɵfac = function FormInputDirective_Factory(t) { return new (t || FormInputDirective)(ɵngcc0.ɵɵdirectiveInject(ɵngcc3.NgControl)); };
-FormInputDirective.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: FormInputDirective, selectors: [["", "formInput", ""]] });
-FormInputDirective.ctorParameters = () => [
-    { type: NgControl }
-];
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(FormInputDirective, [{
-        type: Directive,
-        args: [{
-                // tslint:disable-next-line:directive-selector
-                selector: '[formInput]'
-            }]
-    }], function () { return [{ type: ɵngcc3.NgControl }]; }, null); })();
-
-const FORM_FIELD_GLOBAL_MSGS = {
-    maxlength: 'Maximum field length has been exceeded.',
-    minlength: 'Minimum field length requirement has not been met.',
-    min: 'The specified value is below the minimum value required.',
-    invalidDate: 'Date is not valid.',
-    invalidYear: 'Year is not valid.',
-    required: 'This field is required.',
-    pattern: 'Invalid format.'
-};
-class FormFieldComponent {
-    constructor() {
-        this.messageConfig = {};
-        this.disabled = '';
-    }
-    get labelClass() {
-        return this.required + ' ' + this.disabled;
-    }
-    get divClass() {
-        return this.hasError() ? 'jazz-form-field--error' : 'jazz-form-field';
-    }
-    ngOnInit() {
-    }
-    enable(enable = true) {
-        this.disabled = enable ? '' : 'disabled';
-    }
-    hasError() {
-        if (!this.formInput) {
-            throw new Error('You have probably forgotten to put the formInput directive on one of the elements inside of the form-field tag.');
-        }
-        return this.formInput.hasError;
-    }
-    get errorMessages() {
-        if (!this.formInput) {
-            throw new Error('You have probably forgotten to put the formInput directive on one of the elements inside of the form-field tag.');
-        }
-        const errors = this.formInput.errors;
-        const messages = [];
-        const errorKeys = Object.keys(errors);
-        errorKeys.forEach((errorKey) => {
-            if (this.messageConfig[errorKey]) {
-                messages.push(this.messageConfig[errorKey]);
-            }
-            else if (FORM_FIELD_GLOBAL_MSGS[errorKey]) {
-                messages.push(FORM_FIELD_GLOBAL_MSGS[errorKey]);
-            }
-            else {
-                messages.push(errorKey);
-            }
-        });
-        return messages;
-    }
-}
-FormFieldComponent.ɵfac = function FormFieldComponent_Factory(t) { return new (t || FormFieldComponent)(); };
-FormFieldComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: FormFieldComponent, selectors: [["form-field"]], contentQueries: function FormFieldComponent_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
-        ɵngcc0.ɵɵcontentQuery(dirIndex, FormInputDirective, true);
-    } if (rf & 2) {
-        let _t;
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.formInput = _t.first);
-    } }, inputs: { messageConfig: "messageConfig", for: "for", label: "label", required: "required" }, ngContentSelectors: _c1, decls: 5, vars: 6, consts: [[3, "for"], [4, "ngIf"], ["class", "jazz-form-field-error-msg", "role", "alert", 4, "ngFor", "ngForOf"], ["role", "alert", 1, "jazz-form-field-error-msg"]], template: function FormFieldComponent_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵelementStart(0, "div");
-        ɵngcc0.ɵɵelementStart(1, "label", 0);
-        ɵngcc0.ɵɵtext(2);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵtemplate(3, FormFieldComponent_ng_container_3_Template, 2, 1, "ng-container", 1);
-        ɵngcc0.ɵɵprojection(4);
-        ɵngcc0.ɵɵelementEnd();
-    } if (rf & 2) {
-        ɵngcc0.ɵɵclassMap(ctx.divClass);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵpropertyInterpolate("for", ctx.for);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵtextInterpolate(ctx.label);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.hasError);
-    } }, directives: [ɵngcc2.NgIf, ɵngcc2.NgForOf], encapsulation: 2 });
-FormFieldComponent.propDecorators = {
-    for: [{ type: Input }],
-    label: [{ type: Input }],
-    required: [{ type: Input }],
-    messageConfig: [{ type: Input }],
-    formInput: [{ type: ContentChild, args: [FormInputDirective,] }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(FormFieldComponent, [{
-        type: Component,
-        args: [{
-                // tslint:disable-next-line:component-selector
-                selector: 'form-field',
-                template: `
-    <div class="{{ divClass }}">
-      <label for="{{ for }}">{{label}}</label>
-      <ng-container *ngIf="hasError">
-        <span class="jazz-form-field-error-msg" role="alert" *ngFor="let msg of errorMessages">{{msg}}</span>
-      </ng-container>
-      <ng-content></ng-content>
-    </div>
-  `
-            }]
-    }], function () { return []; }, { messageConfig: [{
-            type: Input
-        }], for: [{
-            type: Input
-        }], label: [{
-            type: Input
-        }], required: [{
-            type: Input
-        }], formInput: [{
-            type: ContentChild,
-            args: [FormInputDirective]
-        }] }); })();
-
-class DesignSystemFormsModule {
-}
-DesignSystemFormsModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: DesignSystemFormsModule });
-DesignSystemFormsModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function DesignSystemFormsModule_Factory(t) { return new (t || DesignSystemFormsModule)(); }, imports: [[
-            CommonModule,
-            RouterModule,
-            FormsModule,
-            ReactiveFormsModule
-        ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(DesignSystemFormsModule, { declarations: function () { return [FormFieldErrorComponent, FormFieldComponent, FormInputDirective]; }, imports: function () { return [CommonModule,
-        RouterModule,
-        FormsModule,
-        ReactiveFormsModule]; }, exports: function () { return [FormFieldErrorComponent, FormFieldComponent, FormInputDirective]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(DesignSystemFormsModule, [{
-        type: NgModule,
-        args: [{
-                imports: [
-                    CommonModule,
-                    RouterModule,
-                    FormsModule,
-                    ReactiveFormsModule
-                ],
-                declarations: [
-                    FormFieldErrorComponent,
-                    FormFieldComponent,
-                    FormInputDirective
-                ],
-                exports: [
-                    FormFieldErrorComponent,
-                    FormFieldComponent,
-                    FormInputDirective
-                ]
-            }]
-    }], null, null); })();
-
 class DesignSystemAngularModule {
 }
 DesignSystemAngularModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: DesignSystemAngularModule });
@@ -3502,11 +3161,10 @@ DesignSystemAngularModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function
             ModalDialogModule,
             PagerModule,
             TabsModule,
-            UtilityHeaderModule,
-            DesignSystemFormsModule
+            UtilityHeaderModule
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(DesignSystemAngularModule, { imports: function () { return [CommonModule,
-        RouterModule, AccordionModule, AlertModule, BreadcrumbsModule, HeaderModule, MenuModule, ModalDialogModule, PagerModule, TabsModule, UtilityHeaderModule, DesignSystemFormsModule]; }, exports: function () { return [AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, PagerComponent, ModalDialogComponent, SearchButtonComponent, UtilityItemComponent, UtilityMenuComponent, MainMenuItemComponent, MainMenuComponent, TabComponent, TabsComponent, UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */, UtilityHeaderLinkComponent, FormFieldComponent, FormFieldErrorComponent, FormInputDirective]; } }); })();
+        RouterModule, AccordionModule, AlertModule, BreadcrumbsModule, HeaderModule, MenuModule, ModalDialogModule, PagerModule, TabsModule, UtilityHeaderModule]; }, exports: function () { return [AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, PagerComponent, ModalDialogComponent, SearchButtonComponent, UtilityItemComponent, UtilityMenuComponent, MainMenuItemComponent, MainMenuComponent, TabComponent, TabsComponent, UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */, UtilityHeaderLinkComponent]; } }); })();
 /*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(DesignSystemAngularModule, [{
         type: NgModule,
         args: [{
@@ -3521,8 +3179,7 @@ DesignSystemAngularModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function
                     ModalDialogModule,
                     PagerModule,
                     TabsModule,
-                    UtilityHeaderModule,
-                    DesignSystemFormsModule
+                    UtilityHeaderModule
                 ],
                 exports: [
                     AccordionComponent,
@@ -3544,10 +3201,7 @@ DesignSystemAngularModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function
                     TabComponent,
                     TabsComponent,
                     UtilityHeaderComponent,
-                    UtilityHeaderLinkComponent,
-                    FormFieldComponent,
-                    FormFieldErrorComponent,
-                    FormInputDirective
+                    UtilityHeaderLinkComponent
                 ]
             }]
     }], null, null); })();
@@ -3572,6 +3226,6 @@ class MenuItem {
  * Generated bundle index. Do not edit.
  */
 
-export { ARIA_CONTROLS, ARIA_EXPANDED, AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, DesignSystemAngularModule, HIDDEN, HeaderComponent, MainMenuComponent, MainMenuItemComponent, MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, ModalDialogComponent, PagerComponent, SearchButtonComponent, TabComponent, TabsComponent, UtilityHeaderComponent, UtilityHeaderLinkComponent, UtilityItemComponent, UtilityMenuComponent, AccordionModule as ɵa, AlertModule as ɵb, BreadcrumbsModule as ɵc, HeaderModule as ɵd, MenuModule as ɵe, ModalDialogModule as ɵf, PagerModule as ɵg, TabsModule as ɵh, UtilityHeaderModule as ɵi, DesignSystemFormsModule as ɵj, FormFieldErrorComponent as ɵk, FormFieldComponent as ɵl, FormInputDirective as ɵm };
+export { ARIA_CONTROLS, ARIA_EXPANDED, AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, DesignSystemAngularModule, HIDDEN, HeaderComponent, MainMenuComponent, MainMenuItemComponent, MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, ModalDialogComponent, PagerComponent, SearchButtonComponent, TabComponent, TabsComponent, UtilityHeaderComponent, UtilityHeaderLinkComponent, UtilityItemComponent, UtilityMenuComponent, AccordionModule as ɵa, AlertModule as ɵb, BreadcrumbsModule as ɵc, HeaderModule as ɵd, MenuModule as ɵe, ModalDialogModule as ɵf, PagerModule as ɵg, TabsModule as ɵh, UtilityHeaderModule as ɵi };
 
 //# sourceMappingURL=princeton-design-design-system-angular.js.map
