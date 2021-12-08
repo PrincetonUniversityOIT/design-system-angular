@@ -1,5 +1,4 @@
-<div class="jazz-accordion {{showBorder?'jazz-accordion--bordered':''}}"
-     [attr.aria-multiselectable]="multiSelect ? true : false"
+<div class="jazz-accordion {{ showBorder && 'jazz-accordion--bordered' }} {{ multiSelect && 'jazz-accordion-multiselectable' }}"
      role="region">
   <ng-content></ng-content>
 </div>
