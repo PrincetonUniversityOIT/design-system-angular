@@ -9,14 +9,13 @@ import {
 import {prefix as PREFIX} from '../config';
 import {ARIA_EXPANDED} from '../utility-functions';
 
-const ACCORDION_SELECTOR = `.${PREFIX}-accordion`;
-
-const ACCORDION_BUTTON_SELECTOR            = `.${PREFIX}-accordion__button`;
+const        ACCORDION_SELECTOR                   = `.${PREFIX}-accordion`;
+const        ACCORDION_BUTTON_SELECTOR            = `.${PREFIX}-accordion__button`;
 export const ACCORDION_MULTISELECTABLE_CLASSNAME  = `${PREFIX}-accordion-multiselectable`;
 export const ACCORDION_CONTENT_EXPANDED_CLASSNAME = `${PREFIX}-accordion__content--expanded`;
 
 export const ARIA_CONTROLS = 'aria-controls';
-export const HIDDEN = 'hidden';
+export const HIDDEN        = 'hidden';
 
 /**
  * An Accordion is a vertically stacked set of headings that each control the visibility of an associated content section.
@@ -137,10 +136,6 @@ export class AccordionComponent implements OnInit, AfterContentInit {
         this.closeExpandedContents(accordionEl, button);
       }
       content.classList.add(ACCORDION_CONTENT_EXPANDED_CLASSNAME);
-      // this.accordionButtons.forEach((other) => {
-      //   if (other.nativeElement !== button) {
-      //     this.toggleControl(other.nativeElement, false);
-      //   }
     } else {
       content.classList.remove(ACCORDION_CONTENT_EXPANDED_CLASSNAME);
     }
