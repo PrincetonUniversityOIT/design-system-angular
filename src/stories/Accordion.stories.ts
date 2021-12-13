@@ -11,7 +11,7 @@ const stories = storiesOf('Components/Accordion', module)
 stories.add('Basic', () => {
   return {
     template:  `
-        <jazz-accordion>
+        <jazz-accordion [multiSelect]="false">
         <h2>
           <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">Sed porttitor lectus nibh?</button>
         </h2>

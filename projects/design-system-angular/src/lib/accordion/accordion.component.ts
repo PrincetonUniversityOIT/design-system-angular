@@ -10,11 +10,10 @@ import {prefix as PREFIX} from '../config';
 import {ARIA_EXPANDED} from '../utility-functions';
 
 const ACCORDION_SELECTOR = `.${PREFIX}-accordion`;
-const MULTISELECTABLE = 'aria-multiselectable';
 
 const ACCORDION_BUTTON_SELECTOR            = `.${PREFIX}-accordion__button`;
-const ACCORDION_MULTISELECTABLE_CLASSNAME  = `${PREFIX}-accordion-multiselectable`;
-const ACCORDION_CONTENT_EXPANDED_CLASSNAME = `${PREFIX}-accordion__content--expanded`;
+export const ACCORDION_MULTISELECTABLE_CLASSNAME  = `${PREFIX}-accordion-multiselectable`;
+export const ACCORDION_CONTENT_EXPANDED_CLASSNAME = `${PREFIX}-accordion__content--expanded`;
 
 export const ARIA_CONTROLS = 'aria-controls';
 export const HIDDEN = 'hidden';
