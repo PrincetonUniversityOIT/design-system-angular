@@ -138,10 +138,6 @@ class AccordionComponent {
                     this.closeExpandedContents(accordionEl, button);
                 }
                 content.classList.add(ACCORDION_CONTENT_EXPANDED_CLASSNAME);
-                // this.accordionButtons.forEach((other) => {
-                //   if (other.nativeElement !== button) {
-                //     this.toggleControl(other.nativeElement, false);
-                //   }
             }
             else {
                 content.classList.remove(ACCORDION_CONTENT_EXPANDED_CLASSNAME);
