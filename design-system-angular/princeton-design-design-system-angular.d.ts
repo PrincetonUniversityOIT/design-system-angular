@@ -5,6 +5,7 @@ export * from './public-api';
 export { AccordionModule as ɵa } from './lib/accordion/accordion.module';
 export { AlertModule as ɵb } from './lib/alert/alert.module';
 export { BreadcrumbsModule as ɵc } from './lib/breadcrumbs/breadcrumbs.module';
+export { prefix as ɵj } from './lib/config';
 export { HeaderModule as ɵd } from './lib/header/header.module';
 export { MenuModule as ɵe } from './lib/menu/menu.module';
 export { ModalDialogModule as ɵf } from './lib/modal-dialog/modal-dialog.module';

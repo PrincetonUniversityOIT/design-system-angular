@@ -1,5 +1,7 @@
 import { AfterContentInit, ElementRef, OnInit, QueryList } from '@angular/core';
 import * as ɵngcc0 from '@angular/core';
+export declare const ACCORDION_MULTISELECTABLE_CLASSNAME: string;
+export declare const ACCORDION_CONTENT_EXPANDED_CLASSNAME: string;
 export declare const ARIA_CONTROLS = "aria-controls";
 export declare const HIDDEN = "hidden";
 /**

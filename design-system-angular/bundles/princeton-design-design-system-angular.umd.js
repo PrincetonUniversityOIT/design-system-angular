@@ -56,7 +56,6 @@
     }());
 
     var ACCORDION_SELECTOR = "." + prefix + "-accordion";
-    var MULTISELECTABLE = 'aria-multiselectable';
     var ACCORDION_BUTTON_SELECTOR = "." + prefix + "-accordion__button";
     var ACCORDION_MULTISELECTABLE_CLASSNAME = prefix + "-accordion-multiselectable";
     var ACCORDION_CONTENT_EXPANDED_CLASSNAME = prefix + "-accordion__content--expanded";
@@ -2173,6 +2172,8 @@
      * Generated bundle index. Do not edit.
      */
 
+    exports.ACCORDION_CONTENT_EXPANDED_CLASSNAME = ACCORDION_CONTENT_EXPANDED_CLASSNAME;
+    exports.ACCORDION_MULTISELECTABLE_CLASSNAME = ACCORDION_MULTISELECTABLE_CLASSNAME;
     exports.ARIA_CONTROLS = ARIA_CONTROLS;
     exports.ARIA_EXPANDED = ARIA_EXPANDED;
     exports.AccordionComponent = AccordionComponent;
@@ -2207,6 +2208,7 @@
     exports.ɵg = PagerModule;
     exports.ɵh = TabsModule;
     exports.ɵi = UtilityHeaderModule;
+    exports.ɵj = prefix;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
