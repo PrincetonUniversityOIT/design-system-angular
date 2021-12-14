@@ -57,7 +57,7 @@ stories.add('Basic', () => {
 stories.add('Multi Select', () => {
   return {
     template:  `
-        <jazz-accordion [multiSelect]="true">
+        <jazz-accordion>
         <h2>
           <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">Sed porttitor lectus nibh?</button>
         </h2>

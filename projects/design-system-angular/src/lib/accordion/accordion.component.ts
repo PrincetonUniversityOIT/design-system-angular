@@ -64,7 +64,7 @@ export class AccordionComponent implements OnInit, AfterContentInit {
   showBorder = false;
 
   @Input()
-  multiSelect = false;
+  multiSelect = true;
 
   constructor() { }
 
