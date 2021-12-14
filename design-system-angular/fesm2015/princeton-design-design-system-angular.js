@@ -88,7 +88,7 @@ const HIDDEN = 'hidden';
 class AccordionComponent {
     constructor() {
         this.showBorder = false;
-        this.multiSelect = false;
+        this.multiSelect = true;
         /**
          * Delegreater file
          */
@@ -174,7 +174,7 @@ AccordionComponent.decorators = [
     { type: Component, args: [{
                 // tslint:disable-next-line:component-selector
                 selector: 'jazz-accordion',
-                template: "<div class=\"jazz-accordion {{ showBorder && 'jazz-accordion--bordered' }} {{ multiSelect && 'jazz-accordion-multiselectable' }}\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
+                template: "<div class=\"jazz-accordion\n     {{ showBorder && 'jazz-accordion--bordered' }}\n     {{ multiSelect && 'jazz-accordion-multiselectable' }}\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
             },] }
 ];
 AccordionComponent.ctorParameters = () => [];

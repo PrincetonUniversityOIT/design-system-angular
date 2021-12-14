@@ -811,7 +811,7 @@ const HIDDEN = 'hidden';
 class AccordionComponent {
     constructor() {
         this.showBorder = false;
-        this.multiSelect = false;
+        this.multiSelect = true;
         /**
          * Delegreater file
          */
@@ -905,7 +905,7 @@ AccordionComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: AccordionComponen
         ɵngcc0.ɵɵprojection(1);
         ɵngcc0.ɵɵelementEnd();
     } if (rf & 2) {
-        ɵngcc0.ɵɵclassMapInterpolate2("jazz-accordion ", ctx.showBorder && "jazz-accordion--bordered", " ", ctx.multiSelect && "jazz-accordion-multiselectable", "");
+        ɵngcc0.ɵɵclassMapInterpolate2("jazz-accordion\n     ", ctx.showBorder && "jazz-accordion--bordered", "\n     ", ctx.multiSelect && "jazz-accordion-multiselectable", "");
     } }, encapsulation: 2 });
 AccordionComponent.ctorParameters = () => [];
 AccordionComponent.propDecorators = {
@@ -918,7 +918,7 @@ AccordionComponent.propDecorators = {
         args: [{
                 // tslint:disable-next-line:component-selector
                 selector: 'jazz-accordion',
-                template: "<div class=\"jazz-accordion {{ showBorder && 'jazz-accordion--bordered' }} {{ multiSelect && 'jazz-accordion-multiselectable' }}\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
+                template: "<div class=\"jazz-accordion\n     {{ showBorder && 'jazz-accordion--bordered' }}\n     {{ multiSelect && 'jazz-accordion-multiselectable' }}\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
             }]
     }], function () { return []; }, { showBorder: [{
             type: Input
