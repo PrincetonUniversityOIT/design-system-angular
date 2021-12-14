@@ -88,7 +88,7 @@ const HIDDEN = 'hidden';
 class AccordionComponent {
     constructor() {
         this.showBorder = false;
-        this.multiSelect = true;
+        this.multiSelect = false;
         /**
          * Delegreater file
          */

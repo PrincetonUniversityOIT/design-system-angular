@@ -94,7 +94,7 @@
         function AccordionComponent() {
             var _this = this;
             this.showBorder = false;
-            this.multiSelect = true;
+            this.multiSelect = false;
             /**
              * Delegreater file
              */
