@@ -9,7 +9,7 @@ import {Component, ViewChild} from "@angular/core";
 
 @Component({
   template: `
-    <jazz-accordion>
+    <jazz-accordion [multiSelect]="false">
       <h2>
         <button #jazzAccordionButtons id="acrd-btn-1" class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">Sed porttitor lectus nibh?</button>
       </h2>
@@ -59,7 +59,7 @@ class TestHideShowBehaviorComponent {
 
 @Component({
   template:  `
-    <jazz-accordion [multiSelect]="true">
+    <jazz-accordion>
       <h2>
         <button #jazzAccordionButtons id="acrd-btn-1" class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">Sed porttitor lectus nibh?</button>
       </h2>
@@ -117,7 +117,7 @@ class TestHideShowBehaviorMultiSelectableComponent {
 
 @Component({
   template: `
-      <jazz-accordion class="jazz-accordion">
+      <jazz-accordion class="jazz-accordion" [multiSelect]="false">
           <h2>
             <button #jazzAccordionButtons aria-expanded="false" id="acrd-btn-1" class="jazz-accordion__button" aria-controls="content1">Sed porttitor lectus nibh?</button>
           </h2>
@@ -167,7 +167,7 @@ class TestHideShowBehaviorAccessibilitySingleSelectableComponent {
 
 @Component({
   template: `
-      <jazz-accordion class="jazz-accordion" [multiSelect]="true">
+      <jazz-accordion class="jazz-accordion">
           <h2>
             <button #jazzAccordionButtons aria-expanded="false" id="acrd-btn-1" class="jazz-accordion__button" aria-controls="content1">Sed porttitor lectus nibh?</button>
           </h2>
