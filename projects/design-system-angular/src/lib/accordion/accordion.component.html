@@ -1,6 +1,8 @@
-<div class="jazz-accordion
-     {{ showBorder && 'jazz-accordion--bordered' }}
-     {{ multiSelect && 'jazz-accordion-multiselectable' }}"
+<div class="jazz-accordion"
+     [ngClass]="{
+       'jazz-accordion--bordered': showBorder,
+       'jazz-accordion-multiselectable': multiSelect
+     }"
      role="region">
   <ng-content></ng-content>
 </div>
