@@ -3,18 +3,19 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 
 import * as ɵngcc0 from '@angular/core';
-import * as ɵngcc1 from '@angular/router';
-import * as ɵngcc2 from '@angular/common';
+import * as ɵngcc1 from '@angular/common';
+import * as ɵngcc2 from '@angular/router';
 
 const _c0 = ["jazzAccordionButtons"];
-const _c1 = ["*"];
+const _c1 = function (a0, a1) { return { "jazz-accordion--bordered": a0, "jazz-accordion-multiselectable": a1 }; };
+const _c2 = ["*"];
 function BreadcrumbsComponent_li_2_i_1_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelement(0, "i");
 } if (rf & 2) {
     const crumb_r1 = ɵngcc0.ɵɵnextContext().$implicit;
     ɵngcc0.ɵɵclassMapInterpolate1("jazz-icon ", crumb_r1.iconClass, "");
 } }
-const _c2 = function () { return { exact: true }; };
+const _c3 = function () { return { exact: true }; };
 function BreadcrumbsComponent_li_2_a_2_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "a", 5, 6);
     ɵngcc0.ɵɵtext(2);
@@ -22,7 +23,7 @@ function BreadcrumbsComponent_li_2_a_2_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const _r6 = ɵngcc0.ɵɵreference(1);
     const crumb_r1 = ɵngcc0.ɵɵnextContext().$implicit;
-    ɵngcc0.ɵɵproperty("routerLink", crumb_r1.url)("routerLinkActiveOptions", ɵngcc0.ɵɵpureFunction0(4, _c2));
+    ɵngcc0.ɵɵproperty("routerLink", crumb_r1.url)("routerLinkActiveOptions", ɵngcc0.ɵɵpureFunction0(4, _c3));
     ɵngcc0.ɵɵattribute("aria-current", _r6.isActive ? "page" : undefined);
     ɵngcc0.ɵɵadvance(2);
     ɵngcc0.ɵɵtextInterpolate1("", crumb_r1.label, " ");
@@ -54,7 +55,7 @@ function BreadcrumbsComponent_li_2_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵproperty("ngIf", ctx_r0.isActiveRoute(crumb_r1.url));
 } }
-const _c3 = ["searchButtonTemplate"];
+const _c4 = ["searchButtonTemplate"];
 function SearchButtonComponent_ng_template_0_Template(rf, ctx) { if (rf & 1) {
     const _r3 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "button", 1);
@@ -383,7 +384,7 @@ function MenuComponent_ul_9_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵproperty("ngForOf", ctx_r1.utilityItems);
 } }
-const _c4 = ["template"];
+const _c5 = ["template"];
 function MenuItemComponent_ng_template_0_a_0_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "a", 5, 6);
     ɵngcc0.ɵɵtext(2);
@@ -450,7 +451,7 @@ function MenuItemComponent_ng_template_0_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵproperty("ngIf", ctx_r1.menuItem && ctx_r1.menuItem.menuComponents && ctx_r1.menuItem.menuComponents.length > 0);
 } }
-const _c5 = ["mainButtonTemplate"];
+const _c6 = ["mainButtonTemplate"];
 function MenuMainButtonComponent_ng_template_0_Template(rf, ctx) { if (rf & 1) {
     const _r3 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "button", 1);
@@ -469,7 +470,7 @@ function MenuMainButtonComponent_ng_template_0_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate1(" ", ctx_r1.getMenuText(), "");
 } }
-const _c6 = ["subButtonTemplate"];
+const _c7 = ["subButtonTemplate"];
 function MenuSubButtonComponent_ng_template_0_button_0_Template(rf, ctx) { if (rf & 1) {
     const _r4 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "button", 2);
@@ -489,7 +490,7 @@ function MenuSubButtonComponent_ng_template_0_Template(rf, ctx) { if (rf & 1) {
     const ctx_r1 = ɵngcc0.ɵɵnextContext();
     ɵngcc0.ɵɵproperty("ngIf", ctx_r1.menuItem && ctx_r1.menuItem.menuComponents && ctx_r1.menuItem.menuComponents.length > 0);
 } }
-const _c7 = ["jazzModalWrapper"];
+const _c8 = ["jazzModalWrapper"];
 function PagerComponent_nav_0_a_3_Template(rf, ctx) { if (rf & 1) {
     const _r7 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "a", 7);
@@ -581,7 +582,7 @@ function PagerComponent_nav_0_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵproperty("ngIf", ctx_r0.currentPage == ctx_r0.totalPages);
 } }
-const _c8 = ["tabItem"];
+const _c9 = ["tabItem"];
 function TabsComponent_div_0_button_1_Template(rf, ctx) { if (rf & 1) {
     const _r7 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "button", 3, 4);
@@ -786,25 +787,25 @@ const HIDDEN = 'hidden';
  * @example
  ```
  <jazz-accordion>
- <h2>
- <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">
- Sed porttitor lectus nibh?
- </button>
- </h2>
- <div class="jazz-accordion__content" id="content1" hidden>
- Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
- pellentesque nec, egestas non nisi.
- </div>
- <h2>
- <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="true" aria-controls="content2">
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?
- </button>
- </h2>
- <div aria-hidden="false" class="jazz-accordion__content" id="content2">
- Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet
- et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
- Cras ultricies ligula sed magna dictum porta.
- </div>
+   <h2>
+     <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">
+       Sed porttitor lectus nibh?
+     </button>
+   </h2>
+   <div class="jazz-accordion__content" id="content1" hidden>
+     Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
+     pellentesque nec, egestas non nisi.
+   </div>
+   <h2>
+     <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="true" aria-controls="content2">
+       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?
+     </button>
+   </h2>
+   <div aria-hidden="false" class="jazz-accordion__content" id="content2">
+     Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet
+     et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
+     Cras ultricies ligula sed magna dictum porta.
+   </div>
  </jazz-accordion>
  ```
  */
@@ -899,14 +900,14 @@ AccordionComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: AccordionComponen
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.accordionButtons = _t);
-    } }, inputs: { showBorder: "showBorder", multiSelect: "multiSelect" }, ngContentSelectors: _c1, decls: 2, vars: 4, consts: [["role", "region"]], template: function AccordionComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { showBorder: "showBorder", multiSelect: "multiSelect" }, ngContentSelectors: _c2, decls: 2, vars: 4, consts: [["role", "region", 1, "jazz-accordion", 3, "ngClass"]], template: function AccordionComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵprojectionDef();
         ɵngcc0.ɵɵelementStart(0, "div", 0);
         ɵngcc0.ɵɵprojection(1);
         ɵngcc0.ɵɵelementEnd();
     } if (rf & 2) {
-        ɵngcc0.ɵɵclassMapInterpolate2("jazz-accordion\n     ", ctx.showBorder && "jazz-accordion--bordered", "\n     ", ctx.multiSelect && "jazz-accordion-multiselectable", "");
-    } }, encapsulation: 2 });
+        ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c1, ctx.showBorder, ctx.multiSelect));
+    } }, directives: [ɵngcc1.NgClass], encapsulation: 2 });
 AccordionComponent.ctorParameters = () => [];
 AccordionComponent.propDecorators = {
     accordionButtons: [{ type: ContentChildren, args: ['jazzAccordionButtons', { descendants: true, read: ElementRef },] }],
@@ -918,7 +919,7 @@ AccordionComponent.propDecorators = {
         args: [{
                 // tslint:disable-next-line:component-selector
                 selector: 'jazz-accordion',
-                template: "<div class=\"jazz-accordion\n     {{ showBorder && 'jazz-accordion--bordered' }}\n     {{ multiSelect && 'jazz-accordion-multiselectable' }}\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
+                template: "<div class=\"jazz-accordion\"\n     [ngClass]=\"{\n       'jazz-accordion--bordered': showBorder,\n       'jazz-accordion-multiselectable': multiSelect\n     }\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
             }]
     }], function () { return []; }, { showBorder: [{
             type: Input
@@ -932,13 +933,18 @@ AccordionComponent.propDecorators = {
 class AccordionModule {
 }
 AccordionModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: AccordionModule });
-AccordionModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function AccordionModule_Factory(t) { return new (t || AccordionModule)(); } });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(AccordionModule, { declarations: [AccordionComponent], exports: [AccordionComponent] }); })();
+AccordionModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function AccordionModule_Factory(t) { return new (t || AccordionModule)(); }, imports: [[
+            CommonModule
+        ]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(AccordionModule, { declarations: function () { return [AccordionComponent]; }, imports: function () { return [CommonModule]; }, exports: function () { return [AccordionComponent]; } }); })();
 /*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(AccordionModule, [{
         type: NgModule,
         args: [{
                 declarations: [
                     AccordionComponent
+                ],
+                imports: [
+                    CommonModule
                 ],
                 exports: [
                     AccordionComponent
@@ -968,7 +974,7 @@ class AlertComponent {
     }
 }
 AlertComponent.ɵfac = function AlertComponent_Factory(t) { return new (t || AlertComponent)(); };
-AlertComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: AlertComponent, selectors: [["jazz-alert"]], inputs: { heading: "heading", title: "title", content: "content" }, outputs: { onClose: "onClose" }, ngContentSelectors: _c1, decls: 10, vars: 3, consts: [[1, "jazz-alert-section"], [1, "jazz-alert-section__heading", "jazz-visually-hidden"], [1, "jazz-alert-section__content"], [1, "jazz-row"], [1, "jazz-alert-section__title"], ["role", "button", 1, "jazz-alert-section__close", 3, "title", "click"]], template: function AlertComponent_Template(rf, ctx) { if (rf & 1) {
+AlertComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: AlertComponent, selectors: [["jazz-alert"]], inputs: { heading: "heading", title: "title", content: "content" }, outputs: { onClose: "onClose" }, ngContentSelectors: _c2, decls: 10, vars: 3, consts: [[1, "jazz-alert-section"], [1, "jazz-alert-section__heading", "jazz-visually-hidden"], [1, "jazz-alert-section__content"], [1, "jazz-row"], [1, "jazz-alert-section__title"], ["role", "button", 1, "jazz-alert-section__close", 3, "title", "click"]], template: function AlertComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵprojectionDef();
         ɵngcc0.ɵɵelementStart(0, "section", 0);
         ɵngcc0.ɵɵelementStart(1, "h2", 1);
@@ -1101,7 +1107,7 @@ class BreadcrumbsComponent {
         return this.router.isActive(url, true);
     }
 }
-BreadcrumbsComponent.ɵfac = function BreadcrumbsComponent_Factory(t) { return new (t || BreadcrumbsComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc1.Router)); };
+BreadcrumbsComponent.ɵfac = function BreadcrumbsComponent_Factory(t) { return new (t || BreadcrumbsComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc2.Router)); };
 BreadcrumbsComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: BreadcrumbsComponent, selectors: [["jazz-breadcrumbs"]], contentQueries: function BreadcrumbsComponent_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
         ɵngcc0.ɵɵcontentQuery(dirIndex, BreadcrumbComponent, false);
     } if (rf & 2) {
@@ -1116,7 +1122,7 @@ BreadcrumbsComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: BreadcrumbsComp
     } if (rf & 2) {
         ɵngcc0.ɵɵadvance(2);
         ɵngcc0.ɵɵproperty("ngForOf", ctx.breadcrumbs);
-    } }, directives: [ɵngcc2.NgForOf, ɵngcc2.NgIf, ɵngcc1.RouterLinkWithHref, ɵngcc1.RouterLinkActive], styles: [""] });
+    } }, directives: [ɵngcc1.NgForOf, ɵngcc1.NgIf, ɵngcc2.RouterLinkWithHref, ɵngcc2.RouterLinkActive], styles: [""] });
 BreadcrumbsComponent.ctorParameters = () => [
     { type: Router }
 ];
@@ -1131,7 +1137,7 @@ BreadcrumbsComponent.propDecorators = {
                 template: "<nav class=\"jazz-breadcrumb\" aria-label=\"Breadcrumbs\">\n  <ol>\n    <li *ngFor=\"let crumb of breadcrumbs\">\n      <i *ngIf=\"crumb.iconClass\" class=\"jazz-icon {{crumb.iconClass}}\"></i>\n      <a *ngIf=\"crumb.url && !isActiveRoute(crumb.url)\" [routerLink]=\"crumb.url\" routerLinkActive=\"active\" #crumbLink=\"routerLinkActive\"\n         [routerLinkActiveOptions]=\"{ exact: true }\"\n         [attr.aria-current]=\"crumbLink.isActive ? 'page' : undefined\">{{crumb.label}}\n      </a>\n\n      <span *ngIf=\"isActiveRoute(crumb.url)\"\n            [attr.aria-current]=\"isActiveRoute(crumb.url) ? 'page' : undefined\">\n        {{crumb.label}}\n      </span>\n    </li>\n  </ol>\n</nav>\n",
                 styles: [""]
             }]
-    }], function () { return [{ type: ɵngcc1.Router }]; }, { breadcrumbs: [{
+    }], function () { return [{ type: ɵngcc2.Router }]; }, { breadcrumbs: [{
             type: ContentChildren,
             args: [BreadcrumbComponent]
         }] }); })();
@@ -1171,7 +1177,7 @@ MainMenuItemComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: MainMenuItemCo
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.menuComponents = _t);
-    } }, inputs: { url: "url", externalUrl: "externalUrl", label: "label", shownByDefault: "shownByDefault" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function MainMenuItemComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { url: "url", externalUrl: "externalUrl", label: "label", shownByDefault: "shownByDefault" }, ngContentSelectors: _c2, decls: 1, vars: 0, template: function MainMenuItemComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵprojectionDef();
         ɵngcc0.ɵɵprojection(0);
     } }, encapsulation: 2 });
@@ -1212,7 +1218,7 @@ MainMenuComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: MainMenuComponent,
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.menuComponents = _t);
-    } }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function MainMenuComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, ngContentSelectors: _c2, decls: 1, vars: 0, template: function MainMenuComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵprojectionDef();
         ɵngcc0.ɵɵprojection(0);
     } }, encapsulation: 2 });
@@ -1314,7 +1320,7 @@ class SearchButtonComponent {
 }
 SearchButtonComponent.ɵfac = function SearchButtonComponent_Factory(t) { return new (t || SearchButtonComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ViewContainerRef)); };
 SearchButtonComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: SearchButtonComponent, selectors: [["jazz-search-button"]], viewQuery: function SearchButtonComponent_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵstaticViewQuery(_c3, true);
+        ɵngcc0.ɵɵstaticViewQuery(_c4, true);
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.searchButtonTemplate = _t.first);
@@ -1341,7 +1347,7 @@ SearchButtonComponent.propDecorators = {
 class UtilityItemComponent {
 }
 UtilityItemComponent.ɵfac = function UtilityItemComponent_Factory(t) { return new (t || UtilityItemComponent)(); };
-UtilityItemComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: UtilityItemComponent, selectors: [["jazz-utility-item"]], inputs: { url: "url", externalUrl: "externalUrl", label: "label" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function UtilityItemComponent_Template(rf, ctx) { if (rf & 1) {
+UtilityItemComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: UtilityItemComponent, selectors: [["jazz-utility-item"]], inputs: { url: "url", externalUrl: "externalUrl", label: "label" }, ngContentSelectors: _c2, decls: 1, vars: 0, template: function UtilityItemComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵprojectionDef();
         ɵngcc0.ɵɵprojection(0);
     } }, encapsulation: 2 });
@@ -1375,7 +1381,7 @@ UtilityMenuComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: UtilityMenuComp
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.utilityMenuComponents = _t);
-    } }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function UtilityMenuComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, ngContentSelectors: _c2, decls: 1, vars: 0, template: function UtilityMenuComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵprojectionDef();
         ɵngcc0.ɵɵprojection(0);
     } }, encapsulation: 2 });
@@ -1480,7 +1486,7 @@ HeaderComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: HeaderComponent, sel
         ɵngcc0.ɵɵproperty("ngIf", !ctx.showCompact);
         ɵngcc0.ɵɵadvance(1);
         ɵngcc0.ɵɵproperty("ngIf", ctx.showCompact);
-    } }, directives: function () { return [ɵngcc2.NgIf, MenuComponent, ɵngcc2.NgForOf, ɵngcc1.RouterLinkWithHref, ɵngcc1.RouterLinkActive, SearchButtonComponent, MenuMainButtonComponent]; }, encapsulation: 2 });
+    } }, directives: function () { return [ɵngcc1.NgIf, MenuComponent, ɵngcc1.NgForOf, ɵngcc2.RouterLinkWithHref, ɵngcc2.RouterLinkActive, SearchButtonComponent, MenuMainButtonComponent]; }, encapsulation: 2 });
 HeaderComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
@@ -1635,7 +1641,7 @@ MenuComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: MenuComponent, selecto
         ɵngcc0.ɵɵproperty("ngIf", ctx.menuItems && ctx.menuItems.length > 0);
         ɵngcc0.ɵɵadvance(2);
         ɵngcc0.ɵɵproperty("ngIf", ctx.utilityItems && ctx.utilityItems.length > 0);
-    } }, directives: function () { return [MenuMainButtonComponent, ɵngcc2.NgIf, ɵngcc2.NgForOf, MenuItemComponent, ɵngcc1.RouterLinkWithHref, ɵngcc1.RouterLinkActive]; }, encapsulation: 2 });
+    } }, directives: function () { return [MenuMainButtonComponent, ɵngcc1.NgIf, ɵngcc1.NgForOf, MenuItemComponent, ɵngcc2.RouterLinkWithHref, ɵngcc2.RouterLinkActive]; }, encapsulation: 2 });
 MenuComponent.ctorParameters = () => [];
 MenuComponent.propDecorators = {
     menuItems: [{ type: Input }],
@@ -1687,13 +1693,13 @@ class MenuItemComponent {
 }
 MenuItemComponent.ɵfac = function MenuItemComponent_Factory(t) { return new (t || MenuItemComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ViewContainerRef)); };
 MenuItemComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: MenuItemComponent, selectors: [["jazz-menu-item"]], viewQuery: function MenuItemComponent_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵstaticViewQuery(_c4, true);
+        ɵngcc0.ɵɵstaticViewQuery(_c5, true);
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.template = _t.first);
     } }, inputs: { menuItem: "menuItem" }, outputs: { closeSubMenus: "closeSubMenus", resetSubMenus: "resetSubMenus" }, decls: 2, vars: 0, consts: [["template", ""], ["routerLinkActive", "active", 3, "routerLink", 4, "ngIf"], [3, "href", 4, "ngIf"], [3, "menuItem", "closeSubMenus", "resetSubMenus"], [3, "class", 4, "ngIf"], ["routerLinkActive", "active", 3, "routerLink"], ["menuLink", "routerLinkActive"], [3, "href"], [4, "ngFor", "ngForOf"], [3, "menuItem", 4, "ngIf"], [3, "menuItem"]], template: function MenuItemComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵtemplate(0, MenuItemComponent_ng_template_0_Template, 4, 4, "ng-template", null, 0, ɵngcc0.ɵɵtemplateRefExtractor);
-    } }, directives: function () { return [ɵngcc2.NgIf, MenuSubButtonComponent, ɵngcc1.RouterLinkWithHref, ɵngcc1.RouterLinkActive, ɵngcc2.NgForOf, MenuItemComponent]; }, encapsulation: 2 });
+    } }, directives: function () { return [ɵngcc1.NgIf, MenuSubButtonComponent, ɵngcc2.RouterLinkWithHref, ɵngcc2.RouterLinkActive, ɵngcc1.NgForOf, MenuItemComponent]; }, encapsulation: 2 });
 MenuItemComponent.ctorParameters = () => [
     { type: ViewContainerRef }
 ];
@@ -1794,7 +1800,7 @@ class MenuMainButtonComponent {
 }
 MenuMainButtonComponent.ɵfac = function MenuMainButtonComponent_Factory(t) { return new (t || MenuMainButtonComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ViewContainerRef)); };
 MenuMainButtonComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: MenuMainButtonComponent, selectors: [["jazz-menu-main-button"]], viewQuery: function MenuMainButtonComponent_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵstaticViewQuery(_c5, true);
+        ɵngcc0.ɵɵstaticViewQuery(_c6, true);
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.mainButtonTemplate = _t.first);
@@ -1887,13 +1893,13 @@ class MenuSubButtonComponent {
 }
 MenuSubButtonComponent.ɵfac = function MenuSubButtonComponent_Factory(t) { return new (t || MenuSubButtonComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ViewContainerRef)); };
 MenuSubButtonComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: MenuSubButtonComponent, selectors: [["jazz-sub-button"]], viewQuery: function MenuSubButtonComponent_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵstaticViewQuery(_c6, true);
+        ɵngcc0.ɵɵstaticViewQuery(_c7, true);
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.subButtonTemplate = _t.first);
     } }, inputs: { menuItem: "menuItem" }, outputs: { closeSubMenus: "closeSubMenus", resetSubMenus: "resetSubMenus" }, decls: 2, vars: 0, consts: [["subButtonTemplate", ""], ["class", "jazz-menu__submenu-toggle", "type", "button", "aria-expanded", "false", 3, "click", 4, "ngIf"], ["type", "button", "aria-expanded", "false", 1, "jazz-menu__submenu-toggle", 3, "click"], [1, "jazz-visually-hidden"]], template: function MenuSubButtonComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵtemplate(0, MenuSubButtonComponent_ng_template_0_Template, 1, 1, "ng-template", null, 0, ɵngcc0.ɵɵtemplateRefExtractor);
-    } }, directives: [ɵngcc2.NgIf], encapsulation: 2 });
+    } }, directives: [ɵngcc1.NgIf], encapsulation: 2 });
 MenuSubButtonComponent.ctorParameters = () => [
     { type: ViewContainerRef }
 ];
@@ -2066,11 +2072,11 @@ class ModalDialogComponent {
 }
 ModalDialogComponent.ɵfac = function ModalDialogComponent_Factory(t) { return new (t || ModalDialogComponent)(); };
 ModalDialogComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: ModalDialogComponent, selectors: [["jazz-modal-dialog"]], viewQuery: function ModalDialogComponent_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵviewQuery(_c7, true);
+        ɵngcc0.ɵɵviewQuery(_c8, true);
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.modalWrapper = _t.first);
-    } }, inputs: { buttonLabel: "buttonLabel", title: "title", content: "content" }, outputs: { buttonClicked: "buttonClicked" }, ngContentSelectors: _c1, decls: 16, vars: 2, consts: [["role", "region", 1, "jazz-modal"], [1, "jazz-btn", "jazz-modal__button", 3, "click"], ["role", "presentation", 1, "jazz-modal-wrapper", 3, "keydown"], ["jazzModalWrapper", ""], ["role", "dialog", "aria-label", "Test Dialog with Script", "aria-modal", "true", 1, "jazz-modal-window", "jazz-modal--sm"], [1, "jazz-modal-title"], ["aria-label", "Close modal dialog", 1, "jazz-modal__button", "jazz-modal-button__close", "jazz-modal-button--transparent", 3, "click"], ["aria-labelledBy", "jazz-modal-title", 1, "jazz-modal-content"], [1, "jazz-modal-button-container"]], template: function ModalDialogComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { buttonLabel: "buttonLabel", title: "title", content: "content" }, outputs: { buttonClicked: "buttonClicked" }, ngContentSelectors: _c2, decls: 16, vars: 2, consts: [["role", "region", 1, "jazz-modal"], [1, "jazz-btn", "jazz-modal__button", 3, "click"], ["role", "presentation", 1, "jazz-modal-wrapper", 3, "keydown"], ["jazzModalWrapper", ""], ["role", "dialog", "aria-label", "Test Dialog with Script", "aria-modal", "true", 1, "jazz-modal-window", "jazz-modal--sm"], [1, "jazz-modal-title"], ["aria-label", "Close modal dialog", 1, "jazz-modal__button", "jazz-modal-button__close", "jazz-modal-button--transparent", 3, "click"], ["aria-labelledBy", "jazz-modal-title", 1, "jazz-modal-content"], [1, "jazz-modal-button-container"]], template: function ModalDialogComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵprojectionDef();
         ɵngcc0.ɵɵelementStart(0, "div", 0);
         ɵngcc0.ɵɵelementStart(1, "button", 1);
@@ -2237,7 +2243,7 @@ PagerComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: PagerComponent, selec
         ɵngcc0.ɵɵtemplate(0, PagerComponent_nav_0_Template, 9, 5, "nav", 0);
     } if (rf & 2) {
         ɵngcc0.ɵɵproperty("ngIf", ctx.totalPages && ctx.currentPage);
-    } }, directives: [ɵngcc2.NgIf, ɵngcc2.NgForOf], encapsulation: 2 });
+    } }, directives: [ɵngcc1.NgIf, ɵngcc1.NgForOf], encapsulation: 2 });
 PagerComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
@@ -2722,14 +2728,14 @@ class TabsComponent {
         }
     }
 }
-TabsComponent.ɵfac = function TabsComponent_Factory(t) { return new (t || TabsComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc1.Router)); };
+TabsComponent.ɵfac = function TabsComponent_Factory(t) { return new (t || TabsComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc2.Router)); };
 TabsComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: TabsComponent, selectors: [["jazz-tabs"]], contentQueries: function TabsComponent_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
         ɵngcc0.ɵɵcontentQuery(dirIndex, TabComponent, false);
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.tabs = _t);
     } }, viewQuery: function TabsComponent_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵviewQuery(_c8, true);
+        ɵngcc0.ɵɵviewQuery(_c9, true);
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.tabItems = _t);
@@ -2740,7 +2746,7 @@ TabsComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: TabsComponent, selecto
         ɵngcc0.ɵɵproperty("ngIf", ctx.useButtons);
         ɵngcc0.ɵɵadvance(1);
         ɵngcc0.ɵɵproperty("ngIf", !ctx.useButtons);
-    } }, directives: [ɵngcc2.NgIf, ɵngcc2.NgForOf, ɵngcc1.RouterLinkWithHref, ɵngcc1.RouterLinkActive], encapsulation: 2 });
+    } }, directives: [ɵngcc1.NgIf, ɵngcc1.NgForOf, ɵngcc2.RouterLinkWithHref, ɵngcc2.RouterLinkActive], encapsulation: 2 });
 TabsComponent.ctorParameters = () => [
     { type: Router }
 ];
@@ -2798,7 +2804,7 @@ TabsComponent.propDecorators = {
     </div>
   `
             }]
-    }], function () { return [{ type: ɵngcc1.Router }]; }, { autoActivate: [{
+    }], function () { return [{ type: ɵngcc2.Router }]; }, { autoActivate: [{
             type: Input
         }], useButtons: [{
             type: Input
@@ -2850,7 +2856,7 @@ class UtilityHeaderLinkComponent {
     }
 }
 UtilityHeaderLinkComponent.ɵfac = function UtilityHeaderLinkComponent_Factory(t) { return new (t || UtilityHeaderLinkComponent)(); };
-UtilityHeaderLinkComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: UtilityHeaderLinkComponent, selectors: [["jazz-utility-header-link"]], inputs: { external: "external", url: "url", label: "label", class: "class", routerLink: "routerLink" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function UtilityHeaderLinkComponent_Template(rf, ctx) { if (rf & 1) {
+UtilityHeaderLinkComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: UtilityHeaderLinkComponent, selectors: [["jazz-utility-header-link"]], inputs: { external: "external", url: "url", label: "label", class: "class", routerLink: "routerLink" }, ngContentSelectors: _c2, decls: 1, vars: 0, template: function UtilityHeaderLinkComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵprojectionDef();
         ɵngcc0.ɵɵprojection(0);
     } }, encapsulation: 2 });
@@ -3001,7 +3007,7 @@ UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */.ɵ
         ɵngcc0.ɵɵproperty("ngForOf", ctx.links);
         ɵngcc0.ɵɵadvance(5);
         ɵngcc0.ɵɵproperty("ngIf", !ctx.userOptionsTemplate)("ngIfElse", ctx.userOptionsTemplate);
-    } }, directives: [ɵngcc2.NgIf, ɵngcc2.NgForOf], encapsulation: 2 });
+    } }, directives: [ɵngcc1.NgIf, ɵngcc1.NgForOf], encapsulation: 2 });
 UtilityHeaderComponent.propDecorators = {
     links: [{ type: ContentChildren, args: [UtilityHeaderLinkComponent,] }],
     officeOfTemplate: [{ type: Input, args: ['officeOfTemplate',] }],

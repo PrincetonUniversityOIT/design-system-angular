@@ -63,25 +63,25 @@ const HIDDEN = 'hidden';
  * @example
  ```
  <jazz-accordion>
- <h2>
- <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">
- Sed porttitor lectus nibh?
- </button>
- </h2>
- <div class="jazz-accordion__content" id="content1" hidden>
- Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
- pellentesque nec, egestas non nisi.
- </div>
- <h2>
- <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="true" aria-controls="content2">
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?
- </button>
- </h2>
- <div aria-hidden="false" class="jazz-accordion__content" id="content2">
- Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet
- et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
- Cras ultricies ligula sed magna dictum porta.
- </div>
+   <h2>
+     <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="false" aria-controls="content1">
+       Sed porttitor lectus nibh?
+     </button>
+   </h2>
+   <div class="jazz-accordion__content" id="content1" hidden>
+     Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
+     pellentesque nec, egestas non nisi.
+   </div>
+   <h2>
+     <button #jazzAccordionButtons class="jazz-accordion__button" aria-expanded="true" aria-controls="content2">
+       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta?
+     </button>
+   </h2>
+   <div aria-hidden="false" class="jazz-accordion__content" id="content2">
+     Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet
+     et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
+     Cras ultricies ligula sed magna dictum porta.
+   </div>
  </jazz-accordion>
  ```
  */
@@ -174,7 +174,7 @@ AccordionComponent.decorators = [
     { type: Component, args: [{
                 // tslint:disable-next-line:component-selector
                 selector: 'jazz-accordion',
-                template: "<div class=\"jazz-accordion\n     {{ showBorder && 'jazz-accordion--bordered' }}\n     {{ multiSelect && 'jazz-accordion-multiselectable' }}\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
+                template: "<div class=\"jazz-accordion\"\n     [ngClass]=\"{\n       'jazz-accordion--bordered': showBorder,\n       'jazz-accordion-multiselectable': multiSelect\n     }\"\n     role=\"region\">\n  <ng-content></ng-content>\n</div>\n"
             },] }
 ];
 AccordionComponent.ctorParameters = () => [];
@@ -190,6 +190,9 @@ AccordionModule.decorators = [
     { type: NgModule, args: [{
                 declarations: [
                     AccordionComponent
+                ],
+                imports: [
+                    CommonModule
                 ],
                 exports: [
                     AccordionComponent
