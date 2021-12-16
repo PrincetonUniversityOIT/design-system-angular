@@ -5,9 +5,9 @@ name: Publish a Release
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 
-on:
-  release:
-    types: [created]
+on: push
+  #release:
+  #  types: [created]
 
 jobs:
   build:
@@ -34,6 +34,7 @@ jobs:
             package: "./dist/design-system-angular/package.json"
             token: ${{ secrets.NPM_TOKEN }}
             access: public
+            dryRun : true
 
       - run: npm run docs:json
 
