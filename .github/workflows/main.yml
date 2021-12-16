@@ -25,16 +25,16 @@ jobs:
 
       - run: npm run build-lib
 
-      - run: npm run build-site
-
-      - run: npm run build-docsite-prod
-
       - uses: JS-DevTools/npm-publish@v1
         with:
             package: "./dist/design-system-angular/package.json"
             token: ${{ secrets.NPM_TOKEN }}
             access: public
             dry-run : true
+
+      - run: npm run build-site
+
+      - run: npm run build-docsite-prod
 
       - run: npm run docs:json
 
