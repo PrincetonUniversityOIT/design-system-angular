@@ -1,6 +1,5 @@
 import { EventEmitter, OnInit, ViewContainerRef } from '@angular/core';
 import { MainMenuItemComponent } from '../../header/main-menu/main-menu-item';
-import * as ɵngcc0 from '@angular/core';
 export declare class MenuItemComponent implements OnInit {
     private viewContainerRef;
     template: any;
@@ -13,8 +12,4 @@ export declare class MenuItemComponent implements OnInit {
     removeSelf(comp: any): boolean;
     close(): void;
     reset(): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<MenuItemComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<MenuItemComponent, "jazz-menu-item", never, { "menuItem": "menuItem"; }, { "closeSubMenus": "closeSubMenus"; "resetSubMenus": "resetSubMenus"; }, never, never>;
 }
-
-//# sourceMappingURL=menu-item.component.d.ts.map

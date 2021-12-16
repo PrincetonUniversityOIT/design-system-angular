@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
      <jazz-tab label="Tab 1" routeTo="/panel1"></jazz-tab>
  `` `
  */
-import * as ɵngcc0 from '@angular/core';
 export declare class TabComponent {
     /**
      * The tabindex of this tab.  This value should never be set by the user because it is controlled by the TabsComponent.
@@ -45,8 +44,6 @@ export declare class TabComponent {
      * The url route to routeTo when this tab is selected.
      */
     routeTo: string;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<TabComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<TabComponent, "jazz-tab", never, { "disabled": "disabled"; "ariaLabel": "aria-label"; "ariaLabelledby": "aria-labelledby"; "selected": "selected"; "label": "label"; "controls": "controls"; "routeTo": "routeTo"; }, {}, never, never>;
 }
 /**
  * The TabsComponent represents the wrapper around individual tabs.
@@ -270,8 +267,4 @@ export declare class TabsComponent implements OnInit, AfterContentInit, OnDestro
      * @ignore
      */
     private getPreviousOrLastTab;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<TabsComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<TabsComponent, "jazz-tabs", never, { "autoActivate": "autoActivate"; "useButtons": "useButtons"; }, {}, ["tabs"], never>;
 }
-
-//# sourceMappingURL=tabs.component.d.ts.map

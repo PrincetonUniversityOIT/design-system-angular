@@ -9,7 +9,6 @@ import { EventEmitter } from '@angular/core';
   </jazz-alert>
   `` `
  */
-import * as ɵngcc0 from '@angular/core';
 export declare class AlertComponent {
     constructor();
     heading: string;
@@ -20,8 +19,4 @@ export declare class AlertComponent {
      * The close method can be used to programmatically close the alert.
      */
     close(): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<AlertComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<AlertComponent, "jazz-alert", never, { "heading": "heading"; "title": "title"; "content": "content"; }, { "onClose": "onClose"; }, never, ["*"]>;
 }
-
-//# sourceMappingURL=alert.component.d.ts.map

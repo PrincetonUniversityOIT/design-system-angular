@@ -1,5 +1,4 @@
 import { AfterContentInit, ElementRef, OnInit, QueryList } from '@angular/core';
-import * as ɵngcc0 from '@angular/core';
 export declare const ACCORDION_MULTISELECTABLE_CLASSNAME: string;
 export declare const ACCORDION_CONTENT_EXPANDED_CLASSNAME: string;
 export declare const ARIA_CONTROLS = "aria-controls";
@@ -62,8 +61,4 @@ export declare class AccordionComponent implements OnInit, AfterContentInit {
      * The toggleControl method hides and shows the content associated with the button.
      */
     toggleControl: (target: Element, expanded?: boolean) => any;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<AccordionComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<AccordionComponent, "jazz-accordion", never, { "showBorder": "showBorder"; "multiSelect": "multiSelect"; }, {}, ["accordionButtons"], ["*"]>;
 }
-
-//# sourceMappingURL=accordion.component.d.ts.map

@@ -1,1 +1,0 @@
-{"version":3,"file":"utility-menu-item.d.ts","sources":["utility-menu-item.d.ts"],"names":[],"mappings":";AAAA;AACA;AACA;AACA;;;AACA","sourcesContent":["export declare class UtilityItemComponent {\n    url?: string;\n    externalUrl?: string;\n    label: string;\n}\n"]}

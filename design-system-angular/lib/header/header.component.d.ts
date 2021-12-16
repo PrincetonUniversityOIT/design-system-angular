@@ -31,7 +31,6 @@ import { UtilityMenuComponent } from './utility-menu/utility-menu';
    </jazz-header>
  `` `
  */
-import * as ɵngcc0 from '@angular/core';
 export declare class HeaderComponent implements AfterViewChecked, AfterContentChecked {
     private cdr;
     title: string;
@@ -49,8 +48,4 @@ export declare class HeaderComponent implements AfterViewChecked, AfterContentCh
     ngAfterContentChecked(): void;
     displayWindowSize(): void;
     getSiteBrandingLogo(): string;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<HeaderComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<HeaderComponent, "jazz-header", never, { "showSearch": "showSearch"; "showCompact": "showCompact"; "title": "title"; "siteBrandingName": "siteBrandingName"; "siteBrandingSlogan": "siteBrandingSlogan"; "siteBrandingUrl": "siteBrandingUrl"; "siteBrandingLogo": "siteBrandingLogo"; }, {}, ["mainMenu", "utilityMenu"], never>;
 }
-
-//# sourceMappingURL=header.component.d.ts.map
