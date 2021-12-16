@@ -30,7 +30,6 @@ jobs:
             package: "./dist/design-system-angular/package.json"
             token: ${{ secrets.NPM_TOKEN }}
             access: public
-            dry-run : true
 
       - run: npm run build-site
 
