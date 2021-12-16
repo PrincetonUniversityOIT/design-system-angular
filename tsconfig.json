@@ -22,6 +22,10 @@
         "dist/design-system-angular/design-system-angular",
         "dist/design-system-angular"
       ]
+    },
+    "angularCompilerOptions": {
+      "enableIvy": false,
+      "compilationMode": "partial"
     }
   }
 }
