@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/router')) :
     typeof define === 'function' && define.amd ? define('@princeton-design/design-system-angular', ['exports', '@angular/core', '@angular/common', '@angular/router'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global['princeton-design'] = global['princeton-design'] || {}, global['princeton-design']['design-system-angular'] = {}), global.ng.core, global.ng.common, global.ng.router));
-}(this, (function (exports, core, common, router) { 'use strict';
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global["princeton-design"] = global["princeton-design"] || {}, global["princeton-design"]["design-system-angular"] = {}), global.ng.core, global.ng.common, global.ng.router));
+})(this, (function (exports, core, common, router) { 'use strict';
 
     var prefix = 'jazz';
 
@@ -2198,18 +2198,18 @@
     exports.UtilityHeaderLinkComponent = UtilityHeaderLinkComponent;
     exports.UtilityItemComponent = UtilityItemComponent;
     exports.UtilityMenuComponent = UtilityMenuComponent;
-    exports.ɵa = AccordionModule;
-    exports.ɵb = AlertModule;
-    exports.ɵc = BreadcrumbsModule;
-    exports.ɵd = HeaderModule;
-    exports.ɵe = MenuModule;
-    exports.ɵf = ModalDialogModule;
-    exports.ɵg = PagerModule;
-    exports.ɵh = TabsModule;
-    exports.ɵi = UtilityHeaderModule;
-    exports.ɵj = prefix;
+    exports["ɵa"] = AccordionModule;
+    exports["ɵb"] = AlertModule;
+    exports["ɵc"] = BreadcrumbsModule;
+    exports["ɵd"] = HeaderModule;
+    exports["ɵe"] = MenuModule;
+    exports["ɵf"] = ModalDialogModule;
+    exports["ɵg"] = PagerModule;
+    exports["ɵh"] = TabsModule;
+    exports["ɵi"] = UtilityHeaderModule;
+    exports["ɵj"] = prefix;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=princeton-design-design-system-angular.umd.js.map
