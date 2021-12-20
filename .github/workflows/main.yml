@@ -5,9 +5,9 @@ name: Publish a Release
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 
-on: push
-  #release:
-  #  types: [created]
+on:
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -29,11 +29,11 @@ jobs:
 
       - run: npm run build-lib
 
-      #- uses: JS-DevTools/npm-publish@v1
-      #  with:
-      #      package: "./dist/design-system-angular/package.json"
-      #      token: ${{ secrets.NPM_TOKEN }}
-      #      access: public
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+            package: "./dist/design-system-angular/package.json"
+            token: ${{ secrets.NPM_TOKEN }}
+            access: public
 
       - run: npm run build-site
 
