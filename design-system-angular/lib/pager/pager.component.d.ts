@@ -8,6 +8,7 @@ import { ChangeDetectorRef, EventEmitter } from '@angular/core';
   <jazz-pager [totalPages]="20" [currentPage]="5" (pagerChange)="changePage($event);"></jazz-pager>
    `` `
  */
+import * as ɵngcc0 from '@angular/core';
 export declare class PagerComponent {
     private ref;
     totalPages: number;
@@ -19,4 +20,8 @@ export declare class PagerComponent {
      * This is used to set the next page in the pager based on the page that was clicked.
      */
     setPage(page: number): void;
+    static ɵfac: ɵngcc0.ɵɵFactoryDeclaration<PagerComponent, never>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDeclaration<PagerComponent, "jazz-pager", never, { "totalPages": "totalPages"; "currentPage": "currentPage"; }, { "pagerChange": "pagerChange"; }, never, never>;
 }
+
+//# sourceMappingURL=pager.component.d.ts.map

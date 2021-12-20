@@ -12,3 +12,5 @@ export { ModalDialogModule as ɵf } from './lib/modal-dialog/modal-dialog.module
 export { PagerModule as ɵg } from './lib/pager/pager.module';
 export { TabsModule as ɵh } from './lib/tabs/tabs.module';
 export { UtilityHeaderModule as ɵi } from './lib/utility-header/utility-header.module';
+
+//# sourceMappingURL=princeton-design-design-system-angular.d.ts.map

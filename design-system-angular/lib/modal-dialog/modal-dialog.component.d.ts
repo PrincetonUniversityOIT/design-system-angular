@@ -7,6 +7,7 @@ import { ElementRef, EventEmitter, OnInit } from '@angular/core';
    </jazz-modal-dialog>
  `` `
  */
+import * as ɵngcc0 from '@angular/core';
 export declare class ModalDialogComponent implements OnInit {
     buttonLabel: string;
     title: string;
@@ -21,4 +22,8 @@ export declare class ModalDialogComponent implements OnInit {
     private keepFocusWithin;
     close(): void;
     modalClick(): void;
+    static ɵfac: ɵngcc0.ɵɵFactoryDeclaration<ModalDialogComponent, never>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDeclaration<ModalDialogComponent, "jazz-modal-dialog", never, { "buttonLabel": "buttonLabel"; "title": "title"; "content": "content"; }, { "buttonClicked": "buttonClicked"; }, never, ["*"]>;
 }
+
+//# sourceMappingURL=modal-dialog.component.d.ts.map

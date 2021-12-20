@@ -26,6 +26,7 @@ import { UtilityHeaderLinkComponent } from './utility-header-link.component';
  </jazz-utility-header>
  `` `
 */
+import * as ɵngcc0 from '@angular/core';
 export declare class UtilityHeaderComponent {
     links: QueryList<UtilityHeaderLinkComponent>;
     officeOfTemplate: TemplateRef<any>;
@@ -48,4 +49,8 @@ export declare class UtilityHeaderComponent {
     menuExpanded: boolean;
     menuButtonLabel: string;
     toggleMenu(): void;
+    static ɵfac: ɵngcc0.ɵɵFactoryDeclaration<UtilityHeaderComponent, never>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDeclaration<UtilityHeaderComponent, "jazz-utility-header", never, { "stuckMobile": "stuckMobile"; "stuckDesktop": "stuckDesktop"; "puBrandingLogo": "puBrandingLogo"; "utilityLinksHeading": "utilityLinksHeading"; "officeOfTemplate": "officeOfTemplate"; "userOptionsTemplate": "userOptionsTemplate"; "primaryHeading": "primaryHeading"; "puBrandingTitle": "puBrandingTitle"; "siteBrandingName": "siteBrandingName"; "siteBrandingSlogan": "siteBrandingSlogan"; "siteBrandingLink": "siteBrandingLink"; "siteBrandingTitle": "siteBrandingTitle"; "officeOfLink": "officeOfLink"; "officeOf": "officeOf"; "loginUrl": "loginUrl"; "logoutUrl": "logoutUrl"; "username": "username"; }, {}, ["links"], never>;
 }
+
+//# sourceMappingURL=utility-header.component.d.ts.map
