@@ -26,7 +26,8 @@ module.exports = {
         }
       ],
       include: [
-        path.resolve(__dirname, '../node_modules/@princeton-design/design-system')
+        path.resolve(__dirname, '../node_modules/@princeton-design/design-system'),
+        path.resolve(__dirname, '../projects/design-system-angular/src')
       ]
     })
     return config
