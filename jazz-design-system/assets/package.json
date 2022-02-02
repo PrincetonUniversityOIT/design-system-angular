@@ -1,32 +1,32 @@
 {
   "_args": [
     [
-      "@princeton-design/design-system@1.0.34",
+      "@princeton-design/design-system@1.0.37",
       "/home/runner/work/design-system-angular/design-system-angular"
     ]
   ],
-  "_from": "@princeton-design/design-system@1.0.34",
-  "_id": "@princeton-design/design-system@1.0.34",
+  "_from": "@princeton-design/design-system@1.0.37",
+  "_id": "@princeton-design/design-system@1.0.37",
   "_inBundle": false,
-  "_integrity": "sha512-o3Uky6pyyhG2YYLqCTnEB3gdkLSJawwsMYjlW/+XzBh0PDWD8aGaWEMNuGiCAarNWyn/l0TTwow0Zz/22erTcQ==",
+  "_integrity": "sha512-fuhJASLQBGjniyOZTSqgtfQvI6aBf4CyPgEbG//jkT7YaYLOMXEHaoTfMUOywYq5VUtIjTfEeEYcizIByzXDaQ==",
   "_location": "/@princeton-design/design-system",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "@princeton-design/design-system@1.0.34",
+    "raw": "@princeton-design/design-system@1.0.37",
     "name": "@princeton-design/design-system",
     "escapedName": "@princeton-design%2fdesign-system",
     "scope": "@princeton-design",
-    "rawSpec": "1.0.34",
+    "rawSpec": "1.0.37",
     "saveSpec": null,
-    "fetchSpec": "1.0.34"
+    "fetchSpec": "1.0.37"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/@princeton-design/design-system/-/design-system-1.0.34.tgz",
-  "_spec": "1.0.34",
+  "_resolved": "https://registry.npmjs.org/@princeton-design/design-system/-/design-system-1.0.37.tgz",
+  "_spec": "1.0.37",
   "_where": "/home/runner/work/design-system-angular/design-system-angular",
   "author": {
     "name": "Princeton University"
@@ -47,5 +47,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.34"
+  "version": "1.0.37"
 }

@@ -1,10 +1,12 @@
-import { Component, ContentChildren, ElementRef, Input, NgModule, EventEmitter, Output, ViewContainerRef, ViewChild, ChangeDetectorRef, ContentChild, HostListener, ViewChildren } from '@angular/core';
+import { Component, ContentChildren, ElementRef, Input, NgModule, EventEmitter, Output, ViewContainerRef, ViewChild, ChangeDetectorRef, ContentChild, HostListener, ViewChildren, Directive } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { NgControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import * as ɵngcc0 from '@angular/core';
 import * as ɵngcc1 from '@angular/common';
 import * as ɵngcc2 from '@angular/router';
+import * as ɵngcc3 from '@angular/forms';
 
 const _c0 = ["jazzAccordionButtons"];
 const _c1 = function (a0, a1) { return { "jazz-accordion--bordered": a0, "jazz-accordion-multiselectable": a1 }; };
@@ -725,6 +727,24 @@ function UtilityHeaderComponent_ng_template_27_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵproperty("ngIf", !ctx_r4.username);
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵproperty("ngIf", ctx_r4.username);
+} }
+function FormFieldComponent_ng_container_4_span_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "span", 3);
+    ɵngcc0.ɵɵtext(1);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const msg_r2 = ctx.$implicit;
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵtextInterpolate(msg_r2);
+} }
+function FormFieldComponent_ng_container_4_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementContainerStart(0);
+    ɵngcc0.ɵɵtemplate(1, FormFieldComponent_ng_container_4_span_1_Template, 2, 1, "span", 2);
+    ɵngcc0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r0 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngForOf", ctx_r0.errorMessages);
 } }
 const prefix = 'jazz';
 
@@ -3157,12 +3177,190 @@ UtilityHeaderModule.ɵinj = /*@__PURE__*/ ɵngcc0.ɵɵdefineInjector({ imports: 
     }], null, null); })();
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(UtilityHeaderModule, { declarations: function () { return [UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */, UtilityHeaderLinkComponent]; }, imports: function () { return [CommonModule]; }, exports: function () { return [UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */, UtilityHeaderLinkComponent]; } }); })();
 
+class FormInputDirective {
+    constructor(formControl) {
+        this.formControl = formControl;
+    }
+    get hasError() {
+        return this.formControl.invalid && (this.formControl.dirty || this.formControl.touched);
+    }
+    get disabled() {
+        return this.formControl.disabled ? true : false;
+    }
+    get errors() {
+        if (this.hasError && this.formControl.errors) {
+            return this.formControl.errors;
+        }
+        return '';
+    }
+}
+FormInputDirective.ɵfac = function FormInputDirective_Factory(t) { return new (t || FormInputDirective)(ɵngcc0.ɵɵdirectiveInject(ɵngcc3.NgControl)); };
+FormInputDirective.ɵdir = /*@__PURE__*/ ɵngcc0.ɵɵdefineDirective({ type: FormInputDirective, selectors: [["", "formInput", ""]] });
+FormInputDirective.ctorParameters = () => [
+    { type: NgControl }
+];
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵngcc0.ɵsetClassMetadata(FormInputDirective, [{
+        type: Directive,
+        args: [{
+                // tslint:disable-next-line:directive-selector
+                selector: '[formInput]'
+            }]
+    }], function () { return [{ type: ɵngcc3.NgControl }]; }, null); })();
+
+const FORM_FIELD_GLOBAL_MSGS = {
+    maxlength: 'Maximum field length has been exceeded.',
+    minlength: 'Minimum field length requirement has not been met.',
+    min: 'The specified value is below the minimum value required.',
+    invalidDate: 'Date is not valid.',
+    invalidYear: 'Year is not valid.',
+    required: 'This field is required.',
+    pattern: 'Invalid format.'
+};
+class FormFieldComponent {
+    constructor() {
+        this.messageConfig = {};
+    }
+    get labelClass() {
+        return this.required + ' ' + this.disabled;
+    }
+    get divClass() {
+        return this.hasError() ? 'jazz-form-field--error' : 'jazz-form-field';
+    }
+    get disabled() {
+        return this.formInput.disabled;
+    }
+    ngOnInit() {
+    }
+    hasError() {
+        if (!this.formInput) {
+            throw new Error('You have probably forgotten to put the formInput directive on one of the elements inside of the form-field tag.');
+        }
+        return this.formInput.hasError;
+    }
+    get errorMessages() {
+        if (!this.formInput) {
+            throw new Error('You have probably forgotten to put the formInput directive on one of the elements inside of the form-field tag.');
+        }
+        const errors = this.formInput.errors;
+        const messages = [];
+        const errorKeys = Object.keys(errors);
+        errorKeys.forEach((errorKey) => {
+            if (this.messageConfig[errorKey]) {
+                messages.push(this.messageConfig[errorKey]);
+            }
+            else if (FORM_FIELD_GLOBAL_MSGS[errorKey]) {
+                messages.push(FORM_FIELD_GLOBAL_MSGS[errorKey]);
+            }
+            else {
+                messages.push(errorKey);
+            }
+        });
+        return messages;
+    }
+}
+FormFieldComponent.ɵfac = function FormFieldComponent_Factory(t) { return new (t || FormFieldComponent)(); };
+FormFieldComponent.ɵcmp = /*@__PURE__*/ ɵngcc0.ɵɵdefineComponent({ type: FormFieldComponent, selectors: [["form-field"]], contentQueries: function FormFieldComponent_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
+        ɵngcc0.ɵɵcontentQuery(dirIndex, FormInputDirective, 5);
+    } if (rf & 2) {
+        let _t;
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.formInput = _t.first);
+    } }, inputs: { messageConfig: "messageConfig", for: "for", label: "label", required: "required" }, ngContentSelectors: _c2, decls: 5, vars: 8, consts: [[3, "for"], [4, "ngIf"], ["class", "jazz-form-field-error-msg", "role", "alert", 4, "ngFor", "ngForOf"], ["role", "alert", 1, "jazz-form-field-error-msg"]], template: function FormFieldComponent_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵelementStart(0, "div");
+        ɵngcc0.ɵɵelementStart(1, "label", 0);
+        ɵngcc0.ɵɵtext(2);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵprojection(3);
+        ɵngcc0.ɵɵtemplate(4, FormFieldComponent_ng_container_4_Template, 2, 1, "ng-container", 1);
+        ɵngcc0.ɵɵelementEnd();
+    } if (rf & 2) {
+        ɵngcc0.ɵɵclassMap(ctx.divClass);
+        ɵngcc0.ɵɵattribute("disabled", ctx.disabled ? true : null);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵpropertyInterpolate("for", ctx.for);
+        ɵngcc0.ɵɵattribute("required", ctx.required);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵtextInterpolate(ctx.label);
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.hasError());
+    } }, directives: [ɵngcc1.NgIf, ɵngcc1.NgForOf], encapsulation: 2 });
+FormFieldComponent.propDecorators = {
+    for: [{ type: Input }],
+    label: [{ type: Input }],
+    required: [{ type: Input }],
+    messageConfig: [{ type: Input }],
+    formInput: [{ type: ContentChild, args: [FormInputDirective,] }]
+};
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵngcc0.ɵsetClassMetadata(FormFieldComponent, [{
+        type: Component,
+        args: [{
+                // tslint:disable-next-line:component-selector
+                selector: 'form-field',
+                template: `
+    <div class="{{ divClass }}" [attr.disabled]="disabled ? true : null">
+      <label [attr.required]="required" for="{{ for }}">{{label}}</label>
+      <ng-content></ng-content>
+      <ng-container *ngIf="hasError()">
+        <span class="jazz-form-field-error-msg" role="alert" *ngFor="let msg of errorMessages">{{msg}}</span>
+      </ng-container>
+    </div>
+  `
+            }]
+    }], function () { return []; }, { messageConfig: [{
+            type: Input
+        }], for: [{
+            type: Input
+        }], label: [{
+            type: Input
+        }], required: [{
+            type: Input
+        }], formInput: [{
+            type: ContentChild,
+            args: [FormInputDirective]
+        }] }); })();
+
+class DesignSystemFormsModule {
+}
+DesignSystemFormsModule.ɵfac = function DesignSystemFormsModule_Factory(t) { return new (t || DesignSystemFormsModule)(); };
+DesignSystemFormsModule.ɵmod = /*@__PURE__*/ ɵngcc0.ɵɵdefineNgModule({ type: DesignSystemFormsModule });
+DesignSystemFormsModule.ɵinj = /*@__PURE__*/ ɵngcc0.ɵɵdefineInjector({ imports: [[
+            CommonModule,
+            RouterModule,
+            FormsModule,
+            ReactiveFormsModule
+        ]] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵngcc0.ɵsetClassMetadata(DesignSystemFormsModule, [{
+        type: NgModule,
+        args: [{
+                imports: [
+                    CommonModule,
+                    RouterModule,
+                    FormsModule,
+                    ReactiveFormsModule
+                ],
+                declarations: [
+                    FormFieldComponent,
+                    FormInputDirective
+                ],
+                exports: [
+                    FormFieldComponent,
+                    FormInputDirective
+                ]
+            }]
+    }], null, null); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(DesignSystemFormsModule, { declarations: function () { return [FormFieldComponent, FormInputDirective]; }, imports: function () { return [CommonModule,
+        RouterModule,
+        FormsModule,
+        ReactiveFormsModule]; }, exports: function () { return [FormFieldComponent, FormInputDirective]; } }); })();
+
 class DesignSystemAngularModule {
 }
 DesignSystemAngularModule.ɵfac = function DesignSystemAngularModule_Factory(t) { return new (t || DesignSystemAngularModule)(); };
 DesignSystemAngularModule.ɵmod = /*@__PURE__*/ ɵngcc0.ɵɵdefineNgModule({ type: DesignSystemAngularModule });
 DesignSystemAngularModule.ɵinj = /*@__PURE__*/ ɵngcc0.ɵɵdefineInjector({ imports: [[
             CommonModule,
+            ReactiveFormsModule,
+            FormsModule,
             RouterModule,
             AccordionModule,
             AlertModule,
@@ -3172,13 +3370,16 @@ DesignSystemAngularModule.ɵinj = /*@__PURE__*/ ɵngcc0.ɵɵdefineInjector({ imp
             ModalDialogModule,
             PagerModule,
             TabsModule,
-            UtilityHeaderModule
+            UtilityHeaderModule,
+            DesignSystemFormsModule
         ]] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵngcc0.ɵsetClassMetadata(DesignSystemAngularModule, [{
         type: NgModule,
         args: [{
                 imports: [
                     CommonModule,
+                    ReactiveFormsModule,
+                    FormsModule,
                     RouterModule,
                     AccordionModule,
                     AlertModule,
@@ -3188,7 +3389,8 @@ DesignSystemAngularModule.ɵinj = /*@__PURE__*/ ɵngcc0.ɵɵdefineInjector({ imp
                     ModalDialogModule,
                     PagerModule,
                     TabsModule,
-                    UtilityHeaderModule
+                    UtilityHeaderModule,
+                    DesignSystemFormsModule
                 ],
                 exports: [
                     AccordionComponent,
@@ -3210,12 +3412,16 @@ DesignSystemAngularModule.ɵinj = /*@__PURE__*/ ɵngcc0.ɵɵdefineInjector({ imp
                     TabComponent,
                     TabsComponent,
                     UtilityHeaderComponent,
-                    UtilityHeaderLinkComponent
+                    UtilityHeaderLinkComponent,
+                    FormFieldComponent,
+                    FormInputDirective
                 ]
             }]
     }], null, null); })();
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(DesignSystemAngularModule, { imports: function () { return [CommonModule,
-        RouterModule, AccordionModule, AlertModule, BreadcrumbsModule, HeaderModule, MenuModule, ModalDialogModule, PagerModule, TabsModule, UtilityHeaderModule]; }, exports: function () { return [AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, PagerComponent, ModalDialogComponent, SearchButtonComponent, UtilityItemComponent, UtilityMenuComponent, MainMenuItemComponent, MainMenuComponent, TabComponent, TabsComponent, UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */, UtilityHeaderLinkComponent]; } }); })();
+        ReactiveFormsModule,
+        FormsModule,
+        RouterModule, AccordionModule, AlertModule, BreadcrumbsModule, HeaderModule, MenuModule, ModalDialogModule, PagerModule, TabsModule, UtilityHeaderModule, DesignSystemFormsModule]; }, exports: function () { return [AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, HeaderComponent, MenuComponent, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, PagerComponent, ModalDialogComponent, SearchButtonComponent, UtilityItemComponent, UtilityMenuComponent, MainMenuItemComponent, MainMenuComponent, TabComponent, TabsComponent, UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */, UtilityHeaderLinkComponent, FormFieldComponent, FormInputDirective]; } }); })();
 
 class MenuItem {
     constructor(label, url, subItems, shownByDefault, externalUrl) {
@@ -3237,6 +3443,6 @@ class MenuItem {
  * Generated bundle index. Do not edit.
  */
 
-export { ACCORDION_CONTENT_EXPANDED_CLASSNAME, ACCORDION_MULTISELECTABLE_CLASSNAME, ARIA_CONTROLS, ARIA_EXPANDED, AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, DesignSystemAngularModule, HIDDEN, HeaderComponent, MainMenuComponent, MainMenuItemComponent, MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, ModalDialogComponent, PagerComponent, SearchButtonComponent, TabComponent, TabsComponent, UtilityHeaderComponent, UtilityHeaderLinkComponent, UtilityItemComponent, UtilityMenuComponent, AccordionModule as ɵa, AlertModule as ɵb, BreadcrumbsModule as ɵc, HeaderModule as ɵd, MenuModule as ɵe, ModalDialogModule as ɵf, PagerModule as ɵg, TabsModule as ɵh, UtilityHeaderModule as ɵi, prefix as ɵj };
+export { ACCORDION_CONTENT_EXPANDED_CLASSNAME, ACCORDION_MULTISELECTABLE_CLASSNAME, ARIA_CONTROLS, ARIA_EXPANDED, AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, DesignSystemAngularModule, HIDDEN, HeaderComponent, MainMenuComponent, MainMenuItemComponent, MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, ModalDialogComponent, PagerComponent, SearchButtonComponent, TabComponent, TabsComponent, UtilityHeaderComponent, UtilityHeaderLinkComponent, UtilityItemComponent, UtilityMenuComponent, AccordionModule as ɵa, AlertModule as ɵb, BreadcrumbsModule as ɵc, HeaderModule as ɵd, MenuModule as ɵe, ModalDialogModule as ɵf, PagerModule as ɵg, TabsModule as ɵh, UtilityHeaderModule as ɵi, DesignSystemFormsModule as ɵj, FormFieldComponent as ɵk, FormInputDirective as ɵl, prefix as ɵm };
 
 //# sourceMappingURL=princeton-design-design-system-angular.js.map

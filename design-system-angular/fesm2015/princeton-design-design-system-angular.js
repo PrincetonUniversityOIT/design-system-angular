@@ -1,6 +1,7 @@
-import { Component, ContentChildren, ElementRef, Input, NgModule, EventEmitter, Output, ViewContainerRef, ViewChild, ChangeDetectorRef, ContentChild, HostListener, ViewChildren } from '@angular/core';
+import { Component, ContentChildren, ElementRef, Input, NgModule, EventEmitter, Output, ViewContainerRef, ViewChild, ChangeDetectorRef, ContentChild, HostListener, ViewChildren, Directive } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { NgControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const prefix = 'jazz';
 
@@ -1811,12 +1812,136 @@ UtilityHeaderModule.decorators = [
             },] }
 ];
 
+class FormInputDirective {
+    constructor(formControl) {
+        this.formControl = formControl;
+    }
+    get hasError() {
+        return this.formControl.invalid && (this.formControl.dirty || this.formControl.touched);
+    }
+    get disabled() {
+        return this.formControl.disabled ? true : false;
+    }
+    get errors() {
+        if (this.hasError && this.formControl.errors) {
+            return this.formControl.errors;
+        }
+        return '';
+    }
+}
+FormInputDirective.decorators = [
+    { type: Directive, args: [{
+                // tslint:disable-next-line:directive-selector
+                selector: '[formInput]'
+            },] }
+];
+FormInputDirective.ctorParameters = () => [
+    { type: NgControl }
+];
+
+const FORM_FIELD_GLOBAL_MSGS = {
+    maxlength: 'Maximum field length has been exceeded.',
+    minlength: 'Minimum field length requirement has not been met.',
+    min: 'The specified value is below the minimum value required.',
+    invalidDate: 'Date is not valid.',
+    invalidYear: 'Year is not valid.',
+    required: 'This field is required.',
+    pattern: 'Invalid format.'
+};
+class FormFieldComponent {
+    constructor() {
+        this.messageConfig = {};
+    }
+    get labelClass() {
+        return this.required + ' ' + this.disabled;
+    }
+    get divClass() {
+        return this.hasError() ? 'jazz-form-field--error' : 'jazz-form-field';
+    }
+    get disabled() {
+        return this.formInput.disabled;
+    }
+    ngOnInit() {
+    }
+    hasError() {
+        if (!this.formInput) {
+            throw new Error('You have probably forgotten to put the formInput directive on one of the elements inside of the form-field tag.');
+        }
+        return this.formInput.hasError;
+    }
+    get errorMessages() {
+        if (!this.formInput) {
+            throw new Error('You have probably forgotten to put the formInput directive on one of the elements inside of the form-field tag.');
+        }
+        const errors = this.formInput.errors;
+        const messages = [];
+        const errorKeys = Object.keys(errors);
+        errorKeys.forEach((errorKey) => {
+            if (this.messageConfig[errorKey]) {
+                messages.push(this.messageConfig[errorKey]);
+            }
+            else if (FORM_FIELD_GLOBAL_MSGS[errorKey]) {
+                messages.push(FORM_FIELD_GLOBAL_MSGS[errorKey]);
+            }
+            else {
+                messages.push(errorKey);
+            }
+        });
+        return messages;
+    }
+}
+FormFieldComponent.decorators = [
+    { type: Component, args: [{
+                // tslint:disable-next-line:component-selector
+                selector: 'form-field',
+                template: `
+    <div class="{{ divClass }}" [attr.disabled]="disabled ? true : null">
+      <label [attr.required]="required" for="{{ for }}">{{label}}</label>
+      <ng-content></ng-content>
+      <ng-container *ngIf="hasError()">
+        <span class="jazz-form-field-error-msg" role="alert" *ngFor="let msg of errorMessages">{{msg}}</span>
+      </ng-container>
+    </div>
+  `
+            },] }
+];
+FormFieldComponent.propDecorators = {
+    for: [{ type: Input }],
+    label: [{ type: Input }],
+    required: [{ type: Input }],
+    messageConfig: [{ type: Input }],
+    formInput: [{ type: ContentChild, args: [FormInputDirective,] }]
+};
+
+class DesignSystemFormsModule {
+}
+DesignSystemFormsModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [
+                    CommonModule,
+                    RouterModule,
+                    FormsModule,
+                    ReactiveFormsModule
+                ],
+                declarations: [
+                    FormFieldComponent,
+                    FormInputDirective
+                ],
+                exports: [
+                    FormFieldComponent,
+                    FormInputDirective
+                ]
+            },] }
+];
+
 class DesignSystemAngularModule {
 }
 DesignSystemAngularModule.decorators = [
     { type: NgModule, args: [{
                 imports: [
                     CommonModule,
+                    ReactiveFormsModule,
+                    FormsModule,
                     RouterModule,
                     AccordionModule,
                     AlertModule,
@@ -1826,7 +1951,8 @@ DesignSystemAngularModule.decorators = [
                     ModalDialogModule,
                     PagerModule,
                     TabsModule,
-                    UtilityHeaderModule
+                    UtilityHeaderModule,
+                    DesignSystemFormsModule
                 ],
                 exports: [
                     AccordionComponent,
@@ -1848,7 +1974,9 @@ DesignSystemAngularModule.decorators = [
                     TabComponent,
                     TabsComponent,
                     UtilityHeaderComponent,
-                    UtilityHeaderLinkComponent
+                    UtilityHeaderLinkComponent,
+                    FormFieldComponent,
+                    FormInputDirective
                 ]
             },] }
 ];
@@ -1873,5 +2001,5 @@ class MenuItem {
  * Generated bundle index. Do not edit.
  */
 
-export { ACCORDION_CONTENT_EXPANDED_CLASSNAME, ACCORDION_MULTISELECTABLE_CLASSNAME, ARIA_CONTROLS, ARIA_EXPANDED, AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, DesignSystemAngularModule, HIDDEN, HeaderComponent, MainMenuComponent, MainMenuItemComponent, MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, ModalDialogComponent, PagerComponent, SearchButtonComponent, TabComponent, TabsComponent, UtilityHeaderComponent, UtilityHeaderLinkComponent, UtilityItemComponent, UtilityMenuComponent, AccordionModule as ɵa, AlertModule as ɵb, BreadcrumbsModule as ɵc, HeaderModule as ɵd, MenuModule as ɵe, ModalDialogModule as ɵf, PagerModule as ɵg, TabsModule as ɵh, UtilityHeaderModule as ɵi, prefix as ɵj };
+export { ACCORDION_CONTENT_EXPANDED_CLASSNAME, ACCORDION_MULTISELECTABLE_CLASSNAME, ARIA_CONTROLS, ARIA_EXPANDED, AccordionComponent, AlertComponent, BreadcrumbComponent, BreadcrumbsComponent, DesignSystemAngularModule, HIDDEN, HeaderComponent, MainMenuComponent, MainMenuItemComponent, MenuComponent, MenuItem, MenuItemComponent, MenuMainButtonComponent, MenuSubButtonComponent, ModalDialogComponent, PagerComponent, SearchButtonComponent, TabComponent, TabsComponent, UtilityHeaderComponent, UtilityHeaderLinkComponent, UtilityItemComponent, UtilityMenuComponent, AccordionModule as ɵa, AlertModule as ɵb, BreadcrumbsModule as ɵc, HeaderModule as ɵd, MenuModule as ɵe, ModalDialogModule as ɵf, PagerModule as ɵg, TabsModule as ɵh, UtilityHeaderModule as ɵi, DesignSystemFormsModule as ɵj, FormFieldComponent as ɵk, FormInputDirective as ɵl, prefix as ɵm };
 //# sourceMappingURL=princeton-design-design-system-angular.js.map
