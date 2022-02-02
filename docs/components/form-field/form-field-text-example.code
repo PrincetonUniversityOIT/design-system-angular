@@ -1,0 +1,5 @@
+<form-field label="Field 1" for="field1" [messageConfig]="{'required': '\'Field 1\' is required.'}" required="required">
+  <input type="text" formInput id="field1" class="jazz-input" placeholder="Enter Field 1 Here"
+         [class.jazz-input--error]="form.get('field1').invalid && (form.get('field1').dirty || form.get('field1').touched)"
+         formControlName="field1" required />
+</form-field>

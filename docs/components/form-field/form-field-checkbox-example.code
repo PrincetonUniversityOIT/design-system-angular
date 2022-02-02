@@ -1,0 +1,5 @@
+<form-field label="Field 5" for="field5">
+  <input formInput type="checkbox" id="checkbox-1" value="value-1" formControlName="field5"><span>Input 1</span>
+  <input formInput type="checkbox" id="checkbox-2" value="value-2" formControlName="field5"><span>Input 2</span>
+  <input formInput type="checkbox" id="checkbox-3" value="value-2" formControlName="field5"><span>Input 3</span>
+</form-field>

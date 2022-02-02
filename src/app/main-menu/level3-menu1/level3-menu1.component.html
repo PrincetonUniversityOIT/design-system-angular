@@ -10,16 +10,80 @@
   This section shows a quick form
 </p>
 
+<button class="jazz-btn" (click)="toggle()">{{disableText()}}</button>
+<button class="jazz-btn" (click)="toggleField2()">{{disableField2Text()}}</button>
+
 <form [formGroup]="form" novalidate>
-  <form-field label="Field 1" for="field1" [messageConfig]="{'maxlength': '\'Field 1\' cannot exceed 10 characters.'}" required="required">
-    <input type="text" maxlength="10" formInput id="field1" class="jazz-input"
-           [class.jazz-input--error]="form.get('field1').invalid && (form.get('field1').dirty || form.get('field1').touched)"
-           formControlName="field1" required />
+    <form-field label="Field 1 (Text Input)" for="field1" [messageConfig]="{'required': '\'Field 1\' is required.'}" required="required">
+      <input type="text" formInput id="field1" class="jazz-input" placeholder="Enter Field 1 Here"
+             [class.jazz-input--error]="form.get('field1').invalid && (form.get('field1').dirty || form.get('field1').touched)"
+             formControlName="field1" required />
+    </form-field>
+
+    <form-field label="Field 2 (Max Length: 10)" for="field2" [messageConfig]="{'maxlength': '\'Field 2\' cannot exceed 10 characters.'}">
+      <input type="text" formInput id="field2" class="jazz-input"
+             [class.jazz-input--error]="form.get('field2').invalid && (form.get('field2').dirty || form.get('field2').touched)"
+             formControlName="field2" required />
+    </form-field>
+
+  <form-field label="Field 3 (Disabled)" for="field3" [messageConfig]="{'maxlength': '\'Field 2\' cannot exceed 10 characters.'}" required="required">
+    <input type="text" formInput id="field3" class="jazz-input"
+           [class.jazz-input--error]="form.get('field3').invalid && (form.get('field3').dirty || form.get('field3').touched)"
+           formControlName="field3" required />
   </form-field>
 
-  <form-field label="Field 2" for="field2" [messageConfig]="{'maxlength': '\'Field 2\' cannot exceed 10 characters.'}" required="required">
-    <input type="text" maxlength="10" formInput id="field2" class="jazz-input"
-           [class.jazz-input--error]="form.get('field2').invalid && (form.get('field2').dirty || form.get('field2').touched)"
-           formControlName="field2" required />
+    <form-field label="Field 4 (Dropdown)" for="field4" required="required">
+      <select id="field4" class="jazz-input" formInput formControlName="field4"
+              [class.jazz-input--error]="form.get('field4').invalid && (form.get('field4').dirty || form.get('field4').touched)">
+        <option></option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option disabled>Option 3</option>
+        <option>Option 4</option>
+      </select>
+    </form-field>
+
+    <form-field label="Field 5 (Checkbox)" for="field5">
+      <input formInput type="checkbox" id="checkbox-1" value="value-1" formControlName="field5"><span>Input 1</span>
+      <input formInput type="checkbox" id="checkbox-2" value="value-2" formControlName="field5"><span>Input 2</span>
+      <input formInput type="checkbox" id="checkbox-3" value="value-2" formControlName="field5"><span>Input 3</span>
+    </form-field>
+
+    <div class="full-width">
+      <form-field label="Field 6 (Textarea)" for="field6" required="required">
+        <textarea class="jazz-input full-width" id="field6" formInput type="text"
+            [class.jazz-input--error]="form.get('field6').invalid && (form.get('field6').dirty || form.get('field6').touched)"
+            formControlName="field6"
+        ></textarea>
+      </form-field>
+    </div>
+
+    <div class="full-width">
+      <form-field label="Field 7 (Radio)" for="field7">
+        <input formInput type="radio" name="field7" formControlName="field7" value=1 checked><span>Text 1</span>
+        <input formInput type="radio" name="field7" formControlName="field7" value=0><span>Text 2</span>
+      </form-field>
+    </div>
+
+    <form-field label="Field 8 (Custom Validator)" for="field8" [messageConfig]="{'field9NotEntered': '\'Field 9\' is required when \'Field 8\' is entered.'}">
+      <input type="text" formInput id="field8" class="jazz-input" placeholder="Enter Field 8 Here"
+             [class.jazz-input--error]="form.get('field8').invalid && (form.get('field8').dirty || form.get('field8').touched)"
+             formControlName="field8" />
+    </form-field>
+
+  <form-field label="Field 9 (Custom Validator)" for="field9">
+    <input type="text" formInput id="field9" class="jazz-input" placeholder="Enter Field 9 Here"
+           formControlName="field9" />
   </form-field>
-</form>`
+
+  <div *ngIf="form.getError('bothFieldsNotEntered')">
+    When values for field 8 are entered values for field 9 are required
+  </div>
+
+  <div class="button-group full-width">
+    <button class="jazz-btn" [disabled]="!this.form.valid">Save</button>
+    <button class="jazz-btn jazz-btn-outline">Cancel</button>
+  </div>
+
+</form>
+<br />

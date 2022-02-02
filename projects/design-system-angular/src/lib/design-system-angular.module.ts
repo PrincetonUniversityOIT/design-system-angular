@@ -30,12 +30,14 @@ import {UtilityHeaderComponent} from './utility-header/utility-header.component'
 import {UtilityHeaderLinkComponent} from './utility-header/utility-header-link.component';
 import {DesignSystemFormsModule} from './forms/forms.module';
 import {FormFieldComponent} from './forms/form-field.component';
-import {FormFieldErrorComponent} from './forms/form-field-error.component';
 import {FormInputDirective} from './forms/form-input.directive';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule,
     AccordionModule,
     AlertModule,
@@ -70,7 +72,6 @@ import {FormInputDirective} from './forms/form-input.directive';
     UtilityHeaderComponent,
     UtilityHeaderLinkComponent,
     FormFieldComponent,
-    FormFieldErrorComponent,
     FormInputDirective
   ]
 })

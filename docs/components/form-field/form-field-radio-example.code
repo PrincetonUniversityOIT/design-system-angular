@@ -1,0 +1,4 @@
+<form-field label="Field 4" for="field4">
+  <input formInput type="radio" name="field4" formControlName="field4" value=1 checked><span>Text 1</span>
+  <input formInput type="radio" name="field4" formControlName="field4" value=0><span>Text 2</span>
+</form-field>

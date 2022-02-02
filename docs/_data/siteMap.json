@@ -51,6 +51,10 @@
         {
           "label": "Tabs",
           "url": "/components/tabs/"
+        },
+        {
+          "label": "Form Field",
+          "url": "/components/form-field/"
         }
       ]
     },

@@ -34,7 +34,11 @@ export const routes: Routes = [
   {
     path: 'breadcrumbs',
     loadChildren: () => import('./examples/breadcrumbs/breadcrumbs.module').then(m => m.BreadcrumbsModule)
-  }
+  },
+  {
+    path: 'form-field',
+    loadChildren: () => import('./examples/form-field/form-field.module').then(m => m.FormFieldModule)
+  },
 ];
 
 @NgModule({

@@ -15,12 +15,12 @@ const FORM_FIELD_GLOBAL_MSGS = {
   // tslint:disable-next-line:component-selector
   selector: 'form-field',
   template: `
-    <div class="{{ divClass }}">
-      <label for="{{ for }}">{{label}}</label>
-      <ng-container *ngIf="hasError">
+    <div class="{{ divClass }}" [attr.disabled]="disabled ? true : null">
+      <label [attr.required]="required" for="{{ for }}">{{label}}</label>
+      <ng-content></ng-content>
+      <ng-container *ngIf="hasError()">
         <span class="jazz-form-field-error-msg" role="alert" *ngFor="let msg of errorMessages">{{msg}}</span>
       </ng-container>
-      <ng-content></ng-content>
     </div>
   `
 })
@@ -33,8 +33,6 @@ export class FormFieldComponent implements OnInit {
 
   @ContentChild(FormInputDirective) formInput: FormInputDirective;
 
-  private disabled = '';
-
   get labelClass(): string {
     return this.required + ' ' + this.disabled;
   }
@@ -43,11 +41,11 @@ export class FormFieldComponent implements OnInit {
     return this.hasError() ? 'jazz-form-field--error' : 'jazz-form-field' ;
   }
 
-  ngOnInit(): void {
+  get disabled(): boolean {
+    return this.formInput.disabled;
   }
 
-  enable(enable = true): void {
-    this.disabled = enable ? '' : 'disabled';
+  ngOnInit(): void {
   }
 
   hasError(): boolean {
@@ -61,6 +59,7 @@ export class FormFieldComponent implements OnInit {
     if (!this.formInput) {
       throw new Error('You have probably forgotten to put the formInput directive on one of the elements inside of the form-field tag.');
     }
+
     const errors = this.formInput.errors;
     const messages = [];
 

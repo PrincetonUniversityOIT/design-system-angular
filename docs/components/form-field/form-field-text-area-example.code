@@ -1,0 +1,6 @@
+<form-field label="Field 2" for="field2" required="required">
+    <textarea class="jazz-input full-width" id="field2" formInput type="text"
+        [class.jazz-input--error]="form.get('field2').invalid && (form.get('field2').dirty || form.get('field2').touched)"
+        formControlName="field2"
+    ></textarea>
+  </form-field>

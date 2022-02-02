@@ -20,8 +20,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     BrowserModule,
     CommonModule,
-    DesignSystemAngularModule,
     ReactiveFormsModule,
+    DesignSystemAngularModule,
     FormsModule
   ],
   declarations: [

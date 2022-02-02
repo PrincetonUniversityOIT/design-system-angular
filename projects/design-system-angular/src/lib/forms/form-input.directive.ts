@@ -11,7 +11,11 @@ export class FormInputDirective {
   }
 
   get hasError(): boolean {
-    return this.formControl.dirty && this.formControl.invalid;
+    return this.formControl.invalid && (this.formControl.dirty || this.formControl.touched);
+  }
+
+  get disabled(): boolean {
+    return this.formControl.disabled ? true : false;
   }
 
   get errors(): any {
