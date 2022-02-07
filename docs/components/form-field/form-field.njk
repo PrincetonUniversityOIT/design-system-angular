@@ -52,16 +52,65 @@ A Form Field is a composite form construct that encapsulates a form input along 
                [messageConfig]="{'required': '\'Field 1\' is required.'}"
           {% endhighlight %}
     </li>
-    <li>The input control needs to have the <span class="code">formInput</span> directive so that the component knows which control to check for errors and to check if the component needs to be disabled.</li>
+    <li>The input control needs to have the <span class="code">formInput</span> directive so that the component knows which control to check for errors and to check if the component needs to be disabled.
+          {% highlight "html" %}
+              <form-field label="Field 1" for="field1" [messageConfig]="{'required': '\'Field 1\' is required.'}" required="required">
+                <input type="text" formInput id="field1" class="jazz-input" placeholder="Enter Field 1 Here"
+                       [class.jazz-input--error]="form.get('field1').invalid && (form.get('field1').dirty || form.get('field1').touched)"
+                       formControlName="field1" required />
+              </form-field>
+          {% endhighlight %}
+    </li>
 </ul>
 
-{% highlight "html" %}
-    <form-field label="Field 1" for="field1" [messageConfig]="{'required': '\'Field 1\' is required.'}" required="required">
-      <input type="text" formInput id="field1" class="jazz-input" placeholder="Enter Field 1 Here"
-             [class.jazz-input--error]="form.get('field1').invalid && (form.get('field1').dirty || form.get('field1').touched)"
-             formControlName="field1" required />
-    </form-field>
-{% endhighlight %}
+<h3>Default Validator Messages</h3>
+
+<table class="jazz-table">
+    <tr>
+        <th>Validator Key</th>
+        <th>Message</th>
+    </tr>
+
+    <tr>
+        <td>maxlength</td>
+        <td>Maximum field length has been exceeded.</td>
+    </tr>
+
+    <tr>
+        <td>minlength</td>
+        <td>Minimum field length requirement has not been met.</td>
+    </tr>
+
+    <tr>
+        <td>max</td>
+        <td>The specified value is above the maximum value required.</td>
+    </tr>
+
+    <tr>
+        <td>min</td>
+        <td>The specified value is below the minimum value required.</td>
+    </tr>
+
+    <tr>
+        <td>invalidDate</td>
+        <td>Date is not valid.</td>
+    </tr>
+
+    <tr>
+        <td>invalidYear</td>
+        <td>Year is not valid.</td>
+    </tr>
+
+    <tr>
+        <td>required</td>
+        <td>This field is required.</td>
+    </tr>
+
+    <tr>
+        <td>pattern</td>
+        <td>Invalid format.</td>
+    </tr>
+</table>
 
 <h3>Examples</h3>
 
@@ -88,8 +137,6 @@ A Form Field is a composite form construct that encapsulates a form input along 
 {{ exampleAngular("/jazz-design-system/#/form-field/formFieldCheckboxExample", "/components/form-field/form-field-checkbox-example", "Check Box Field", "code-panel-demo-checkbox") }}
 
 <h3>States</h3>
-
-<p>The states described below apply to each Accordion Item, not to the Accordion as a whole.</p>
 
 <h4>Default</h4>
 <p>The Default state of a Form Field is Empty and not in the Error state.</p>

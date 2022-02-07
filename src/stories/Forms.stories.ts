@@ -1,6 +1,5 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
 import {FormFieldComponent} from '../../projects/design-system-angular/src/lib/forms/form-field.component';
-import {FormFieldErrorComponent} from '../../projects/design-system-angular/src/lib/forms/form-field-error.component';
 import {FormInputDirective} from '../../projects/design-system-angular/src/lib/forms/form-input.directive';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 
@@ -13,7 +12,6 @@ const stories = storiesOf('Components/Forms', module)
       ],
       declarations: [
         FormFieldComponent,
-        FormFieldErrorComponent,
         FormInputDirective
       ],
       providers: [FormBuilder]

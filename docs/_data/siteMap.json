@@ -45,6 +45,10 @@
           "url": "/components/buttons/"
         },
         {
+          "label": "Form Field",
+          "url": "/components/form-field/"
+        },
+        {
           "label": "Pager",
           "url": "/components/pager/"
         },
@@ -53,8 +57,8 @@
           "url": "/components/tabs/"
         },
         {
-          "label": "Form Field",
-          "url": "/components/form-field/"
+          "label": "Tables",
+          "url": "/components/tables/"
         }
       ]
     },

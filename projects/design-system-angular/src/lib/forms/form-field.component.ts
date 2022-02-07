@@ -5,6 +5,7 @@ const FORM_FIELD_GLOBAL_MSGS = {
   maxlength: 'Maximum field length has been exceeded.',
   minlength: 'Minimum field length requirement has not been met.',
   min: 'The specified value is below the minimum value required.',
+  max: 'The specified value is above the maximum value required.',
   invalidDate: 'Date is not valid.',
   invalidYear: 'Year is not valid.',
   required: 'This field is required.',

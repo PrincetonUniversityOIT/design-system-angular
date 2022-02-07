@@ -1,10 +1,12 @@
  <form-field label="Field 3" for="field3" required="required">
-  <select id="field3" class="jazz-input" formInput formControlName="field3"
-          [class.jazz-input--error]="form.get('field3').invalid && (form.get('field3').dirty || form.get('field3').touched)">
-    <option></option>
-    <option>Option 1</option>
-    <option>Option 2</option>
-    <option disabled>Option 3</option>
-    <option>Option 4</option>
-  </select>
+   <div class="jazz-dropdown">
+      <select id="field3" class="jazz-select" formInput formControlName="field3"
+              [class.jazz-input--error]="form.get('field3').invalid && (form.get('field3').dirty || form.get('field3').touched)">
+        <option></option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option disabled>Option 3</option>
+        <option>Option 4</option>
+      </select>
+   </div>
 </form-field>

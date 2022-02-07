@@ -33,14 +33,16 @@
   </form-field>
 
     <form-field label="Field 4 (Dropdown)" for="field4" required="required">
-      <select id="field4" class="jazz-input" formInput formControlName="field4"
-              [class.jazz-input--error]="form.get('field4').invalid && (form.get('field4').dirty || form.get('field4').touched)">
-        <option></option>
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option disabled>Option 3</option>
-        <option>Option 4</option>
-      </select>
+      <div class="jazz-dropdown">
+        <select id="field4" class="jazz-select" formInput formControlName="field4"
+                [class.jazz-input--error]="form.get('field4').invalid && (form.get('field4').dirty || form.get('field4').touched)">
+          <option></option>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option disabled>Option 3</option>
+          <option>Option 4</option>
+        </select>
+      </div>
     </form-field>
 
     <form-field label="Field 5 (Checkbox)" for="field5">
