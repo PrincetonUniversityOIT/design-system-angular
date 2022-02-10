@@ -37,6 +37,7 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/jazz_fonts.css": "jazz_fonts.css" });
     eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/jazz_custom.css": "jazz_custom.css" });
+    eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/jazz_serif.css": "jazz_serif.css" });
     eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/jazz_curated_icons.css": "jazz_curated_icons.css" });
     eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/fonts": "fonts" });
     eleventyConfig.addPassthroughCopy({ "./node_modules/@princeton-design/design-system/icons": "icons" });
