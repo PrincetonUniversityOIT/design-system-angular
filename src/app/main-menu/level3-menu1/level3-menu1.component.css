@@ -11,9 +11,13 @@
   }
 }
 
-.button-group {
-  margin-top: 15px;
-  margin-bottom: 15px;
+/* use this to align buttons properly */
+.button-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
-
 

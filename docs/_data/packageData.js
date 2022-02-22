@@ -1,3 +1,3 @@
-// const packageData = require('../../package-lib.json');
-//
-// module.exports = packageData;
+const packageData = require('../../projects/design-system-angular/package.json');
+
+module.exports = packageData;
