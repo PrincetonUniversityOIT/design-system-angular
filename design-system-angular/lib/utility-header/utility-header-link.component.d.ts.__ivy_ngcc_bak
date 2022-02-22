@@ -10,5 +10,5 @@ export declare class UtilityHeaderLinkComponent {
     label: string;
     external: boolean;
     class?: string;
-    routerLink: RouterLink;
+    routerLink: RouterLink | string;
 }

@@ -11,7 +11,7 @@ export declare class UtilityHeaderLinkComponent {
     label: string;
     external: boolean;
     class?: string;
-    routerLink: RouterLink;
+    routerLink: RouterLink | string;
     static ɵfac: ɵngcc0.ɵɵFactoryDeclaration<UtilityHeaderLinkComponent, never>;
     static ɵcmp: ɵngcc0.ɵɵComponentDeclaration<UtilityHeaderLinkComponent, "jazz-utility-header-link", never, { "external": "external"; "url": "url"; "label": "label"; "class": "class"; "routerLink": "routerLink"; }, {}, never, ["*"]>;
 }

@@ -677,49 +677,68 @@ function UtilityHeaderComponent_ng_template_11_Template(rf, ctx) { if (rf & 1) {
     const ctx_r2 = ɵngcc0.ɵɵnextContext();
     ɵngcc0.ɵɵproperty("ngIf", ctx_r2.officeOf);
 } }
-function UtilityHeaderComponent_li_22_Template(rf, ctx) { if (rf & 1) {
-    const _r8 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "li");
-    ɵngcc0.ɵɵelementStart(1, "a", 23);
-    ɵngcc0.ɵɵlistener("click", function UtilityHeaderComponent_li_22_Template_a_click_1_listener() { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r7 = ɵngcc0.ɵɵnextContext(); return ctx_r7.toggleMenu(); });
-    ɵngcc0.ɵɵtext(2);
-    ɵngcc0.ɵɵelementEnd();
+function UtilityHeaderComponent_li_22_a_1_Template(rf, ctx) { if (rf & 1) {
+    const _r10 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "a", 25);
+    ɵngcc0.ɵɵlistener("click", function UtilityHeaderComponent_li_22_a_1_Template_a_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r10); const ctx_r9 = ɵngcc0.ɵɵnextContext(2); return ctx_r9.toggleMenu(); });
+    ɵngcc0.ɵɵtext(1);
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const link_r6 = ctx.$implicit;
-    ɵngcc0.ɵɵadvance(1);
+    const link_r6 = ɵngcc0.ɵɵnextContext().$implicit;
     ɵngcc0.ɵɵclassMap(link_r6.class);
     ɵngcc0.ɵɵproperty("href", link_r6.url, ɵngcc0.ɵɵsanitizeUrl);
     ɵngcc0.ɵɵattribute("target", link_r6.external ? "_blank" : null);
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate(link_r6.label);
 } }
+function UtilityHeaderComponent_li_22_a_2_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "a", 26, 27);
+    ɵngcc0.ɵɵtext(2);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const link_r6 = ɵngcc0.ɵɵnextContext().$implicit;
+    ɵngcc0.ɵɵproperty("routerLink", link_r6.routerLink);
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate(link_r6.label);
+} }
+function UtilityHeaderComponent_li_22_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "li");
+    ɵngcc0.ɵɵtemplate(1, UtilityHeaderComponent_li_22_a_1_Template, 2, 6, "a", 23);
+    ɵngcc0.ɵɵtemplate(2, UtilityHeaderComponent_li_22_a_2_Template, 3, 2, "a", 24);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const link_r6 = ctx.$implicit;
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", link_r6.url);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", link_r6.routerLink);
+} }
 function UtilityHeaderComponent_ng_template_27_li_1_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "li");
-    ɵngcc0.ɵɵelementStart(1, "a", 25);
+    ɵngcc0.ɵɵelementStart(1, "a", 29);
     ɵngcc0.ɵɵtext(2, "Log In");
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const ctx_r9 = ɵngcc0.ɵɵnextContext(2);
+    const ctx_r14 = ɵngcc0.ɵɵnextContext(2);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("href", ctx_r9.loginUrl, ɵngcc0.ɵɵsanitizeUrl);
+    ɵngcc0.ɵɵproperty("href", ctx_r14.loginUrl, ɵngcc0.ɵɵsanitizeUrl);
 } }
 function UtilityHeaderComponent_ng_template_27_li_2_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "li");
-    ɵngcc0.ɵɵelementStart(1, "a", 25);
+    ɵngcc0.ɵɵelementStart(1, "a", 29);
     ɵngcc0.ɵɵtext(2, "Log Out");
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const ctx_r10 = ɵngcc0.ɵɵnextContext(2);
+    const ctx_r15 = ɵngcc0.ɵɵnextContext(2);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("href", ctx_r10.logoutUrl, ɵngcc0.ɵɵsanitizeUrl);
+    ɵngcc0.ɵɵproperty("href", ctx_r15.logoutUrl, ɵngcc0.ɵɵsanitizeUrl);
 } }
 function UtilityHeaderComponent_ng_template_27_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "ul");
-    ɵngcc0.ɵɵtemplate(1, UtilityHeaderComponent_ng_template_27_li_1_Template, 3, 1, "li", 24);
-    ɵngcc0.ɵɵtemplate(2, UtilityHeaderComponent_ng_template_27_li_2_Template, 3, 1, "li", 24);
+    ɵngcc0.ɵɵtemplate(1, UtilityHeaderComponent_ng_template_27_li_1_Template, 3, 1, "li", 28);
+    ɵngcc0.ɵɵtemplate(2, UtilityHeaderComponent_ng_template_27_li_2_Template, 3, 1, "li", 28);
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const ctx_r4 = ɵngcc0.ɵɵnextContext();
@@ -2962,7 +2981,7 @@ UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */.ɵ
     } if (rf & 2) {
         let _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.links = _t);
-    } }, inputs: { stuckMobile: "stuckMobile", stuckDesktop: "stuckDesktop", puBrandingLogo: "puBrandingLogo", utilityLinksHeading: "utilityLinksHeading", officeOfTemplate: "officeOfTemplate", userOptionsTemplate: "userOptionsTemplate", primaryHeading: "primaryHeading", puBrandingTitle: "puBrandingTitle", siteBrandingName: "siteBrandingName", siteBrandingSlogan: "siteBrandingSlogan", siteBrandingLink: "siteBrandingLink", siteBrandingTitle: "siteBrandingTitle", officeOfLink: "officeOfLink", officeOf: "officeOf", loginUrl: "loginUrl", logoutUrl: "logoutUrl", username: "username" }, decls: 28, vars: 23, consts: [["role", "banner", 1, "jazz-utility-header"], [1, "jazz-visually-hidden"], [1, "jazz-container"], [1, "jazz-utility-header__branding"], ["href", "https://www.princeton.edu/", 1, "jazz-utility-header__pu_logo", 3, "title"], ["alt", "Princeton University Logo", 3, "src"], [1, "jazz-div"], [1, "jazz-utility-header__site-branding"], ["class", "jazz-utility-header__site-name", "rel", "home", 3, "href", "title", 4, "ngIf"], ["class", "jazz-utility-header__site-slogan", 4, "ngIf"], [3, "ngIf", "ngIfElse"], [1, "jazz-utility-header__options"], [1, "jazz-utility-header__nav"], [1, "jazz-utility-header__nav-toggle", 3, "click"], ["aria-hidden", "true", 1, "jazz-icon", "jazz-icon-menu"], [1, "jazz-nav"], [4, "ngFor", "ngForOf"], [1, "jazz-utility-header__user-options"], ["rel", "home", 1, "jazz-utility-header__site-name", 3, "href", "title"], [1, "jazz-utility-header__site-slogan"], ["class", "jazz-utility-header__site-name-office-of", "rel", "home", 3, "href", "title", 4, "ngIf"], ["rel", "home", 1, "jazz-utility-header__site-name-office-of", 3, "href", "title"], [1, "jazz-utility-header__site-name-office-of-department"], [3, "href", "click"], [4, "ngIf"], [3, "href"]], template: function UtilityHeaderComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { stuckMobile: "stuckMobile", stuckDesktop: "stuckDesktop", puBrandingLogo: "puBrandingLogo", utilityLinksHeading: "utilityLinksHeading", officeOfTemplate: "officeOfTemplate", userOptionsTemplate: "userOptionsTemplate", primaryHeading: "primaryHeading", puBrandingTitle: "puBrandingTitle", siteBrandingName: "siteBrandingName", siteBrandingSlogan: "siteBrandingSlogan", siteBrandingLink: "siteBrandingLink", siteBrandingTitle: "siteBrandingTitle", officeOfLink: "officeOfLink", officeOf: "officeOf", loginUrl: "loginUrl", logoutUrl: "logoutUrl", username: "username" }, decls: 28, vars: 23, consts: [["role", "banner", 1, "jazz-utility-header"], [1, "jazz-visually-hidden"], [1, "jazz-container"], [1, "jazz-utility-header__branding"], ["href", "https://www.princeton.edu/", 1, "jazz-utility-header__pu_logo", 3, "title"], ["alt", "Princeton University Logo", 3, "src"], [1, "jazz-div"], [1, "jazz-utility-header__site-branding"], ["class", "jazz-utility-header__site-name", "rel", "home", 3, "href", "title", 4, "ngIf"], ["class", "jazz-utility-header__site-slogan", 4, "ngIf"], [3, "ngIf", "ngIfElse"], [1, "jazz-utility-header__options"], [1, "jazz-utility-header__nav"], [1, "jazz-utility-header__nav-toggle", 3, "click"], ["aria-hidden", "true", 1, "jazz-icon", "jazz-icon-menu"], [1, "jazz-nav"], [4, "ngFor", "ngForOf"], [1, "jazz-utility-header__user-options"], ["rel", "home", 1, "jazz-utility-header__site-name", 3, "href", "title"], [1, "jazz-utility-header__site-slogan"], ["class", "jazz-utility-header__site-name-office-of", "rel", "home", 3, "href", "title", 4, "ngIf"], ["rel", "home", 1, "jazz-utility-header__site-name-office-of", 3, "href", "title"], [1, "jazz-utility-header__site-name-office-of-department"], [3, "href", "class", "click", 4, "ngIf"], ["routerLinkActive", "active", 3, "routerLink", 4, "ngIf"], [3, "href", "click"], ["routerLinkActive", "active", 3, "routerLink"], ["menuLink", "routerLinkActive"], [4, "ngIf"], [3, "href"]], template: function UtilityHeaderComponent_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵelementStart(0, "header", 0);
         ɵngcc0.ɵɵelementStart(1, "h1", 1);
         ɵngcc0.ɵɵtext(2);
@@ -2993,7 +3012,7 @@ UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */.ɵ
         ɵngcc0.ɵɵelementEnd();
         ɵngcc0.ɵɵelementStart(20, "nav", 15);
         ɵngcc0.ɵɵelementStart(21, "ul");
-        ɵngcc0.ɵɵtemplate(22, UtilityHeaderComponent_li_22_Template, 3, 6, "li", 16);
+        ɵngcc0.ɵɵtemplate(22, UtilityHeaderComponent_li_22_Template, 3, 2, "li", 16);
         ɵngcc0.ɵɵelementEnd();
         ɵngcc0.ɵɵelementEnd();
         ɵngcc0.ɵɵelementEnd();
@@ -3035,7 +3054,7 @@ UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */.ɵ
         ɵngcc0.ɵɵproperty("ngForOf", ctx.links);
         ɵngcc0.ɵɵadvance(5);
         ɵngcc0.ɵɵproperty("ngIf", !ctx.userOptionsTemplate)("ngIfElse", ctx.userOptionsTemplate);
-    } }, directives: [ɵngcc1.NgIf, ɵngcc1.NgForOf], encapsulation: 2 });
+    } }, directives: [ɵngcc1.NgIf, ɵngcc1.NgForOf, ɵngcc2.RouterLinkWithHref, ɵngcc2.RouterLinkActive], encapsulation: 2 });
 UtilityHeaderComponent.propDecorators = {
     links: [{ type: ContentChildren, args: [UtilityHeaderLinkComponent,] }],
     officeOfTemplate: [{ type: Input, args: ['officeOfTemplate',] }],
@@ -3092,7 +3111,10 @@ UtilityHeaderComponent.propDecorators = {
                     <button class="jazz-utility-header__nav-toggle" [attr.aria-expanded]="menuExpanded" (click)="toggleMenu()"><i class="jazz-icon jazz-icon-menu" [class.jazz-icon-menu]="!menuExpanded" [class.jazz-icon-close]="menuExpanded" aria-hidden="true"></i><span class="jazz-visually-hidden">{{ menuButtonLabel }}</span></button>
                     <nav class="jazz-nav">
                         <ul>
-                            <li *ngFor="let link of links"><a [href]="link.url" class="{{link.class}}" [attr.target]="link.external ? '_blank' : null" (click)="toggleMenu()">{{ link.label }}</a></li>
+                            <li *ngFor="let link of links">
+                              <a *ngIf="link.url" [href]="link.url" class="{{link.class}}" [attr.target]="link.external ? '_blank' : null" (click)="toggleMenu()">{{ link.label }}</a>
+                              <a *ngIf="link.routerLink" [routerLink]="link.routerLink" routerLinkActive="active" #menuLink="routerLinkActive">{{link.label}}</a>
+                            </li>
                         </ul>
                     </nav>
                 </section>
@@ -3157,7 +3179,8 @@ class UtilityHeaderModule {
 UtilityHeaderModule.ɵfac = function UtilityHeaderModule_Factory(t) { return new (t || UtilityHeaderModule)(); };
 UtilityHeaderModule.ɵmod = /*@__PURE__*/ ɵngcc0.ɵɵdefineNgModule({ type: UtilityHeaderModule });
 UtilityHeaderModule.ɵinj = /*@__PURE__*/ ɵngcc0.ɵɵdefineInjector({ imports: [[
-            CommonModule
+            CommonModule,
+            RouterModule
         ]] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵngcc0.ɵsetClassMetadata(UtilityHeaderModule, [{
         type: NgModule,
@@ -3167,7 +3190,8 @@ UtilityHeaderModule.ɵinj = /*@__PURE__*/ ɵngcc0.ɵɵdefineInjector({ imports: 
                     UtilityHeaderLinkComponent
                 ],
                 imports: [
-                    CommonModule
+                    CommonModule,
+                    RouterModule
                 ],
                 exports: [
                     UtilityHeaderComponent,
@@ -3175,7 +3199,8 @@ UtilityHeaderModule.ɵinj = /*@__PURE__*/ ɵngcc0.ɵɵdefineInjector({ imports: 
                 ]
             }]
     }], null, null); })();
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(UtilityHeaderModule, { declarations: function () { return [UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */, UtilityHeaderLinkComponent]; }, imports: function () { return [CommonModule]; }, exports: function () { return [UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */, UtilityHeaderLinkComponent]; } }); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(UtilityHeaderModule, { declarations: function () { return [UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */, UtilityHeaderLinkComponent]; }, imports: function () { return [CommonModule,
+        RouterModule]; }, exports: function () { return [UtilityHeaderComponent /* implements AfterViewChecked, AfterContentChecked */, UtilityHeaderLinkComponent]; } }); })();
 
 class FormInputDirective {
     constructor(formControl) {

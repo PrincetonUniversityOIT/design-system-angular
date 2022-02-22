@@ -1,27 +1,32 @@
 {
-  "_from": "@princeton-design/design-system@^1.0.39",
-  "_id": "@princeton-design/design-system@1.0.39",
+  "_args": [
+    [
+      "@princeton-design/design-system@1.0.40",
+      "/home/runner/work/design-system-angular/design-system-angular"
+    ]
+  ],
+  "_from": "@princeton-design/design-system@1.0.40",
+  "_id": "@princeton-design/design-system@1.0.40",
   "_inBundle": false,
-  "_integrity": "sha512-cLRFuPRxd33+o00YwrPwdld4g0JVTaQftBTd01YNw3e4stLCwt1rxi/Nze08cmDyy1whKKVqt7Al4UhH96Yosg==",
+  "_integrity": "sha512-9QZDRqAkhcot4p0GeuT/NrCmHaY6C+LVKKWYu+lUaJn2iVbLEJD4R2OZP+JcW9Gxqq4zRwvpJSUKGZUDnqiILg==",
   "_location": "/@princeton-design/design-system",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "@princeton-design/design-system@^1.0.39",
+    "raw": "@princeton-design/design-system@1.0.40",
     "name": "@princeton-design/design-system",
     "escapedName": "@princeton-design%2fdesign-system",
     "scope": "@princeton-design",
-    "rawSpec": "^1.0.39",
+    "rawSpec": "1.0.40",
     "saveSpec": null,
-    "fetchSpec": "^1.0.39"
+    "fetchSpec": "1.0.40"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/@princeton-design/design-system/-/design-system-1.0.39.tgz",
-  "_shasum": "aebd0f7775320f38a7950c34db0d8ecc2c2f9263",
-  "_spec": "@princeton-design/design-system@^1.0.39",
+  "_resolved": "https://registry.npmjs.org/@princeton-design/design-system/-/design-system-1.0.40.tgz",
+  "_spec": "1.0.40",
   "_where": "/home/runner/work/design-system-angular/design-system-angular",
   "author": {
     "name": "Princeton University"
@@ -29,9 +34,7 @@
   "bugs": {
     "url": "https://github.com/PrincetonUniversityOIT/design-system/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {},
-  "deprecated": false,
   "description": "Princeton Design System",
   "homepage": "https://github.com/PrincetonUniversityOIT/design-system#readme",
   "license": "MIT",
@@ -44,5 +47,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.39"
+  "version": "1.0.40"
 }
