@@ -66,7 +66,10 @@ import {UtilityHeaderLinkComponent} from './utility-header-link.component';
                     <button class="jazz-utility-header__nav-toggle" [attr.aria-expanded]="menuExpanded" (click)="toggleMenu()"><i class="jazz-icon jazz-icon-menu" [class.jazz-icon-menu]="!menuExpanded" [class.jazz-icon-close]="menuExpanded" aria-hidden="true"></i><span class="jazz-visually-hidden">{{ menuButtonLabel }}</span></button>
                     <nav class="jazz-nav">
                         <ul>
-                            <li *ngFor="let link of links"><a [href]="link.url" class="{{link.class}}" [attr.target]="link.external ? '_blank' : null" (click)="toggleMenu()">{{ link.label }}</a></li>
+                            <li *ngFor="let link of links">
+                              <a *ngIf="link.url" [href]="link.url" class="{{link.class}}" [attr.target]="link.external ? '_blank' : null" (click)="toggleMenu()">{{ link.label }}</a>
+                              <a *ngIf="link.routerLink" [routerLink]="link.routerLink" routerLinkActive="active" #menuLink="routerLinkActive">{{link.label}}</a>
+                            </li>
                         </ul>
                     </nav>
                 </section>
