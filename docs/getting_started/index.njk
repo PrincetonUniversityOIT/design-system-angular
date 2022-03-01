@@ -13,52 +13,61 @@ tags: getting_started
     <a href="https://docs.npmjs.com/about-npm">NPM</a> (Node Package Manager) to manage project dependencies.
 </p>
 <p>
-    In your javascript project, run the following command to install the Jazz Design System libraries into your project:
+    In your javascript project, run the following command to install the Jazz Design System Angular components into your project:
 </p>
 {% highlight "javascript" %}
-npm install {{ packageData.name }}@{{ packageData.version }}
+npm install {{ packageData.name }}@{{ packageData.version }} --save
+{% endhighlight %}
+
+<h2>Using Angular Components</h2>
+
+<p>
+    In Angular environments, include the following code in the angular.json file order to map images and css files from the @princeton-design/design-system package.
+</p>
+
+{% highlight "html" %}
+     "assets": [
+       "src/assets",
+         {
+           "glob": "**/*",
+           "input": "./node_modules/@princeton-design/design-system",
+           "output": "/assets/"
+         }
+     ],
+     "styles": [
+       "src/styles.css",
+       "./node_modules/@princeton-design/design-system/jazz_fonts.css",
+       "./node_modules/@princeton-design/design-system/jazz_sans.css",
+       "./node_modules/@princeton-design/design-system/jazz_serif.css"
+     ],
 {% endhighlight %}
 
 <p>
-    The Jazz Design System project structure should accommodate most use cases.  Some options are described below:
+    If you have SASS enabled in your project you can also import the Jazz css files in your main .scss file:
 </p>
-<ul>
-    <li>As part of your build process, copy the appropriate files (i.e. resources folder, jazz_serif.css,
-        jazz_fonts.css, and jazz_behavior.js) from the Jazz Design System node_modules folder into the appropriate
-        location in your project.  Then follow the steps in the “Basic Installation” to link the CSS and javascript
-        resources into your project.
-    </li>
-    <li>
-        If you plan to integrate the Jazz Design System with other resources in your build pipeline, you would be most
-        interested in source code provided in the “src/scss” and “src/js” folders.  It is recommended that
-        customizations to the Design System be made alongside Design System resources as opposed to directly
-        modifying the Design System sources themselves.
-    </li>
-</ul>
 
-<h2>Installation Without NPM</h2>
+{% highlight "html" %}
+@import "../node_modules/@princeton-design/design-system/jazz_fonts.css";
+@import "../node_modules/@princeton-design/design-system/jazz_serif.css";
+@import "../node_modules/@princeton-design/design-system/jazz_sans.css";
+@import "../node_modules/@princeton-design/design-system/jazz_custom.css";
+@import "../node_modules/@princeton-design/design-system/jazz_curated_icons.css";
+{% endhighlight %}
 
 <p>
-    This section describes the installation process for projects that are not using NPM to manage project dependencies.
+    In the project's module file import the library
 </p>
 
-<ol>
-    <li><a href="https://github.com/PrincetonUniversityOIT/design-system/releases">Download</a> the desired release bundle (jazz.zip file).</li>
-    <li>Extract (unzip) the contents of the release bundle into the folder alongside the rest of the web assets that
-        are to be delivered with your application or web site.</li>
-    <li>Link the styles and fonts CSS files into your web page.  You may need to adjust the “href” value to suit
-        your specific case:</li>
-</ol>
-
 {% highlight "html" %}
-    <link rel="stylesheet" href="{{ '/jazz_serif.css' | url }}">
-    <link rel="stylesheet" href="{{ '/jazz_fonts.css' | url }}">
-    <link rel="stylesheet" href="{{ '/prism-atom-dark.css' | url }}">
+     import {DesignSystemAngularModule} from "@princeton-design/design-system-angular";
 {% endhighlight %}
 
-Link the script file in at the bottom of your web page body (<body>) and execute the logic to enable the Princeton Design System:
+<h2>Using CSS. icons and images from the @princeton-design/design-system project</h2>
+
+<p>
+  In order to get the appropriate assets needed for the components to render properly you will need to install the @princeton-design/design-system package which contains the stylesheets, icons and images that the components need.
+</p>
 
 {% highlight "html" %}
-
+     npm install @princeton-design/design-system --save
 {% endhighlight %}
-
