@@ -50,3 +50,5 @@ package which contains the stylesheets, icons and images that the components nee
 ```
 npm install @princeton-design/design-system --save
 ```
+
+**
